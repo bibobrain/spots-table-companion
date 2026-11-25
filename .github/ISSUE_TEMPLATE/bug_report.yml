@@ -1,0 +1,47 @@
+name: Rule or probability bug
+description: Report a reproducible wrong result in the Spots companion.
+title: "[Bug] "
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: What is wrong?
+      options:
+        - Probability result
+        - Trick tile rule
+        - Demo or restore
+        - Display or accessibility
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: action
+    attributes:
+      label: Trick tile / action
+      placeholder: e.g., Guard
+    validations:
+      required: true
+  - type: textarea
+    id: board
+    attributes:
+      label: Reproducible board state
+      description: Include yard total, missing numbers per dog, dice count, treats, and trick parameters.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result and expected result
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Rulebook reference or screenshot (optional)
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public report
+      options:
+        - label: I have removed private information from this issue.
+          required: true
