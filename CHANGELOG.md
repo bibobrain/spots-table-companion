@@ -12,4 +12,4 @@ Features: dog-card slot input, yard total, 0–10 treats, action-specific safe-f
 
 Fixes carried forward: Gobble insufficient supply / unperformable step handling; tutorial example cannot overwrite the player's real table without recovery.
 
-The first public GitHub Pages URL, device testing on that URL, and community announcement have **not** happened yet.
+At the rc.1 checkpoint, the Pages URL and community announcement were not yet live. GitHub Pages and the rc.2 GitHub Release were subsequently published; a separate community announcement remains a draft.

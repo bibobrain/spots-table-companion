@@ -8,6 +8,8 @@
 
 **[直接打开网页版（GitHub Pages）](https://bibobrain.github.io/spots-table-companion/)**
 
+**[下载离线 ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.2/SpotsTableCompanion_1.0.0-rc2.zip)** · [版本详情](https://github.com/bibobrain/spots-table-companion/releases/tag/v1.0.0-rc.2)
+
 庭院点数选择 **1–7**（再点一次清零），然后点亮狗牌还缺的数字；调整骰子与骨头（0–10 根），就能看到「不爆掉、恰好填上 1–4 颗」以及「爆掉」的概率。下方可选择 **22 张行动牌**，上方结果同步变化。点开「这张牌怎么出？」可逐步练习，教程示例支持一键恢复真实桌面。
 
 概率使用页面明确写出的投骰、放骰及重掷策略，不代表所有可能策略中最优或整局胜率；实物规则与牌面优先。无需账号、无需安装。页面为**简体中文**，可保存 index.html 离线使用。

@@ -33,8 +33,8 @@ After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c737
 [x] GitHub Pages source tree with root index.html and .nojekyll.
 [x] README, release notes, issue reporting, community copy.
 [x] Local static syntax and structure checks.
-[ ] Public repository push read back.
-[ ] Live GitHub Pages verified on another browser/device.
+[x] Public repository main commit and index.html bytes read back from GitHub.
+[x] GitHub Pages HTTPS returned 200 with index.html byte-identical to tested build; remote Chromium completed 23 teaching modes and 69 action×treat cases.
 [ ] Community link submitted or post published.
 [ ] Independent real iOS Safari test and publisher/community compliance as applicable.
 
