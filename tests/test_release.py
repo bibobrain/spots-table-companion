@@ -6,7 +6,7 @@ class ReleaseTests(unittest.TestCase):
  def test_home(self):
   self.assertIn('<html lang="zh-CN">',HTML)
   self.assertIn('meta name="description"',HTML)
-  self.assertIn('非官方',HTML)
+  self.assertIn('Free, unofficial Spots companion',HTML)
  def test_no_network_runtime(self):
   self.assertEqual(HTML.count('<script>'),1)
   for token in ('<script src=', 'fetch(', 'localStorage','indexedDB','private-workspace-path','PRIVATE KEY'):
@@ -22,7 +22,7 @@ class ReleaseTests(unittest.TestCase):
   for old in ('id="trainer"','id="tiles"','id="trainerQuiz"','id="filters"','id="action"'):
    self.assertNotIn(old,HTML)
  def test_package(self):
-  for name in ('README.md','LICENSE','NOTICE.md','QA_REPORT.md','COMMUNITY_POSTS.md','CHANGELOG.md','assets/preview-mobile.png','.nojekyll'):
+  for name in ('README.md','LICENSE','NOTICE.md','QA_REPORT.md','COMMUNITY_POSTS.md','CHANGELOG.md','assets/preview-mobile.png','assets/puppy-actions.png','.nojekyll'):
    self.assertTrue((ROOT/name).is_file(),name)
  def test_js_syntax(self):
   found=re.search(r'<script>(.*?)</script>',HTML,re.S)

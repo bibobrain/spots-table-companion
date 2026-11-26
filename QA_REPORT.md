@@ -1,88 +1,43 @@
-# Pip & Paw QA — 1.0.0-rc.6
+# Pip & Paw QA — 1.0.0-rc.7
 
-## Scope of this revision
+This report records the checks completed for the rc.7 artwork and interaction revision.
 
-The new interface uses a warm neutral palette, lighter visible number discs with separate 44–46px hit areas, and original code-native Dalmatian artwork. Short controls are in English; important card names remain bilingual. Action starts empty, then shows a complete category overview before a selected card’s detail.
+## Candidate files
 
-Candidate `index.html`: SHA-256 `732a4caa00b047c78a0c90a1d9d577d342058673d31626223b70c648965d27a4` (60,720 bytes).
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `index.html` | 64,294 | `8cdea2d8b48c9544e95a77c08349f7c44804b398c3e9fb17b6ca95303b3f8254` |
+| `assets/puppy-actions.png` | 2,003,750 | `fcffa45fd32ef3f755c4cd3404329303feefc1d05ad0eb28134d93569bc9e27c` |
 
-## Checks performed
+The image is a runtime dependency. An offline package must retain `assets/puppy-actions.png` at that relative path beside `index.html`.
 
-- Live Chrome interaction: initial empty state; all five groups and all 22 visible thumbnails (2 / 5 / 5 / 5 / 5); Fixed → Howl detail → Back; category changes; unchanged ordinary Roll results during action changes; clearing missing spaces.
-- Live DOM geometry at 320px, 390px and 768px: no horizontal overflow; all displayed buttons at least 44px in both dimensions. The initial 390px yard row was too narrow; the final version uses 4+3 below 421px. Dice/Bones labels remain visible on phones.
-- Live Bolt input: leaving 3 dice and planning 1 roll produces the stopping-condition message with zero paw prints; setting 2 paw prints makes that plan valid immediately. The paw-print control and both other parameters remain present.
-- Desktop composition and original SVG artwork inspected visually. Captures with a viewport override timed out, so the phone/tablet checks above are live geometry and control checks, not screenshot-based visual acceptance. No page JavaScript errors were observed during the completed interaction pass.
-- Node VM: 18 probability functions are byte-for-byte unchanged from rc.5. The 22 actions plus Roll in two valid board states give 46 distributions identical to rc.5; non-resource probability masses sum to one within 1e-9.
-- Three independent closed-form checks: one die with only face 1 missing gives safe fill 1/6; at Yard 7 the bust risk is 5/6; with one reroll bone, safe fill is 11/36 and bust is 25/36.
-- Full registered event handlers replayed in a DOM stub: Run 0 → Chase 2 → Run 0; Run 5 → Chase 2; Chase 4 → Run 5 → Chase 4. Values stay independent. Bolt inputs and valid/invalid calculation-scope notes render correctly.
-- Python test sources and embedded JavaScript parse successfully. Browser test scripts were updated for the new picker; they were not executed in this revision. Their previous-release results below are historical.
+## Three revision rounds
 
-The physical game rules and unknown-card boundaries still apply. Actual iOS Safari has not been tested in this revision.
+1. **Character artwork:** a transparent 24-pose puppy atlas replaces the code-drawn dogs. Illustrations retain their proportions; each Dogs card groups its six editable numbers below the puppy.
+2. **Meaningful scenes:** all 22 Action cards use distinct matching artwork in their thumbnails and details. Yard shows the entered 0–7 point total, seven capacity marks, and a remaining-capacity hint. Its scene uses only the known total and does not infer individual buried dice.
+3. **Empty and invalid states:** unavailable probability blocks are hidden while the result explains the missing input or invalid condition. Choose spots focuses the first Dogs number. Resource actions remain usable without dog spaces. Obsolete artwork selectors were removed, and narrow-screen spacing was refined.
 
-## Earlier releases
+Short English controls, bilingual card names, Chinese rules, the complete category overviews, and the initial empty state are retained.
 
-## 1.0.0-rc.4 · Touch, categories and BUST
+## Checks completed
 
-The two-module gameplay structure remains. The dog input now uses original Dalmatian SVG cards and >=44px numeric touch surfaces, with 2 columns at 390px and 1 at 320px. All five category buttons are 49px tall; each filters the 22 trick names to that tile color.
+- **Probability regression on the visual candidate before the final copy-only repair:** 18 core functions are byte-for-byte identical to rc.6 (`732a4caa00b047c78a0c90a1d9d577d342058673d31626223b70c648965d27a4`). The existing 22 actions plus Roll in two valid board states give 46 identical action/roll results; all probability distributions sum to one within 1e-9. Three independent closed-form examples also pass: safe fill 1/6; at Yard 7, bust 5/6; with one reroll bone, safe fill 11/36 and bust 25/36.
+- **Existing event regressions on the visual candidate before the final copy-only repair:** Run and Chase preserve their separate counts through Run 0 → Chase 2 → Run 0, Run 5 → Chase 2, and Chase 4 → Run 5 → Chase 4. Bolt's paw-print input and calculation-scope notes remain usable.
+- **Choose spots and empty-state event checks:** Howl with no dog spaces hides all three probability blocks and displays the revised input hint and button. Choose spots focuses the first Dogs number without changing the selected action or missing spaces; clicking that number then reveals results. Clearing spaces restores the input state.
+- **Resource results with no spaces:** with zero bones, Beg gives 1, Chew 1, Gobble 7, and Stay 2. With two bones, Chew gives 5 and Beg 3. These valid resource states do not display Choose spots. Switching to Fetch restores its input state without retaining the preceding resource result.
+- **Invalid Bolt presentation:** leaving 3 dice and planning 1 roll with zero paw prints hides probability and resource blocks while retaining the stopping-condition explanation. Setting 2 paw prints restores the valid probability display.
+- **Round-two artwork integration:** the unchanged PNG is 1536×1024 RGBA, a 6×4 atlas of 256px squares. All 22 Action keys map uniquely to cells 0–21, with matching thumbnail and detail positions. Yard states 0–7 produce seven capacity marks with the correct fill count and hint. Ordinary Roll stays independent while browsing all 22 actions. These checks preceded the final presentation-only round.
 
-Guard now precommits the best announced number for the stated objective: maximize safe fill >=1, then minimize bust, then maximize expected filled slots. This is a local, pre-roll policy, not a global full-game optimal-play guarantee. Fetch continues using post-roll choice of one actual die face.
+- **Actual Chrome iframe rendering and interaction:** 390px and 320px viewport iframes embedded in a normal Chrome page were inspected in retained screenshots. The checks covered initial Yard/Dogs, Filter and Fixed thumbnails, and Fetch detail; neither width showed obvious clipping or horizontal overflow. After an actual Choose spots click, the first Dogs button inside the iframe had focus and measured 44×44px. The Fixed button at 320px measured 47.8×44px. Direct viewport-override mobile captures and the full-page screenshot API timed out; these completed observations are Chrome iframe checks.
 
-Chromium with exact CDP 320px/390px/768px viewport checked the complete 22-action picker, 66 action×treat states (48 conserved distributions, 12 resource states and 6 legitimate missing-input states), editable dog spots, category transitions, independent ordinary and special outcome cards, Guard auto vs manual 6, all visible dog touch buttons >=44px and no horizontal overflow or page JavaScript errors.
+The Node event checks above execute the application's registered handlers with a minimal DOM stub. They verify state and rendered content; the separate Chrome iframe checks provide the browser rendering and interaction evidence stated above.
 
-## 1.0.0-rc.3 · Two-component acceptance
+## Package and review evidence
 
-This release replaces the three separate action surfaces with **two main page sections** only: (1) the shared physical board and ordinary-roll outcome, and (2) one integrated action selector, prominent objective rule, necessary settings and its independent probability outcome. No separate trainer, quiz or 22-card catalog remains.
+- All six package tests passed on the final rc.7 directory and on an isolated extraction of the release ZIP. The disclaimer assertion checks the current English marker, and the puppy atlas is a required package file. The package contains only the original public repository files and this release's public artwork and screenshots.
+- A separate native GPT review was requested on the frozen visual candidate with HTML, atlas, screenshots and current user requirements. That candidate has SHA-256 `9c7bd4dce27a73bce42ae859dd4bc1d52a7136afe1ad2128f97cfee0e000349a`. The request remains queued at the end of the observation window; it is not an independent verdict and cannot certify later edits.
+- A subsequent copy review caught Dogpile labeling its current roll as optional. The final version separates taking the dice, the mandatory roll and settlement, and the optional repeat. Its three labels are must / must / optional. A separate read-only copy check and an actual Chrome DOM/screenshot inspection confirmed this correction on the final HTML. Core probability functions were not changed by this repair.
+- The maintainer's bounded self review of the retained visual evidence and final Dogpile display found no remaining material issue in that inspected scope. This is self review, not independent or real-user aesthetic acceptance.
+- Real phone/tablet hardware, actual iOS Safari, and a complete physical tabletop session have not been tested for this revision.
 
-The math engine has the same decision rules as rc.2; compute(mode) now renders the ordinary result and chosen action result independently using the same actual board inputs. Changing the chosen action or its own parameter must leave the ordinary result untouched. Touch controls for yard, dog spots, dice and treats affect both displayed distributions.
-
-Chromium CDP verified 390px and 768px viewports: all 22 action rules and result outputs, 66 action × 0/2/10 treat scenarios (48 probability distributions summing to 100% within rounding, 12 resource and 6 missing-input states). Guard's threshold changes action odds while ordinary odds stay 30.6%/41.7% at the default board; changing the board affects both. No JS exceptions or horizontal overflow.
-
-Run the independent multinomial test against ordinary-roll and action-specific output IDs; a second browser test verifies the two-module contract. These were the rc.3 tests. The newer rc.4 visual and interaction regression results are recorded above.
-
-## Historical v12/rc.2 evidence
-
-Source baseline: Spots_Quickplay_v12.html SHA-256 e93fdf8a1371f523a56e355a53aff0ab560ce3047219d8d84a329259abb3c933.
-
-Public index.html changes title/metadata, a fan-project footer and CSS-only visual polish; the probability and 22-action engine are unchanged.
-
-## Existing v12 browser evidence
-
-In real Chromium at a 390×844 viewport: initial values 30.6% safely filling one slot and 41.7% bust; three dogs, 22 rules and no horizontal overflow. All 23 modes (base mode + 22 tricks) passed three-step teaching, wrong-answer explanation, loading and restoring a demo. Guard example: yard 4, two missing 1-spots, 1 treat, guard threshold 4 was fully restored after using the tutorial. Gobble: starting with 2 treats and requiring 5 for return when shared supply has 0 yields 2 retained treats.
-
-Across 23 actions with treat counts 0,2,10: 51 valid probability outcomes passed probability-mass conservation; 12 resource-result cases and 6 missing-real-input cases. This is not an independent optimal-strategy proof. iOS Safari and actual tabletop play remain untested.
-
-## Independent probability cross-check
-
-A second Python implementation enumerated face-count combinations and compared the actual rendered public index.html via Chromium DevTools Protocol. With no reroll treats, observed output matched one-decimal reference values in four scenarios:
-- Ordinary 2 dice, yard 0, missing one 1: safely fill 1 = 30.6%, bust = 41.7%.
-- Ordinary 3 dice, yard 2, missing 1 and 2: safe fills 1 = 5.1%, fills 2 = 11.1%, bust = 83.8%.
-- Guard threshold 3, 4 dice, yard 2, missing 1 and 3: safe fills 1 = 54.6%, fills 2 = 23.0%, bust = 3.7%.
-- Fetch 8 dice, yard 2, missing 1 and 3: safe fills 1 = 91.4%, bust = 1.4%.
-
-Re-run with Python 3 + Google Chrome + the optional Python websockets package: `python tests/test_browser_probability.py`. The other test suite has no Python package dependencies.
-
-## Refined public UI
-
-After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c7370cfbfdeae0af7af3f73857708760f66a5fa6ff4fd9ed7800b. The probability engine and all 22 action descriptions are unchanged. The 390px screenshot was regenerated from the packaged index; a 768px screenshot confirms dog cards and result hierarchy. Chromium CDP rechecked 23 teaching modes, full demo recovery and 69 action×treat scenarios after the CSS change.
-
-## Public release acceptance
-
-[x] Standalone HTML, metadata, mobile screenshot and no runtime assets.
-[x] Fan-project disclaimer; no official copyrighted art/rulebook scans.
-[x] MIT license for original code plus trademark boundary.
-[x] No app telemetry, account or data requests in source.
-[x] GitHub Pages source tree with root index.html and .nojekyll.
-[x] README, release notes, issue reporting, community copy.
-[x] Local static syntax and structure checks.
-[x] Public repository main commit and index.html bytes read back from GitHub.
-[x] rc.4 GitHub Pages build confirmed built; HTTPS HTTP 200 index.html SHA-256 d797608c789034c9ec68fb4d7f4e92b18dbabf34647b17f60f4e7c17e2a68fc1 exactly matches the 67,541-byte tested release. Public Chrome completed 22 action categories and 66 action×treat cases; GitHub Release ZIP was re-downloaded, byte-compared and unpacked to pass the static test suite.
-[ ] Community link submitted or post published.
-[ ] Independent real iOS Safari test and publisher/community compliance as applicable.
-
-## Non-modeled states
-
-Full physical dice shortage; per-die yard details for Dig; unseen next dog cards; unlimited duplicate same-face spots; optimal user decisions. The application is a fan-made player aid, not a game engine.
-
-## rc.5 narrow-screen tactile regression
-
-At 320px mobile viewport, 7 yard buttons previously measured 37px width. The revised 4+3 layout provides at least 44px width; 390px and larger retain the single-row layout. All 22 trick groups, game-state updates and the calculation engine remain unchanged.
+The calculations retain their established scope: the entered board and stated policy, with actual physical inputs required for per-die actions and unknown next cards. No whole-game optimal-strategy claim is made.

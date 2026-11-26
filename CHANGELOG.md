@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0-rc.7 — 2026-11-27
+
+- **Character art:** replaced the code-drawn dogs with a transparent 24-pose puppy atlas. Dog illustrations keep their natural proportions, with the six editable numbers grouped below each puppy. The 22 Action cards each have a distinct matching illustration in both the overview and detail.
+- **State and meaning:** Yard now shows the entered 0–7 point total, a seven-mark capacity display, and a short remaining-capacity hint. The artwork responds to the total without inventing individual buried dice. The initial empty states, simple English controls, complete category overviews, and Back behavior remain.
+- **Useful feedback:** actions with missing inputs or invalid parameters hide unavailable probability rows and show the condition to resolve. Choose spots moves focus to the first Dogs number; resource actions still calculate when no dog spaces are selected. The existing rule-engine messages and probability functions are unchanged.
+- Corrected Dogpile's step labels: retrieving and rolling the batch are required; repeating the complete action is optional.
+- Removed obsolete artwork selectors and refined spacing for narrow viewports. Reduced-motion preferences remain supported.
+- Added the runtime image `assets/puppy-actions.png`; offline releases must include it beside `index.html` in the `assets` directory.
+
 ## 1.0.0-rc.6 — 2026-11-26
 
 - Renamed the helper **Pip & Paw**; uses short English controls and bilingual card names.
@@ -20,8 +29,6 @@ Fixes 320–380px yard buttons: 1–7 now uses a 4+3 two-row grid with at least 
 - Removes decorative explanations and unnecessary input headings; retains accessible control names.
 - Fetch still chooses the best observed die face for the displayed objective. Guard now defaults to a pre-roll automatic face selection: maximize safe probability of filling at least one space, then minimize bust risk, then maximize expected fills. The called number can be overridden.
 - Other optional multi-stage plans remain selectable; no unsupported claim of globally optimal whole-game strategy.
-
-# Changelog
 
 ## 1.0.0-rc.3 — 2026-11-26
 
