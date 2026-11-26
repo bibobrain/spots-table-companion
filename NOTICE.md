@@ -6,4 +6,7 @@ The MIT license applies to original program code and custom interface artwork in
 
 The puppy illustration atlas was created with AI image-generation assistance for this project. It is original companion artwork, not an official Spots card illustration. Development also used AI coding assistance. Current validation scope is recorded in [QA_REPORT.md](QA_REPORT.md).
 
+`assets/puppy-actions.webp` is a lossless distribution copy of the original `assets/puppy-actions.png`, with identical decoded RGBA pixels. The original PNG remains in the public source repository; offline releases use the WebP copy.
+
 Gameplay instructions are independently written summaries. Consult the physical rulebook for authoritative rules. See [CMYK](https://www.cmyk.games/products/spots), [public rulebook](https://www.rulespal.com/spots/rulebook), and [BGG](https://boardgamegeek.com/boardgame/372559/spots).
+

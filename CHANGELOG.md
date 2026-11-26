@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0-rc.8 — 2026-11-27
+
+- **Smaller image download:** added `assets/puppy-actions.webp` as the runtime atlas and preloaded that same file. Its decoded 1536×1024 RGBA pixels are identical to the original PNG; the file is 744,598 bytes smaller, a 37.1602% reduction. The original PNG remains in the public source repository; offline releases need the WebP copy beside `index.html` in `assets`.
+- **Readable results:** strengthened the Yard capacity denominator, dog-card indices, and footer text. Probability and bone units are smaller while retaining the value's color and complete text. The 100.0% result fits the tested 320px iframe layout.
+- **Visible interaction:** Choose spots now shows a visible focus ring after a pointer click without selecting a dog space. Action cards give keyboard focus the same background and illustration response as hover; Back preserves its existing return path. Reduced-motion styles retain the focus and background feedback without illustration movement.
+- The 18 core probability functions are unchanged from the regression baseline. The existing 46-result comparison and three closed-form checks pass. See [QA_REPORT.md](QA_REPORT.md) for the validation scope and package status.
+
 ## 1.0.0-rc.7 — 2026-11-27
 
 - **Character art:** replaced the code-drawn dogs with a transparent 24-pose puppy atlas. Dog illustrations keep their natural proportions, with the six editable numbers grouped below each puppy. The 22 Action cards each have a distinct matching illustration in both the overview and detail.
@@ -50,3 +57,4 @@ Features: dog-card slot input, yard total, 0–10 treats, action-specific safe-f
 Fixes carried forward: Gobble insufficient supply / unperformable step handling; tutorial example cannot overwrite the player's real table without recovery.
 
 At the rc.1 checkpoint, the Pages URL and community announcement were not yet live. GitHub Pages and the rc.2 GitHub Release were subsequently published; a separate community announcement remains a draft.
+

@@ -22,7 +22,7 @@ class ReleaseTests(unittest.TestCase):
   for old in ('id="trainer"','id="tiles"','id="trainerQuiz"','id="filters"','id="action"'):
    self.assertNotIn(old,HTML)
  def test_package(self):
-  for name in ('README.md','LICENSE','NOTICE.md','QA_REPORT.md','COMMUNITY_POSTS.md','CHANGELOG.md','assets/preview-mobile.png','assets/puppy-actions.png','.nojekyll'):
+  for name in ('README.md','LICENSE','NOTICE.md','QA_REPORT.md','COMMUNITY_POSTS.md','CHANGELOG.md','assets/preview-mobile.png','assets/puppy-actions.webp','.nojekyll'):
    self.assertTrue((ROOT/name).is_file(),name)
  def test_js_syntax(self):
   found=re.search(r'<script>(.*?)</script>',HTML,re.S)
