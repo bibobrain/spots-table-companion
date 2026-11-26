@@ -1,4 +1,16 @@
-# Release candidate QA — 1.0.0-rc.2
+# Spots Table Companion QA — current 1.0.0-rc.3
+
+## 1.0.0-rc.3 · Two-component acceptance
+
+This release replaces the three separate action surfaces with **two main page sections** only: (1) the shared physical board and ordinary-roll outcome, and (2) one integrated action selector, prominent objective rule, necessary settings and its independent probability outcome. No separate trainer, quiz or 22-card catalog remains.
+
+The math engine has the same decision rules as rc.2; compute(mode) now renders the ordinary result and chosen action result independently using the same actual board inputs. Changing the chosen action or its own parameter must leave the ordinary result untouched. Touch controls for yard, dog spots, dice and treats affect both displayed distributions.
+
+Chromium CDP verified 390px and 768px viewports: all 22 action rules and result outputs, 66 action × 0/2/10 treat scenarios (48 probability distributions summing to 100% within rounding, 12 resource and 6 missing-input states). Guard's threshold changes action odds while ordinary odds stay 30.6%/41.7% at the default board; changing the board affects both. No JS exceptions or horizontal overflow.
+
+Run the independent multinomial test against ordinary-roll and action-specific output IDs; a second browser test verifies the two-module contract. These are current rc.3 tests. Older v12/rc.2 evidence below is historical and does not prove the new screen by itself.
+
+## Historical v12/rc.2 evidence
 
 Source baseline: Spots_Quickplay_v12.html SHA-256 e93fdf8a1371f523a56e355a53aff0ab560ce3047219d8d84a329259abb3c933.
 
@@ -34,7 +46,7 @@ After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c737
 [x] README, release notes, issue reporting, community copy.
 [x] Local static syntax and structure checks.
 [x] Public repository main commit and index.html bytes read back from GitHub.
-[x] GitHub Pages HTTPS returned 200 with index.html byte-identical to tested build; remote Chromium completed 23 teaching modes and 69 action×treat cases.
+[x] rc.2 GitHub Pages HTTPS returned 200 with byte-identical code; rc.3 requires new live-byte readback after deployment.
 [ ] Community link submitted or post published.
 [ ] Independent real iOS Safari test and publisher/community compliance as applicable.
 

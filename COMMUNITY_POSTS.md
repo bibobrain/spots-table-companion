@@ -4,9 +4,9 @@ Both links have been verified publicly. These are still community-post drafts: p
 
 ## 中文社区
 
-**标题：给《狗运当头》做了一个免费的桌边概率工具，还可以互动学 22 张行动牌 🐶🎲**
+**标题：《狗运当头》免费桌边概率工具：普通投骰 + 22 张行动计算 🐶🎲**
 
-玩 Spots 的时候，我一直想快速知道：「这把会不会爆？要不要用骨头重掷？」于是做了一个非官方的网页工具。点庭院、狗狗身上还缺的数字和骰子／骨头数，就能看安全填 1～4 颗的概率、爆掉风险。22 张行动牌都有对应的计算与互动步骤、判断题。试用教程还能一键回到真正的桌面。
+玩 Spots 的时候，我一直想快速知道：「这把会不会爆？要不要用骨头重掷？」于是做了一个非官方的网页工具。点庭院、狗狗身上还缺的数字和骰子／骨头数，就能看安全填 1～4 颗的概率、爆掉风险。整个网页分两块：上面算普通投骰，下面选一张行动牌，就能看到放大的规则、可调整的参数和它自己的概率。不需要在三个不同的规则窗口间切换。
 
 试玩：https://bibobrain.github.io/spots-table-companion/
 源码和问题反馈：https://github.com/bibobrain/spots-table-companion
@@ -17,9 +17,9 @@ Both links have been verified publicly. These are still community-post drafts: p
 
 ## English / BoardGameGeek audience
 
-**Title: Free Spots probability helper + 22 interactive trick guides (Chinese UI)**
+**Title: Free Spots odds calculator with 22 selectable trick rules (Chinese UI)**
 
-I made a free, unofficial web companion for Spots. Set the yard total, dog-card slots you need, dice and treats; it shows the probabilities of safely filling exactly 1–4 slots as well as bust risk. Selecting any of the 22 trick tiles changes the calculation. Each has a short interactive explanation, quiz and recoverable practice setup.
+I made a free, unofficial web companion for Spots. Set the yard total, dog-card slots you need, dice and treats; it shows the probabilities of safely filling exactly 1–4 slots as well as bust risk. The page has two main sections: a general roll calculator, plus one unified trick card with its rule, adjustable parameters, and separate odds. Switching tricks leaves the general result unchanged.
 
 Play (Simplified Chinese interface): https://bibobrain.github.io/spots-table-companion/
 Open source / report an issue: https://github.com/bibobrain/spots-table-companion

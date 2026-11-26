@@ -1,9 +1,9 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f5ef"><title>Spots Table Companion · 狗运当头桌边助手</title>
-<meta name="description" content="Spots / 狗运当头非官方中文概率计算器：爆掉风险、狗牌填位概率、22张行动牌与互动教学。无需安装。">
+<meta name="description" content="Spots / 狗运当头非官方中文概率计算器：爆掉风险、狗牌填位概率、22张行动牌规则与独立概率计算。无需安装。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="Spots Table Companion · 狗运当头">
-<meta property="og:description" content="选庭院、狗牌缺口和骨头，看爆掉概率。22 张行动牌互动教学。免费非官方中文网页。">
+<meta property="og:description" content="选庭院、狗牌缺口和骨头，看爆掉概率。22 张行动牌规则与独立概率计算。免费非官方中文网页。">
 <meta name="color-scheme" content="light">
 <style>
 :root{--ink:#223c32;--muted:#718177;--bg:#f7f5ef;--card:#fffefd;--line:#e6e7df;--forest:#265845;--leaf:#d9ecdc;--gold:#eab96f;--danger:#b85c55;--shadow:0 9px 28px #354f3810}*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);margin:0;color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif;font-variant-numeric:tabular-nums}button,select,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #dd9c43;outline-offset:3px}button:disabled{opacity:.35;cursor:default}main{max-width:810px;margin:auto;padding:18px 15px 34px}header{display:flex;justify-content:space-between;align-items:center;padding:0 2px 11px;gap:8px}header strong{font-size:17px;letter-spacing:-.3px}header small{font-size:11px;color:var(--muted);letter-spacing:.07em;font-weight:750}.sheet{background:var(--card);border:1px solid var(--line);border-radius:23px;padding:17px 18px;box-shadow:var(--shadow)}.section+.section{border-top:1px solid var(--line);margin-top:15px;padding-top:15px}.head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}h2{margin:0;font-size:14px;font-weight:850}h2 em{font-size:11px;color:var(--muted);font-style:normal;font-weight:500;margin-left:8px}small,.micro{font-size:11px;color:var(--muted)}.none{border:0;background:none;color:var(--muted);padding:4px 5px;font-size:12px}.yard{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.num{border:1px solid #e2e5dd;background:#f8f9f5;border-radius:11px;height:47px;color:#426351;font-size:21px;font-weight:830;min-width:0;transition:transform .1s,background .12s}.num[aria-pressed=true]{background:var(--forest);border-color:var(--forest);color:white;box-shadow:0 4px 11px #26584533}.num:active,.spot:active{transform:scale(.93)}.dogs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.dog{position:relative;border:1px solid #e9e6dc;border-radius:15px;background:linear-gradient(160deg,#fffcf4,#f6f4ee);min-width:0;height:150px;overflow:hidden}.dog:nth-child(2n){background:linear-gradient(160deg,#f7faf8,#ebf3ec)}.dog:nth-child(3n){background:linear-gradient(160deg,#fcf8f5,#f5f0e7)}.dogname{position:absolute;left:11px;top:7px;z-index:4;font-size:10px;color:#859289;letter-spacing:.08em;font-weight:850}.dog svg{position:absolute;inset:11px 0 0;width:100%;height:133px;overflow:visible;pointer-events:none}.spot{position:absolute;z-index:5;width:27px;height:27px;background:#ffffffdd;border:1.6px solid #849888;color:#55705f;display:grid;place-items:center;border-radius:50%;font-size:12px;font-weight:900;transform:translate(-50%,-50%);box-shadow:0 2px 4px #1a36241a;transition:background .1s,color .1s,box-shadow .1s}.spot[aria-pressed=true]{color:white;background:#28634a;border-color:#28634a;box-shadow:0 0 0 4px #75c8a258,0 3px 8px #184f3960}.spot:active{transform:translate(-50%,-50%) scale(.9)}.dogs-toolbar{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px}.tinybutton{border:1px solid #d9e4da;background:#f3f8f2;color:#315b44;border-radius:25px;padding:5px 11px;font-size:11px;font-weight:750}.mini-actions{display:flex;gap:8px}.controlrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.valuebox{border-radius:12px;background:#f8f9f5;border:1px solid var(--line);padding:7px 9px;display:flex;justify-content:space-between;align-items:center;gap:5px}.valuebox label{font-size:12px;font-weight:750}.stepper{display:flex;align-items:center;gap:7px}.stepper button{border:0;border-radius:9px;width:31px;height:32px;background:#e5efe6;color:#285d46;font-size:20px;font-weight:650;line-height:1}.stepper output{width:18px;text-align:center;font-weight:900;font-size:17px}.goal{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.goal button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:11px;color:#61796a}.goal button[aria-pressed=true]{background:#e0f0e3;color:#22543e;border-color:#a3d0b0;font-weight:850}.answer{margin-top:13px;border-top:1px solid var(--line);padding:12px 2px 0;display:flex;align-items:center;justify-content:space-between;gap:15px}.answer .text{font-size:13px;font-weight:800}.answer output{font-size:38px;line-height:1.15;letter-spacing:-1.6px;font-weight:880;color:#236348}.subanswer{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:5px;font-size:11px;color:var(--muted)}.subanswer b{color:var(--danger);font-size:13px}.bar{height:4px;border-radius:5px;background:#e8eee5;margin:9px 0 0;overflow:hidden}.bar>div{height:100%;background:#56a87d;width:0;transition:width .14s}.special{margin-top:15px;border:1px solid #e0e7df;border-radius:18px;padding:13px 15px;background:#fff}.special-head{display:flex;justify-content:space-between;gap:9px;align-items:center;margin-bottom:9px}.special h2{font-size:14px}.selectbox{position:relative}.selectbox select{width:100%;appearance:none;background:#f6f8f3;border:1px solid #dce5db;border-radius:10px;padding:11px 32px 11px 12px;font-weight:800;color:#274b37}.selectbox:after{content:'⌄';pointer-events:none;position:absolute;right:13px;top:50%;transform:translateY(-54%);color:#61816b}.special-extra{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:10px 0 2px}.special-extra label{font-size:12px;color:#5f7565}.special-extra .smallsel{border-radius:9px;border:1px solid #dae4d9;background:#fff;padding:6px 8px;color:#27523d;font-weight:750;font-size:13px}.action-note{font-size:12px;color:#657969;line-height:1.5;margin:9px 0 0}.special-out{margin-top:10px;border-radius:12px;padding:10px 12px;background:#eef6ee;display:flex;justify-content:space-between;align-items:center;gap:8px}.special-out label{font-size:12px;color:#375f4c;font-weight:800}.special-out output{font-size:25px;font-weight:880;color:#245a42}.special-tip{font-size:11px;color:#789080;margin-top:6px}.ref{margin-top:13px}.ref summary{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;font-weight:800;font-size:13px;padding:12px 2px}.ref-body{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}.filterline{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px}.filterline button{font-size:11px;border:1px solid var(--line);border-radius:22px;background:#f9fbf7;padding:6px 9px;color:#566e5c}.filterline button[aria-pressed=true]{color:white;background:#275f47}.tile{border-top:1px solid #eff0e8;padding:0 2px}.tile summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;min-height:39px;gap:5px;font-size:12px}.tile summary b{font-size:12px}.tile .en{font-size:11px;color:#82958a}.tile p{font-size:12px;color:#516e5d;margin:0 0 11px;line-height:1.6}.source{font-size:11px;color:#819386;margin-top:15px;line-height:1.7}.source a{color:#487760}.footnote{font-size:10px;color:#97a49a}.hint{font-size:11px;color:#6f8675;margin-top:7px}@media(max-width:650px){.dogs{grid-template-columns:repeat(2,minmax(0,1fr))}.dog{height:128px}.dog svg{height:115px}.spot{width:26px;height:26px}main{padding:10px 10px 30px}.sheet{padding:15px 13px}.yard{gap:5px}.num{height:44px;font-size:20px}.controlrow{gap:7px}.valuebox{padding:6px}.stepper{gap:3px}.stepper button{width:27px;height:30px}.answer output{font-size:35px}}@media(max-width:345px){.yard{gap:3px}.num{font-size:17px}.dogs{gap:5px}.dog{height:122px}.spot{width:24px;height:24px}.valuebox label{font-size:11px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -200,22 +200,54 @@ header small{font-weight:850;letter-spacing:.14em;color:#8b9782}
  .fill-item{padding-top:10px;padding-bottom:10px}
 }
 @media (prefers-reduced-motion:reduce){.spot,.num{transition:none!important}}
-</style></head><body><main><header><strong>🐾 狗运当头 · 随手算</strong><small>SPOTS</small></header>
-<section class="sheet"><div class="section"><div class="head"><h2>庭院 <em>已埋点数合计</em></h2><button class="none" id="zero">清零</button></div><div class="yard" id="yard"></div></div>
-<div class="section"><div class="head"><h2>狗牌 <em>点按数字：0 → 1 → 2 → 3 → 0 个空位</em></h2><span class="micro" id="dogCount">3 只</span></div><div class="dogs" id="dogs"></div><div class="dogs-toolbar"><span class="micro" id="missing">缺 1 个斑点</span><div class="mini-actions"><button class="tinybutton" id="lessDog">− 狗狗</button><button class="tinybutton" id="moreDog">＋ 狗狗</button><button class="tinybutton" id="clearSpots">清空</button></div></div></div>
-<div class="section controls-section"><div class="head"><h2>掷骰与骨头</h2><span class="micro">点 − / ＋ 即时重算</span></div><div class="controlrow"><div class="valuebox"><label>🎲 骰子</label><div class="stepper"><button id="diceMinus" aria-label="减少骰子">−</button><output id="diceN">2</output><button id="dicePlus" aria-label="增加骰子">＋</button></div></div><div class="valuebox"><label>🦴 骨头</label><div class="stepper"><button id="bonesMinus" aria-label="减少骨头">−</button><output id="bonesN">0</output><button id="bonesPlus" aria-label="增加骨头">＋</button></div></div></div></div></section>
-<section class="outcomes" id="outcomes" aria-live="polite"><div class="outcome-heading"><div><div class="eyebrow">本次行动的结果</div><h2 id="activeName">普通掷骰</h2></div><span class="event-definition" id="eventDefinition">不爆掉 · 恰好填上</span></div><div class="fill-grid" id="fillGrid"><div class="fill-item"><span id="fillLabel1">1 颗</span><output id="fill1">—</output></div><div class="fill-item"><span id="fillLabel2">2 颗</span><output id="fill2">—</output></div><div class="fill-item"><span id="fillLabel3">3 颗</span><output id="fill3">—</output></div><div class="fill-item"><span id="fillLabel4">4 颗</span><output id="fill4">—</output></div></div><div class="other-values" id="otherValues"><span id="zeroNote">0 颗 —</span><span id="moreNote" hidden>5 颗以上 —</span></div><div class="unknown-note" id="unknownNote" hidden>后续须抽新狗牌</div><div class="bust-line" id="bustLine"><div class="bust-title"><span class="risk-dot"></span><strong>爆掉</strong><small>庭院超过 7 点</small></div><output id="bust">—</output></div><div class="resource-result" id="resourceResult" hidden><div id="resourceTitle">行动后骨头总数</div><output id="resourceValue">—</output></div><div class="context-note" id="scope" role="status">没填中空位时才花骨头重掷整批</div></section>
-<section class="action-chooser"><div class="action-top"><h2>行动牌</h2><span>切换后，上方结果一起更新</span></div><div class="selectbox"><select id="action" aria-label="选择本次行动牌"></select></div><div id="specialExtra" class="special-extra"></div><p class="action-note" id="actionNote"></p><p class="special-tip" id="specialTip"></p></section>
-<details class="trainer" id="trainer"><summary>🐶 这张牌怎么出？ <span>步骤、选择、实战 ▾</span></summary>
-  <div class="trainer-body"><div class="trainer-banner"><span class="trainer-dog" aria-hidden="true">🐕</span><div><strong id="trainerName">普通掷骰</strong><p id="trainerVoice">骨头和骰子可以堆得乱七八糟——但这批骰子怎么结算，我们可得搞清楚。</p></div></div>
-  <div class="trainer-scene" role="group" aria-label="操作前后演示"><span class="scene-eyebrow">本轮桌面</span><div class="scene-pieces" id="trainerScene" aria-live="polite"></div><p class="scene-caption" id="trainerSceneCaption">点击下一步，看骰子和骨头怎样变化</p></div><div class="trainer-steps"><div class="step-kind"><span id="trainerStepCount">第 1 步</span><b id="trainerObligation" data-type="must">必须</b></div><h3 id="trainerStepTitle">轮到你啦</h3><p id="trainerStepText">先选行动，再把骰子投下去。</p><p id="trainerStepMeaning" class="step-meaning"></p></div>
-  <div class="trainer-nav"><button id="trainerPrev" type="button" aria-label="上一步">← 上一步</button><span id="trainerDots"></span><button id="trainerNext" type="button">下一步 →</button></div><div class="card-flip"><button id="trainerCardPrev" type="button">← 上一张</button><button id="trainerCardNext" type="button">下一张 →</button></div>
-  <details class="trainer-quiz" id="trainerQuiz"><summary>🎲 你来判断：这次该怎么放？</summary><p id="trainerQuestion"></p><div class="quiz-choices" id="trainerChoices"></div><div class="trainer-answer" id="trainerAnswer" role="status" aria-live="polite" hidden></div></details><div class="trainer-practice"><p class="demo-status" id="demoStatus" role="status" hidden>🐾 练习局面已载入，原来的桌面已留好。</p><button type="button" id="trainerTry">🎲 用这张牌的例子试算</button><p>演示是一次已经掷出的例子；上方计算的是掷骰<strong>之前</strong>的概率，两者不要混作同一个事件。</p></div>
-  <p class="trainer-trap" id="trainerTrap"></p></div></details>
-<details class="ref"><summary>📖 22 张行动规则 <span>展开 ▾</span></summary><div class="ref-body"><details class="rule-basics"><summary>🐾 30 秒学会一回合</summary><ol><li>轮到你：选一张正面行动牌，翻到背面；或者给已填满的狗狗计分。</li><li>投骰后，先决定是否花骨头重掷整批；Track 是例外，可以只重掷部分。</li><li>把骰子放在同数字的狗牌空位；剩下的埋庭院。庭院点数总和超过 7，你就爆掉。</li><li>每次投完必须先放好或埋好，才进行下一批。所有正面狗狗都填满时先结算，抽新狗牌后再继续剩下的行动。</li></ol><p class="dog-whisper">“骰子和骨头堆得像狗窝？很好。规则依然要一颗颗数清楚。” · 源自官方开局的顽皮语气</p></details><div class="filterline" id="filters"></div><div id="tiles"></div><p class="footnote">一只狗同数字可录 0～3 个空位，连点同一斑点累加，第四次清零。公共骰子不足时须按实际数量处理；本页随机投骰默认供应充足。</p><p class="source">资料来源：<a href="https://www.rulespal.com/spots/rulebook" target="_blank" rel="noopener">Spots 规则书</a> · <a href="https://boardgamearena.com/gamepanel?game=spots" target="_blank" rel="noopener">BGA</a>。本工具为非官方桌边辅助。</p></div></details>
 
+.general-module,.trick-module{background:#fffefa;border:1px solid #e2e5da;border-radius:19px;overflow:hidden;box-shadow:0 8px 26px #3d513c0a}
+.general-module{margin-top:8px}
+.general-module .sheet{background:transparent;box-shadow:none;border:none;border-radius:0;margin:0}
+.general-module .outcomes{border-radius:0;border:0;border-top:1px solid #dde6db;background:#fdfefc;margin:0;box-shadow:none}
+.trick-module{margin-top:13px;padding:15px 15px 0}
+.trick-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 1px 8px}
+.trick-heading h2{font-size:19px;margin:4px 0;color:#234a35;letter-spacing:-.4px}
+.trick-total{font-size:11px;font-weight:850;color:#577c66;border:1px solid #d5e5d8;background:#eef5eb;border-radius:99px;padding:5px 10px}
+.trick-selectbox{margin:0 0 13px}
+.trick-selectbox select{font-size:15px;font-weight:800;min-height:44px;background:#f6faf3;border:1.5px solid #b9d2bd;border-radius:11px;padding:8px 34px 8px 13px;color:#214c36;width:100%}
+.trick-rule{margin:0 0 13px;border-radius:14px;padding:15px;background:#f5f6ed;border:1px solid #e3e7d7}
+.trick-rule.is-simple .rule-lead{margin-bottom:0}.rule-steps[hidden]{display:none}
+.rule-lead{font-size:clamp(17px,2.6vw,21px);font-weight:750;color:#2c4939;line-height:1.6;margin:0 0 11px;letter-spacing:-.2px}
+.rule-steps{padding:0;margin:0;display:grid;gap:8px;list-style:none}
+.rule-steps li{display:flex;align-items:flex-start;gap:10px}
+.rule-step-number{flex:0 0 23px;height:23px;border-radius:50%;background:#dfe8db;color:#355f46;font-weight:900;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.rule-step-content{min-width:0;flex:1}
+.rule-step-heading{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.rule-step-heading strong{font-size:13px;color:#244835}
+.rule-step-kind{border-radius:30px;padding:1px 7px;background:#e5ede4;color:#4c7156;font-size:10px;font-weight:750}
+.rule-step-kind[data-type=optional]{background:#fff0d9;color:#9a6c26}
+.rule-step-kind[data-type=conditional]{background:#ebe6f6;color:#745b90}
+.rule-step-content p{font-size:12px;line-height:1.5;margin:3px 0 0;color:#536a58}
+.action-settings{background:#fbfcf8;border:1px solid #e6eadf;border-radius:12px;padding:11px;margin-bottom:12px}
+.action-settings h3{font-size:12px;margin:0 0 9px;color:#435f4b}
+.action-settings .special-extra{margin:0}
+.action-settings[hidden]{display:none}
+.trick-module .outcomes{margin:13px -15px 0;border:0;border-top:1px solid #e4e8df;box-shadow:none;border-radius:0;background:linear-gradient(180deg,#fcfefb,#fff);padding:15px}
+.trick-module .outcome-heading{margin-bottom:4px}
+.trick-module .outcome-heading h2{font-size:17px}
+.trick-module .outcomes .eyebrow{color:#749080}
+.trick-selectbox select:focus-visible,.action-settings select:focus-visible{outline:3px solid #db9d43;outline-offset:2px}
+@media(max-width:650px){.general-module,.trick-module{border-radius:17px}.trick-module{padding:12px 10px 0}.trick-heading h2{font-size:17px}.trick-rule{padding:13px 11px}.rule-lead{font-size:17px}.trick-module .outcomes{margin-left:-10px;margin-right:-10px;padding:12px 10px}}
+</style></head><body><main><header><strong>🐾 狗运当头 · 随手算</strong><small>SPOTS</small></header>
+<section class="general-module" id="generalModule" aria-label="通用庭院概率计算器">
+<div class="sheet"><div class="section"><div class="head"><h2>庭院 <em>已埋点数合计</em></h2><button class="none" id="zero">清零</button></div><div class="yard" id="yard"></div></div>
+<div class="section"><div class="head"><h2>狗牌 <em>点按数字：0 → 1 → 2 → 3 → 0 个空位</em></h2><span class="micro" id="dogCount">3 只</span></div><div class="dogs" id="dogs"></div><div class="dogs-toolbar"><span class="micro" id="missing">缺 1 个斑点</span><div class="mini-actions"><button class="tinybutton" id="lessDog">− 狗狗</button><button class="tinybutton" id="moreDog">＋ 狗狗</button><button class="tinybutton" id="clearSpots">清空</button></div></div></div>
+<div class="section controls-section"><div class="head"><h2>掷骰与骨头</h2><span class="micro">点 − / ＋ 即时重算</span></div><div class="controlrow"><div class="valuebox"><label>🎲 骰子</label><div class="stepper"><button id="diceMinus" aria-label="减少骰子">−</button><output id="diceN">2</output><button id="dicePlus" aria-label="增加骰子">＋</button></div></div><div class="valuebox"><label>🦴 骨头</label><div class="stepper"><button id="bonesMinus" aria-label="减少骨头">−</button><output id="bonesN">0</output><button id="bonesPlus" aria-label="增加骨头">＋</button></div></div></div></div></div>
+<div class="outcomes" id="outcomes" aria-live="polite"><div class="outcome-heading"><div><div class="eyebrow">本次行动的结果</div><h2 id="activeName">普通掷骰</h2></div><span class="event-definition" id="eventDefinition">不爆掉 · 恰好填上</span></div><div class="fill-grid" id="fillGrid"><div class="fill-item"><span id="fillLabel1">1 颗</span><output id="fill1">—</output></div><div class="fill-item"><span id="fillLabel2">2 颗</span><output id="fill2">—</output></div><div class="fill-item"><span id="fillLabel3">3 颗</span><output id="fill3">—</output></div><div class="fill-item"><span id="fillLabel4">4 颗</span><output id="fill4">—</output></div></div><div class="other-values" id="otherValues"><span id="zeroNote">0 颗 —</span><span id="moreNote" hidden>5 颗以上 —</span></div><div class="unknown-note" id="unknownNote" hidden>后续须抽新狗牌</div><div class="bust-line" id="bustLine"><div class="bust-title"><span class="risk-dot"></span><strong>爆掉</strong><small>庭院超过 7 点</small></div><output id="bust">—</output></div><div class="resource-result" id="resourceResult" hidden><div id="resourceTitle">行动后骨头总数</div><output id="resourceValue">—</output></div><div class="context-note" id="scope" role="status">没填中空位时才花骨头重掷整批</div></div></section>
+<section class="trick-module" id="trickModule" aria-label="行动牌规则与概率">
+<div class="trick-heading"><div><span class="eyebrow">行动牌 · 规则与概率</span><h2>选择行动牌</h2></div><span class="trick-total">22 张</span></div>
+<div class="selectbox trick-selectbox"><select id="action" aria-label="选择本次要计算的行动牌"></select></div>
+<div class="trick-rule" aria-live="polite"><p id="actionRule" class="rule-lead"></p><ol id="ruleSteps" class="rule-steps"></ol></div>
+<div class="action-settings" id="actionSettings"><h3>本次参数</h3><div id="specialExtra" class="special-extra"></div></div>
+<div class="outcomes action-outcome" id="actionOutcomes" aria-live="polite"><div class="outcome-heading"><div><div class="eyebrow">此行动的结果</div><h2 id="actionActiveName">普通掷骰</h2></div><span class="event-definition" id="actionEventDefinition">不爆掉 · 恰好填上</span></div><div class="fill-grid" id="actionFillGrid"><div class="fill-item"><span id="actionFillLabel1">1 颗</span><output id="actionFill1">—</output></div><div class="fill-item"><span id="actionFillLabel2">2 颗</span><output id="actionFill2">—</output></div><div class="fill-item"><span id="actionFillLabel3">3 颗</span><output id="actionFill3">—</output></div><div class="fill-item"><span id="actionFillLabel4">4 颗</span><output id="actionFill4">—</output></div></div><div class="other-values" id="actionOtherValues"><span id="actionZeroNote">0 颗 —</span><span id="actionMoreNote" hidden>5 颗以上 —</span></div><div class="unknown-note" id="actionUnknownNote" hidden>后续须抽新狗牌</div><div class="bust-line" id="actionBustLine"><div class="bust-title"><span class="risk-dot"></span><strong>爆掉</strong><small>庭院超过 7 点</small></div><output id="actionBust">—</output></div><div class="resource-result" id="actionResourceResult" hidden><div id="actionResourceTitle">行动后骨头总数</div><output id="actionResourceValue">—</output></div><div class="context-note" id="actionScope" role="status">没填中空位时才花骨头重掷整批</div></div></section>
 <footer class="release-footer">免费 · 非官方 · 简体中文<br>独立制作，与 CMYK、BoardGameGeek、Board Game Arena 没有隶属关系。<br>本页显示所选局面和策略下的概率，不代表整局获胜率。<br><a href="https://www.cmyk.games/products/spots" target="_blank" rel="noopener noreferrer">原版 Spots</a> · <a href="https://www.rulespal.com/spots/rulebook" target="_blank" rel="noopener noreferrer">规则书</a></footer></main><script>
-(()=>{'use strict';const $=s=>document.getElementById(s);const q=(s)=>document.querySelector(s);let yard=0,dice=2,bones=0,goal='one',dogs=3,paws=0,params={threshold:3,paws:0,rounds:2,fetch:0,src:2,source:'choose',buried:0,rolloverExtra:1,walkExtra:1,boltSet:3,boltRolls:3,top:1,after:-1,facedown:2,reroll:1,playdead:'bury',verified:0,supply:-1},active='normal';let spots=Array.from({length:6},()=>[0,0,0,0,0,0]);spots[0][0]=1;
+(()=>{'use strict';const $=s=>document.getElementById(s);const q=(s)=>document.querySelector(s);let yard=0,dice=2,bones=0,goal='one',dogs=3,paws=0,params={threshold:3,paws:0,rounds:2,fetch:0,src:2,source:'choose',buried:0,rolloverExtra:1,walkExtra:1,boltSet:3,boltRolls:3,top:1,after:-1,facedown:2,reroll:1,playdead:'bury',verified:0,supply:-1},active='fetch';let spots=Array.from({length:6},()=>[0,0,0,0,0,0]);spots[0][0]=1;
 const labels={normal:['普通掷骰','全部掷出，匹配的填上狗牌，其余埋入庭院。'],fetch:['叼回 Fetch','掷 8 颗，只保留一种点数的全部骰子；其余弃回供应。'],guard:['守卫 Guard','先报 1–6，掷 4 颗；弃掉大于报数的骰子。'],hunt:['狩猎 Hunt','掷 2＋爪印数，选择其中 2 颗留下。'],search:['寻找 Search','掷 7 颗，只选择点数和恰好为 8 的子集；找不到就不放。'],scavenge:['搜刮 Scavenge','掷 4 颗，可弃掉小于原庭院点数的骰子。'],track:['追踪 Track','掷 3 颗，可以花骨头只重掷其中几颗。'],walk:['散步 Walk','先掷并结算 2 颗，再自己决定要不要追加 1 颗。'],run:['奔跑 Run','先掷 3 颗，再可逐颗追加。'],chase:['追逐 Chase','先掷 1 颗，下一批 2 颗，再下一批 3 颗……'],bolt:['飞奔 Bolt','先留出 3–12 颗；逐颗掷、逐颗放置或埋下。只有剩余数量不多于爪印数时才能提前停。'],sprint:['冲刺 Sprint','每张未完成狗牌掷 1 颗，可以重复。'],dogpile:['叠叠乐 Dogpile','先拿供应区 2 颗；若自己狗牌或庭院有骰子，必须再拿 1 颗，一起重掷。可重复整个行动。'],rollover:['翻滚 Roll Over','把庭院的全部骰子拿回重掷、结算；然后可再掷 1 颗。庭院无骰时跳过第一步。'],dig:['挖掘 Dig','每个爪印可把埋骰点数调整 ±1；然后掷 2 颗。'],retrieve:['找回 Retrieve','看牌堆最上面的狗牌，从供应区拿 1 颗骰子设成牌上任一数字；先放置或埋下，再掷 2 颗。'],trot:['小跑 Trot','可移动自己狗牌上一个骰子到另一空位，然后掷 2 颗。'],howl:['嚎叫 Howl','先补 1 张狗牌（若未达 6 张），再掷 1 颗。'],beg:['乞食 Beg','先拿 1 根骨头，再按未得分狗牌上的爪印数额外拿骨头。'],chew:['咀嚼 Chew','现有骨头翻倍后再加 1 根。'],gobble:['大口吞 Gobble','先拿 7 根骨头；再按最高未填空位的点数归还骨头。没有未填空位便跳过归还；如果先拿骨头后仍不足以整额归还，也跳过无法执行的这一步。'],playdead:['装死 Play Dead','掷 1 颗；若选择埋入庭院且没爆掉，就按骰面点数领骨头。放在狗牌上则不领骨头。'],stay:['不动 Stay','每张其他背面行动牌给予 1 根骨头。']};
 const category={howl:'red',rollover:'red',beg:'green',chew:'green',gobble:'green',playdead:'green',stay:'green',fetch:'blue',guard:'blue',hunt:'blue',scavenge:'blue',search:'blue',dig:'yellow',retrieve:'yellow',track:'yellow',trot:'yellow',walk:'yellow',bolt:'purple',chase:'purple',dogpile:'purple',run:'purple',sprint:'purple'};
 const dogColors=[['#dcb583','#9f704c','#815332'],['#e4e0d5','#8d9a94','#637971'],['#ebc7ab','#b36d54','#895746'],['#d9d0b9','#9b9077','#645e50'],['#dcc5c5','#a37678','#70494b'],['#d6c9ad','#847257','#66513d']];const coords=[[22,44],[50,44],[78,44],[22,73],[50,73],[78,73]];
@@ -333,7 +365,8 @@ function sequenceDist(stages,need,yr,B){
 for(const state of states.values())out.fills[Math.min(18,original-sumNeed(state.need))]+=state.p;
  return out;
 }
-function compute(){
+function compute(mode=active){
+ const active=mode;
  const need=getNeed(),N=sumNeed(need),p=params;
  if(['beg','chew','gobble','stay'].includes(active)){
   let d=distEmpty(),num=0,stock=p.supply<0?Infinity:p.supply;
@@ -399,55 +432,58 @@ function compute(){
  const d=sequenceDist(stages,need,yard,bones);
  d.note=active==='sprint'?'Sprint 只算当前一批；要重复，请先按真实空位更新狗牌':'按设定的批数结算；中途填满并需要补新牌的概率另列';return d;
 }
-function renderOutcomes(){
- const need=getNeed(),total=sumNeed(need),d=compute(),isResource=d.resource!==null,isReward=d.reward==='treat';
- $('activeName').textContent=labels[active][0];$('actionNote').textContent=active==='normal'?'':labels[active][1];
- $('missing').textContent=total?'还缺 '+total+' 颗 · '+need.map((v,i)=>v?`${i+1}${v>1?'×'+v:''}`:'').filter(Boolean).join(' / '):'点亮还缺的斑点';
+
+function paintOutcome(prefix,mode){
+ const get=id=>$(prefix?'action'+id[0].toUpperCase()+id.slice(1):id);
+ const d=compute(mode),total=sumNeed(getNeed()),isResource=d.resource!==null,isReward=d.reward==='treat';
+ get('activeName').textContent=mode==='normal'?'普通掷骰':labels[mode][0];
+ get('fillGrid').hidden=isResource;get('otherValues').hidden=isResource;
+ get('bustLine').hidden=isResource;get('resourceResult').hidden=!isResource;
+ get('unknownNote').hidden=isResource||d.invalid||d.unknown<1e-8;
+ get('unknownNote').textContent='需抽新狗牌后继续 · '+percent(d.unknown);
+ get('eventDefinition').textContent=isResource?'骨头变化':isReward?'不爆掉 · 获得骨头':'不爆掉 · 恰好填上';
+ if(isResource){
+  get('resourceTitle').textContent='行动结束后的骨头总数';get('resourceValue').textContent=d.resource+' 根';
+ }else{
+  for(let i=1;i<=4;i++){
+   get('fillLabel'+i).textContent=i+(isReward?' 根':' 颗');
+   get('fill'+i).textContent=d.invalid?'—':percent(d.fills[i]);
+  }
+  get('bust').textContent=d.invalid?'—':percent(d.bust);
+  get('zeroNote').textContent=(isReward?'0 根 ':'0 颗 ')+(d.invalid?'—':percent(d.fills[0]));
+  const over=d.fills.slice(5).reduce((a,b)=>a+b,0);
+  get('moreNote').hidden=!isReward&&total<=4;
+  get('moreNote').textContent=(isReward?'5～6 根 ':'5 颗以上 ')+(d.invalid?'—':percent(over));
+ }
+ get('scope').textContent=d.invalid?d.note:(d.note|| (bones?'无安全填位时重掷本批，最多 '+bones+' 次':'按狗牌空位安放，其余埋庭院'));
+}
+function renderActionRule(){
+ const detail=new Set(['rollover','walk','dig','retrieve','track','trot','search','run','bolt','dogpile','chase','sprint','gobble','playdead']);
+ const steps=detail.has(active)?lessons[active].steps:[];
+ $('actionRule').textContent=labels[active][1];
+ $('ruleSteps').hidden=steps.length===0;
+ $('ruleSteps').parentElement.classList.toggle('is-simple',steps.length===0);
+ $('ruleSteps').replaceChildren(...steps.map(([name,body],i)=>{
+  const li=document.createElement('li'),n=document.createElement('span'),div=document.createElement('div');
+  n.className='rule-step-number';n.textContent=i+1;div.className='rule-step-content';
+  const head=document.createElement('div');head.className='rule-step-heading';
+  const title=document.createElement('strong');title.textContent=name;
+  const tag=document.createElement('span');tag.className='rule-step-kind';
+  const kind=(lawTags[active]||[])[i]||'must';tag.dataset.type=kind;tag.textContent=lawText[kind];
+  const p=document.createElement('p');p.textContent=body;
+  head.append(title,tag);div.append(head,p);li.append(n,div);return li;
+ }));
+ $('actionSettings').hidden=!$('specialExtra').querySelector('select');
+}
+function recalc(){
+ const need=getNeed(),total=sumNeed(need);
+ $('missing').textContent=total?'还缺 '+total+' 颗 · '+need.map((v,i)=>v?String(i+1)+(v>1?'×'+v:''):'').filter(Boolean).join(' / '):'点亮狗牌还缺的数字';
  document.querySelectorAll('#yard button').forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.y===yard)));
  $('diceN').textContent=dice;$('bonesN').textContent=bones;
- $('fillGrid').hidden=isResource;$('otherValues').hidden=isResource;$('bustLine').hidden=isResource;$('resourceResult').hidden=!isResource;$('unknownNote').hidden=isResource||d.invalid||d.unknown<1e-8;$('unknownNote').textContent='需抽未知新狗牌后继续 · '+percent(d.unknown);
- $('eventDefinition').textContent=isResource?'骨头变化':isReward?'不爆掉 · 获得骨头':'不爆掉 · 恰好填上';
- if(isResource){$('resourceTitle').textContent='行动结束后的骨头总数';$('resourceValue').textContent=d.resource+' 根';}
- else{
-  for(let i=1;i<=4;i++){$('fillLabel'+i).textContent=i+(isReward?' 根':' 颗');$('fill'+i).textContent=d.invalid?'—':percent(d.fills[i]);}
-  $('bust').textContent=d.invalid?'—':percent(d.bust);
-  $('zeroNote').textContent=(isReward?'0 根 ':'0 颗 ')+(d.invalid?'—':percent(d.fills[0]));
-  const over=d.fills.slice(5).reduce((x,y)=>x+y,0);
-  $('moreNote').hidden=!isReward&&total<=4;$('moreNote').textContent=(isReward?'5～6 根 ':'5 颗以上 ')+(d.invalid?'—':percent(over));
- }
- const scope=d.invalid?d.note:(d.note|| (bones?'优先填匹配空位；没有安全填位结果才重掷本批，最多 '+bones+' 次':'本计算器优先填匹配空位；不使用骨头重掷'));
- $('scope').textContent=scope;
- $('specialTip').textContent='';
- if(active==='playdead'&&!d.invalid)$('specialTip').textContent=isReward?'安全埋入才能领骨头；爆掉时本轮领不到':'改选埋庭院，可计算领到几根骨头';
+ paintOutcome('', 'normal');paintOutcome('action',active);
 }
-function recalc(){renderOutcomes()}
-
 // Official action order paraphrased for tabletop use; dog speech and examples are original writing.
-const lessons={
-normal:{voice:'先闻闻你的牌，再扔骰子。别把埋骰当成狗零食。',steps:[['看缺口','狗牌的数字是你要找的点数。'],['投一批','把这批所有骰子一起掷出来。'],['安放','同数字的放到狗身上，剩余的埋庭院；超过7点就爆掉。']],question:'缺 2，掷出 2 和 5，庭院原来是 0，怎么放？',answer:'2 放狗牌；5 埋庭院，庭院变成5点，没有爆掉。',trap:'这里是自定义基础投掷，不是官方 22 张行动牌之一。'},
-howl:{voice:'汪！再来一位新伙伴。座位不够就先别挤。',steps:[['先看狗牌总数','少于6张狗牌时，摸牌堆最上方1张加入队伍。'],['掷1颗','再从供应区拿1颗骰子掷出。'],['放或埋','放到对应空位，否则埋庭院。']],question:'你已有6张狗牌，选了嚎叫，是不是不用再投骰？',answer:'仍要投1颗。只是跳过“抽新狗牌”这一步。',trap:'不满6张才补新狗牌；先看实物新牌，再在狗狗斑点上录入新缺口（同数字可连点多次）。'},
-rollover:{voice:'院子里的宝贝统统刨出来！这回看看运气。',steps:[['取回整院','把庭院里的所有骰子拿回来（没有则跳过）。'],['全部重掷','一起掷，并决定是否花骨头重掷这批，然后放置或埋下。'],['想再赌一次？','第二步可以选择追加掷1颗；也可以停下。']],question:'庭院没有骰子，你还能选 Roll Over 并掷1颗吗？',answer:'可以。第一步无法执行就跳过，第二步仍然可以选择掷1颗。',trap:'必须按真实埋骰颗数填写；庭院总点数不能代替骰子颗数。'},
-walk:{voice:'先散两步。第三步？等我闻完这棵树。',steps:[['掷2颗','从供应区拿2颗，投一批。'],['先结算','用骨头重掷或放置、埋好这两颗。'],['可选第3颗','愿意的话再掷1颗，单独结算。']],question:'刚投的前2颗都能放好，能不能先不放，直接再掷第3颗？',answer:'不能。每批骰子都要先放置或埋下，才能进行下一批。',trap:'第二步是「可以」，不是必须；计算器可以切换追加或停下。'},
-dig:{voice:'挖错地方？你还有爪印，改改泥土里的骰面。',steps:[['数爪印','每个爪印允许一次调整：任意玩家庭院中某颗骰子点数加1或减1。'],['特殊的1','把1点减1，这颗骰子直接弃回供应区。'],['再掷2颗','完成选择性调整后，从供应区掷2颗并结算。']],question:'一颗埋着的1点骰，降低1点，会留下一颗0点骰吗？',answer:'不会。它会直接弃回供应区。',trap:'可以改任何玩家庭院。若你只改了别人，自己的庭院保持不变；不要因为选 Dig 就把自己的庭院清零。'},
-retrieve:{voice:'闻一闻牌堆顶，不偷走那只狗，只借它的数字。',steps:[['偷看牌堆顶','看最上面那张狗牌，有哪些数字空位。'],['取1颗新骰子','从供应区拿1颗骰子，设成上方狗牌任意一个数字，放自己狗牌或埋庭院。'],['再掷2颗','第一颗处理完后，再掷2颗并结算。']],question:'顶牌有数字2和5，可以设成5，直接把顶牌拿走吗？',answer:'只能从供应区取1颗骰子并设成5；顶牌仍留在牌堆顶。',trap:'设定的新骰子是固定结果，不是随机掷骰；它必须先放好或埋好。'},
-track:{voice:'三颗一起飞出去，讨厌的那颗可以单独再来！',steps:[['掷3颗','从供应区掷3颗骰子。'],['挑要重掷的','花一根骨头后，可以只重掷其中一颗、两颗或三颗。'],['全部放好','最终骰子放狗牌或埋庭院。']],question:'投出1、2、6，只想重掷6，可以保留1和2吗？',answer:'可以。这是 Track 的特权；普通行动花骨头必须整批重掷。',trap:'概率使用明示策略：优先保证至少填1颗，再降低爆掉风险。'},
-trot:{voice:'坐错位置了？挪一挪，我的斑点总能对上。',steps:[['选择已有骰子','可以从自己狗牌上拿一颗已放骰子。'],['移到另一空位','移到任意其他狗牌空位，可把骰面改成新位置的数字。'],['再掷2颗','完成移动后，再掷2颗并结算。']],question:'一个3点骰子从3号位置移到5号位置，可以变成5吗？',answer:'可以。Trot 允许改变该骰子点数，以匹配新空位。',trap:'计算前请把狗牌缺口改成搬动完成后的状态。'},
-guard:{voice:'先说一个数字再掷！别让那颗6偷听你的心思。',steps:[['先报1–6','必须在掷骰之前宣布一个数字。'],['掷4颗','同时掷4颗骰子。'],['筛选','大于报数的弃回供应，其余必须放狗牌或埋庭院。']],question:'先报3，投出1、3、4、6，哪些留下？',answer:'留下1和3；4和6弃回供应区。',trap:'报数不能等投完才决定；大于阈值才弃，等于阈值要留下。'},
-scavenge:{voice:'院子里的旧点数就是我的筛子，太小的先不要！',steps:[['看原庭院','先记住投之前庭院全部骰子的点数总和。'],['掷4颗','掷出4颗骰子。'],['选择弃骰','可以弃掉任何小于原庭院总点数的骰子；剩下的都要放或埋。']],question:'原庭院3点，掷1、2、3、6，能弃哪几颗？',answer:'可以弃1、2；3和6不满足“小于3”，不能因此弃掉。',trap:'判断阈值用的是“这批投之前”的庭院总点数，不边埋边更改。'},
-search:{voice:'鼻子要找的是总数8，别把一整桌骰子都吞下。',steps:[['掷7颗','一次掷7颗骰子。'],['找恰好8','如果能找到某个子集点数总和恰好是8，就必须选一组。'],['安放/掩埋','选中的全部放狗牌或埋庭院；其他全部弃回供应。']],question:'选出了2和6，总和8，但狗牌没有这两个空位、庭院0点，会怎样？',answer:'两颗都必须埋院子，总点数8，爆掉！“找到8”不等于安全。',trap:'找到和为8的子集就要处理，不能因这组不合心意而当作没找到。'},
-hunt:{voice:'先撒一把骰子，最后只能叼两颗走。',steps:[['看爪印','先掷2颗，再按狗牌上的每个爪印多掷1颗。'],['挑2颗','从掷出的骰子里选择恰好2颗。'],['放或埋','这2颗必须放狗牌或埋庭院，其他全数弃回。']],question:'你有2个爪印、投了4颗，可以只留1颗幸运的骰子吗？',answer:'不行，必须选2颗处理，其余弃回。',trap:'爪印决定掷多少，不决定最终保留多少。'},
-fetch:{voice:'找到一种喜欢的点数，就把这一整窝都叼回来！',steps:[['掷8颗','一次投8颗骰子。'],['选一种点数','必须选实际掷出的一种数字。'],['整批处理','该点数的所有骰子都得放或埋，其他点数全部弃回。']],question:'掷出三个3，但狗牌只缺一个3，另外两个3能弃掉吗？',answer:'不能。选了3就必须处理三个3：可放1颗，另2颗要埋庭院。',trap:'可以选择较有利的点数，但不能只挑喜欢的同点数骰子。'},
-run:{voice:'先冲三步。后面的每一步，都由你决定要不要再冒险。',steps:[['先掷3颗','第一批3颗是必须执行的。'],['先结算','骨头重掷、放狗牌或埋庭院都在这一批完成。'],['可选逐颗追加','每次再掷1颗，可反复，也可随时停手。']],question:'第1批掷出3、4、6，下一颗可以跟这3颗一起重掷吗？',answer:'不可以。已经放/埋完成的骰子不能跟下一批混在一起。',trap:'你设置的是计划追加的次数；每次新增风险都要单独计算。'},
-bolt:{voice:'先排好骰子队伍。爪印够多，狗狗才有资格提前溜走。',steps:[['留出3–12颗','先决定留几颗骰子，不用一口气全扔。'],['逐颗结算','每次只掷1颗、放置或埋下，再掷下一颗。'],['检查停手权','剩余待掷颗数不超过你的爪印数时，才允许提前停止。']],question:'先留5颗、你有2个爪印，掷完2颗就想停，可以吗？',answer:'不行；还剩3颗，比爪印2多。至少掷完第3颗才可以停。',trap:'“先留几颗”与“最终投几颗”不同，计算器会校验停手条件。'},
-dogpile:{voice:'两颗新的，加一颗旧的。没旧的？那就别假装有第三颗。',steps:[['先拿供应区2颗','从公共供应区取2颗骰子。'],['旧骰子若有必取','如果庭院或狗牌上有骰子，再取自己的一颗并加入。'],['一起重掷','把拿到的骰子一起投、结算；这个完整动作可以重复。']],question:'自己没有任何已埋或已放骰子，Dogpile 应该掷几颗？',answer:'只掷2颗。额外那颗只在你有骰子可取时才加。',trap:'必须确实有那颗旧骰子，不能只凭庭院点数总和猜骰面；计算器只算这一次，重复时请更新局面。'},
-chase:{voice:'先跑一步、再跑两步、再跑三步……追到你自己喊停。',steps:[['第1批1颗','先掷1颗并放好或埋好。'],['可选第2批2颗','愿意的话再掷2颗，也要先结算。'],['继续增加','再追便掷3、4……颗；你可以不继续。']],question:'已结算第1批1颗，想再追，需要投几颗？',answer:'第2批必须投2颗。下一次再继续才是3颗。',trap:'“多1颗”是每一整批数量加1，不是累计多拿1颗。'},
-sprint:{voice:'没填满的狗狗们排排站，每人发一颗！',steps:[['数未完成狗牌','每张仍有空位的狗牌给你1颗骰子的投掷名额。'],['一批掷出','按照这个数量掷骰并结算。'],['还想冲？','可以重复整个动作；每次根据当时未完成狗牌重新数数量。']],question:'你有3张狗牌，其中1张已经填满但还没得分，应该掷几颗？',answer:'按有空位的2张狗牌计算，掷2颗。',trap:'填完全部正面狗牌，要先把本次骰子全部结算、快速计分并补新牌，然后继续行动；新牌出现前不能给余下步骤报完整胜率。'},
-beg:{voice:'坐好，摇摇尾巴。爪印越多，骨头越多。',steps:[['先拿1根','从供应区取得1根骨头。'],['数未得分狗牌爪印','每个可见爪印再拿1根。'],['放在旁边','骨头用于此后掷骰重掷，供应不足时只能拿现有数量。']],question:'你有3个爪印、原有2根骨头，一共变成几根？',answer:'2 + 1 + 3 = 6根（假设公共供应足够）。',trap:'已翻为得分状态的狗牌不再贡献可见爪印。'},
-chew:{voice:'一根变两根。狗啃骨头，不啃算术。',steps:[['数现有骨头','看你现在有多少根。'],['先翻倍','从供应区拿同样数量，使总数翻倍。'],['再加1根','最后再额外拿1根。']],question:'原有2根，Chew之后共有多少？',answer:'先变4根，再加1根，共5根（供应足够时）。',trap:'先翻倍、后加1。公共骨头不够时只能拿现有的，计算器可输入供给数。'},
-gobble:{voice:'先抱走七根！等一等，把最高没填的点数还回去。',steps:[['先取7根','从供应区拿7根骨头，实际能拿多少看供应。'],['找最高空位','在未填空位中找数字最大的一个。'],['归还等额骨头','归还该点数数量的骨头；如果没有未填空位，跳过这一步。']],question:'只缺数字5，原有2根骨头，供应足够时最后有几根？',answer:'2 + 7 − 5 = 4根。若没有未填空位，就不用减。',trap:'看最高未填空位的数字，不是空位总和。归还数量不足时不能算负数：按照规则书跳过无法完成的归还步骤。'},
-playdead:{voice:'趴下装死也能挣骨头。前提：别把院子埋炸！',steps:[['掷1颗','掷出一颗骰子，可以先决定是否花骨头重掷。'],['放或埋','你可以匹配狗牌空位，也可以主动埋庭院。'],['领取骨头','如果选择埋庭院、又没有爆掉，骰面几点就领几根。']],question:'庭院原有4点，投出3，选择埋下会怎样？',answer:'总点数正好7，没有爆掉；获得3根骨头。投出4却埋下则会爆掉。',trap:'放在狗牌上不会因 Play Dead 得到骨头；新版可以分别计算这两种选择。'},
-stay:{voice:'其他动作都睡着了？那我趴着收骨头。',steps:[['看行动牌','检查除 Stay 以外有哪些行动牌已经翻到背面。'],['数背面数目','每张其他背面行动牌价值1根骨头。'],['领取','从供应区拿相应数量骨头。']],question:'除 Stay 外有3张已翻面的行动牌，能拿几根骨头？',answer:'拿3根骨头（供应足够）。',trap:'只数其他背面牌，Stay 自己不算；公共骨头不足时请在行动设置里填写剩余根数。'}
-};
+const lessons={"normal":{"steps":[["看缺口","狗牌的数字是你要找的点数。"],["投一批","把这批所有骰子一起掷出来。"],["安放","同数字的放到狗身上，剩余的埋庭院；超过7点就爆掉。"]]},"howl":{"steps":[["先看狗牌总数","少于6张狗牌时，摸牌堆最上方1张加入队伍。"],["掷1颗","再从供应区拿1颗骰子掷出。"],["放或埋","放到对应空位，否则埋庭院。"]]},"rollover":{"steps":[["取回整院","把庭院里的所有骰子拿回来（没有则跳过）。"],["全部重掷","一起掷，并决定是否花骨头重掷这批，然后放置或埋下。"],["想再赌一次？","第二步可以选择追加掷1颗；也可以停下。"]]},"walk":{"steps":[["掷2颗","从供应区拿2颗，投一批。"],["先结算","用骨头重掷或放置、埋好这两颗。"],["可选第3颗","愿意的话再掷1颗，单独结算。"]]},"dig":{"steps":[["数爪印","每个爪印允许一次调整：任意玩家庭院中某颗骰子点数加1或减1。"],["特殊的1","把1点减1，这颗骰子直接弃回供应区。"],["再掷2颗","完成选择性调整后，从供应区掷2颗并结算。"]]},"retrieve":{"steps":[["偷看牌堆顶","看最上面那张狗牌，有哪些数字空位。"],["取1颗新骰子","从供应区拿1颗骰子，设成上方狗牌任意一个数字，放自己狗牌或埋庭院。"],["再掷2颗","第一颗处理完后，再掷2颗并结算。"]]},"track":{"steps":[["掷3颗","从供应区掷3颗骰子。"],["挑要重掷的","花一根骨头后，可以只重掷其中一颗、两颗或三颗。"],["全部放好","最终骰子放狗牌或埋庭院。"]]},"trot":{"steps":[["选择已有骰子","可以从自己狗牌上拿一颗已放骰子。"],["移到另一空位","移到任意其他狗牌空位，可把骰面改成新位置的数字。"],["再掷2颗","完成移动后，再掷2颗并结算。"]]},"guard":{"steps":[["先报1–6","必须在掷骰之前宣布一个数字。"],["掷4颗","同时掷4颗骰子。"],["筛选","大于报数的弃回供应，其余必须放狗牌或埋庭院。"]]},"scavenge":{"steps":[["看原庭院","先记住投之前庭院全部骰子的点数总和。"],["掷4颗","掷出4颗骰子。"],["选择弃骰","可以弃掉任何小于原庭院总点数的骰子；剩下的都要放或埋。"]]},"search":{"steps":[["掷7颗","一次掷7颗骰子。"],["找恰好8","如果能找到某个子集点数总和恰好是8，就必须选一组。"],["安放/掩埋","选中的全部放狗牌或埋庭院；其他全部弃回供应。"]]},"hunt":{"steps":[["看爪印","先掷2颗，再按狗牌上的每个爪印多掷1颗。"],["挑2颗","从掷出的骰子里选择恰好2颗。"],["放或埋","这2颗必须放狗牌或埋庭院，其他全数弃回。"]]},"fetch":{"steps":[["掷8颗","一次投8颗骰子。"],["选一种点数","必须选实际掷出的一种数字。"],["整批处理","该点数的所有骰子都得放或埋，其他点数全部弃回。"]]},"run":{"steps":[["先掷3颗","第一批3颗是必须执行的。"],["先结算","骨头重掷、放狗牌或埋庭院都在这一批完成。"],["可选逐颗追加","每次再掷1颗，可反复，也可随时停手。"]]},"bolt":{"steps":[["留出3–12颗","先决定留几颗骰子，不用一口气全扔。"],["逐颗结算","每次只掷1颗、放置或埋下，再掷下一颗。"],["检查停手权","剩余待掷颗数不超过你的爪印数时，才允许提前停止。"]]},"dogpile":{"steps":[["先拿供应区2颗","从公共供应区取2颗骰子。"],["旧骰子若有必取","如果庭院或狗牌上有骰子，再取自己的一颗并加入。"],["一起重掷","把拿到的骰子一起投、结算；这个完整动作可以重复。"]]},"chase":{"steps":[["第1批1颗","先掷1颗并放好或埋好。"],["可选第2批2颗","愿意的话再掷2颗，也要先结算。"],["继续增加","再追便掷3、4……颗；你可以不继续。"]]},"sprint":{"steps":[["数未完成狗牌","每张仍有空位的狗牌给你1颗骰子的投掷名额。"],["一批掷出","按照这个数量掷骰并结算。"],["还想冲？","可以重复整个动作；每次根据当时未完成狗牌重新数数量。"]]},"beg":{"steps":[["先拿1根","从供应区取得1根骨头。"],["数未得分狗牌爪印","每个可见爪印再拿1根。"],["放在旁边","骨头用于此后掷骰重掷，供应不足时只能拿现有数量。"]]},"chew":{"steps":[["数现有骨头","看你现在有多少根。"],["先翻倍","从供应区拿同样数量，使总数翻倍。"],["再加1根","最后再额外拿1根。"]]},"gobble":{"steps":[["先取7根","从供应区拿7根骨头，实际能拿多少看供应。"],["找最高空位","在未填空位中找数字最大的一个。"],["归还等额骨头","归还该点数数量的骨头；如果没有未填空位，跳过这一步。"]]},"playdead":{"steps":[["掷1颗","掷出一颗骰子，可以先决定是否花骨头重掷。"],["放或埋","你可以匹配狗牌空位，也可以主动埋庭院。"],["领取骨头","如果选择埋庭院、又没有爆掉，骰面几点就领几根。"]]},"stay":{"steps":[["看行动牌","检查除 Stay 以外有哪些行动牌已经翻到背面。"],["数背面数目","每张其他背面行动牌价值1根骨头。"],["领取","从供应区拿相应数量骨头。"]]}};
 const lawTags={
 normal:['must','optional','must'],howl:['conditional','must','must'],rollover:['conditional','must','optional'],walk:['must','must','optional'],
 dig:['optional','conditional','must'],retrieve:['must','must','must'],track:['must','optional','must'],trot:['optional','optional','must'],
@@ -455,73 +491,46 @@ guard:['must','must','must'],scavenge:['must','must','optional'],search:['must',
 run:['must','must','optional'],bolt:['must','must','optional'],dogpile:['must','conditional','optional'],chase:['must','optional','optional'],
 sprint:['must','must','optional'],beg:['must','must','must'],chew:['must','must','must'],gobble:['must','must','conditional'],
 playdead:['must','must','conditional'],stay:['must','must','must']};
-const lawText={must:'必须',optional:'可选择',conditional:'看条件'};
-const lawHelp={must:'这一步按行动牌顺序处理；骰子全部放好或埋好，才能进入下一批。',optional:'这一项是可选择的；停止或跳过不等于爆掉。',conditional:'先看桌面和资源是否满足条件；做不了的步骤跳过，后面能做的仍要做。'};
-const wrongReason={
-normal:'没有特殊弃骰效果时，无法安放的骰子必须埋庭院。',howl:'抽新狗牌与随后投1颗是不同步骤。',rollover:'跳过做不了的第一步，不会自动取消可选第二步。',
-walk:'先结算两颗，再决定第三颗。',dig:'降到0点的骰子回供应，不能留在院子。',retrieve:'只能借牌堆顶狗牌的数字，不能直接拿走顶牌。',
-track:'Track 才允许花骨头只重掷部分骰子。',trot:'Trot 允许移动旧骰时改变面值。',guard:'等于预告数字的骰子不能弃，只有严格大于才弃。',
-scavenge:'弃骰条件是严格小于旧庭院点数。',search:'凑够8点不意味着免于埋骰和爆掉。',hunt:'正好留下两颗，不是至多两颗。',
-fetch:'选中一个点数后，这个点数的所有骰子都必须处理。',run:'前一批骰子不能跟着下一颗再重掷。',
-bolt:'要剩余数量不超过爪印数，才能提前停止。',dogpile:'有旧骰时应取回一颗；没有旧骰则只拿公共区2颗。',
-chase:'第2批投2颗，第3批才投3颗。',sprint:'已填满的狗不再计入本批数量。',beg:'第一根和每个爪印对应的骨头都要算。',
-chew:'先翻倍再加1，顺序不能颠倒。',gobble:'先拿7根，再按最高未填数字归还，不能把数量算成负数。',
-playdead:'安全埋下才能拿骨头；庭院总点数大于7就爆掉。',stay:'Stay 自己不是其他背面行动牌。'};
-const quizChoices={"normal":["2 放狗牌，5 埋庭院","5 可以直接弃掉"],"howl":["已有6张也要掷1颗","已有6张就不用掷骰"],"rollover":["庭院空也可追加投1颗","庭院空就不能使用"],"walk":["先处理2颗，再选第3颗","3颗一起投再处理"],"dig":["1降为0时弃回供应","留下一颗0点骰"],"retrieve":["设5后顶牌仍留原处","直接把顶牌拿为己有"],"track":["只重掷不喜欢的6","必须3颗一起重掷"],"trot":["移动时允许改成5","只能保持原来的3"],"guard":["1和3留下","4和6留下"],"scavenge":["可以选择弃1、2","小于或等于3都能弃"],"search":["2和6必须处理，可能爆掉","凑到8就直接得分"],"hunt":["必须选择2颗处理","可以只处理1颗"],"fetch":["选3就得处理三个3","只选其中一个3"],"run":["前一批先结算再追加","下一颗并入上一批重掷"],"bolt":["至少掷完第3颗才可停","投完第2颗就能停"],"dogpile":["没有旧骰则投2颗","没有旧骰行动无效"],"chase":["下一批投2颗","下一批投3颗"],"sprint":["这次应该投2颗","这次应该投3颗"],"beg":["最后共有6根","最后共有5根"],"chew":["最后共有5根","最后共有6根"],"gobble":["最后共有4根","最后共有9根"],"playdead":["安全埋3点，拿3根","埋4点也安全"],"stay":["从供应区拿3根","拿4根，包含Stay"]};
-const practiceScenes={"normal": [["🐕 缺 2", "🏡 0 点"], ["🎲 掷出 2 · 5", "🦴 可整批重掷"], ["🐕 放 2", "🏡 埋 5 → 5 点"]], "howl": [["🐕 5 张狗牌", "牌堆等待"], ["🐕 抽 1 张 → 6 张", "摸牌不是投骰"], ["🎲 掷 1 颗", "🐕 对号入座 / 🏡 埋"]], "rollover": [["🏡 旧骰 2 · 4", "总点数 6"], ["🎲 拿回 2 颗重掷", "🏡 先清空旧骰"], ["🎲 可再投 1 颗", "逐批结算，随时停"]], "walk": [["🎲 准备 2 颗", "🏡 0 点"], ["🎲 2颗先放/埋", "🦴 可重掷这批"], ["🎲 第3颗可不投", "🛑 停手也合法"]], "dig": [["🐾 2 个爪印", "🏡 自家 5 点"], ["🎲 院中 1 → 弃掉", "🏡 总点数变 4"], ["🎲 再投 2 颗", "🏡 按调整后庭院计算"]], "retrieve": [["牌堆顶：2、5", "🐕 自己缺 5"], ["🎲 取一颗直接设为 5", "🐕 先放好"], ["🎲 再掷2颗", "牌堆顶仍在原处"]], "track": [["🎲 1 · 2 · 6", "🦴 有1根"], ["🎲 保留1 · 2", "🦴 花1根只重掷6"], ["🎲 最终安放", "🐕 放/埋所有结果"]], "trot": [["🐕 已有一个3", "🐕 另有5空位"], ["🎲 从3位移到5位", "🎲 改成5面"], ["🎲 再投2颗", "🐕 重新更新缺口"]], "guard": [["报数 3", "🎲 尚未投"], ["🎲 掷1·3·4·6", "已报数不能改"], ["✅ 留1·3", "❌ 弃4·6"]], "scavenge": [["🏡 原庭院 3 点", "🎲 准备4颗"], ["🎲 掷1·2·3·6", "阈值仍然是3"], ["🗑 可弃1·2", "3和6必须处理"]], "search": [["🎲 掷7颗", "🎯 找总和8"], ["🎲 选择2 + 6", "其余弃回"], ["🏡 若都没空位 → 埋8", "💥 爆掉！"]], "hunt": [["🐾 2个 → 投4颗", "🎲 1·2·4·6"], ["🎲 必须挑2颗", "其余全部弃"], ["🐕 放或🏡埋", "不能只留1颗"]], "fetch": [["🎲 掷8颗", "有3·3·3"], ["🎯 选数字3", "🎲 三个3全部留下"], ["🐕 若只缺一个3", "🏡 其余两个3要埋"]], "run": [["🎲 第一批3颗", "🏡 待结算"], ["🐕 放/埋全部3颗", "旧骰不能跨批重掷"], ["🎲 再投1颗?", "可重复，也可停"]], "bolt": [["🎲 留出5颗", "🐾 2个爪印"], ["🎲 已投2颗", "剩3颗：不能停"], ["🎲 已投3颗", "剩2颗：可以停"]], "dogpile": [["🎲 公共区2颗", "🔍 查自己旧骰"], ["🐕 / 🏡 有骰就再取1颗", "无旧骰就只有2颗"], ["🎲 把拿到的全掷", "🔁 可重新检查再重复"]], "chase": [["🎲 第一批1颗", "🐕 先安放"], ["🎲 第二批2颗", "🏡 先结算"], ["🎲 第三批3颗", "🛑 决定不追也合法"]], "sprint": [["🐕 有2张未完成狗牌", "🎲 要投2颗"], ["🎲 本批先结算", "🐕 可能填好新牌"], ["🔁 再来需重数", "狗牌变化就不能照搬2颗"]], "beg": [["🦴 原有2根", "🐾 3个爪印"], ["🦴 先拿1根 → 3", "爪印还没算"], ["🦴 再拿3根 → 6", "公共供应不足则少拿"]], "chew": [["🦴 原有2根", "骨头不是骰子"], ["🦴 翻倍 → 4", "从供应区再拿2根"], ["🦴 再加1 → 5", "分两步执行"]], "gobble": [["🦴 原有2根", "🐕 最高未填5点"], ["🦴 先拿7根 → 9", "不先扣5"], ["🦴 再还5根 → 4", "没有空位才跳过归还"]], "playdead": [["🎲 掷出3", "🏡 原庭院4点"], ["🏡 主动埋3 → 7", "还没爆掉"], ["🦴 领3根", "若埋4会到8→爆"]], "stay": [["👀 数其他背面牌", "不含 Stay 自己"], ["🎴 有3张背面", "每张对应1根"], ["🦴 领取3根", "取骨头受公共库存限制"]]};
-const exampleState={
-normal:{dots:[[0,1]],dice:2},howl:{dots:[[0,1]]},rollover:{dots:[[0,2]],yard:6,p:{buried:2,rolloverExtra:1}},walk:{dots:[[0,1]],p:{walkExtra:1}},dig:{dots:[[0,2]],yard:5,p:{paws:2,after:4}},
-retrieve:{dots:[[0,2],[0,5]],p:{top:5}},track:{dots:[[0,1],[0,2]],bones:1},trot:{dots:[[0,3]]},guard:{dots:[[0,1],[0,3]],p:{threshold:3}},
-scavenge:{dots:[[0,3]],yard:3},search:{dots:[[0,1]]},hunt:{dots:[[0,1],[0,2]],p:{paws:2}},fetch:{dots:[[0,3]],p:{fetch:3}},
-run:{dots:[[0,1]],p:{rounds:2}},bolt:{dots:[[0,1]],p:{paws:2,boltSet:5,boltRolls:3}},dogpile:{dots:[[0,1]],p:{source:'none'}},
-chase:{dots:[[0,1]],p:{rounds:3}},sprint:{dots:[[0,1],[1,2]]},beg:{dots:[[0,1]],bones:2,p:{paws:3}},chew:{dots:[[0,1]],bones:2},
-gobble:{dots:[[0,5]],bones:2},playdead:{dots:[[0,1]],yard:4,p:{playdead:'bury'}},stay:{dots:[[0,1]],p:{facedown:3}}};
-// The lesson is a reversible sandbox: never overwrite a live game without a return path.
-let demoSnapshot=null;
-function takeSnapshot(){return {yard,dice,bones,dogs,active,spots:spots.map(a=>a.slice()),params:{...params}}}
-function restoreTable(state){
- yard=state.yard;dice=state.dice;bones=state.bones;dogs=state.dogs;active=state.active;
- spots=state.spots.map(a=>a.slice());params={...state.params};$('action').value=active;
- renderDogs();updateExtra();switchLesson();recalc();
-}
-function restoreDemo(scroll=false){
- if(!demoSnapshot)return false;
- const state=demoSnapshot;demoSnapshot=null;restoreTable(state);
- $('trainerTry').textContent='🎲 用这张牌的例子试算';$('demoStatus').hidden=true;
- if(scroll)document.querySelector('#outcomes').scrollIntoView({behavior:'smooth',block:'start'});
- return true;
-}
-function loadExample(){
- if(demoSnapshot){restoreDemo(true);return}
- demoSnapshot=takeSnapshot();
- const z=exampleState[active]||exampleState.normal;
- spots=Array.from({length:6},()=>[0,0,0,0,0,0]);for(const [d,n] of z.dots)spots[d][n-1]++;
- dogs=3;yard=z.yard||0;bones=z.bones||0;dice=z.dice||2;
- params={threshold:3,paws:0,rounds:2,fetch:0,src:2,source:'choose',buried:0,rolloverExtra:1,walkExtra:1,boltSet:3,boltRolls:3,top:1,after:-1,facedown:2,reroll:1,playdead:'bury',verified:0,supply:-1,...(z.p||{})};
- $('trainerTry').textContent='↩ 恢复我刚才的桌面';$('demoStatus').hidden=false;
- renderDogs();updateExtra();recalc();document.querySelector('#outcomes').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function otherCard(delta){const keys=Object.keys(labels),i=keys.indexOf(active),next=keys[(i+delta+keys.length)%keys.length];restoreDemo();active=next;$('action').value=active;updateExtra();switchLesson();recalc();}
-let lessonIndex=0;
-function drawLesson(){const lesson=lessons[active]||lessons.normal,steps=lesson.steps,idx=Math.min(steps.length-1,lessonIndex);
- $('trainerName').textContent=labels[active][0];$('trainerVoice').textContent=lesson.voice;
- $('trainerStepCount').textContent=`第 ${idx+1} / ${steps.length} 步`;const tag=lawTags[active][idx]||'must';$('trainerObligation').dataset.type=tag;$('trainerObligation').textContent=lawText[tag];$('trainerStepMeaning').textContent=lawHelp[tag];
- $('trainerStepTitle').textContent=steps[idx][0];$('trainerStepText').textContent=steps[idx][1];const sc=practiceScenes[active]||practiceScenes.normal;const chips=sc[Math.min(idx,sc.length-1)];$('trainerScene').replaceChildren(...chips.map((t,j)=>{const a=document.createElement('span');a.className='scene-chip'+(j?' soft':'');a.textContent=t;return a;}));$('trainerSceneCaption').textContent=idx===0?'先看桌面。只动这一张行动牌允许动的东西。':idx===steps.length-1?'这一步结算完，才能考虑下一批。':'本阶段已发生变化，继续下一步看看结果。';
- $('trainerPrev').disabled=idx===0;$('trainerNext').disabled=idx===steps.length-1;
- $('trainerDots').innerHTML=steps.map((_,i)=>`<i class="${i===idx?'on':''}" aria-hidden="true"></i>`).join('');
- $('trainerQuestion').textContent=lesson.question;$('trainerAnswer').textContent=lesson.answer;
- $('trainerAnswer').hidden=true;const cs=quizChoices[active],flip=Object.keys(lessons).indexOf(active)%2;
- $('trainerChoices').innerHTML=(flip?[{ok:false,t:cs[1]},{ok:true,t:cs[0]}]:[{ok:true,t:cs[0]},{ok:false,t:cs[1]}]).map(o=>`<button type="button" data-correct="${o.ok?1:0}" aria-pressed="false">${o.t}</button>`).join('');
- $('trainerTrap').textContent='容易弄错 · '+lesson.trap;
-}
-function switchLesson(){lessonIndex=0;$('trainerQuiz').open=false;drawLesson()}
+const lawText={must:'必须',optional:'可选',conditional:'按条件'};
 
-const groups={all:'全部',red:'基础',green:'骨头',blue:'筛骰',yellow:'调整',purple:'连续'};let selectedGroup='all';function renderRules(){const el=$('tiles');el.innerHTML=Object.entries(labels).filter(([k])=>k!=='normal'&&(selectedGroup==='all'||category[k]===selectedGroup)).map(([key,[name,body]])=>{const l=lessons[key];return `<details class="tile"><summary><b>${name}</b><span class="en">${groups[category[key]]}</span></summary><div class="rule-body"><ol>${l.steps.map(a=>`<li><b>${a[0]}</b>：${a[1]}</li>`).join('')}</ol><div class="rule-example"><b>这次怎么办？</b> ${l.question}<div style="margin-top:5px">${l.answer}</div></div><p class="rule-trap"><b>别踩坑：</b>${l.trap}</p><div class="rule-actions"><button type="button" data-choose="${key}">用这张牌计算</button><button type="button" data-demo="${key}">🐾 一步步演示</button></div></div></details>`}).join('')}
-$('filters').innerHTML=Object.entries(groups).map(([k,v])=>`<button data-group="${k}" aria-pressed="${k==='all'}">${v}</button>`).join('');const select=$('action');select.innerHTML=Object.entries(labels).map(([key,[name]])=>`<option value="${key}">${name}</option>`).join('');select.value=active;
-$('yard').innerHTML=Array.from({length:7},(_,i)=>`<button class="num" data-y="${i+1}" aria-pressed="false">${i+1}</button>`).join('');$('yard').addEventListener('click',e=>{let el=e.target.closest('button[data-y]');if(!el)return;let v=+el.dataset.y;yard=yard===v?0:v;recalc()});$('zero').onclick=()=>{yard=0;recalc()};$('dogs').addEventListener('click',e=>{let el=e.target.closest('button[data-d]');if(!el)return;let d=+el.dataset.d,f=+el.dataset.f;spots[d][f]=(spots[d][f]+1)%4;el.setAttribute('aria-pressed',String(spots[d][f]>0));el.setAttribute('aria-label',`第${d+1}只狗缺数字${f+1}，当前${spots[d][f]}个；点按增加`);el.innerHTML=(f+1)+(spots[d][f]>1?`<sup>×${spots[d][f]}</sup>`:'');recalc()});$('moreDog').onclick=()=>setDogCount(dogs+1);$('lessDog').onclick=()=>setDogCount(dogs-1);$('clearSpots').onclick=()=>{spots.forEach(a=>a.fill(0));renderDogs();recalc()};$('dicePlus').onclick=()=>{dice=Math.min(12,dice+1);recalc()};$('diceMinus').onclick=()=>{dice=Math.max(1,dice-1);recalc()};$('bonesPlus').onclick=()=>{bones=Math.min(10,bones+1);recalc()};$('bonesMinus').onclick=()=>{bones=Math.max(0,bones-1);recalc()};select.onchange=()=>{const next=select.value;restoreDemo();active=next;select.value=active;updateExtra();switchLesson();recalc()};$('specialExtra').onchange=e=>{let el=e.target.closest('select[data-p]');if(!el)return;let key=el.dataset.p;params[key]=['source','playdead'].includes(key)?el.value:+el.value;if(key==='source')params.verified=0;updateExtra();recalc()};$('filters').onclick=e=>{let el=e.target.closest('button[data-group]');if(!el)return;selectedGroup=el.dataset.group;document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===el)));renderRules()};$('tiles').onclick=e=>{let el=e.target.closest('button[data-choose],button[data-demo]');if(!el)return;const next=el.dataset.choose||el.dataset.demo;restoreDemo();active=next;select.value=active;updateExtra();switchLesson();recalc();const demo=!!el.dataset.demo;if(demo)$('trainer').open=true;document.querySelector(demo?'#trainer':'#outcomes').scrollIntoView({behavior:'smooth',block:'start'})};
- $('trainerTry').onclick=loadExample;$('trainerCardPrev').onclick=()=>otherCard(-1);$('trainerCardNext').onclick=()=>otherCard(1);
- $('trainerPrev').onclick=()=>{lessonIndex=Math.max(0,lessonIndex-1);drawLesson()};
- $('trainerNext').onclick=()=>{lessonIndex=Math.min(lessons[active].steps.length-1,lessonIndex+1);drawLesson()};
- $('trainerChoices').onclick=e=>{const btn=e.target.closest('button[data-correct]');if(!btn)return;document.querySelectorAll('#trainerChoices button').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));$('trainerAnswer').hidden=false;$('trainerAnswer').textContent=(btn.dataset.correct==='1'?'🐶 叼对了！ ':'🐾 先找错在哪儿：'+wrongReason[active]+' ')+lessons[active].answer;};
- renderDogs();renderRules();updateExtra();switchLesson();recalc();})();
+const select=$('action');
+for(const [key,[name]] of Object.entries(labels)){
+ if(key==='normal')continue;
+ const opt=document.createElement('option');opt.value=key;opt.textContent=name;select.add(opt);
+}
+select.value=active;
+$('yard').replaceChildren(...Array.from({length:7},(_,i)=>{
+ const btn=document.createElement('button');btn.className='num';btn.dataset.y=i+1;
+ btn.setAttribute('aria-pressed','false');btn.textContent=i+1;return btn;
+}));
+$('yard').addEventListener('click',e=>{
+ const el=e.target.closest('button[data-y]');if(!el)return;
+ const v=+el.dataset.y;yard=yard===v?0:v;recalc();
+});
+$('zero').onclick=()=>{yard=0;recalc()};
+$('dogs').addEventListener('click',e=>{
+ const el=e.target.closest('button[data-d]');if(!el)return;
+ const d=+el.dataset.d,f=+el.dataset.f;
+ spots[d][f]=(spots[d][f]+1)%4;
+ el.setAttribute('aria-pressed',String(spots[d][f]>0));
+ el.setAttribute('aria-label','第'+(d+1)+'只狗缺数字'+(f+1)+'，当前'+spots[d][f]+'个；点按增加');
+ el.innerHTML=(f+1)+(spots[d][f]>1?'<sup>×'+spots[d][f]+'</sup>':'');
+ recalc();
+});
+$('moreDog').onclick=()=>setDogCount(dogs+1);
+$('lessDog').onclick=()=>setDogCount(dogs-1);
+$('clearSpots').onclick=()=>{spots.forEach(a=>a.fill(0));renderDogs();recalc()};
+$('dicePlus').onclick=()=>{dice=Math.min(12,dice+1);recalc()};
+$('diceMinus').onclick=()=>{dice=Math.max(1,dice-1);recalc()};
+$('bonesPlus').onclick=()=>{bones=Math.min(10,bones+1);recalc()};
+$('bonesMinus').onclick=()=>{bones=Math.max(0,bones-1);recalc()};
+select.onchange=()=>{active=select.value;updateExtra();renderActionRule();recalc()};
+$('specialExtra').onchange=e=>{
+ const el=e.target.closest('select[data-p]');if(!el)return;
+ const key=el.dataset.p;
+ params[key]=['source','playdead'].includes(key)?el.value:+el.value;
+ if(key==='source')params.verified=0;
+ updateExtra();renderActionRule();recalc();
+};
+renderDogs();updateExtra();renderActionRule();recalc();})();
 </script></body></html>

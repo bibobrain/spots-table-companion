@@ -55,12 +55,15 @@ async def test():
     if yard:await j(f"document.querySelector('#yard').children[{yard-1}].click()")
     for idx,v in enumerate(need):
      for _ in range(v):await j(f"document.querySelector('#dogs button[data-d=\"0\"][data-f=\"{idx}\"]').click()")
-    await j(f"(function(){{let x=document.querySelector('#action');x.value='{mode}';x.dispatchEvent(new Event('change',{{bubbles:true}}));}})()")
+    if mode!='normal':await j(f"(function(){{let x=document.querySelector('#action');x.value='{mode}';x.dispatchEvent(new Event('change',{{bubbles:true}}));}})()")
     if mode=='normal':
      await j("(function(){for(let i=0;i<12;i++)document.querySelector('#diceMinus').click()})()")
      for _ in range(n-1):await j("document.querySelector('#dicePlus').click()")
     if mode=='guard':await j(f"(function(){{let x=document.querySelector('#specialExtra [data-p=threshold]');x.value='{t}';x.dispatchEvent(new Event('change',{{bubbles:true}}))}})()")
-    values=json.loads(await j("JSON.stringify({fill:[1,2,3,4].map(i=>document.querySelector('#fill'+i).textContent),bust:document.querySelector('#bust').textContent,scope:document.querySelector('#scope').textContent})"))
+    fill_key='#fill' if mode=='normal' else '#actionFill'
+    bust_key='#bust' if mode=='normal' else '#actionBust'
+    scope_key='#scope' if mode=='normal' else '#actionScope'
+    values=json.loads(await j("JSON.stringify({fill:[1,2,3,4].map(i=>document.querySelector('"+fill_key+"'+i).textContent),bust:document.querySelector('"+bust_key+"').textContent,scope:document.querySelector('"+scope_key+"').textContent})"))
     expected,exb=canonical(n,need,yard,mode,t)
     observed=[float(v.replace('%','')) for v in values['fill']]
     ob=float(values['bust'].replace('%',''))
