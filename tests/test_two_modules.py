@@ -51,6 +51,10 @@ try:
    print('ALL MODES RULES',len(results))
    touch=json.loads(await js("JSON.stringify({spots:[...document.querySelectorAll('.spot')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),mini:[...document.querySelectorAll('.tinybutton')].map(x=>x.getBoundingClientRect().height),chips:[...document.querySelectorAll('.group-chip')].map(x=>x.getBoundingClientRect().height),dogColumns:getComputedStyle(document.querySelector('#dogs')).gridTemplateColumns})"))
    print('TOUCH',touch['spots'][:1],touch['mini'],touch['chips'],touch['dogColumns'])
+   sizes=json.loads(await js("JSON.stringify({yard:[...document.querySelectorAll('#yard button')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),stepper:[...document.querySelectorAll('.stepper button')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height}))})"))
+   assert all(x['w']>=44 and x['h']>=44 for x in sizes['yard']),('yard too small',width,sizes['yard'])
+   assert all(x['w']>=44 and x['h']>=44 for x in sizes['stepper']),('stepper too small',width,sizes['stepper'])
+   print('ALL_TAP_TARGETS',width,'yard',[(round(z['w']),round(z['h'])) for z in sizes['yard']],'stepper',[(round(z['w']),round(z['h'])) for z in sizes['stepper']])
    assert all(z['w']>=44 and z['h']>=44 for z in touch['spots']),touch
    assert all(x>=44 for x in touch['mini']+touch['chips']),touch
 

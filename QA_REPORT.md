@@ -61,3 +61,7 @@ After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c737
 ## Non-modeled states
 
 Full physical dice shortage; per-die yard details for Dig; unseen next dog cards; unlimited duplicate same-face spots; optimal user decisions. The application is a fan-made player aid, not a game engine.
+
+## rc.5 narrow-screen tactile regression
+
+At 320px mobile viewport, 7 yard buttons previously measured 37px width. The revised 4+3 layout provides at least 44px width; 390px and larger retain the single-row layout. All 22 trick groups, game-state updates and the calculation engine remain unchanged.

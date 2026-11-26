@@ -279,6 +279,13 @@ header small{font-weight:850;letter-spacing:.14em;color:#8b9782}
 .valuebox{padding:6px 12px}
 .stepper button{width:48px;height:48px}
 }
+
+/* rc.5: full-sized yard hit targets on narrow phones; 4 + 3 naturally balanced rows. */
+@media(max-width:380px){
+ .yard{grid-template-columns:repeat(12,minmax(0,1fr));gap:7px}
+ .yard .num{grid-column:span 3;height:50px;min-height:50px;font-size:21px}
+ .yard .num:nth-child(n+5){grid-column:span 4}
+}
 </style></head><body><main><header><strong>🐾 狗运当头 · 随手算</strong><small>SPOTS</small></header>
 <section class="general-module" id="generalModule" aria-label="通用庭院概率计算器">
 <div class="sheet"><div class="section"><div class="head"><h2>庭院</h2><button class="none" id="zero" aria-label="清空庭院" title="清空庭院">↺</button></div><div class="yard" id="yard"></div></div>

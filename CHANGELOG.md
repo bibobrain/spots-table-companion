@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0-rc.5 — 2026-11-26
+
+Fixes 320–380px yard buttons: 1–7 now uses a 4+3 two-row grid with at least 50px vertical targets and ~65–95px width. No rule or probability calculation changes.
+
 ## 1.0.0-rc.4 — 2026-11-26
 
 - Larger 46–49px dog-card numeric touch targets; two dog cards per phone row (one per row for 365px and narrower).
