@@ -16,7 +16,7 @@ The math engine has the same decision rules as rc.2; compute(mode) now renders t
 
 Chromium CDP verified 390px and 768px viewports: all 22 action rules and result outputs, 66 action × 0/2/10 treat scenarios (48 probability distributions summing to 100% within rounding, 12 resource and 6 missing-input states). Guard's threshold changes action odds while ordinary odds stay 30.6%/41.7% at the default board; changing the board affects both. No JS exceptions or horizontal overflow.
 
-Run the independent multinomial test against ordinary-roll and action-specific output IDs; a second browser test verifies the two-module contract. These are current rc.3 tests. Older v12/rc.2 evidence below is historical and does not prove the new screen by itself.
+Run the independent multinomial test against ordinary-roll and action-specific output IDs; a second browser test verifies the two-module contract. These were the rc.3 tests. The newer rc.4 visual and interaction regression results are recorded above.
 
 ## Historical v12/rc.2 evidence
 
@@ -54,7 +54,7 @@ After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c737
 [x] README, release notes, issue reporting, community copy.
 [x] Local static syntax and structure checks.
 [x] Public repository main commit and index.html bytes read back from GitHub.
-[ ] rc.4 GitHub Pages HTTPS exact-byte verification and full remote Chromium interaction (pending publication).
+[x] rc.4 GitHub Pages build confirmed built; HTTPS HTTP 200 index.html SHA-256 d797608c789034c9ec68fb4d7f4e92b18dbabf34647b17f60f4e7c17e2a68fc1 exactly matches the 67,541-byte tested release. Public Chrome completed 22 action categories and 66 action×treat cases; GitHub Release ZIP was re-downloaded, byte-compared and unpacked to pass the static test suite.
 [ ] Community link submitted or post published.
 [ ] Independent real iOS Safari test and publisher/community compliance as applicable.
 
