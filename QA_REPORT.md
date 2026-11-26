@@ -46,7 +46,7 @@ After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c737
 [x] README, release notes, issue reporting, community copy.
 [x] Local static syntax and structure checks.
 [x] Public repository main commit and index.html bytes read back from GitHub.
-[x] rc.2 GitHub Pages HTTPS returned 200 with byte-identical code; rc.3 requires new live-byte readback after deployment.
+[x] rc.3 GitHub Pages HTTPS returned HTTP 200 with all 61,884 HTML bytes identical to the tested release; remote Chromium passed the two-module, all-22-action and 66-scenario tests.
 [ ] Community link submitted or post published.
 [ ] Independent real iOS Safari test and publisher/community compliance as applicable.
 
