@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0-rc.4 — 2026-11-26
+
+- Larger 46–49px dog-card numeric touch targets; two dog cards per phone row (one per row for 365px and narrower).
+- New original Dalmatian SVG, visual dice and bone tokens, large BUST risk typography.
+- 22 Trick tiles are chosen by the five official tile colors before choosing the exact action (2 or 5 options per group).
+- Removes decorative explanations and unnecessary input headings; retains accessible control names.
+- Fetch still chooses the best observed die face for the displayed objective. Guard now defaults to a pre-roll automatic face selection: maximize safe probability of filling at least one space, then minimize bust risk, then maximize expected fills. The called number can be overridden.
+- Other optional multi-stage plans remain selectable; no unsupported claim of globally optimal whole-game strategy.
+
+# Changelog
+
 ## 1.0.0-rc.3 — 2026-11-26
 
 Two-component redesign: the original general yard/dog probability calculator stays on top; a single action card below now contains all 22 trick selections, large objective rule text, only necessary parameters, and independent action-specific odds. Removed the separate tutorial, quizzes, and expanded 22-card rule catalog. Simple action descriptions no longer repeat themselves in step lists.

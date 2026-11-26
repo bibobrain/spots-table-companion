@@ -8,7 +8,7 @@
 
 **[直接打开网页版（GitHub Pages）](https://bibobrain.github.io/spots-table-companion/)**
 
-**[下载离线 ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.3/SpotsTableCompanion_1.0.0-rc3.zip)** · [版本详情](https://github.com/bibobrain/spots-table-companion/releases/tag/v1.0.0-rc.3)
+**[下载离线 ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.4/SpotsTableCompanion_1.0.0-rc3.zip)** · [版本详情](https://github.com/bibobrain/spots-table-companion/releases/tag/v1.0.0-rc.4)
 
 页面只有**两个组件**：上方通用庭院计算器始终显示普通掷骰的填位概率与爆掉率；下方行动牌计算器把 **22 张行动的选择、放大规则、可调整参数和该行动独立概率**放在一起。两个组件共用你点选的庭院、狗牌、骰子和骨头，但更换行动只修改下方结果。
 

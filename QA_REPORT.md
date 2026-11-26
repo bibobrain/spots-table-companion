@@ -1,4 +1,12 @@
-# Spots Table Companion QA — current 1.0.0-rc.3
+# Spots Table Companion QA — current 1.0.0-rc.4
+
+## 1.0.0-rc.4 · Touch, categories and BUST
+
+The two-module gameplay structure remains. The dog input now uses original Dalmatian SVG cards and >=44px numeric touch surfaces, with 2 columns at 390px and 1 at 320px. All five category buttons are 49px tall; each filters the 22 trick names to that tile color.
+
+Guard now precommits the best announced number for the stated objective: maximize safe fill >=1, then minimize bust, then maximize expected filled slots. This is a local, pre-roll policy, not a global full-game optimal-play guarantee. Fetch continues using post-roll choice of one actual die face.
+
+Chromium with exact CDP 320px/390px/768px viewport checked the complete 22-action picker, 66 action×treat states (48 conserved distributions, 12 resource states and 6 legitimate missing-input states), editable dog spots, category transitions, independent ordinary and special outcome cards, Guard auto vs manual 6, all visible dog touch buttons >=44px and no horizontal overflow or page JavaScript errors.
 
 ## 1.0.0-rc.3 · Two-component acceptance
 
@@ -46,7 +54,7 @@ After the 1.0.0-rc.2 CSS-only pass, the release index SHA-256 is fddb0581e45c737
 [x] README, release notes, issue reporting, community copy.
 [x] Local static syntax and structure checks.
 [x] Public repository main commit and index.html bytes read back from GitHub.
-[x] rc.3 GitHub Pages HTTPS returned HTTP 200 with all 61,884 HTML bytes identical to the tested release; remote Chromium passed the two-module, all-22-action and 66-scenario tests.
+[ ] rc.4 GitHub Pages HTTPS exact-byte verification and full remote Chromium interaction (pending publication).
 [ ] Community link submitted or post published.
 [ ] Independent real iOS Safari test and publisher/community compliance as applicable.
 
