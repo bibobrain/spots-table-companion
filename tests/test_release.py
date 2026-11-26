@@ -12,14 +12,14 @@ class ReleaseTests(unittest.TestCase):
   for token in ('<script src=', 'fetch(', 'localStorage','indexedDB','private-workspace-path','PRIVATE KEY'):
    self.assertNotIn(token,HTML)
  def test_action_and_probability_controls(self):
-  for token in ('id="fill1"','id="fill2"','id="fill3"','id="fill4"','id="bust"','id="action"','id="trickGroups"','id="actionFill1"','id="actionBust"','id="actionRule"','id="ruleSteps"','function paintOutcome','function renderActionRule','function autoGuard'):
+  for token in ('id="fill1"','id="fill2"','id="fill3"','id="fill4"','id="bust"','id="trickGroups"','id="generalEmpty"','id="actionEmpty"','id="actionCards"','id="actionDetail"','id="backToCards"','id="actionFill1"','id="actionBust"','id="actionRule"','id="ruleSteps"','function paintOutcome','function renderActionRule','function autoGuard'):
    self.assertIn(token,HTML)
  def test_exactly_two_modules(self):
   self.assertEqual(HTML.count('<section class="general-module"'),1)
   self.assertEqual(HTML.count('<section class="trick-module"'),1)
   self.assertEqual(HTML.count('<div class="trick-groups"'),1)
   self.assertEqual(HTML.count('<strong>BUST</strong>'),2)
-  for old in ('id="trainer"','id="tiles"','id="trainerQuiz"','id="filters"'):
+  for old in ('id="trainer"','id="tiles"','id="trainerQuiz"','id="filters"','id="action"'):
    self.assertNotIn(old,HTML)
  def test_package(self):
   for name in ('README.md','LICENSE','NOTICE.md','QA_REPORT.md','COMMUNITY_POSTS.md','CHANGELOG.md','assets/preview-mobile.png','.nojekyll'):

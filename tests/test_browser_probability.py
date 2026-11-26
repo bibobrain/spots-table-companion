@@ -55,7 +55,9 @@ async def test():
     if yard:await j(f"document.querySelector('#yard').children[{yard-1}].click()")
     for idx,v in enumerate(need):
      for _ in range(v):await j(f"document.querySelector('#dogs button[data-d=\"0\"][data-f=\"{idx}\"]').click()")
-    if mode!='normal':await j(f"(function(){{let x=document.querySelector('#action');x.value='{mode}';x.dispatchEvent(new Event('change',{{bubbles:true}}));}})()")
+    if mode!='normal':
+     # These independent reference cases use the Filter group's cards.
+     await j(f"(function(){{let group=document.querySelector('#trickGroups [data-group=blue]');if(group.getAttribute('aria-pressed')!=='true')group.click();else if(!document.querySelector('#actionDetail').hidden)document.querySelector('#backToCards').click();document.querySelector('#actionCards [data-action={mode}]').click();}})()")
     if mode=='normal':
      await j("(function(){for(let i=0;i<12;i++)document.querySelector('#diceMinus').click()})()")
      for _ in range(n-1):await j("document.querySelector('#dicePlus').click()")

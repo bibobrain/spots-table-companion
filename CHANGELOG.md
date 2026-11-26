@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-rc.6 — 2026-11-26
+
+- Renamed the helper **Pip & Paw**; uses short English controls and bilingual card names.
+- Reworked colors, lightened numbers, and replaced the Dalmatian SVG. Touch areas stay at least 44px in tested phone/tablet layouts.
+- Replaced colored categories and the second dropdown with neutral categories, complete thumbnail groups, and one card detail. First load is empty; Back preserves category and focus.
+- Restored Bolt’s paw-print input, kept Run and Chase counts independently, and exposed existing calculation-scope notes.
+- Kept the probability engine unchanged. Updated regression entry points for the new picker.
+
 ## 1.0.0-rc.5 — 2026-11-26
 
 Fixes 320–380px yard buttons: 1–7 now uses a 4+3 two-row grid with at least 50px vertical targets and ~65–95px width. No rule or probability calculation changes.

@@ -1,4 +1,25 @@
-# Spots Table Companion QA — current 1.0.0-rc.4
+# Pip & Paw QA — 1.0.0-rc.6
+
+## Scope of this revision
+
+The new interface uses a warm neutral palette, lighter visible number discs with separate 44–46px hit areas, and original code-native Dalmatian artwork. Short controls are in English; important card names remain bilingual. Action starts empty, then shows a complete category overview before a selected card’s detail.
+
+Candidate `index.html`: SHA-256 `732a4caa00b047c78a0c90a1d9d577d342058673d31626223b70c648965d27a4` (60,720 bytes).
+
+## Checks performed
+
+- Live Chrome interaction: initial empty state; all five groups and all 22 visible thumbnails (2 / 5 / 5 / 5 / 5); Fixed → Howl detail → Back; category changes; unchanged ordinary Roll results during action changes; clearing missing spaces.
+- Live DOM geometry at 320px, 390px and 768px: no horizontal overflow; all displayed buttons at least 44px in both dimensions. The initial 390px yard row was too narrow; the final version uses 4+3 below 421px. Dice/Bones labels remain visible on phones.
+- Live Bolt input: leaving 3 dice and planning 1 roll produces the stopping-condition message with zero paw prints; setting 2 paw prints makes that plan valid immediately. The paw-print control and both other parameters remain present.
+- Desktop composition and original SVG artwork inspected visually. Captures with a viewport override timed out, so the phone/tablet checks above are live geometry and control checks, not screenshot-based visual acceptance. No page JavaScript errors were observed during the completed interaction pass.
+- Node VM: 18 probability functions are byte-for-byte unchanged from rc.5. The 22 actions plus Roll in two valid board states give 46 distributions identical to rc.5; non-resource probability masses sum to one within 1e-9.
+- Three independent closed-form checks: one die with only face 1 missing gives safe fill 1/6; at Yard 7 the bust risk is 5/6; with one reroll bone, safe fill is 11/36 and bust is 25/36.
+- Full registered event handlers replayed in a DOM stub: Run 0 → Chase 2 → Run 0; Run 5 → Chase 2; Chase 4 → Run 5 → Chase 4. Values stay independent. Bolt inputs and valid/invalid calculation-scope notes render correctly.
+- Python test sources and embedded JavaScript parse successfully. Browser test scripts were updated for the new picker; they were not executed in this revision. Their previous-release results below are historical.
+
+The physical game rules and unknown-card boundaries still apply. Actual iOS Safari has not been tested in this revision.
+
+## Earlier releases
 
 ## 1.0.0-rc.4 · Touch, categories and BUST
 

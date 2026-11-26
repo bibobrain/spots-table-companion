@@ -1,58 +1,48 @@
-# Spots Table Companion · 狗运当头随手算
+# Pip & Paw · A Spots companion
 
-**Free, unofficial, Chinese-language companion** for CMYK's Spots dice game. A single offline-capable HTML page, not a replacement for the physical game.
+**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Download offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.6/PipAndPaw_1.0.0-rc6.zip)**
 
-![Mobile view](assets/preview-mobile.png)
+A free, unofficial tabletop probability helper for CMYK’s **Spots**. English controls, bilingual card names, and Chinese rule explanations. One HTML file; no account or installation.
 
-## 在线打开 · 中文快速上手
+## At the table
 
-**[直接打开网页版（GitHub Pages）](https://bibobrain.github.io/spots-table-companion/)**
+1. Set **Yard** to the sum of the dice buried in your yard. Tap a selected value again, or the reset button, for zero.
+2. In **Dogs**, tap the numbers that are still empty on your physical dog cards. Repeated taps cycle through one, two, three, and zero missing spaces of that number.
+3. Set **Dice** and **Bones**. **Roll** shows the chance of safely filling exactly 1–4 spaces, filling none, and busting. It starts with a short explanation until you enter dog spaces.
+4. In **Action**, choose **Fixed / Adjust / Filter / Chain / Bones**. Every card in that group appears with a short effect description. Open a card for its full rule, relevant settings, and result. **Back** returns to the same group.
 
-**[下载离线 ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.5/SpotsTableCompanion_1.0.0-rc5.zip)** · [版本详情](https://github.com/bibobrain/spots-table-companion/releases/tag/v1.0.0-rc.5)
+Changing an action leaves the ordinary Roll result unchanged. Both results use the same yard, dog spaces, dice, and bones. There is no randomly selected action on first load.
 
-页面只有**两个组件**：上方通用庭院计算器始终显示普通掷骰的填位概率与爆掉率；下方行动牌计算器把 **22 张行动的选择、放大规则、可调整参数和该行动独立概率**放在一起。两个组件共用你点选的庭院、狗牌、骰子和骨头，但更换行动只修改下方结果。
+## 中文使用说明
 
-概率使用页面明确写出的投骰、放骰及重掷策略，不代表所有可能策略中最优或整局胜率；实物规则与牌面优先。无需账号、无需安装。页面为**简体中文**，可保存 index.html 离线使用。
-
-## What it does · 功能
-
-* Select 1–7 buried yard spots (tap the chosen value again for 0).
-* Tap dog spots to mark missing numbers (up to three of each number per illustrated dog).
-* Adjust dice and treats (0–10 treats).
-* See mutually exclusive probabilities of safely filling exactly 1, 2, 3 or 4 slots, along with bust odds.
-* Select among **22 trick tiles** in one card containing the action rule, adjustable parameters, and a separate probability result.
-* Read the action itself in large type. Only rules with meaningful sequences or conditions include a short ordered breakdown. No separate quiz or rule catalog.
-
-**Current interface: Simplified Chinese.** The original game's title, trademarks and official artwork belong to their owners.
-
-## Play online / offline
-
-Open the live GitHub Pages home page. There is no login or app installation. To use offline, save `index.html` and open it with a browser.
+先照着桌面设置 Yard、Dogs、Dice 和 Bones。狗身上的数字表示还缺的空位，同一个点数缺多处时连续点按。上方 Roll 始终计算普通投骰；下方 Action 先选类别，再看这一组全部卡片的简述，点具体卡片进入详情。卡名保留“嚎叫 Howl”这样的双语形式，规则与执行说明使用中文。
 
 ## Probability scope
 
-This is an aid for your selected **known** board state. The displayed dice-placement and treat-reroll strategy is **not guaranteed to be optimal play**; the probability is not a whole-game winning percentage. The ordinary default rerolls a batch only after failing to safely fill any slot. Track permits selected dice to be rerolled. An unknown next dog card cannot be simulated without its spaces.
+The displayed probabilities describe the entered board and the stated dice-placement and reroll policy. They are not a whole-game winning percentage or a guarantee of optimal play. The ordinary policy rerolls a batch after failing to safely fill a space; Track permits selected dice to be rerolled.
 
-The app assumes enough dice in the shared supply for dice-rolling calculations. Some tricks, including Dig and Dogpile, require actual physical dice information. Printed rules prevail in any conflict.
+An unknown next dog card needs its actual empty spaces. Dig, Dogpile, and some other actions require information from the physical dice. Dice-rolling calculations assume enough dice in the shared supply. Action-specific conditions appear beside their results.
 
-## Deploy to GitHub Pages
+## Online and offline
 
-1. Create a **new public repository** named `spots-table-companion` (or your preferred name).
-2. Upload **only this distribution's files**. Keep unrelated private workspace files out of the public repository.
-3. Open **Settings → Pages → Build and deployment**. Choose **Deploy from a branch**, branch `main` and folder `/ (root)`.
-4. After Pages finishes, open the actual page in a private browser window and test on a phone.
-5. The typical address format is `https://USERNAME.github.io/spots-table-companion/`; replace the name with your own. **No live URL is claimed until actually verified.**
+Open the live page, or unzip the download and open `index.html` in a browser. The app has no external script, tracking, account, or saved-state dependency. Rule links open external sites with their own policies.
 
-Run python3 tests/test_release.py locally before publishing or changing the page. A separate independent probability browser test requires Python websockets and Chrome: `pip install websockets; python tests/test_browser_probability.py`.
+## Development
 
-## Bug reports and feedback
+The distributable app is `index.html`. Run the package and syntax checks with:
 
-In a GitHub Issue, include the trick name, yard total, missing spots, dice, treats, other action parameters, expected outcome and actual outcome. Do not post personal information.
+```sh
+python3 tests/test_release.py
+```
 
-## License, privacy and attribution
+`tests/test_two_modules.py` covers the live interface and action states. `tests/test_browser_probability.py` compares selected results with independent probability references. Those scripts require Chrome and Python `websockets`; see [QA_REPORT.md](QA_REPORT.md) for the checks actually run for this version.
 
-Original code and custom UI artwork are MIT-licensed. Trademarks, title, original rules and official card artwork are **not** included in that grant. See [LICENSE](LICENSE) and [NOTICE](NOTICE.md).
+## Feedback
 
-The app does not send your game state, use tracking scripts, access local storage or require an account. GitHub Pages and outbound official rule links have their own hosting/service policies.
+For a bug report, include the action name, yard total, missing dog spaces, dice, bones, action parameters, and the result you expected.
 
-Original game: [CMYK Spots](https://www.cmyk.games/products/spots) · [Rules](https://www.rulespal.com/spots/rulebook) · [BGG listing](https://boardgamegeek.com/boardgame/372559/spots).
+## License and attribution
+
+Original code and custom SVG artwork are MIT-licensed. The game title, trademarks, original rules, and official artwork remain with their owners. See [LICENSE](LICENSE) and [NOTICE](NOTICE.md).
+
+[CMYK Spots](https://www.cmyk.games/products/spots) · [Rules](https://www.rulespal.com/spots/rulebook)
