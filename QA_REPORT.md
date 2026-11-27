@@ -1,3 +1,29 @@
+# Validation · 1.0.0-rc.9
+
+## Scope
+
+The change covers the Yard illustration, header status, dog-card pip controls and repeated helper copy. The Action rules, selectors, parameter handling and probability functions are retained.
+
+## Checked
+
+- Six existing release/package checks pass, including JavaScript syntax and offline runtime dependencies.
+- The probability and state-helper block between `getNeed()` and `paintOutcome()` is byte-for-byte identical to rc.8. The 22 action rules and category/detail route are unchanged.
+- In the connected Chrome browser, all seven Yard controls produce distinct scenes and correct header totals; reset returns to zero. The scene never invents a buried-dice composition or displays a seven-pip die.
+- Dog pip counts are exactly 1–6. Clicking cycles the missing-space count through 1, 2, 3 and zero; adding/removing a dog and the clear control retain their existing behavior.
+- With Yard 0, two dice, no bones, and one empty 1-pip space, the actual interface shows 30.6% for safely filling one space and 41.7% for busting, matching the previous independent reference case.
+- Same-origin browser frames at outer widths 320, 351, 390, 600 and 768px have no horizontal overflow and no overlapping dog targets. Scrollbars leave measured content widths 305, 336, 375, 585 and 753px. All measured Yard and dog controls are at least 44 × 44 CSS px.
+- Filter → Fetch → Choose spots returns to the first dog control with a visible focus ring without selecting it. Back returns to the Filter cards. Invalid-input and resource results retain their original calculation boundaries.
+- The rendered empty states no longer show the removed remaining-capacity or repeated "light up missing numbers" instructions. Required action-specific rules remain.
+
+## Verification boundary
+
+Desktop and fixed-width browser frames were inspected. Direct viewport screenshots timed out, so the narrow screenshots are Chrome frames, not physical iPhone or iPad captures. This release does not add an independent Human Review verdict; the existing project review cadence remains in its owning checkpoint.
+
+
+---
+
+## Previous release evidence
+
 # Pip & Paw QA — 1.0.0-rc.8
 
 Date: **2026-11-27**. This report covers the final rc.8 runtime and its offline package.

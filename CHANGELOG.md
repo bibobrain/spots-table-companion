@@ -1,3 +1,11 @@
+# 1.0.0-rc.9 · A backyard for the pack
+
+- Enlarged Yard into a complete backyard with a doghouse, fence, grass and soil. Each total from 1 to 7 has its own puppy pose and ground detail.
+- Moved the green, amber and red Yard status into a small header indicator. Seven points remains a valid total.
+- Replaced the separate dog-number grid with six tappable die-pip patterns directly on original dog illustrations. Duplicate missing-space counts and 44px touch targets remain.
+- Removed repeated capacity instructions, visible missing-space totals, and redundant onboarding paragraphs.
+- Preserved the 22 Action cards, their category/detail flow, and all probability calculations.
+
 # Changelog
 
 ## 1.0.0-rc.8 — 2026-11-27
