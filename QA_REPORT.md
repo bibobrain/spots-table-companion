@@ -1,58 +1,83 @@
-# Pip & Paw QA · 1.0.0-rc.11
+# Pip & Paw QA · 1.0.0-rc.12
 
 Date: **2026-11-27**.
 
-This release changes the dog builder, character names, and Yard presentation. **Eight package, dependency, and JavaScript checks passed.** Connected Chrome checks covered opening and dismissing the palette, preserving its draft, adding dogs, keyboard focus, Yard states, and narrow layouts.
+This release repairs interrupted dog creation, moves the palette to the left of its entrance, and coordinates the dog and props in the Yard. Connected Chrome checks exercised consecutive die selections through creation, repeated faces, draft editing, keyboard activation, and the second Add dog entrance.
 
 ## Candidate
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
-| [index.html](index.html) | 167,197 | `7e9cd146a4c757c05077f9bdb41fbad1530068cc42f9c19c9c99584a8de1f469` |
+| [index.html](index.html) | 170,408 | `b3f54b305c79166842c16b5df2f80975f3f56107f71aa67ee7b12276a8fca5f8` |
 | [game-model.js](assets/game-model.js) | 17,777 | `597387d516c118ff0198c82a1933b066d2edd2789ed8ffa1bc2d4eebc8fb7617` |
 | [settlement-model.js](assets/settlement-model.js) | 11,050 | `2a5a5c2b33812ae89d38de849cab0464b7b7bf12a10720177bc22a79dcd28d8e` |
 
-Both model files are byte-for-byte unchanged from rc.10. The offline runtime remains `index.html` plus those two scripts, `assets/dalmatian-poses.webp`, and `assets/puppy-actions.webp`.
+Both model files, the probability core, and both illustration atlases are unchanged from rc.11. The offline runtime remains `index.html`, those two scripts, `assets/dalmatian-poses.webp`, and `assets/puppy-actions.webp`.
+
+## Dog-creation regression
+
+The reported failure was reproduced in rc.11: from a two-dog board, opening the palette and selecting 1 displayed **1 / 4**, but the palette closed before the next selection of 2 could complete. The board still contained two dogs. The earlier rc.11 checks therefore did not establish reliable consecutive selection in this interaction path.
+
+The repair removes dismissal triggered by a transient loss of focus inside the component. Native Popover light dismissal, the fallback's outside-pointer handler, Escape, and explicit close remain the closing paths.
+
+The rc.12 candidate completed these connected-Chrome interactions:
+
+- **Consecutive selections and editing:** chose **1 → 2 → 2 → 6**, removed 6, and chose 4. Closing and reopening retained **[1,2,2,4]**. Confirmation created one dog with four separate empty spaces.
+- **Keyboard creation:** selected a single 5 and pressed Enter to create its one-space dog.
+- **Dismissal:** Escape and an outside click closed the palette; reopening retained the selected draft faces.
+- **Second entrance:** with one scored dog and no unscored dogs, the empty-state Add dog entrance accepted **4 → 4** and created a two-space dog. The scored dog remained in the gallery.
+- **Narrow-screen creation:** at 320 px, selecting **1 → 6** and confirming created a dog with two separate empty spaces.
+
+These checks used an isolated QA origin. The public site's current game was preserved.
+
+## Layout
+
+The desktop palette measured **420 × 217 px** and opened on the **left** of its entrance.
+
+| Chrome iframe | Content width | Horizontal overflow | Palette |
+|---|---:|---|---|
+| 390 × 1080 px | 375 px | None | 351 × 333.8 px at x = 12, y = 429; below the entrance. |
+| 320 × 1080 px | 305 px | None | 281 × 333.8 px at x = 12, y = 444; below the entrance. |
+
+The Yard, general module, and controls retained the same measured bounds before and after opening. These narrow-layout measurements used Chrome iframes. The captured narrow-screen console error list was empty.
+
+## Yard
+
+The eight scenes use the existing Dalmatian atlas within the same SVG coordinate system as the landscape and props. Their activities are:
+
+| Yard total | Activity |
+|---:|---|
+| 0 | Napping |
+| 1 | Exploring |
+| 2 | Sniffing the soil |
+| 3 | Digging |
+| 4 | Discovering a bone |
+| 5 | Inviting play |
+| 6 | Looking back |
+| 7 | Resting beside the bone |
+
+The Yard still represents the entered total; seven remains valid. The scenes no longer use progressively collapsing fences or flowerpots to represent that total.
+
+Rendered checks covered all eight scenes and two digging-paw phases in Inkscape, plus scene 4 in desktop and 390 px Chrome and scene 7 at 320 px. In Chrome, switching to scene 4 changed the paw rotation, moved the loose soil outward while its opacity rose from 0 to above 0.85, and revealed the bone from opacity 0 to 1.
+
+## Fallback and reduced motion
+
+Escape handling now stays available while the builder is open, including after keyboard focus moves outside it.
+
+A separate same-origin QA copy disabled the native Popover path and attributes. Selecting **1 → 2** succeeded. Pressing Tab from the create button moved focus to an outside dog-removal button while the palette remained open; Escape then closed it. Reopening restored **2 / 4**, and confirmation created **举爪申请加餐** with two empty spaces. Reloading the final native-Popover candidate, selecting 6, and pressing Escape also closed the palette.
+
+The QA copy forced the reduced-motion CSS branches on. Chrome reported **no paw animation**, **hidden dust**, and **bone opacity 1**. Its console error list was empty. This checks the fallback and CSS branches in Chrome; it does not use an operating-system preference change or a physical iOS device.
 
 ## Automated checks
 
-`python3 tests/test_release.py`: **8 passed** in the candidate directory and **8 passed** after extracting the offline ZIP into a separate directory. These checks cover page structure, current-game storage scope, local dependencies, release files, and JavaScript syntax.
+`python3 tests/test_release.py`: **8 passed** in the final candidate directory after the Escape-handler change, and **8 passed** after extracting the 22-file offline ZIP into a separate temporary directory. These checks cover page structure, current-game storage scope, local dependencies, release files, and JavaScript syntax.
 
-The game-model, settlement-model, and scripted browser regression suites were not rerun for rc.11. The 48-check rc.10 result remains in that version's QA report in repository history.
-
-## Connected Chrome: builder and focus
-
-- **Open and close.** The palette opens in the browser's top layer. Clicking Add dog again closes it. Escape closes it and restores focus to the entrance. Clicking Yard 6 outside the palette closes it and leaves focus on Yard 6.
-- **Keep the draft.** Two selected die faces remained selected after closing and reopening the palette.
-- **Create the card.** Adding `[4,4]` created **再陪我玩一局**; adding `[1,1]` created **饼干失踪嫌疑狗**. Focus moved to the new dog's first empty space.
-- **Edit a full draft.** After choosing the fourth face, focus moved to the palette's Add dog button. Removing the fourth and third selected dice left the remaining controls operable.
-- **Inspect settlement.** The longer character names fit the 288 px wide settlement dialog. That inspection ended with Cancel and added no result record.
-
-## Layout measurements
-
-| Chrome iframe | Content width | Horizontal overflow | Builder |
-|---|---:|---|---|
-| 390 × 820 px | 375 px | None | Yard, Dogs, outcomes, and Action retained the same bounds before and after opening. |
-| 320 × 820 px | 305 px | None | Palette measured 281 × 333.8 px at x = 12, y = 472, within the viewport. |
-
-At 320 px, the six die choices measured approximately **71 × 64 px**; dog-space targets remained **44 × 44 px**. Narrow-layout checks used Chrome iframes; physical iOS devices were not tested.
-
-## Yard and artwork
-
-Desktop Chrome checks covered totals **0, 4, 6, and 7**. The Yard uses the existing Dalmatian atlas, with each pose positioned by its crop's foot location. The higher totals show disturbed soil, leaning fence boards, and a tilted flowerpot. At seven the pot has not fallen, and the total remains valid.
-
-All eight scene constructions passed JavaScript and SVG syntax checks. Both illustration atlases and the dog-card slot geometry are unchanged from rc.10.
-
-## Reduced motion and fallback
-
-A separate same-origin QA copy forced the reduced-motion media rules on. Chrome reported `animation: none` for the palette and Yard character, and `scroll-behavior: auto` for the page. This exercised the CSS branches without changing the operating system's preference or the release HTML.
-
-The same QA copy disabled the native Popover path and its attributes. The fallback opened, accepted a 2-point die, closed with Escape, and restored that die on reopening. Adding it created **伸个懒腰再说** and focused its first space. Undo returned to two dogs with the palette closed.
-
-Captured console errors came from the Zotero extension; no site JavaScript error was observed in the interactions listed above.
+The game-model, settlement-model, and scripted browser regression suites were not rerun for rc.12. Their earlier results remain in the corresponding reports in repository history.
 
 ## Screenshots
 
-[Desktop](assets/preview-desktop.jpg) · [Mobile-width Chrome frame](assets/mobile.jpg) · [Game report, rc.10](assets/game-report.jpg)
+[Desktop: left-opening palette and scene 4](assets/preview-desktop.jpg) · [Narrow Chrome frames: scenes 4 and 7](assets/mobile.jpg) · [Game report, rc.10](assets/game-report.jpg)
 
-The game-report screenshot is retained from rc.10. Earlier release changes are listed in [CHANGELOG.md](CHANGELOG.md).
+The desktop and narrow-layout images show rc.12. The game-report screenshot remains from rc.10.
+
+Earlier version reports remain in repository history. Release changes are listed in [CHANGELOG.md](CHANGELOG.md).

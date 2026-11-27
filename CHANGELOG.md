@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-rc.12 — 2026-11-27
+
+- **Reliable dog creation:** fixed the palette closing during internal focus changes after a die selection. Consecutive selections, repeated faces, draft edits, and the final create action now remain in the same open component. Closing and reopening still keeps the draft. Escape also closes it after Tab moves focus outside.
+- **A left-opening palette:** the component unfolds to the left of Add dog when there is room, with viewport-aware placement on narrower screens. The main table stays in place until a new card is created.
+- **A playful backyard:** the eight Yard scenes now follow napping, exploring, sniffing, digging, finding a bone, playing, looking back, and resting beside the bone. The paws, pit, loose soil, and bone now line up with the dog's activity. The existing Dalmatian artwork, dog names, and probability models remain in use.
+
 ## 1.0.0-rc.11 — 2026-11-27
 
 - **A floating dog builder:** Add dog opens a compact palette beside its button without moving the table. Close it with the button, Escape, or an outside click; reopening restores the selected faces. The existing illustrated dice remain, and adding a dog moves keyboard focus to its first space.

@@ -180,7 +180,7 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 .record-faces{display:flex;align-items:center;gap:2px;flex-wrap:wrap;margin-top:3px}.record-faces .die-art{width:29px;height:30px;flex:none}.record-faces small{padding-left:3px}
 
 /* A temporary tool beside the table: opening it never moves the cards. */
-.dog-builder{position:fixed;inset:auto;z-index:60;width:420px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);margin:0;padding:16px;border:1px solid #c9d3bd;border-radius:18px;background:#fffdf5;color:var(--ink);box-shadow:0 14px 45px #36492a24,0 3px 10px #36492a10;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;animation:builder-appear .16s ease-out}
+.dog-builder{position:fixed;inset:auto;z-index:60;width:420px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);margin:0;padding:16px;border:1px solid #c9d3bd;border-radius:18px;background:#fffdf5;color:var(--ink);box-shadow:0 14px 45px #36492a24,0 3px 10px #36492a10;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;transform-origin:top right;animation:builder-unfold .14s ease-out}
 .dog-builder::backdrop{background:transparent}
 .dog-builder .builder-heading h3{font-size:14px;letter-spacing:.02em}
 .dog-builder .builder-heading p{font-size:11px;color:#64705b;margin-top:3px}
@@ -206,7 +206,7 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 .scored-dog .new-puppy{width:78px;margin:auto}
 .scored-dog>span:last-of-type{max-width:84px;overflow-wrap:anywhere}
 .settle-dog-name>span:last-child{line-height:1.5;overflow-wrap:anywhere}
-@keyframes builder-appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes builder-unfold{from{opacity:0;clip-path:inset(0 0 0 18% round 18px)}to{opacity:1;clip-path:inset(0 0 0 0 round 18px)}}
 @media(max-width:650px){
  .dog-builder{padding:14px;border-radius:16px}
  .dog-builder .dice-palette{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 12px;margin:8px 0 12px}
@@ -225,19 +225,21 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 @media(prefers-reduced-motion:reduce){.dog-builder{animation:none}}
 
 
-/* The same Dalmatian belongs to the card and the backyard. */
-.yard-scene .yard-character{left:var(--yard-x);top:var(--yard-y);width:22.8%;max-width:none}
-.yard-scene .yard-dog{display:block;width:100%;height:100%}
-.yard-reaction{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.yard-planter,.yard-gate{transform-box:fill-box;transform-origin:50% 100%}
-.yard-scene[data-level=caution] .yard-change .yard-planter,.yard-scene[data-level=full] .yard-change .yard-planter{animation:yard-pot-catch .46s ease-out both}
-.yard-scene[data-level=full] .yard-change .yard-gate{animation:yard-gate-catch .4s ease-out both}
-.yard-change .yard-tension{animation:yard-mark-arrive .25s ease-out both}
-@keyframes yard-pot-catch{0%,100%{transform:rotate(0)}35%{transform:rotate(-3deg)}70%{transform:rotate(1deg)}}
-@keyframes yard-gate-catch{0%,100%{transform:rotate(0)}40%{transform:rotate(-2deg)}}
-@keyframes yard-mark-arrive{from{opacity:0}to{opacity:1}}
-@media(max-width:650px){.yard-scene .yard-character{left:var(--yard-mobile-x);top:var(--yard-mobile-y);width:34%}}
-@media(prefers-reduced-motion:reduce){.yard-scene .yard-character,.yard-scene .yard-planter,.yard-scene .yard-gate,.yard-scene .yard-tension{animation:none}}
+/* One scene coordinate system keeps paws, soil and props together at every width. */
+.yard-scene .yard-story{position:absolute;inset:0;width:100%;height:100%;max-width:none;left:0;overflow:hidden}
+.yard-story .yard-dalmatian{overflow:hidden}
+.yard-working-paw{transform-box:fill-box;transform-origin:68.4211% 9.4118%;animation:yard-paw-scoop .72s ease-in-out 5}
+.yard-dirt-flight{opacity:0;animation:yard-soil-toss .72s ease-out 5;animation-delay:var(--crumb-delay,0s)}
+.yard-butterfly-wings{transform-box:fill-box;transform-origin:50% 50%;animation:yard-wings .65s ease-in-out 5}
+.yard-garden-sprig{transform-box:fill-box;transform-origin:50% 100%;animation:yard-sprig-breeze 1.5s ease-in-out 2}
+.yard-found-bone{animation:yard-bone-peek 2.15s ease-out both}
+@keyframes yard-paw-scoop{0%,100%{transform:rotate(0deg)}28%{transform:rotate(17deg)}66%{transform:rotate(-14deg)}85%{transform:rotate(-5deg)}}
+@keyframes yard-soil-toss{0%,24%{opacity:0;transform:translate(0,0)}35%{opacity:.95;transform:translate(7px,-5px)}65%{opacity:.85;transform:translate(33px,-19px)}95%,100%{opacity:0;transform:translate(54px,7px)}}
+@keyframes yard-wings{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.55)}}
+@keyframes yard-sprig-breeze{0%,100%{transform:rotate(0)}40%{transform:rotate(3deg)}70%{transform:rotate(-1deg)}}
+@keyframes yard-bone-peek{0%,15%{opacity:0;transform:translateY(5px)}45%,100%{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.yard-scene{aspect-ratio:2.35}.yard-scene .yard-story{width:100%;height:100%;left:0}}
+@media(prefers-reduced-motion:reduce){.yard-story .yard-working-paw,.yard-story .yard-butterfly-wings,.yard-story .yard-garden-sprig,.yard-story .yard-found-bone{animation:none}.yard-story .yard-dirt-flight{animation:none;display:none}}
 
 </style></head><body><main><header><div class="brand"><strong>Pip &amp; Paw</strong><small>A little company at the table</small></div><nav class="session-tools" aria-label="本局操作"><button type="button" class="icon-button" id="undoButton" aria-label="撤销上一步" title="撤销上一步" disabled>↶</button><button type="button" class="quiet-button" id="openJournal">本局 <span id="journalCount">0</span></button><button type="button" class="secondary-button" id="endSession">结束本局</button></nav></header><div id="saveStatus" class="save-status" hidden>浏览器未允许保存；当前页面仍可继续使用。</div><div id="tableEnded" class="table-ended" hidden><span>这一局已收好。</span><button type="button" class="text-button" id="resumeTable">继续本局</button></div>
 <section class="general-module" id="generalModule" aria-label="Yard and Dogs">
@@ -430,8 +432,9 @@ function positionBuilder(){
  panel.style.width=Math.min(420,width-margin*2)+'px';
  panel.style.maxHeight=Math.max(44,height-margin*2)+'px';
  let box=panel.getBoundingClientRect(),left,top,side;
- if(width>=1100&&rightEdge-rect.right>=box.width+gap+margin){
-  side='right';left=rect.right+gap;top=rect.top;
+ // Keep the component attached to the entrance, opening toward the table.
+ if(rect.left-leftEdge>=box.width+gap+margin){
+  side='left';left=rect.left-gap-box.width;top=rect.top;
  }else{
   const below=bottomEdge-rect.bottom-gap-margin,above=rect.top-topEdge-gap-margin;
   side=below>=box.height||below>=above?'bottom':'top';
@@ -480,14 +483,15 @@ function setupBuilderPopover(){
  panel.addEventListener('toggle',event=>{
   if(event.newState==='closed'&&!panel.matches(':popover-open')){builderOpen=false;panel.hidden=true;updateBuilderExpanded(false);}
  });
- panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeBuilder();}});
+ document.addEventListener('keydown',event=>{if(builderOpen&&event.key==='Escape'){event.preventDefault();event.stopPropagation();closeBuilder();}});
  document.addEventListener('pointerdown',event=>{
   if(!builderOpen||builderUsesNativePopover()||panel.contains(event.target)||builderInvokers().some(b=>b.contains(event.target)))return;
   closeBuilder(false);
  });
- panel.addEventListener('focusout',()=>queueMicrotask(()=>{
-  if(builderOpen&&!panel.contains(document.activeElement)&&!builderInvokers().includes(document.activeElement))closeBuilder(false);
- }));
+ // Focus changes are not dismissal: a pointer activation may briefly blur
+ // to body, and editing the draft replaces its focused chip before restoring it.
+ // Native auto popovers handle light dismissal; the fallback uses the explicit
+ // outside pointerdown handler above. Neither path interrupts an internal click.
  window.addEventListener('resize',requestBuilderPosition,{passive:true});
  window.addEventListener('scroll',event=>{if(!panel.contains(event.target))requestBuilderPosition();},{passive:true,capture:true});
  window.visualViewport?.addEventListener('resize',requestBuilderPosition,{passive:true});
@@ -1236,29 +1240,47 @@ function renderActionRule(){
  $('actionSettings').hidden=!$('specialExtra').querySelector('[data-p]');
 }
 let lastYard=null;
-// Scene details respond to the known Yard total, never to an invented dice roll.
+// Every object shares this scene's coordinates: the working paw meets the pit,
+// and the loose soil leaves that paw toward the dog's hind legs.
+function yardPoseSvg(state, points) {
+ const art=DOG_ART.poses[state.pose],crop=art.cropRect;
+ const ground=state.ground??237;
+ const feet=(art.objectBounds[3]-crop[1])/crop[3];
+ const top=ground-state.size*feet;
+ const source='<image href="assets/'+DOG_ART.asset+'" width="'+DOG_ART.width+'" height="'+DOG_ART.height+'"';
+ let body=source+'/>';
+ if(state.activity==='dig'){
+  const key='yard-dig-'+points;
+  // Pose 7's forward foreleg is under the ear. The shoulder is (1214,604),
+  // the resting paw is near (1183,660), in the original atlas coordinates.
+  // Keep the head/ear as a foreground layer so the moving leg stays behind it.
+  body='<defs><clipPath id="'+key+'-body"><path clip-rule="evenodd" d="M'+crop[0]+' '+crop[1]+'h'+crop[2]+'v'+crop[3]+'h-'+crop[2]+'Z M1201 598L1233 601Q1225 635 1208 663Q1195 677 1168 669Q1154 665 1161 649Q1186 633 1201 598Z"/></clipPath><clipPath id="'+key+'-head"><path d="M1101 540H1193L1231 586L1210 609L1198 637L1158 650V680H1101Z"/></clipPath></defs>'+
+   '<g transform="translate(1214 604)"><g class="yard-working-paw"><rect x="-65" y="-8" width="95" height="85" fill="#000" fill-opacity="0"/><path d="M-12-3C-16 13-25 31-40 40C-57 45-62 58-48 62C-37 67-22 64-18 57C-6 38 3 20 8 1" fill="#f8f1e7" stroke="#4c4a44" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M-49 61q-2-6 3-10m8 13q-3-6 2-11" fill="none" stroke="#4c4a44" stroke-width="3" stroke-linecap="round"/></g></g>'+
+   source+' clip-path="url(#'+key+'-body)"/>'+source+' clip-path="url(#'+key+'-head)"/>';
+ }
+ const frame='yard-pose-frame-'+points;
+ return '<svg class="yard-dalmatian" x="'+state.x+'" y="'+top.toFixed(3)+'" width="'+state.size+'" height="'+state.size+'" viewBox="'+crop.join(' ')+'" overflow="hidden" aria-hidden="true"><defs><clipPath id="'+frame+'"><rect x="'+crop[0]+'" y="'+crop[1]+'" width="'+crop[2]+'" height="'+crop[3]+'"/></clipPath></defs><g clip-path="url(#'+frame+')">'+body+'</g></svg>';
+}
+function yardBone(x,y,angle=0,scale=1){
+ return '<g transform="translate('+x+' '+y+') rotate('+angle+') scale('+scale+')" fill="#ead7b5" stroke="#a58d69" stroke-width="1.8" stroke-linejoin="round"><path d="M-14-4C-24-12-29-3-22 2C-27 10-17 15-12 7H12C17 15 27 10 22 2C29-3 24-12 14-4Z"/></g>';
+}
 function yardLandscape(points){
- const state=yardStates[points];
- const gateAngle=[0,0,0,0,-3,-6,-10,-15][points];
- const potAngle=[0,0,-1,-3,-7,-12,-20,-29][points];
- const soilTop=[247,242,236,226,219,211,201,193][points];
- const soilWidth=[24,38,52,64,75,85,94,102][points];
- const soilTone=points>=6?'#c5ad8d':points>=4?'#ccba98':'#d6c7a9';
- const posts=Array.from({length:18},(_,i)=>28+i*45).filter(x=>x<560||x>660).map(x=>'<path d="M'+x+' 139V99l10-11 10 11v40"/>').join('');
- const paw=(x,y,angle)=>'<g transform="translate('+x+' '+y+') rotate('+angle+')" fill="#a8b18e" opacity=".65"><path d="M-4 3q0-6 4-6t4 6q-4 3-8 0Z"/><ellipse cx="-5" cy="-5" rx="2" ry="2.7"/><ellipse cx="0" cy="-7" rx="2" ry="2.7"/><ellipse cx="5" cy="-5" rx="2" ry="2.7"/></g>';
- const footprints=points>0?paw(285,224,65)+paw(308,235,53)+paw(333,230,65):'';
- const cracks=points<4?'':points===4?'<path d="M502 237l14-5 10 5"/>':points===5?'<path d="M493 239l19-9 16 7 12-9"/>':points===6?'<path d="M490 238l21-12 17 9 17-15 12 5M531 235l8 10"/>':'<path d="M479 242l28-17 21 11 22-19 18 9 22-8M528 236l4 13 15 4M555 220l-5-11"/>';
- const changed=lastYard!==null?' yard-change':'';
- return `<svg class="yard-landscape${changed}" viewBox="0 0 820 286" aria-hidden="true" focusable="false">
+ const state=yardStates[points],digging=state.activity==='dig';
+ const posts=Array.from({length:18},(_,i)=>'<path d="M'+(28+i*45)+' 139V99l10-11 10 11v40"/>').join('');
+ const paw=(x,y,angle)=>'<g transform="translate('+x+' '+y+') rotate('+angle+')" fill="#b2bba0" opacity=".7"><path d="M-4 3q0-6 4-6t4 6q-4 3-8 0Z"/><ellipse cx="-5" cy="-5" rx="2" ry="2.7"/><ellipse cx="0" cy="-7" rx="2" ry="2.7"/><ellipse cx="5" cy="-5" rx="2" ry="2.7"/></g>';
+ const footprints=points===0?'':paw(627,249,-70)+paw(597,240,-70)+paw(567,248,-70);
+ const pit=points<2?'':points===2?'<ellipse cx="378" cy="237" rx="34" ry="10" fill="#d9c9a7"/><path d="M349 237q27-11 56-1" fill="none" stroke="#b5a07f" stroke-width="1.6"/>':points===7?'<path d="M339 242q17-19 39-18q28-1 40 18" fill="#d1bf9e" stroke="#b19b79" stroke-width="1.7"/><path d="M356 238l11-4m12 3l8-3m12 5l6-2" fill="none" stroke="#bba786" stroke-width="1.5"/>':'<ellipse cx="378" cy="238" rx="43" ry="15" fill="#cfbc9b"/><ellipse cx="378" cy="237" rx="35" ry="10" fill="#ac9475"/><path d="M339 237q7-13 27-12m25 0q18 2 26 12" fill="none" stroke="#b49d79" stroke-width="3.2" stroke-linecap="round"/>';
+ const spoil=points>=3&&points<7?'<path d="M446 247q16-16 34-2q15-12 29 3" fill="#d4c09d" stroke="#b7a07d" stroke-width="1.6" stroke-linecap="round"/><g fill="#b09a79"><ellipse cx="433" cy="247" rx="3" ry="2"/><ellipse cx="521" cy="250" rx="2.5" ry="1.8"/><ellipse cx="457" cy="254" rx="2" ry="1.6"/></g>':'';
+ const bone=points===4?'<g class="yard-found-bone">'+yardBone(374,237,-24,.62)+'</g>':points===5?yardBone(369,245,-12,.8):points===6?yardBone(426,246,8,.8):points===7?yardBone(623,244,-7,.85):'';
+ const butterfly=points===1?[349,157]:points===2?[340,177]:points===5?[352,150]:points===6?[571,131]:null;
+ const flutter=butterfly?'<g class="yard-butterfly" transform="translate('+butterfly.join(' ')+')"><g class="yard-butterfly-wings" fill="#d6bd8e" stroke="#ac956e" stroke-width="1.2"><path d="M0 0C-18-20-22 7-3 5C-16 16 4 22 0 0Z"/><path d="M0 0C18-20 22 7 3 5C16 16-4 22 0 0Z"/><path d="M0-2v10" stroke="#897d60" fill="none"/></g></g>':'';
+ const dust=digging?'<g class="yard-soil-spray" fill="#ae9470" aria-hidden="true">'+[0,1,2].map((i)=>'<g transform="translate('+(405+i*3)+' '+(237-i)+')"><g class="yard-dirt-flight" style="--crumb-delay:'+(i*.08)+'s"><ellipse cx="0" cy="0" rx="'+(2.6-i*.35)+'" ry="'+(1.7+i*.15)+'"/></g></g>').join('')+'</g>':'';
+ const lip=points>=3&&points<7?'<path d="M338 240q39 18 80-1" fill="none" stroke="#c9b28e" stroke-width="4.5" stroke-linecap="round"/>':'';
+ return `<svg class="yard-landscape yard-story" viewBox="0 0 820 286" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <rect width="820" height="286" fill="#f5f5e9"/>
   <path d="M0 154C100 133 208 149 310 139S519 145 628 132S757 137 820 148V286H0Z" fill="#e9eddd"/>
-  <g fill="#f3f0e5" stroke="#a9b296" stroke-width="1.9" stroke-linejoin="round">${posts}</g>
-  <path d="M26 115H555M667 115H806M26 135H555M667 135H806" fill="none" stroke="#a9b296" stroke-width="2"/>
-  <g transform="rotate(${gateAngle} 609 139)"><g class="yard-gate" fill="#edeadf" stroke="#9ea88a" stroke-width="2" stroke-linejoin="round">
-   <path d="M574 141V98l10-11 10 11v43M619 141V98l10-11 10 11v43"/>
-   <path d="M565 115h86v7h-86ZM565 135h86v7h-86Z"/>
-   <path d="M576 134l62-17" fill="none" stroke="#b6bea4"/>
-   <circle cx="570" cy="119" r="2" fill="#7d8a6b" stroke="none"/>
-  </g></g>
+  <g fill="#f3f0e5" stroke="#b0b89f" stroke-width="1.8" stroke-linejoin="round">${posts}</g>
+  <path d="M26 115H806M26 135H806" fill="none" stroke="#b0b89f" stroke-width="2"/>
   <path d="M0 188C133 172 202 190 335 184S549 182 662 173S755 178 820 180V286H0Z" fill="#e2e8d4"/>
   <path d="M0 264C115 253 204 275 330 264S547 261 675 268S764 269 820 261V286H0Z" fill="#ded1b8"/>
   <ellipse cx="167" cy="200" rx="86" ry="10" fill="#cbd5bc"/>
@@ -1270,36 +1292,30 @@ function yardLandscape(points){
    <path d="M157 92q8-11 16 0q12-4 11 5q0 7-10 5q-8 11-16 0q-11 4-12-4q-1-9 11-6Z" fill="#f8f4e7" stroke="#a49070"/>
   </g>
   <path d="M138 194h54l-9 14h-38Z" fill="#e7dcc2"/>
-  <g stroke="#889675" stroke-width="2" stroke-linecap="round" fill="none"><path d="M50 209l-5-9m6 9l6-11M275 201l-4-9m5 9l5-13M724 221l-6-12m7 12l5-16M670 235l-4-8m5 8l7-10"/></g>
+  <g stroke="#889675" stroke-width="2" stroke-linecap="round" fill="none"><path d="M50 209l-5-9m6 9l6-11M275 201l-4-9m5 9l5-13M724 221l-6-12m7 12l5-16M665 247l-4-8m5 8l7-10"/></g>
   <g stroke="#8c9978" stroke-width="2" fill="#c9d3b7"><path d="M693 174c-37 0-36-27-19-33c-14-27 20-47 34-26c13-29 45-22 45 5c29-9 40 24 17 37c22 22-14 37-33 20Z"/><path d="M720 176v-42m0 25l-15-14m15 2l12-12" fill="none"/></g>
+  <g transform="translate(720 211)" stroke="#9c856d" stroke-width="1.8" stroke-linejoin="round">
+   <path d="M-16-9H16l-5 25h-22Z" fill="#c59f81"/><path d="M-18-12h36v6h-36Z" fill="#d6b391"/>
+   <g class="yard-garden-sprig" fill="#b5c49f" stroke="#82956d"><path d="M0-12V-49m0 19q-18-1-15-14q15-3 15 14m0 9q19-1 16-15q-16-2-16 15"/><circle cx="0" cy="-51" r="5" fill="#e8d19b"/></g>
+  </g>
   ${footprints}
-  <ellipse cx="440" cy="250" rx="${soilWidth+22}" ry="${points<4?8:12}" fill="${points>=6?'#b99d7d':'#c1bb9b'}" opacity=".26"/>
-  ${points===0?'':`<path d="M${440-soilWidth} 247Q${422-soilWidth*.35} ${soilTop-10} 440 ${soilTop}Q${475+soilWidth*.3} ${soilTop-10} ${440+soilWidth} 247" fill="${soilTone}" stroke="#ad9674" stroke-width="1.7" stroke-linecap="round"/>`}
-  <g fill="none" stroke="${points>=6?'#94785e':'#aa9474'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${cracks}</g>
-  <ellipse cx="${state.x*8.2}" cy="239" rx="${state.pose===10?78:62}" ry="8" fill="#a9b496" opacity=".24"/>
-  <ellipse cx="620" cy="236" rx="31" ry="7" fill="#b4b897" opacity=".35"/>
-  <g transform="rotate(${potAngle} 620 232)"><g class="yard-planter" stroke-linejoin="round" stroke-linecap="round">
-   <path d="M602 204h36l-5 28h-26Z" fill="#c59f81" stroke="#93765f" stroke-width="2.1"/>
-   <path d="M599 201h42v7h-42Z" fill="#d4b08f" stroke="#93765f" stroke-width="2.1"/>
-   <path d="M620 201v-49m0 20q-21-1-18-16q17-4 18 16m0 13q23-2 21-17q-21-2-21 17" fill="#adbf95" stroke="#7d926a" stroke-width="2"/>
-   <path d="M620 164q-11-13-4-22q13 5 4 22" fill="#bdcba4" stroke="#7d926a" stroke-width="2"/>
-   <path d="M608 212l3 13" stroke="#e3c9aa" stroke-width="2"/>
-  </g></g>
-  ${points>=5?'<path d="M588 239l-6 2m11 4l-2 3m-15-13l-4 1" fill="none" stroke="#a98a66" stroke-width="2.5" stroke-linecap="round"/>':''}
-  ${points>=6?'<g class="yard-tension" fill="none" stroke="#aa7556" stroke-width="2.2" stroke-linecap="round"><path d="M576 167l-7-6M568 179l-9-1M580 155l-2-8"/></g>':''}
+  <ellipse cx="${state.x+state.size*.52}" cy="240" rx="${state.shadow}" ry="6" fill="#afba9b" opacity=".28"/>
+  ${pit}${spoil}${bone}
+  ${points===0?'<g transform="translate(563 239) rotate(-13)"><circle r="10" fill="#d1b788" stroke="#a99572" stroke-width="1.7"/><path d="M-5-8q10 6 9 17" fill="none" stroke="#eee0bf" stroke-width="3"/></g>':''}
+  ${yardPoseSvg(state,points)}${lip}${dust}${flutter}
   <path d="M57 53q7-8 14 0m7 0q7-8 14 0" fill="none" stroke="#b4bcaa" stroke-width="1.7" stroke-linecap="round"/>
-  <circle cx="744" cy="49" r="19" fill="#efe3bc"/>
+  <circle cx="726" cy="49" r="19" fill="#efe3bc"/>
  </svg>`;
 }
 const yardStates=[
- {pose:10,x:48,name:'斑点狗在狗屋前打盹，花盆稳稳站着'},
- {pose:11,x:49,name:'斑点狗沿着爪印巡游后院'},
- {pose:7,x:51,name:'斑点狗低头闻着新翻的土'},
- {pose:3,x:50,name:'斑点狗俯身邀玩，土堆渐渐隆起'},
- {pose:5,x:49,name:'斑点狗回头张望，花盆开始歪斜'},
- {pose:0,x:50,name:'斑点狗停下脚步，围栏和花盆都歪了些'},
- {pose:6,x:49,name:'斑点狗抬起一只爪，松动的围栏旁花盆摇摇欲坠'},
- {pose:8,x:48,name:'斑点狗举爪屏息，花盆悬斜着，还没有倒下'}
+ {pose:10,x:307,size:194,ground:237,shadow:84,activity:'rest',name:'斑点狗在狗屋旁打盹，小球安静地躺在草地上'},
+ {pose:11,x:372,size:205,ground:237,shadow:76,activity:'walk',name:'斑点狗沿着爪印巡游，一只蝴蝶停在前面'},
+ {pose:7,x:354,size:214,ground:237,shadow:78,activity:'sniff',name:'斑点狗低头闻着一块松软的泥土'},
+ {pose:7,x:354,size:214,ground:237,shadow:78,activity:'dig',name:'斑点狗站在浅坑右侧，前爪向后刨土，土粒落到身后'},
+ {pose:7,x:354,size:214,ground:237,shadow:78,activity:'dig',name:'斑点狗又刨了几下，浅坑里露出一截骨头'},
+ {pose:3,x:385,size:205,ground:237,shadow:81,activity:'play',name:'斑点狗向新找到的骨头俯身邀玩，蝴蝶在旁边飞'},
+ {pose:5,x:445,size:175,ground:237,shadow:62,activity:'look',name:'斑点狗回过头，看着从耳边飞过的蝴蝶'},
+ {pose:2,x:432,size:218,ground:237,shadow:86,activity:'rest',name:'斑点狗把浅坑填好，趴在旁边守着骨头休息'}
 ];
 function renderYardScene(){
  if(lastYard===yard)return;
@@ -1309,16 +1325,11 @@ function renderYardScene(){
  status.setAttribute('aria-label','庭院总点数 '+yard+'，上限 7');
  $('yardTotal').textContent=yard;
  $('yardMeter').innerHTML=Array.from({length:7},(_,i)=>'<span class="'+(i<yard?'is-filled':'')+'"></span>').join('');
- scene.dataset.points=yard;scene.dataset.level=level;
+ scene.dataset.points=yard;scene.dataset.level=level;scene.dataset.activity=state.activity;
  scene.setAttribute('aria-label','后院 '+yard+' 点，'+state.name);
- const art=DOG_ART.poses[state.pose];
- const feet=(art.objectBounds[3]-art.cropRect[1])/art.cropRect[3];
- const top=82.5-65.4*feet,mobileTop=78.3-66.3*feet;
- const reaction=yard===7?'<svg class="yard-reaction" viewBox="0 0 100 100" aria-hidden="true"><path d="M72 23q-6 8-2 10q6 2 2-10Z" fill="#8baba3" stroke="#647f76" stroke-width=".75"/><path d="M72 8l3-5m-12 2V0" fill="none" stroke="#a67d5b" stroke-width="1.1" stroke-linecap="round"/></svg>':'';
- scene.innerHTML=yardLandscape(yard)+'<div class="yard-character" style="--yard-x:'+state.x+'%;--yard-mobile-x:'+(state.x*1.28-7)+'%;--yard-y:'+top.toFixed(2)+'%;--yard-mobile-y:'+mobileTop.toFixed(2)+'%">'+dogSprite(state.pose,'yard-dog')+reaction+'</div>';
+ scene.innerHTML=yardLandscape(yard);
  lastYard=yard;
 }
-
 
 function recalc(){
  renderYardScene();
