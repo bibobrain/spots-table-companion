@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0-rc.11 — 2026-11-27
+
+- **A floating dog builder:** Add dog opens a compact palette beside its button without moving the table. Close it with the button, Escape, or an outside click; reopening restores the selected faces. The existing illustrated dice remain, and adding a dog moves keyboard focus to its first space.
+- **Twelve named characters:** replaced the short generic names with pose-specific names, including 后院巡逻队长, 饼干失踪嫌疑狗, and 骰响也不醒. Longer names fit the cards, scored gallery, and settlement dialog.
+- **A more expressive backyard:** 0–7 now uses the same Dalmatian artwork as the dog cards. Loose soil, a tilting fence, and a precarious flowerpot build tension as the total rises. At seven, the dog raises a paw and the pot remains standing. Short reactions follow state changes.
+- **Compact on smaller screens:** the floating palette fits the tested 320 px and 390 px Chrome frames, with six large die choices and 44 px spaces. The current-game and settlement model files are unchanged from rc.10.
+
 ## 1.0.0-rc.10 — 2026-11-27
 
 - **Build individual dog cards:** choose 1–4 exact die faces, including repeats, then add a dog. Each chosen face becomes a separate space; the game keeps up to six dog cards, including scored cards.

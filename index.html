@@ -179,12 +179,72 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 
 .record-faces{display:flex;align-items:center;gap:2px;flex-wrap:wrap;margin-top:3px}.record-faces .die-art{width:29px;height:30px;flex:none}.record-faces small{padding-left:3px}
 
+/* A temporary tool beside the table: opening it never moves the cards. */
+.dog-builder{position:fixed;inset:auto;z-index:60;width:420px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);margin:0;padding:16px;border:1px solid #c9d3bd;border-radius:18px;background:#fffdf5;color:var(--ink);box-shadow:0 14px 45px #36492a24,0 3px 10px #36492a10;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;animation:builder-appear .16s ease-out}
+.dog-builder::backdrop{background:transparent}
+.dog-builder .builder-heading h3{font-size:14px;letter-spacing:.02em}
+.dog-builder .builder-heading p{font-size:11px;color:#64705b;margin-top:3px}
+.dog-builder .builder-heading-right{gap:2px}
+.dog-builder .builder-count{color:#66735d;font-size:11px;white-space:nowrap}
+.dog-builder .builder-close{flex:none;width:44px;min-width:44px}
+.dog-builder .dice-palette{grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;max-width:none;margin:11px 0 13px}
+.dog-builder .palette-die{min-width:0;min-height:56px;aspect-ratio:1;padding:0;border-radius:11px}
+.dog-builder .palette-die .die-art{width:100%;height:auto;max-width:64px}
+.dog-builder .builder-footer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding-top:12px;align-items:center}
+.dog-builder .draft-selection{gap:3px;min-width:0}
+.dog-builder .draft-slots{gap:3px}
+.dog-builder .draft-chip,.dog-builder .draft-placeholder{width:44px;height:44px;flex:none}
+.dog-builder .clear-draft[hidden]{display:inline-flex!important;visibility:hidden;pointer-events:none}
+.dog-builder .create-dog{min-height:44px;padding:10px 13px;font-size:12px}
+.pack-heading-tools #openBuilder[aria-expanded=true],#addNextDog[aria-expanded=true]{background:#e7eddc;border-color:#9dae8e;color:#3e5a3b}
+.pack-card-heading{min-height:50px;height:auto;padding-top:7px;padding-bottom:3px}
+.pack-card-heading>div{min-width:0;gap:8px}
+.pack-card-heading .pack-number{flex:none}
+.pack-card h3{font-size:14px;line-height:1.5;letter-spacing:.025em;overflow-wrap:anywhere}
+.pack-card-heading .remove-dog{flex:none}
+.scored-dog{width:84px;line-height:1.5}
+.scored-dog .new-puppy{width:78px;margin:auto}
+.scored-dog>span:last-of-type{max-width:84px;overflow-wrap:anywhere}
+.settle-dog-name>span:last-child{line-height:1.5;overflow-wrap:anywhere}
+@keyframes builder-appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(max-width:650px){
+ .dog-builder{padding:14px;border-radius:16px}
+ .dog-builder .dice-palette{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 12px;margin:8px 0 12px}
+ .dog-builder .palette-die{height:64px;min-height:64px;aspect-ratio:auto}
+ .dog-builder .palette-die .die-art{width:64px;height:64px}
+ .dog-builder .builder-footer{grid-template-columns:1fr;justify-items:stretch;gap:10px}
+ .dog-builder .draft-selection{justify-content:center;gap:6px}
+ .dog-builder .draft-slots{gap:5px}
+ .dog-builder .create-dog{width:100%}
+ .pack-card h3{font-size:13px;letter-spacing:.015em}
+ .settle-dog{flex-wrap:wrap;gap:2px;padding:8px 0}
+ .settle-dog-name{flex:1 1 100%;font-size:12px}
+ .settle-dog-name .new-puppy{width:48px}
+ .settle-dog-slots{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){.dog-builder{animation:none}}
+
+
+/* The same Dalmatian belongs to the card and the backyard. */
+.yard-scene .yard-character{left:var(--yard-x);top:var(--yard-y);width:22.8%;max-width:none}
+.yard-scene .yard-dog{display:block;width:100%;height:100%}
+.yard-reaction{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.yard-planter,.yard-gate{transform-box:fill-box;transform-origin:50% 100%}
+.yard-scene[data-level=caution] .yard-change .yard-planter,.yard-scene[data-level=full] .yard-change .yard-planter{animation:yard-pot-catch .46s ease-out both}
+.yard-scene[data-level=full] .yard-change .yard-gate{animation:yard-gate-catch .4s ease-out both}
+.yard-change .yard-tension{animation:yard-mark-arrive .25s ease-out both}
+@keyframes yard-pot-catch{0%,100%{transform:rotate(0)}35%{transform:rotate(-3deg)}70%{transform:rotate(1deg)}}
+@keyframes yard-gate-catch{0%,100%{transform:rotate(0)}40%{transform:rotate(-2deg)}}
+@keyframes yard-mark-arrive{from{opacity:0}to{opacity:1}}
+@media(max-width:650px){.yard-scene .yard-character{left:var(--yard-mobile-x);top:var(--yard-mobile-y);width:34%}}
+@media(prefers-reduced-motion:reduce){.yard-scene .yard-character,.yard-scene .yard-planter,.yard-scene .yard-gate,.yard-scene .yard-tension{animation:none}}
+
 </style></head><body><main><header><div class="brand"><strong>Pip &amp; Paw</strong><small>A little company at the table</small></div><nav class="session-tools" aria-label="本局操作"><button type="button" class="icon-button" id="undoButton" aria-label="撤销上一步" title="撤销上一步" disabled>↶</button><button type="button" class="quiet-button" id="openJournal">本局 <span id="journalCount">0</span></button><button type="button" class="secondary-button" id="endSession">结束本局</button></nav></header><div id="saveStatus" class="save-status" hidden>浏览器未允许保存；当前页面仍可继续使用。</div><div id="tableEnded" class="table-ended" hidden><span>这一局已收好。</span><button type="button" class="text-button" id="resumeTable">继续本局</button></div>
 <section class="general-module" id="generalModule" aria-label="Yard and Dogs">
 <div class="sheet"><div class="section yard-section"><div class="head"><div class="yard-heading"><h2>Yard</h2><div id="yardStatus" class="yard-status" data-level="calm" role="status"><span class="status-dot" aria-hidden="true"></span><span class="status-value"><output id="yardTotal">0</output><small>/ 7</small></span><span class="yard-meter" id="yardMeter" aria-hidden="true"></span></div></div><button class="none" id="zero" aria-label="清空庭院" title="清空庭院">↺</button></div><div id="yardScene" class="yard-scene" role="img" aria-label="后院"></div><div class="yard" id="yard"></div></div>
-<div class="section pack-section"><div class="head dogs-head"><h2>Dogs</h2><div class="pack-heading-tools"><button type="button" class="text-button" id="bankDogs" hidden>✓ 计分完整狗牌</button><button type="button" class="text-button" id="openBuilder" aria-controls="dogBuilder" aria-expanded="true">＋ 添加狗牌</button></div></div>
-<div class="dog-builder" id="dogBuilder"><div class="builder-heading"><div><h3>迎接一位新伙伴</h3><p>照整张狗牌选点面</p></div><div class="builder-heading-right"><span class="builder-count" id="draftCount">0 / 4</span><button type="button" class="icon-button builder-close" id="builderClose" aria-label="收起添加狗牌" hidden>×</button></div></div><div class="dice-palette" id="dicePalette" role="group" aria-label="选择狗牌点面"></div><div class="builder-footer"><div class="draft-selection"><div class="draft-slots" id="draftSlots" aria-label="已选点面"></div><button type="button" class="icon-button clear-draft" id="clearDraft" aria-label="清空已选点面" hidden>↺</button></div><button type="button" class="primary-button create-dog" id="createDog" disabled>添加狗牌 ＋</button></div></div>
-<div class="pack-grid" id="dogs"></div><div class="pack-empty" id="packEmpty" hidden><span>再迎接一位新伙伴。</span><button type="button" class="text-button" id="addNextDog">＋ 添加狗牌</button></div><div class="scored-dogs" id="scoredDogs" hidden><div class="scored-heading"><strong>已计分</strong><span id="scoredCount">0 / 6</span></div><div class="score-gallery" id="scoredList"></div></div></div>
+<div class="section pack-section"><div class="head dogs-head"><h2>Dogs</h2><div class="pack-heading-tools"><button type="button" class="text-button" id="bankDogs" hidden>✓ 计分完整狗牌</button><button type="button" class="text-button" id="openBuilder" aria-controls="dogBuilder" aria-expanded="false" aria-haspopup="dialog" popovertarget="dogBuilder">＋ 添加狗牌</button></div></div>
+<div class="dog-builder" id="dogBuilder" popover="auto" role="dialog" aria-labelledby="builderTitle" hidden><div class="builder-heading"><div><h3 id="builderTitle">添加狗牌</h3><p>照整张狗牌选点面</p></div><div class="builder-heading-right"><span class="builder-count" id="draftCount">0 / 4</span><button type="button" class="icon-button builder-close" id="builderClose" aria-label="关闭添加狗牌">×</button></div></div><div class="dice-palette" id="dicePalette" role="group" aria-label="选择狗牌点面"></div><div class="builder-footer"><div class="draft-selection"><div class="draft-slots" id="draftSlots" aria-label="已选点面"></div><button type="button" class="icon-button clear-draft" id="clearDraft" aria-label="清空已选点面" hidden>↺</button></div><button type="button" class="primary-button create-dog" id="createDog" disabled>添加 ＋</button></div></div>
+<div class="pack-grid" id="dogs"></div><div class="pack-empty" id="packEmpty" hidden><span>再迎接一位新伙伴。</span><button type="button" class="text-button" id="addNextDog" aria-controls="dogBuilder" aria-expanded="false" aria-haspopup="dialog" popovertarget="dogBuilder">＋ 添加狗牌</button></div><div class="scored-dogs" id="scoredDogs" hidden><div class="scored-heading"><strong>已计分</strong><span id="scoredCount">0 / 6</span></div><div class="score-gallery" id="scoredList"></div></div></div>
 <div class="section controls-section"><div class="controlrow"><div class="valuebox"><label title="骰子" aria-label="骰子"><svg class="token-icon" viewBox="0 0 48 48" role="img" aria-label="骰子"><rect x="4" y="4" width="40" height="40" rx="10" fill="#fffcf2" stroke="#496951" stroke-width="3"/><circle cx="15" cy="15" r="4" fill="#315c46"/><circle cx="33" cy="15" r="4" fill="#315c46"/><circle cx="24" cy="24" r="4" fill="#315c46"/><circle cx="15" cy="33" r="4" fill="#315c46"/><circle cx="33" cy="33" r="4" fill="#315c46"/></svg><span>Dice</span></label><div class="stepper"><button id="diceMinus" aria-label="减少骰子">−</button><output id="diceN">2</output><button id="dicePlus" aria-label="增加骰子">＋</button></div></div><div class="valuebox"><label title="骨头" aria-label="骨头"><svg class="token-icon" viewBox="0 0 54 48" role="img" aria-label="骨头"><path d="M14 13 C3 6 1 21 9 23 C1 30 8 43 17 34 L39 17 C46 24 56 16 50 10 C54 2 43 -1 39 7Z" fill="#f2d6ac" stroke="#a46d47" stroke-width="2.6" stroke-linejoin="round"/><path d="M17 33L38 16" stroke="#d3a477" stroke-width="2.4"/></svg><span>Bones</span></label><div class="stepper"><button id="bonesMinus" aria-label="减少骨头">−</button><output id="bonesN">0</output><button id="bonesPlus" aria-label="增加骨头">＋</button></div></div></div></div></div>
 <div class="outcomes" id="outcomes" aria-live="polite"><div class="outcome-heading"><h2 id="activeName">Roll</h2><span class="event-definition" id="eventDefinition">安全 · 恰好填上</span></div><p class="general-empty" id="generalEmpty">添加你的狗牌，开始这一局。</p><div class="fill-grid" id="fillGrid"><button type="button" class="fill-item" id="recordFill1"><span id="fillLabel1">1 颗</span><output id="fill1">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="recordFill2"><span id="fillLabel2">2 颗</span><output id="fill2">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="recordFill3"><span id="fillLabel3">3 颗</span><output id="fill3">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="recordFill4"><span id="fillLabel4">4 颗</span><output id="fill4">—</output><small class="record-arrow" aria-hidden="true">↗</small></button></div><div class="other-values" id="otherValues"><button type="button" id="zeroNote">0 颗 —</button><button type="button" id="moreNote">5 颗以上 —</button></div><button type="button" class="unknown-note" id="unknownNote" hidden>补新牌后继续</button><button type="button" class="bust-line" id="bustLine"><span class="bust-title"><span class="risk-dot"></span><strong>BUST</strong><small>记录并清空</small></span><output id="bust">—</output><span class="bust-reset" aria-hidden="true">↺</span></button><button type="button" class="resource-result" id="resourceResult" hidden><span id="resourceTitle">行动后骨头总数</span><output id="resourceValue">—</output></button><div class="context-note" id="scope" role="status"></div><details class="roll-method"><summary>计算方式</summary><p>匹配的骰子先填入；当这一批无法安全填入空位时，按 Bones 上限花骨头重掷整批。概率对应这套方案。点选实际结果后，再确认填入的位置与结算后的 Yard。</p></details></div></section>
 <section class="trick-module" id="trickModule" aria-label="Action rules and results">
@@ -255,9 +315,9 @@ function dieArt(face, options = {}) {
 // Round 6: the table, the physical cards and the recorded result remain distinct.
 const Game = globalThis.PipGame;
 const STORE_KEY = 'pip-and-paw.current-game.v1';
-const DOG_NAMES = ['松果','小满','云朵','栗子','麦芽','豆蔻','青苔','山葵','团子','杏仁','月白','糯米'];
+const DOG_NAMES = ["后院巡逻队长", "等开饭的伯爵", "草坪包场先生", "再陪我玩一局", "追风不看路", "尾巴追踪专员", "先让我闻闻", "饼干失踪嫌疑狗", "举爪申请加餐", "伸个懒腰再说", "骰响也不醒", "斑点快递员"];
 const AWARD_LINES = {'凤毛麟角':'少见的落点，恰好与你相逢。','百里挑一':'百般可能里，偏得这一回。','妙手偶得':'偶然一掷，落成意外之喜。','不期而遇':'未曾刻意，恰在此时相遇。','水到渠成':'点面相合，自然成章。','波澜不惊':'这一掷安然收住，留下一段从容的空白。','无妄之灾':'微小的岔路，偏在这一掷遇见。','平地风波':'原本平静的局面，忽然起了一阵波澜。','一波三折':'这一掷稍有曲折，留待下一手舒展。','山重水复':'此处山重水复，再寻下一段去路。','风雨寻常':'风雨也在常情之中，重整牌面再出发。'};
-let table = Game.newGame(), draftFaces = [], builderOpen = true;
+let table = Game.newGame(), draftFaces = [], builderOpen = false;
 let undoStack = [], pending = null, pendingSerial = 0, toastTimer = null;
 let lastDogRender = '', historyGroup = null, loadingSaved = false;
 let outcomeCache = Object.create(null);
@@ -303,7 +363,7 @@ function loadTable() {
   const raw = localStorage.getItem(STORE_KEY); if(!raw)return;
   const saved = JSON.parse(raw), restored = Game.restore(JSON.stringify(saved.game));
   if(!restored)return;
-  table = restored; builderOpen = table.cards.length===0;
+  table = restored; builderOpen = false;
   if(saved.params && typeof saved.params==='object') {
    const ranges={threshold:[0,6],paws:[0,8],rounds:[0,5],fetch:[0,6],src:[1,6],buried:[0,7],rolloverExtra:[0,1],walkExtra:[0,1],boltSet:[3,12],boltRolls:[1,12],top:[1,6],after:[-1,7],facedown:[0,5],reroll:[0,1],verified:[0,1],supply:[-1,Number.MAX_SAFE_INTEGER]};
    for(const [key,[lo,hi]] of Object.entries(ranges)) {const v=saved.params[key];if(Number.isInteger(v)&&v>=lo&&v<=hi)params[key]=v;}
@@ -333,7 +393,7 @@ function undoLast() {
  const old=undoStack.pop();if(!old)return;
  table=old.table;params=old.params;Object.assign(roundsByAction,old.rounds);historyGroup=null;
  if(active==='run'||active==='chase')params.rounds=roundsByAction[active];
- builderOpen=table.cards.length===0;lastDogRender='';syncBoard();renderBuilder();renderDogs();
+ builderOpen=false;lastDogRender='';syncBoard();renderBuilder();renderDogs();
  if(active){updateExtra();renderActionRule();}recalc();notifyTable('已撤销：'+old.label);
 }
 function chooseDogPose(faces) {
@@ -353,18 +413,110 @@ function emptySpot(face) {
  const dots={1:[[18,18]],2:[[10,10],[26,26]],3:[[10,10],[18,18],[26,26]],4:[[10,10],[26,10],[10,26],[26,26]],5:[[10,10],[26,10],[18,18],[10,26],[26,26]],6:[[10,9],[26,9],[10,18],[26,18],[10,27],[26,27]]};
  return '<svg class="vacant-face" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="2" width="32" height="32" rx="12"/>'+dots[face].map(([x,y])=>'<circle cx="'+x+'" cy="'+y+'" r="2.7"/>').join('')+'</svg>';
 }
+// The open state belongs to the transient editor; the draft survives dismissal.
+let builderInvoker = null, builderPositionFrame = 0, builderPointerIntent = null;
+function builderUsesNativePopover(){return typeof $('dogBuilder').showPopover==='function';}
+function builderInvokers(){return [$('openBuilder'),$('addNextDog')];}
+function updateBuilderExpanded(open){builderInvokers().forEach(button=>button.setAttribute('aria-expanded',String(open)));}
+function positionBuilder(){
+ const panel=$('dogBuilder');
+ if(!builderOpen||panel.hidden)return;
+ const anchor=builderInvoker?.isConnected&&!builderInvoker.hidden?builderInvoker:$('openBuilder');
+ const viewport=window.visualViewport,margin=12,gap=10;
+ const leftEdge=viewport?.offsetLeft||0,topEdge=viewport?.offsetTop||0;
+ const width=viewport?.width||document.documentElement.clientWidth,height=viewport?.height||window.innerHeight;
+ const rightEdge=leftEdge+width,bottomEdge=topEdge+height;
+ const rect=anchor.getBoundingClientRect();
+ panel.style.width=Math.min(420,width-margin*2)+'px';
+ panel.style.maxHeight=Math.max(44,height-margin*2)+'px';
+ let box=panel.getBoundingClientRect(),left,top,side;
+ if(width>=1100&&rightEdge-rect.right>=box.width+gap+margin){
+  side='right';left=rect.right+gap;top=rect.top;
+ }else{
+  const below=bottomEdge-rect.bottom-gap-margin,above=rect.top-topEdge-gap-margin;
+  side=below>=box.height||below>=above?'bottom':'top';
+  const available=side==='bottom'?below:above;
+  if(available<box.height){panel.style.maxHeight=Math.max(44,available)+'px';box=panel.getBoundingClientRect();}
+  left=rect.right-box.width;top=side==='bottom'?rect.bottom+gap:rect.top-gap-box.height;
+ }
+ panel.style.left=Math.round(Math.max(leftEdge+margin,Math.min(left,rightEdge-box.width-margin)))+'px';
+ panel.style.top=Math.round(Math.max(topEdge+margin,Math.min(top,bottomEdge-box.height-margin)))+'px';
+ panel.dataset.side=side;
+}
+function requestBuilderPosition(){
+ if(!builderOpen||builderPositionFrame)return;
+ builderPositionFrame=requestAnimationFrame(()=>{builderPositionFrame=0;positionBuilder();});
+}
+function closeBuilder(restoreFocus=true){
+ const panel=$('dogBuilder'),hadFocus=panel.contains(document.activeElement);
+ builderOpen=false;
+ if(builderUsesNativePopover()&&panel.matches(':popover-open'))panel.hidePopover();
+ panel.hidden=true;updateBuilderExpanded(false);
+ if(restoreFocus&&hadFocus){
+  const target=builderInvoker?.isConnected&&builderInvoker.getClientRects().length?builderInvoker:!$('openBuilder').hidden?$('openBuilder'):$('endSession');
+  target.focus({preventScroll:true});
+ }
+}
+function openDogBuilder(invoker=$('openBuilder')){
+ if(table.endedAt||table.cards.length>=6)return;
+ builderInvoker=invoker;builderOpen=true;renderBuilder();
+ const first=$('dicePalette').querySelector('button:not(:disabled)')||$('createDog');
+ first.focus({preventScroll:true});
+}
+function setupBuilderPopover(){
+ const panel=$('dogBuilder');
+ // Keep the invoker relation in HTML, including native sequential focus order.
+ builderInvokers().forEach(button=>{
+  button.addEventListener('pointerdown',()=>{builderPointerIntent={button,open:builderOpen};});
+  button.addEventListener('pointercancel',()=>{builderPointerIntent=null;});
+  button.onclick=event=>{
+   event.preventDefault();
+   const wasOpen=event.detail>0&&builderPointerIntent?.button===button?builderPointerIntent.open:builderOpen;
+   builderPointerIntent=null;
+   if(wasOpen){closeBuilder(false);button.focus({preventScroll:true});}else openDogBuilder(button);
+  };
+ });
+ $('builderClose').onclick=()=>closeBuilder();
+ panel.addEventListener('toggle',event=>{
+  if(event.newState==='closed'&&!panel.matches(':popover-open')){builderOpen=false;panel.hidden=true;updateBuilderExpanded(false);}
+ });
+ panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeBuilder();}});
+ document.addEventListener('pointerdown',event=>{
+  if(!builderOpen||builderUsesNativePopover()||panel.contains(event.target)||builderInvokers().some(b=>b.contains(event.target)))return;
+  closeBuilder(false);
+ });
+ panel.addEventListener('focusout',()=>queueMicrotask(()=>{
+  if(builderOpen&&!panel.contains(document.activeElement)&&!builderInvokers().includes(document.activeElement))closeBuilder(false);
+ }));
+ window.addEventListener('resize',requestBuilderPosition,{passive:true});
+ window.addEventListener('scroll',event=>{if(!panel.contains(event.target))requestBuilderPosition();},{passive:true,capture:true});
+ window.visualViewport?.addEventListener('resize',requestBuilderPosition,{passive:true});
+ window.visualViewport?.addEventListener('scroll',requestBuilderPosition,{passive:true});
+}
 function renderBuilder() {
- const full=table.cards.length>=6,ended=!!table.endedAt;
- $('dogBuilder').hidden=!(builderOpen||table.cards.length===0)||ended||full;
+ const full=table.cards.length>=6,ended=!!table.endedAt,panel=$('dogBuilder');
  $('openBuilder').hidden=ended||full;
- $('openBuilder').setAttribute('aria-expanded',String(!$('dogBuilder').hidden));
+ if(ended||full)builderOpen=false;
  $('draftCount').textContent=draftFaces.length+' / 4';
+ const focusedDraft=document.activeElement?.dataset?.draft;
+ const focusedClear=document.activeElement===$('clearDraft');
+ const focusedPalette=document.activeElement?.matches('#dicePalette button');
  $('draftSlots').innerHTML=Array.from({length:4},(_,i)=>draftFaces[i]?'<button type="button" class="draft-chip" data-draft="'+i+'" aria-label="移除第'+(i+1)+'个'+draftFaces[i]+'点">'+dieArt(draftFaces[i])+'<span aria-hidden="true">×</span></button>':'<span class="draft-placeholder" aria-hidden="true"></span>').join('');
  $('createDog').disabled=draftFaces.length===0||full||ended;
  $('clearDraft').hidden=draftFaces.length===0;
  document.querySelectorAll('#dicePalette button').forEach(b=>b.disabled=draftFaces.length>=4||full||ended);
- $('builderClose').hidden=table.cards.length===0;
+ if(builderOpen){
+  panel.hidden=false;
+  if(builderUsesNativePopover()&&!panel.matches(':popover-open'))panel.showPopover({source:builderInvoker||$('openBuilder')});
+  positionBuilder();updateBuilderExpanded(true);
+  if(focusedDraft!==undefined){
+   const replacement=$('draftSlots').querySelector('[data-draft="'+Math.min(+focusedDraft,draftFaces.length-1)+'"]')||$('dicePalette').querySelector('button');
+   replacement.focus({preventScroll:true});
+  }else if(focusedClear&&!draftFaces.length){$('dicePalette').querySelector('button').focus({preventScroll:true});}
+  else if(focusedPalette&&draftFaces.length>=4)$('createDog').focus({preventScroll:true});
+ }else{closeBuilder(false);}
 }
+
 function renderDogs() {
  const key=JSON.stringify(table.cards)+'|'+!!table.endedAt;
  renderBuilder();
@@ -381,7 +533,7 @@ function renderDogs() {
  $('scoredCount').textContent=scored.length+' / 6';
  $('scoredList').innerHTML=scored.map(card=>'<div class="scored-dog" title="'+DOG_NAMES[card.pose]+'，已计分">'+dogSprite(card.pose)+'<span>'+DOG_NAMES[card.pose]+'</span><b aria-label="已计分">✓</b></div>').join('');
  $('bankDogs').hidden=!unscored.some(c=>c.filled.every(Boolean))||!!table.endedAt;
- $('packEmpty').hidden=unscored.length>0||table.cards.length===0||!!table.endedAt;
+ $('packEmpty').hidden=unscored.length>0||table.cards.length===0||table.cards.length>=6||!!table.endedAt;
  lastDogRender=key;
  if(focused){const target=document.querySelector('[data-slot-key="'+focused+'"]');if(target)target.focus({preventScroll:true});}
 }
@@ -532,7 +684,7 @@ function confirmSettlement() {
  dialogClose($('settlementDialog'));syncBoard();renderDogs();recalc();
  if(p.type==='bust'){$('yardScene').classList.remove('just-busted');void $('yardScene').offsetWidth;$('yardScene').classList.add('just-busted');setTimeout(()=>$('yardScene').classList.remove('just-busted'),500);}
  const newlyScored=table.cards.filter(c=>c.scored).length-p.before.cards.filter(c=>c.scored).length;
- if(newlyScored&&table.cards.length<6){builderOpen=true;renderBuilder();}
+ if(newlyScored&&table.cards.length<6){$('openBuilder').focus({preventScroll:true});}
  notifyTable(p.type==='bust'?'已记录 BUST，狗狗重新出发':newlyScored?'已结算，'+newlyScored+'只狗计分':'已记录这次结果');
 }
 function cancelSettlement() {pending=null;dialogClose($('settlementDialog'));renderSessionControls();}
@@ -574,7 +726,7 @@ function renderJournal() {
  $('newSession').hidden=!ended;$('journalBack').textContent=ended?'返回桌面':'继续游玩';
 }
 function startNewSession() {
- rememberChange('开始新局');table=Game.newGame();draftFaces=[];builderOpen=true;pending=null;
+ rememberChange('开始新局');table=Game.newGame();draftFaces=[];builderOpen=false;pending=null;
  params=copy(DEFAULT_PARAMS);Object.assign(roundsByAction,{run:2,chase:2});active=null;currentGroup=null;
  dialogClose($('journalDialog'));lastDogRender='';syncBoard();renderCategories();renderActionPanel();renderDogs();recalc();notifyTable('新的一局，从挑选狗牌开始');
 }
@@ -584,20 +736,23 @@ function setupGameUI() {
  $('dicePalette').addEventListener('click',event=>{const b=event.target.closest('[data-face-choice]');if(!b||b.disabled)return;draftFaces.push(+b.dataset.faceChoice);renderBuilder();});
  $('draftSlots').addEventListener('click',event=>{const b=event.target.closest('[data-draft]');if(!b)return;draftFaces.splice(+b.dataset.draft,1);renderBuilder();});
  $('clearDraft').onclick=()=>{draftFaces=[];renderBuilder();};
- $('openBuilder').onclick=()=>{builderOpen=!builderOpen;renderBuilder();if(builderOpen)$('dicePalette').querySelector('button').focus({preventScroll:true});};
- $('builderClose').onclick=()=>{builderOpen=false;renderBuilder();};
+ setupBuilderPopover();
  $('createDog').onclick=()=>{
   if(!draftFaces.length)return;
   const faces=draftFaces.slice(),pose=chooseDogPose(faces);
-  if(changeTable('添加狗牌',s=>Game.addDog(s,faces,pose))){draftFaces=[];builderOpen=false;renderBuilder();$('dogs').lastElementChild?.scrollIntoView({block:'nearest',behavior:'smooth'});}
+  if(changeTable('添加狗牌',s=>Game.addDog(s,faces,pose))){
+   draftFaces=[];closeBuilder(false);renderBuilder();
+   const card=$('dogs').lastElementChild;
+   card?.querySelector('.card-slot')?.focus({preventScroll:true});
+   card?.scrollIntoView({block:'nearest',behavior:'auto'});
+  }
  };
  $('dogs').addEventListener('click',event=>{
   const slot=event.target.closest('[data-dog][data-slot]');
   if(slot){changeTable('校正狗牌',s=>Game.toggleSpot(s,slot.dataset.dog,+slot.dataset.slot));return;}
   const remove=event.target.closest('[data-remove]');if(remove){changeTable('移除狗牌',s=>Game.removeDog(s,remove.dataset.remove),'狗牌已移除');}
  });
- $('bankDogs').onclick=()=>{if(changeTable('计分狗牌',s=>Game.scoreDogs(s),'完整狗牌已计分')){if(table.cards.length<6){builderOpen=true;renderBuilder();}}};
- $('addNextDog').onclick=()=>{builderOpen=true;renderBuilder();$('dicePalette').querySelector('button').focus();};
+ $('bankDogs').onclick=()=>{if(changeTable('计分狗牌',s=>Game.scoreDogs(s),'完整狗牌已计分')&&table.cards.length<6)$('openBuilder').focus({preventScroll:true});};
  $('undoButton').onclick=undoLast;$('toastUndo').onclick=undoLast;
  $('openJournal').onclick=()=>openJournal(false);$('endSession').onclick=()=>openJournal(true);
  $('journalFinish').onclick=()=>{if(!table.endedAt){rememberChange('结束本局');table=Game.endGame(table);syncBoard();renderDogs();recalc();}renderJournal();};
@@ -623,7 +778,7 @@ function setupGameUI() {
  $('yard').addEventListener('click',event=>{const b=event.target.closest('[data-y]');if(!b||b.disabled)return;const value=+b.dataset.y;changeTable('调整 Yard',s=>Game.amend(s,{yard:s.yard===value?0:value}));});
  $('zero').onclick=()=>changeTable('清空 Yard',s=>Game.amend(s,{yard:0}));
  for(const [id,key,delta,lo,hi] of [['dicePlus','dice',1,1,12],['diceMinus','dice',-1,1,12],['bonesPlus','bones',1,0,99],['bonesMinus','bones',-1,0,99]])$(id).onclick=()=>changeTable('调整'+(key==='dice'?'骰子':'骨头'),s=>Game.amend(s,{[key]:Math.max(lo,Math.min(hi,s[key]+delta))}));
- $('chooseSpots').onclick=()=>{const first=$('dogs').querySelector('.card-slot:not(.is-filled)');if(first)first.focus();else{builderOpen=true;renderBuilder();$('dicePalette').querySelector('button').focus();}};
+ $('chooseSpots').onclick=()=>{const first=$('dogs').querySelector('.card-slot:not(.is-filled)');if(first)first.focus();else{openDogBuilder($('openBuilder'));}};
  renderBuilder();renderDogs();
 }
 
@@ -1081,64 +1236,89 @@ function renderActionRule(){
  $('actionSettings').hidden=!$('specialExtra').querySelector('[data-p]');
 }
 let lastYard=null;
-// Yard totals are known; individual buried dice are deliberately not invented.
+// Scene details respond to the known Yard total, never to an invented dice roll.
 function yardLandscape(points){
- const posts=Array.from({length:18},(_,i)=>'<path d="M'+(28+i*45)+' 139V99l10-11 10 11v40"/>').join('');
- const mounds=[
-  '',
-  '<path d="M339 217q26-24 52 1"/>',
-  '<path d="M359 225q34-31 65 1M425 228q17-15 34 0"/>',
-  '<path d="M366 229q33-39 65 0M432 234q25-23 49 0"/>',
-  '<path d="M356 233q39-39 74 1M448 230q30-28 58 0"/>',
-  '<path d="M331 235q33-36 64 0M405 232q39-44 79 0M485 238q25-28 54 0"/>',
-  '<path d="M324 235q37-43 75 0M416 236q45-48 91 0M499 244q27-34 54 0"/>',
-  '<path d="M314 237q42-48 81 1M397 241q53-54 100 0M500 242q32-42 67 0"/>'
- ];
- const crumbs=Array.from({length:points},(_,i)=>'<ellipse cx="'+(337+(i*43)%213)+'" cy="'+(242+(i%3)*7)+'" rx="'+(2+i%2)+'" ry="2"/>').join('');
- return '<svg class="yard-landscape" viewBox="0 0 820 286" aria-hidden="true" focusable="false">'+
- '<path d="M0 154C100 133 208 149 310 139S519 145 628 132S757 137 820 148V286H0Z" fill="#e9eddd"/>'+
- '<g fill="#f3f0e5" stroke="#b5bca4" stroke-width="1.8" stroke-linejoin="round">'+posts+'</g>'+
- '<path d="M26 115H806M26 135H806" fill="none" stroke="#b5bca4" stroke-width="2"/>'+
- '<path d="M0 188C133 172 202 190 335 184S549 182 662 173S755 178 820 180V286H0Z" fill="#e2e8d4"/>'+
- '<path d="M0 264C115 253 204 275 330 264S547 261 675 268S764 269 820 261V286H0Z" fill="#ded1b8"/>'+
- '<g fill="#f5edda" stroke="#8e947b" stroke-width="2.2" stroke-linejoin="round">'+
- '<path d="M89 105L165 57L241 105V192H89Z"/><path d="M75 106L164 44L253 106L245 118L164 64L84 118Z" fill="#ba9981" stroke="#947c67"/>'+
- '<path d="M139 193V147a27 27 0 0154 0v46Z" fill="#89937c" stroke="#78836a"/>'+
- '<path d="M102 122H124M102 139H124M211 122H228M211 139H228M102 159H124M211 159H228" fill="none" stroke="#d4c8ac"/>'+
- '<path d="M157 92q8-11 16 0q12-4 11 5q0 7-10 5q-8 11-16 0q-11 4-12-4q-1-9 11-6Z" fill="#f8f4e7" stroke="#a49070"/>'+
- '</g><ellipse cx="167" cy="200" rx="86" ry="10" fill="#cbd5bc"/>'+
- '<path d="M138 194h54l-9 14h-38Z" fill="#e7dcc2"/>'+
- '<g stroke="#889675" stroke-width="2" stroke-linecap="round" fill="none"><path d="M50 209l-5-9m6 9l6-11M275 201l-4-9m5 9l5-13M724 221l-6-12m7 12l5-16M619 191l-4-8m5 8l7-10"/></g>'+
- '<g stroke="#8c9978" stroke-width="2" fill="#c9d3b7"><path d="M673 174c-37 0-36-27-19-33c-14-27 20-47 34-26c13-29 45-22 45 5c29-9 40 24 17 37c22 22-14 37-33 20Z"/><path d="M700 176v-42m0 25l-15-14m15 2l12-12" fill="none"/></g>'+
- '<g transform="translate(733 199)"><path d="M-14-7H14l-5 23H-9Z" fill="#c59f81" stroke="#9c856d" stroke-width="1.8"/><path d="M0-6V-35m0 16q-18-1-15-12q15-3 15 12m0-6q17-1 14-12q-15-1-14 12" fill="#b5c49f" stroke="#82956d" stroke-width="1.8"/></g>'+
- '<g stroke="#a79271" stroke-width="1.6" stroke-linecap="round" fill="#ccbb9b">'+mounds[points]+'</g>'+
- '<g fill="#b09c7c">'+crumbs+'</g>'+
- '<path d="M57 53q7-8 14 0m7 0q7-8 14 0" fill="none" stroke="#b4bcaa" stroke-width="1.7" stroke-linecap="round"/>'+
- '<circle cx="744" cy="49" r="19" fill="#efe3bc"/>'+
- '</svg>';
+ const state=yardStates[points];
+ const gateAngle=[0,0,0,0,-3,-6,-10,-15][points];
+ const potAngle=[0,0,-1,-3,-7,-12,-20,-29][points];
+ const soilTop=[247,242,236,226,219,211,201,193][points];
+ const soilWidth=[24,38,52,64,75,85,94,102][points];
+ const soilTone=points>=6?'#c5ad8d':points>=4?'#ccba98':'#d6c7a9';
+ const posts=Array.from({length:18},(_,i)=>28+i*45).filter(x=>x<560||x>660).map(x=>'<path d="M'+x+' 139V99l10-11 10 11v40"/>').join('');
+ const paw=(x,y,angle)=>'<g transform="translate('+x+' '+y+') rotate('+angle+')" fill="#a8b18e" opacity=".65"><path d="M-4 3q0-6 4-6t4 6q-4 3-8 0Z"/><ellipse cx="-5" cy="-5" rx="2" ry="2.7"/><ellipse cx="0" cy="-7" rx="2" ry="2.7"/><ellipse cx="5" cy="-5" rx="2" ry="2.7"/></g>';
+ const footprints=points>0?paw(285,224,65)+paw(308,235,53)+paw(333,230,65):'';
+ const cracks=points<4?'':points===4?'<path d="M502 237l14-5 10 5"/>':points===5?'<path d="M493 239l19-9 16 7 12-9"/>':points===6?'<path d="M490 238l21-12 17 9 17-15 12 5M531 235l8 10"/>':'<path d="M479 242l28-17 21 11 22-19 18 9 22-8M528 236l4 13 15 4M555 220l-5-11"/>';
+ const changed=lastYard!==null?' yard-change':'';
+ return `<svg class="yard-landscape${changed}" viewBox="0 0 820 286" aria-hidden="true" focusable="false">
+  <path d="M0 154C100 133 208 149 310 139S519 145 628 132S757 137 820 148V286H0Z" fill="#e9eddd"/>
+  <g fill="#f3f0e5" stroke="#a9b296" stroke-width="1.9" stroke-linejoin="round">${posts}</g>
+  <path d="M26 115H555M667 115H806M26 135H555M667 135H806" fill="none" stroke="#a9b296" stroke-width="2"/>
+  <g transform="rotate(${gateAngle} 609 139)"><g class="yard-gate" fill="#edeadf" stroke="#9ea88a" stroke-width="2" stroke-linejoin="round">
+   <path d="M574 141V98l10-11 10 11v43M619 141V98l10-11 10 11v43"/>
+   <path d="M565 115h86v7h-86ZM565 135h86v7h-86Z"/>
+   <path d="M576 134l62-17" fill="none" stroke="#b6bea4"/>
+   <circle cx="570" cy="119" r="2" fill="#7d8a6b" stroke="none"/>
+  </g></g>
+  <path d="M0 188C133 172 202 190 335 184S549 182 662 173S755 178 820 180V286H0Z" fill="#e2e8d4"/>
+  <path d="M0 264C115 253 204 275 330 264S547 261 675 268S764 269 820 261V286H0Z" fill="#ded1b8"/>
+  <ellipse cx="167" cy="200" rx="86" ry="10" fill="#cbd5bc"/>
+  <g fill="#f5edda" stroke="#8e947b" stroke-width="2.2" stroke-linejoin="round">
+   <path d="M89 105L165 57L241 105V192H89Z"/>
+   <path d="M75 106L164 44L253 106L245 118L164 64L84 118Z" fill="#ba9981" stroke="#947c67"/>
+   <path d="M139 193V147a27 27 0 0154 0v46Z" fill="#89937c" stroke="#78836a"/>
+   <path d="M102 122H124M102 139H124M211 122H228M211 139H228M102 159H124M211 159H228" fill="none" stroke="#d4c8ac"/>
+   <path d="M157 92q8-11 16 0q12-4 11 5q0 7-10 5q-8 11-16 0q-11 4-12-4q-1-9 11-6Z" fill="#f8f4e7" stroke="#a49070"/>
+  </g>
+  <path d="M138 194h54l-9 14h-38Z" fill="#e7dcc2"/>
+  <g stroke="#889675" stroke-width="2" stroke-linecap="round" fill="none"><path d="M50 209l-5-9m6 9l6-11M275 201l-4-9m5 9l5-13M724 221l-6-12m7 12l5-16M670 235l-4-8m5 8l7-10"/></g>
+  <g stroke="#8c9978" stroke-width="2" fill="#c9d3b7"><path d="M693 174c-37 0-36-27-19-33c-14-27 20-47 34-26c13-29 45-22 45 5c29-9 40 24 17 37c22 22-14 37-33 20Z"/><path d="M720 176v-42m0 25l-15-14m15 2l12-12" fill="none"/></g>
+  ${footprints}
+  <ellipse cx="440" cy="250" rx="${soilWidth+22}" ry="${points<4?8:12}" fill="${points>=6?'#b99d7d':'#c1bb9b'}" opacity=".26"/>
+  ${points===0?'':`<path d="M${440-soilWidth} 247Q${422-soilWidth*.35} ${soilTop-10} 440 ${soilTop}Q${475+soilWidth*.3} ${soilTop-10} ${440+soilWidth} 247" fill="${soilTone}" stroke="#ad9674" stroke-width="1.7" stroke-linecap="round"/>`}
+  <g fill="none" stroke="${points>=6?'#94785e':'#aa9474'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${cracks}</g>
+  <ellipse cx="${state.x*8.2}" cy="239" rx="${state.pose===10?78:62}" ry="8" fill="#a9b496" opacity=".24"/>
+  <ellipse cx="620" cy="236" rx="31" ry="7" fill="#b4b897" opacity=".35"/>
+  <g transform="rotate(${potAngle} 620 232)"><g class="yard-planter" stroke-linejoin="round" stroke-linecap="round">
+   <path d="M602 204h36l-5 28h-26Z" fill="#c59f81" stroke="#93765f" stroke-width="2.1"/>
+   <path d="M599 201h42v7h-42Z" fill="#d4b08f" stroke="#93765f" stroke-width="2.1"/>
+   <path d="M620 201v-49m0 20q-21-1-18-16q17-4 18 16m0 13q23-2 21-17q-21-2-21 17" fill="#adbf95" stroke="#7d926a" stroke-width="2"/>
+   <path d="M620 164q-11-13-4-22q13 5 4 22" fill="#bdcba4" stroke="#7d926a" stroke-width="2"/>
+   <path d="M608 212l3 13" stroke="#e3c9aa" stroke-width="2"/>
+  </g></g>
+  ${points>=5?'<path d="M588 239l-6 2m11 4l-2 3m-15-13l-4 1" fill="none" stroke="#a98a66" stroke-width="2.5" stroke-linecap="round"/>':''}
+  ${points>=6?'<g class="yard-tension" fill="none" stroke="#aa7556" stroke-width="2.2" stroke-linecap="round"><path d="M576 167l-7-6M568 179l-9-1M580 155l-2-8"/></g>':''}
+  <path d="M57 53q7-8 14 0m7 0q7-8 14 0" fill="none" stroke="#b4bcaa" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="744" cy="49" r="19" fill="#efe3bc"/>
+ </svg>`;
 }
 const yardStates=[
- {pose:21,x:51,y:29,size:172,name:'小狗坐在狗屋前'},
- {pose:4,x:49,y:34,size:180,name:'小狗沿着爪印嗅探'},
- {pose:6,x:51,y:34,size:182,name:'小狗低头寻找'},
- {pose:2,x:53,y:29,size:186,name:'小狗开始刨土'},
- {pose:9,x:54,y:36,size:188,name:'小狗伏在土堆旁'},
- {pose:23,x:49,y:29,size:188,name:'小狗守着新挖的土堆'},
- {pose:22,x:55,y:28,size:190,name:'小狗探头看着后院'},
- {pose:20,x:51,y:32,size:192,name:'小狗躺在土堆旁休息'}
+ {pose:10,x:48,name:'斑点狗在狗屋前打盹，花盆稳稳站着'},
+ {pose:11,x:49,name:'斑点狗沿着爪印巡游后院'},
+ {pose:7,x:51,name:'斑点狗低头闻着新翻的土'},
+ {pose:3,x:50,name:'斑点狗俯身邀玩，土堆渐渐隆起'},
+ {pose:5,x:49,name:'斑点狗回头张望，花盆开始歪斜'},
+ {pose:0,x:50,name:'斑点狗停下脚步，围栏和花盆都歪了些'},
+ {pose:6,x:49,name:'斑点狗抬起一只爪，松动的围栏旁花盆摇摇欲坠'},
+ {pose:8,x:48,name:'斑点狗举爪屏息，花盆悬斜着，还没有倒下'}
 ];
 function renderYardScene(){
  if(lastYard===yard)return;
- const state=yardStates[yard],status=$('yardStatus');
- status.dataset.level=yard===7?'full':yard>=4?'caution':'calm';
+ const state=yardStates[yard],status=$('yardStatus'),scene=$('yardScene');
+ const level=yard===7?'full':yard>=4?'caution':'calm';
+ status.dataset.level=level;
  status.setAttribute('aria-label','庭院总点数 '+yard+'，上限 7');
  $('yardTotal').textContent=yard;
  $('yardMeter').innerHTML=Array.from({length:7},(_,i)=>'<span class="'+(i<yard?'is-filled':'')+'"></span>').join('');
- $('yardScene').dataset.points=yard;
- $('yardScene').setAttribute('aria-label','后院 '+yard+' 点，'+state.name);
- $('yardScene').innerHTML=yardLandscape(yard)+'<div class="yard-character" style="--yard-x:'+state.x+'%;--yard-y:'+state.y+'%;--yard-size:'+state.size+'px">'+puppy(state.pose,'yard-dog')+'</div>';
+ scene.dataset.points=yard;scene.dataset.level=level;
+ scene.setAttribute('aria-label','后院 '+yard+' 点，'+state.name);
+ const art=DOG_ART.poses[state.pose];
+ const feet=(art.objectBounds[3]-art.cropRect[1])/art.cropRect[3];
+ const top=82.5-65.4*feet,mobileTop=78.3-66.3*feet;
+ const reaction=yard===7?'<svg class="yard-reaction" viewBox="0 0 100 100" aria-hidden="true"><path d="M72 23q-6 8-2 10q6 2 2-10Z" fill="#8baba3" stroke="#647f76" stroke-width=".75"/><path d="M72 8l3-5m-12 2V0" fill="none" stroke="#a67d5b" stroke-width="1.1" stroke-linecap="round"/></svg>':'';
+ scene.innerHTML=yardLandscape(yard)+'<div class="yard-character" style="--yard-x:'+state.x+'%;--yard-mobile-x:'+(state.x*1.28-7)+'%;--yard-y:'+top.toFixed(2)+'%;--yard-mobile-y:'+mobileTop.toFixed(2)+'%">'+dogSprite(state.pose,'yard-dog')+reaction+'</div>';
  lastYard=yard;
 }
+
 
 function recalc(){
  renderYardScene();

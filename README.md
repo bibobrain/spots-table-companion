@@ -1,15 +1,15 @@
 # Pip & Paw · A Spots companion
 
-**1.0.0-rc.10**
+**1.0.0-rc.11**
 
-**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Download the offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.10/PipAndPaw_1.0.0-rc10.zip)**
+**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Download the offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.11/PipAndPaw_1.0.0-rc11.zip)**
 
 A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog cards, compare the next roll, and keep a record of the game you are playing. English section names, bilingual Action names, Chinese explanations, and original Dalmatian illustrations. No account or installation.
 
 ## At the table
 
-1. **Build your dogs.** Choose 1–4 die faces from the six illustrated dice, then add a dog. Repeated faces are separate spaces: choosing 4 twice creates two 4-point spaces. Keep up to six dog cards in the game, including scored cards.
-2. **Match the table.** Tap a space on a dog to mark it filled or empty. This corrects the displayed board without recording a roll. Set **Yard** to the total buried points, and set **Dice** and **Bones**. The small status beside the Yard heading follows the total; each value from 1 to 7 has its own backyard scene.
+1. **Build your dogs.** Open **添加狗牌** for a compact floating palette beside the button. Choose 1–4 die faces, then add a dog. Repeated faces are separate spaces: choosing 4 twice creates two 4-point spaces. Closing the palette keeps your selection for the next opening, and the table stays in place. Keep up to six dog cards in the game, including scored cards.
+2. **Match the table.** Tap a space on a dog to mark it filled or empty. This corrects the displayed board without recording a roll. Set **Yard** to the total buried points, and set **Dice** and **Bones**. The small status beside the Yard heading follows the total. Across 0–7, the Dalmatian's pose, loose soil, fence, and leaning flowerpot give the backyard its mood; seven points is still safe.
 3. **Choose a plan.** **Roll** calculates an ordinary roll. In **Action**, choose **Fixed / Adjust / Filter / Chain / Bones**, then a card. Adjust its sliders or segmented choices beside the short calculation note. Both panels use your board; changing an Action setting leaves the ordinary Roll plan unchanged.
 4. **Record the result.** After rolling at the table, click the observed outcome in Roll or Action before changing the displayed board: 0, 1–4, or 5+ safe fills, or **BUST**. The app freezes that plan and its outcome probability. Confirm the actual spaces filled, the resulting Yard total, and any bones spent. Some Actions instead record a bone change or a point where a new dog card is needed.
 5. **Settle a bust.** Click **BUST**, then confirm. The result is recorded and the Yard and unscored dogs' placed dice are cleared. Your dog templates and scored cards remain ready for the next play.
@@ -18,13 +18,13 @@ A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog car
 
 ## 中文使用说明
 
-先选 1–4 颗骰面，再添加狗牌；同一点数可以重复选择，每一颗都对应一个独立空位。一局最多保留六张狗牌。直接点狗身上的空位，只用于校正实体桌面，不会生成投掷记录。
+点「添加狗牌」，在按钮旁的小浮窗里选 1–4 颗骰面，再添加狗牌。关掉浮窗后，已选骰面会留到下次打开，牌桌保持原位。同一点数可以重复选择，每一颗都对应一个独立空位，一局最多保留六张狗牌。十二种斑点狗姿态各有名字：后院巡逻队长、饼干失踪嫌疑狗、骰响也不醒……后院也会随 0–7 点变换动作，花盆和围栏渐渐歪斜，7 点仍未爆掉。
 
-实际掷完后，先点 Roll 或 Action 中对应的结果，再确认填入的位置、后院总点数和消耗的骨头。确认 BUST 会记录本次结果，并清空后院与未计分狗牌上的骰子，保留狗牌和已计分的狗。误操作可撤销。点「结束本局」查看整局战绩与一个称号；称号取自本局有有效正概率的结算中最少见的一次。浏览器只保存当前这一局，开始新局会替换它。
+直接点狗身上的空位用于校正实体桌面。实际掷完后，先点 Roll 或 Action 中对应的结果，再确认填入的位置、后院总点数和消耗的骨头。确认 BUST 会记录本次结果，并清空后院与未计分狗牌上的骰子，保留狗牌和已计分的狗。误操作可撤销。点「结束本局」查看整局战绩与一个称号；称号取自本局有有效正概率的结算中最少见的一次。浏览器只保存当前这一局，开始新局会替换它。
 
 ## Screenshots
 
-[Backyard and dog cards](assets/preview-desktop.jpg) · [Mobile layout](assets/mobile.jpg) · [Game report](assets/game-report.jpg)
+[Backyard and dog cards](assets/preview-desktop.jpg) · [Mobile layout](assets/mobile.jpg) · [Game report, rc.10](assets/game-report.jpg)
 
 ## Probability scope
 
@@ -56,7 +56,7 @@ Run the package and syntax checks with:
 python3 tests/test_release.py
 ```
 
-`tests/test_game_model.cjs` covers the current-game model. `tests/test_two_modules.py` covers interface and Action states, and `tests/test_browser_probability.py` compares selected results with independent probability references. The browser scripts require Chrome and Python `websockets`. See [QA_REPORT.md](QA_REPORT.md) for the release's validation record.
+`node tests/test_game_model.cjs` checks the current-game model; `node tests/test_settlement_model.cjs` checks settlement feasibility against the page's probability code. The browser scripts `tests/test_two_modules.py` and `tests/test_browser_probability.py` require Chrome and Python `websockets`. See [QA_REPORT.md](QA_REPORT.md) for the checks run for this release.
 
 ## Feedback
 
