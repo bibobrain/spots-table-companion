@@ -1,11 +1,12 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f4ed"><title>Pip &amp; Paw · A Spots companion</title>
-<meta name="description" content="Pip &amp; Paw — A playful, unofficial Spots tabletop companion. Set your Yard and Dogs, explore 22 illustrated Actions, and check the odds.">
+<meta name="description" content="Pip &amp; Paw — A playful, unofficial Spots tabletop companion. Build your dog pack, place dice, settle results and keep a little memento of your game.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="Pip &amp; Paw · A Spots companion">
 <meta property="og:description" content="A little pack for your game table. Explore 22 illustrated Actions and see how your Yard, Dogs and Bones change the odds.">
 <meta name="color-scheme" content="light">
-<link rel="preload" as="image" href="assets/puppy-actions.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/puppy-actions.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/dalmatian-poses.webp" type="image/webp" fetchpriority="high">
 <style>
 :root{--bg:#f5f4ef;--paper:#fffefa;--ink:#344339;--muted:#66736a;--line:#dfe4dc;--accent:#527568;--tint:#eaf0e9;--quiet:#f4f6f1;--danger:#a74740;--danger-tint:#fbefeb;--focus:#527568;--radius:20px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif;font-variant-numeric:tabular-nums}button,select,input{font:inherit}button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}button,select{color:inherit}button:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}button:disabled{opacity:.38;cursor:default}[hidden]{display:none!important}main{max-width:870px;margin:auto;padding:27px 20px 32px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 3px 17px}header strong{font:500 28px/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.9px}header small{font-size:11px;color:var(--muted);letter-spacing:.04em}h2,h3,p{margin:0}h2{font-size:15px;font-weight:650;letter-spacing:-.2px}.general-module,.trick-module{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);overflow:hidden}.sheet{padding:18px 18px 12px}.section+.section{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}.none{display:grid;place-items:center;background:none;border:0;min-width:44px;min-height:44px;border-radius:10px;color:var(--muted);font-size:18px}.none:hover{background:var(--quiet)}.yard{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.num{border:1px solid var(--line);border-radius:11px;min-width:0;min-height:46px;background:var(--quiet);color:#55645a;font-size:20px;font-weight:500;transition:background .15s,border-color .15s}.num[aria-pressed=true]{background:var(--tint);color:#365b49;border-color:var(--accent);box-shadow:inset 0 -2px var(--accent)}.num:hover{border-color:#809a87}.dogs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dog{height:210px;position:relative;overflow:hidden;min-width:0;border:1px solid var(--line);border-radius:15px;background:#f5f6f0}.dog:nth-child(2n){background:#f2f5f0}.spot{position:absolute;z-index:2;display:grid;place-items:center;isolation:isolate;width:46px;height:46px;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);border-radius:50%;color:#657267;font-size:16px;font-weight:500;line-height:1;transition:color .15s}.spot:before{position:absolute;z-index:-1;content:'';width:32px;height:32px;border:1px solid #9aa69a;border-radius:50%;background:#fffefaed;transition:background .15s,border-color .15s}.spot:hover:before{background:#eef3e9;border-color:var(--accent)}.spot[aria-pressed=true]{color:#2e5843;font-weight:650}.spot[aria-pressed=true]:before{background:#e1ecdc;border:2px solid #527568}.spot[aria-pressed=true]:after{content:'';position:absolute;bottom:5px;width:4px;height:4px;border-radius:50%;background:#527568}.spot:active{transform:translate(-50%,-50%) scale(.95)}.spot sup{position:absolute;right:0;top:0;font-size:10px;background:var(--accent);color:white;border-radius:8px;padding:3px 4px;line-height:1}.dogs-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}.micro{font-size:12px;color:var(--muted)}.mini-actions{display:flex;gap:6px}.tinybutton{border:1px solid var(--line);border-radius:10px;min-width:44px;min-height:44px;padding:6px 8px;background:var(--quiet);color:#536b59;font-size:19px;font-weight:400}.tinybutton svg{width:20px;height:20px;vertical-align:middle}.input-hint{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 1px 0}.controlrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.valuebox{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:12px;padding:7px 9px;background:var(--quiet)}.valuebox label{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}.token-icon{width:25px;height:25px;display:block}.stepper{display:flex;align-items:center;gap:7px}.stepper button{width:44px;height:44px;border:0;background:#e8eee5;border-radius:9px;color:#496653;font-size:24px;font-weight:400}.stepper output{width:24px;text-align:center;font-size:18px;font-weight:550}.outcomes{padding:17px 18px 15px;border-top:1px solid var(--line)}.outcome-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.outcome-heading h2{font-size:18px;font-weight:600}.event-definition{font-size:11px;color:var(--muted);text-align:right}.eyebrow{display:none}.fill-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.fill-item{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 3px;background:var(--quiet);border-radius:11px;min-width:0}.fill-item>span{font-size:12px;color:#66745e;font-weight:500}.fill-item output{font-size:clamp(22px,3.3vw,29px);font-weight:600;letter-spacing:-1px;line-height:1.1;color:#3e654f}.other-values{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted);margin:8px 2px 12px}.bust-line{display:flex;align-items:center;justify-content:space-between;gap:14px;border-radius:11px;padding:11px 13px;background:var(--danger-tint)}.bust-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.bust-title strong{color:var(--danger);font-size:16px;font-weight:650;letter-spacing:.08em}.bust-title small{color:#8b5e54;font-size:11px}.risk-dot{width:5px;height:5px;background:#ad6058;border-radius:50%}.bust-line output{font-size:clamp(29px,4.3vw,36px);font-weight:600;letter-spacing:-1.1px;line-height:1.1;color:var(--danger)}.context-note,.unknown-note{font-size:12px;line-height:1.6;margin-top:10px;color:var(--muted)}.context-note:empty{display:none}.unknown-note{color:#7d6645;background:#f6f0e5;border-radius:8px;padding:8px 10px}.resource-result{text-align:center;padding:10px;color:#44614e}.resource-result>div{font-size:13px}.resource-result output{display:block;font-size:42px;font-weight:600;margin-top:4px}.general-empty{font-size:13px;color:var(--muted);line-height:1.7;padding:5px 0 9px}.trick-module{margin-top:18px;padding:18px}.trick-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.trick-heading h2{font-size:19px;font-weight:600}.trick-heading small{font-size:11px;color:var(--muted)}.trick-groups{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--quiet)}.group-chip{min-height:44px;min-width:0;border:1px solid transparent;border-radius:8px;background:transparent;font-size:13px;font-weight:500;color:var(--muted);padding:7px 2px;position:relative}.group-chip:hover{background:#eaf0e5}.group-chip[aria-pressed=true]{background:#fffefa;color:#365b49;border-color:#a6b7a5;box-shadow:inset 0 -2px var(--accent);font-weight:650}.action-empty{text-align:center;padding:29px 18px 26px;min-height:188px}.action-empty h3{font-size:16px;font-weight:600;margin-bottom:6px}.action-empty p{font-size:12px;color:var(--muted);line-height:1.8;max-width:330px;margin:auto}.action-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:15px}.action-cards.two-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.action-card{position:relative;display:flex;flex-direction:column;gap:8px;align-items:flex-start;text-align:left;min-width:0;min-height:155px;padding:15px;border:1px solid #d6ded0;border-radius:12px;background:#fafbf7;color:var(--ink);transition:background .15s,border-color .15s}.action-card:hover{background:#edf3e8;border-color:#7a947e}.card-top{display:flex;align-items:center;justify-content:space-between;width:100%;gap:8px}.card-arrow{color:#75876e;font-size:17px}.card-name{font-size:17px;font-weight:600;line-height:1.25}.card-en{font-size:11px;color:#66765d;letter-spacing:.02em;margin-top:-5px}.card-summary{font-size:12px;line-height:1.6;color:#65715f}.detail-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:15px 0 12px}.back-button{display:inline-flex;align-items:center;gap:6px;padding:8px 9px;border:0;border-radius:9px;min-height:44px;background:var(--quiet);font-size:13px;color:#506b57}.detail-name{font-size:18px;font-weight:600;line-height:1.4;text-align:right;scroll-margin-top:18px}.detail-name:focus{outline:none}.detail-name span{display:block;font-size:12px;color:var(--muted);font-weight:450}.trick-rule{padding:16px;border:1px solid #dfe5d8;border-radius:12px;background:#f5f7f0}.rule-lead{font-size:17px;line-height:1.7;font-weight:550;color:#3b503e}.rule-steps{list-style:none;padding:0;margin:15px 0 0;display:grid;gap:12px}.rule-steps li{display:flex;align-items:flex-start;gap:10px}.rule-step-number{display:grid;place-items:center;flex:0 0 22px;height:22px;margin-top:2px;border-radius:50%;background:#e5ebde;color:#516b48;font-size:11px}.rule-step-heading{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.rule-step-heading strong{font-size:13px;font-weight:600}.rule-step-kind{font-size:10px;color:#66745c;background:#e8eedf;padding:2px 6px;border-radius:5px}.rule-step-kind[data-type=optional]{background:#f0eadb;color:#75623f}.rule-step-kind[data-type=conditional]{background:#e9e6ed;color:#6b6077}.rule-step-content p{font-size:12px;color:#66715e;line-height:1.6;margin-top:3px}.action-settings{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fcfcf8}.special-extra{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.special-extra label{font-size:12px;color:var(--muted)}.smallsel{min-height:44px;font-size:14px;background:var(--paper);border:1px solid #cfd8c8;border-radius:8px;padding:7px 9px;max-width:100%}.action-outcome{margin:17px -18px -18px;padding:17px 18px 16px}.release-footer{font-size:10px;line-height:1.8;color:#65715f;text-align:center;margin:20px 12px 0}.release-footer a{color:#486451;text-underline-offset:3px}.release-footer .foot-title{font-size:11px;margin-bottom:3px}
@@ -111,12 +112,81 @@ header{align-items:center;margin-bottom:18px}
 @media(max-width:599px){.dogs{grid-template-columns:1fr;gap:10px}.dogs .dog{width:100%;max-width:390px;justify-self:center;padding-top:12px;padding-bottom:6px}.dogs .dog-index{left:13px;top:12px;font-size:10px}}
 @media(prefers-reduced-motion:reduce){.dogs .spot,.dogs .spot::before{transition:none}.dogs .spot:active{transform:translate(-50%,-50%)}}
 
-</style></head><body><main><header><div class="brand"><strong>Pip &amp; Paw</strong><small>A Spots companion</small></div><div id="yardStatus" class="yard-status" data-level="calm" role="status"><span class="status-dot" aria-hidden="true"></span><span class="status-value">Yard <output id="yardTotal">0</output><small>/ 7</small></span><span class="yard-meter" id="yardMeter" aria-hidden="true"></span></div></header>
+/* SVG fills its allocated size; the button, not the drawing, owns the hit area. */
+.die-art{display:block;width:100%;height:100%;overflow:visible;pointer-events:none;user-select:none;transition:transform .18s ease,filter .18s ease}
+.die-art--quiet{opacity:.72}
+.die-button{display:grid;place-items:center;width:72px;min-height:76px;padding:1px;border:1px solid transparent;border-radius:17px;background:transparent;touch-action:manipulation}
+.die-button:hover{background:#eeeede}
+.die-button:hover .die-art{transform:translateY(-3px) rotate(-2deg)}
+.die-button:active .die-art{transform:translateY(1px) scale(.96)}
+.die-button[aria-pressed=true]{background:#e8eddf;border-color:#9bab8e}
+.die-button:focus-visible{outline:2px solid #59765c;outline-offset:3px}
+.die-button--small{width:44px;min-height:44px;padding:0;border-radius:11px}
+@media(prefers-reduced-motion:reduce){.die-art{transition:none}.die-button:hover .die-art,.die-button:active .die-art{transform:none}}
+
+/* Add after the existing Action styles. Native range controls remain keyboard-operable. */
+.action-settings{margin-top:16px;padding:3px 17px;border:1px solid #e0e3d8;border-radius:16px;background:#fbfbf6}
+.special-extra.action-control-list{display:block}
+.action-parameter{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(180px,1fr);align-items:center;column-gap:28px;padding:16px 0}
+.action-parameter+.action-parameter{border-top:1px solid #e8eadf}
+.ap-copy{min-width:0}
+.special-extra .ap-title{display:block;color:#41583f;font-size:14px;font-weight:600;line-height:1.45}
+.ap-note{max-width:38ch;margin:5px 0 0;color:#707a67;font-size:12px;line-height:1.6}
+.ap-slider{position:relative;min-width:0;padding-top:24px}
+.ap-value{position:absolute;right:0;top:0;min-width:49px;padding:1px 8px;border:1px solid #dce3d2;border-radius:8px;background:#f0f3e9;color:#425f43;font-size:13px;font-weight:650;line-height:1.6;text-align:center;white-space:nowrap}
+.ap-range{display:block;width:100%;height:44px;margin:0;padding:0;border:0;background:transparent;accent-color:#69805e;appearance:none;-webkit-appearance:none;cursor:pointer;touch-action:pan-y}
+.ap-range::-webkit-slider-runnable-track{height:5px;border-radius:5px;background:linear-gradient(to right,#738b65 0 var(--ap-fill,0%),#e1e6d9 var(--ap-fill,0%) 100%)}
+.ap-range::-webkit-slider-thumb{width:22px;height:22px;margin-top:-8.5px;border:2px solid #6e875f;border-radius:50%;background:#fffef7;box-shadow:0 2px 4px #5c684a1a;appearance:none;-webkit-appearance:none}
+.ap-range::-moz-range-track{height:5px;border-radius:5px;background:#e1e6d9}
+.ap-range::-moz-range-progress{height:5px;border-radius:5px;background:#738b65}
+.ap-range::-moz-range-thumb{width:18px;height:18px;border:2px solid #6e875f;border-radius:50%;background:#fffef7;box-shadow:0 2px 4px #5c684a1a}
+.ap-range:focus-visible{outline:2px solid #62805d;outline-offset:2px;border-radius:10px}
+.ap-ends{display:flex;justify-content:space-between;margin-top:-5px;color:#8a927f;font-size:10px;line-height:1.4;pointer-events:none}
+.ap-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:4px;border:1px solid #e1e5d8;border-radius:12px;background:#eff2e8}
+.ap-option{min-width:0;min-height:44px;padding:7px 8px;border:1px solid transparent;border-radius:8px;background:transparent;color:#76816c;font-size:12px;font-weight:500;line-height:1.4;transition:background .14s,color .14s}
+.ap-option:hover{background:#e4eadb;color:#4d6347}
+.ap-option[aria-pressed=true]{border-color:#c7d4bc;background:#fffef8;color:#3f5e3d;box-shadow:0 1px 3px #5661480d}
+.ap-option:focus-visible{outline:2px solid #62805d;outline-offset:2px}
+@media(max-width:640px){.action-settings{padding:0 13px}.action-parameter{grid-template-columns:minmax(0,1fr);gap:9px;padding:15px 0}.ap-slider{padding-top:20px}.ap-note{max-width:none;margin-top:3px}.ap-range{height:44px}.ap-options--four{grid-template-columns:repeat(4,minmax(0,1fr))}.ap-options--four .ap-option{padding-inline:3px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.ap-option{transition:none}}
+
+/* The table is for playing; details live in the current decision. */
+main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small{letter-spacing:.03em}
+.session-tools{display:flex;gap:7px;align-items:center}.quiet-button,.text-button,.icon-button,.secondary-button,.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;border:1px solid var(--line);border-radius:11px;padding:8px 13px;background:var(--paper);font-size:12px;color:#52634f;line-height:1.3}
+.quiet-button{background:transparent;border-color:transparent}.quiet-button:hover,.text-button:hover{background:#eaf0e4}.quiet-button span{min-width:18px;border-radius:7px;background:#e5ebdf;padding:2px 4px;font-size:11px}.icon-button{min-width:44px;width:44px;padding:0;background:transparent;border-color:transparent;font-size:22px}.text-button{background:#f6f7ef}.primary-button{background:#526f55;color:#fffdf5;border-color:#526f55;box-shadow:0 3px 0 #38523c;padding:10px 20px}.primary-button:hover{background:#415e47}.primary-button:active{transform:translateY(1px);box-shadow:0 2px 0 #38523c}.secondary-button{background:#f5f5ec}.primary-button:disabled{box-shadow:none}.icon-button:hover{background:#edf0e6}
+.yard-heading{display:flex;align-items:center;gap:16px}.yard-status{display:flex;align-items:center;min-width:0;gap:7px;font-size:11px}.status-value{gap:8px}.status-value output{font-size:14px;font-weight:550}.yard-meter{display:none}.yard-section .head{margin-bottom:8px}.yard-scene{margin:0 0 12px}.yard-character{width:24%}
+.pack-section .head{margin-bottom:13px}.pack-heading-tools{display:flex;align-items:center;gap:8px}.dog-builder{padding:17px 18px;margin-bottom:16px;border:1px solid #d9e0cf;border-radius:17px;background:linear-gradient(125deg,#f6f7ee,#faf7ed)}.builder-heading{display:flex;justify-content:space-between;gap:10px;align-items:center}.builder-heading h3{font-size:15px;font-weight:600}.builder-heading p{color:#7c806d;font-size:11px;margin-top:4px}.builder-heading-right{display:flex;gap:9px;align-items:center}.builder-count{font-size:11px;color:#768068;letter-spacing:.08em}.builder-close{font-size:19px}
+.dice-palette{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px;max-width:550px;margin:16px auto 12px}.palette-die{display:grid;place-items:center;width:100%;min-height:76px;aspect-ratio:1;background:transparent;border:1px solid transparent;border-radius:15px;padding:3px;transition:transform .16s ease,background .16s,border-color .16s}.palette-die .die-art{max-width:88px}.palette-die:hover{background:#fffdf5;border-color:#b5c3a8;transform:translateY(-3px)}.palette-die:active{transform:translateY(0) scale(.95)}.palette-die:disabled{opacity:.45}.builder-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px solid #e1e5d8;padding-top:13px}.draft-selection{display:flex;gap:7px;align-items:center}.draft-slots{display:flex;gap:5px}.draft-chip,.draft-placeholder{display:block;width:42px;height:44px;border-radius:10px}.draft-placeholder{border:1px dashed #c4ceba;background:#f3f4e9}.draft-chip{position:relative;background:#fefcf4;border:1px solid #bac8ae;padding:0}.draft-chip .die-art{width:40px;height:40px}.draft-chip>span{position:absolute;right:-4px;top:-5px;background:#74876b;color:white;border-radius:50%;width:14px;height:14px;font-size:12px;line-height:12px}.clear-draft{padding:0;min-width:32px;font-size:18px}.create-dog{white-space:nowrap;min-height:45px}
+.pack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;align-items:start}.pack-grid.one-dog{grid-template-columns:minmax(280px,460px);justify-content:center}.pack-card{min-width:0;position:relative;overflow:hidden;border:1px solid #dfe4d5;border-radius:20px;background:var(--card-tone,#f2f1e7);box-shadow:0 4px 14px #67705408}.pack-card-heading{height:50px;display:flex;justify-content:space-between;align-items:center;padding:5px 10px 0 19px;position:relative;z-index:2}.pack-card-heading>div{display:flex;align-items:baseline;gap:9px}.pack-number{color:#8b907d;font:11px/1 Georgia,serif;letter-spacing:.06em}.pack-card h3{font-size:14px;font-weight:500;letter-spacing:.08em}.remove-dog{font-size:18px;color:#8f9786}.pack-figure{position:relative;width:min(100%,370px);aspect-ratio:1;margin:-4px auto -8px;isolation:isolate}.new-puppy{display:block;background-image:url('assets/dalmatian-poses.webp');background-size:var(--dog-size,400% 300%);background-position:var(--dog-x) var(--dog-y);clip-path:var(--dog-clip,none);background-repeat:no-repeat;aspect-ratio:1;pointer-events:none}.pack-figure>.new-puppy{position:absolute;inset:0;z-index:0}
+.card-slot{position:absolute;left:var(--slot-x);top:var(--slot-y);transform:translate(-50%,-50%);z-index:2;display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;border-radius:12px;background:transparent;touch-action:manipulation;transition:filter .15s}.vacant-face{width:31px;height:31px;overflow:visible;pointer-events:none}.vacant-face rect{fill:#fdf9edb8;stroke:#9b9c7f;stroke-width:1.25;stroke-dasharray:2.5 2.2}.vacant-face circle{fill:#65735d;opacity:.83}.card-slot:hover .vacant-face rect{fill:#fffef5;stroke:#59774b;stroke-dasharray:none}.card-slot.is-filled .die-art{width:46px;height:48px;filter:drop-shadow(0 2px 2px #3e4d3629);animation:die-land .18s ease-out}.card-slot:focus-visible{outline:2px solid #4f6e4b;outline-offset:1px}.card-slot:active{filter:brightness(.95)}.pack-card-foot{display:flex;justify-content:space-between;align-items:center;min-height:33px;padding:0 19px 12px;font-size:10px;color:#68755a}.pack-progress{display:flex;gap:5px}.pack-progress i{width:5px;height:5px;border-radius:50%;background:#d5dcca}.pack-progress i.on{background:#718663}.pack-card.is-complete{border-color:#a4b48c;box-shadow:0 0 0 1px #d9e2cb inset}.pack-card.is-complete .pack-card-foot{color:#486139}.pack-empty{display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px dashed #bac8ad;border-radius:14px;font-size:12px;color:#617355}
+.scored-dogs{margin-top:16px;padding:12px 15px 9px;border-top:1px solid #e2e6d9}.scored-heading{display:flex;align-items:center;gap:8px;color:#748068;font-size:11px}.scored-heading strong{font-size:11px;font-weight:500}.score-gallery{display:flex;gap:13px;flex-wrap:wrap;margin-top:5px}.scored-dog{position:relative;width:70px;text-align:center;font-size:10px;color:#6d795f}.scored-dog .new-puppy{width:70px}.scored-dog>span:last-of-type{display:block;margin-top:1px}.scored-dog b{position:absolute;right:1px;top:8px;background:#83996b;color:white;border:2px solid #fffef6;border-radius:50%;width:17px;height:17px;font-size:10px;line-height:13px}
+.table-ended{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px;padding:10px 14px;border:1px solid #c5cfba;border-radius:13px;background:#eef2e6;font-size:12px}.save-status{font-size:11px;color:#985548;background:#fff1e8;padding:8px 13px;border-radius:10px;margin-bottom:10px}
+.fill-item{position:relative;border:1px solid transparent;font:inherit;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}.fill-item:not(:disabled):hover{background:#eaf0df;border-color:#a6b995;transform:translateY(-2px)}.fill-item:disabled{opacity:.48}.record-arrow{position:absolute;right:9px;top:6px;color:#95a18b;font-size:11px;line-height:1}.other-values button{border:0;min-height:36px;border-radius:8px;background:transparent;padding:5px 8px;font-size:11px;color:#627158}.other-values button:not(:disabled):hover{background:#edf2e5}.bust-line{border:1px solid #ead8d1;width:100%;text-align:left;cursor:pointer;transition:border-color .15s,background .15s}.bust-line:hover{border-color:#ccaaa0;background:#f9e9e2}.bust-line:disabled{opacity:.4}.bust-title small{letter-spacing:.03em}.bust-reset{font-size:19px;font-weight:400;color:#a76d60}.bust-line output{margin-left:auto}.resource-result{display:block;width:100%;border:1px solid #d6dfcd;background:#f4f7ec;border-radius:13px;cursor:pointer}.resource-result:disabled{cursor:default}.unknown-note{display:block;width:100%;border:1px solid #e5dac4;text-align:left;cursor:pointer}.roll-method{margin-top:10px;font-size:11px;color:#79816f}.roll-method summary{cursor:pointer;min-height:28px;list-style-position:inside}.roll-method p{max-width:670px;font-size:11px;line-height:1.7;padding:7px 0}.outcomes .context-note{font-size:11px;margin-top:10px}.general-empty{padding:12px 0 3px}.action-settings{padding:3px 15px}.ap-note{max-width:390px}
+.game-dialog{border:1px solid #d8dfce;border-radius:23px;width:calc(100% - 28px);max-width:650px;max-height:calc(100dvh - 40px);padding:0;color:var(--ink);background:#fffdf7;box-shadow:0 24px 100px #28342933;overflow:auto;overscroll-behavior:contain}.game-dialog::backdrop{background:#27322566;backdrop-filter:blur(3px)}.dialog-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 22px 12px;border-bottom:1px solid #e2e5d9;position:sticky;top:0;background:#fffdf7f5;z-index:5;backdrop-filter:blur(8px)}.dialog-header h2{font-size:20px;font-weight:550}.dialog-header small{display:block;font-size:10px;color:#89917c;margin-top:4px}.dialog-body{padding:20px 23px}.settlement-chance{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}.settlement-chance strong{font:500 32px/1.1 Georgia,serif;letter-spacing:-1px;color:#496a4b}.settlement-chance span{font-size:11px;color:#7a856e}.settlement-note{font-size:12px;color:#738068;line-height:1.7;margin-bottom:15px}.game-dialog[data-kind=bust] .settlement-chance strong{color:#ad6456}.game-dialog[data-kind=bust] .primary-button{background:#a55e50;border-color:#a55e50;box-shadow:0 3px 0 #81463c}.settlement-section{border:0;margin:17px 0 0;padding:16px 0 0;border-top:1px solid #e2e6d9;min-width:0}.settlement-section legend{float:left;padding:0;font-size:12px;font-weight:550;width:100%;margin-bottom:10px}.settle-section-head{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12px;margin-bottom:10px}.settle-section-head span{font-size:11px;font-weight:400;color:#78836c}.settle-dog{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid #ecede4}.settle-dog:last-child{border:0}.settle-dog-name{display:flex;align-items:center;gap:8px;font-size:12px;min-width:0}.settle-dog-name .new-puppy{width:58px;flex:none}.settle-dog-slots{display:flex;gap:4px;flex-shrink:0}.settle-slot{display:grid;place-items:center;width:44px;height:46px;padding:0;border:1px solid transparent;border-radius:11px;background:transparent}.settle-slot[aria-pressed=true]{background:#e4ecd9;border-color:#819872}.settle-slot[aria-pressed=true] .vacant-face rect{stroke-dasharray:none;fill:#fdfdf4}.settle-slot:disabled{opacity:.4}.settle-slot .die-art{width:42px;height:44px}.settlement-yards{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;clear:both}.settle-yard{min-width:0;min-height:44px;border:1px solid #d6deca;border-radius:10px;background:#f5f6ec;font-size:17px}.settle-yard[aria-pressed=true]{background:#e1ebd4;border-color:#789161;box-shadow:inset 0 -2px #789161}.settlement-faces{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;clear:both}.settle-face{aspect-ratio:1;min-width:0;min-height:48px;border:1px solid transparent;border-radius:12px;padding:0;background:transparent}.settle-face[aria-pressed=true]{border-color:#8b9f78;background:#e6eddc}.settle-source-choices{display:flex;flex-wrap:wrap;gap:6px}.source-pick{min-height:44px;padding:6px 12px;border:1px solid #d1dac3;background:#f4f6e9;border-radius:9px;font-size:12px}.source-pick[aria-pressed=true]{border-color:#778e64;background:#e5edda}.spent-bones-row{display:flex;align-items:center;gap:16px;clear:both}.spent-bones-row input{width:100%;min-height:44px;accent-color:#6e895f}.spent-bones-row output{min-width:40px;font-size:12px;color:#51684b}.settle-resource{font:500 32px/1.3 Georgia,serif;text-align:center;color:#55724e;padding:15px}.settlement-warning{padding:10px 12px;border-radius:9px;background:#f5efdf;color:#89754f;font-size:11px;line-height:1.7;margin-top:15px}.dialog-footer{display:flex;justify-content:flex-end;gap:9px;padding:16px 23px;border-top:1px solid #e1e5d8;background:#f9f9ef;position:sticky;bottom:0;z-index:4;flex-wrap:wrap}
+.journal-dialog{max-width:680px}.journal-award{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr 155px;align-items:center;min-height:190px;padding:23px 20px 23px 27px;background:linear-gradient(120deg,#ecefdc,#f5ebdb 70%);border:1px solid #dce2cb;border-radius:18px;margin-bottom:18px;overflow:hidden}.award-eyebrow{font-size:10px;color:#85916f;letter-spacing:.18em;margin-bottom:10px}.journal-award h3{font:500 31px/1.35 'Songti SC','Noto Serif CJK SC',Georgia,serif;letter-spacing:.18em;color:#4b6240}.journal-award p{font-size:11px;line-height:1.85;color:#748160;margin-top:11px;max-width:280px}.award-art .new-puppy{width:155px}.award-rarity{display:inline-block;font-size:10px;color:#a78750;border-bottom:1px solid #c9b890;margin-top:12px;padding-bottom:2px;letter-spacing:.08em}.journal-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:18px}.journal-stat{padding:13px 7px;text-align:center;border:1px solid #e1e5d6;border-radius:11px;background:#f7f8ee}.journal-stat strong{display:block;font:500 25px/1.2 Georgia,serif;color:#4e6848}.journal-stat span{display:block;margin-top:4px;color:#7a846e;font-size:10px}.highlight-section{padding:14px 16px;border:1px solid #d4ddc6;border-radius:13px;background:#f2f5e9;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.highlight-section small{font-size:10px;display:block;color:#879273}.highlight-section strong{display:block;font-size:15px;font-weight:550;margin-top:5px}.highlight-section span{font-size:10px;display:block;color:#7d876f;margin-top:4px}.highlight-section output{font:500 26px/1 Georgia,serif;color:#587448;white-space:nowrap}.record-heading{display:flex;justify-content:space-between;align-items:center;margin:3px 0 8px}.record-heading h3{font-size:13px;font-weight:550}.records-list{padding:0;margin:0;list-style:none}.record-row{display:flex;align-items:center;gap:12px;border-bottom:1px solid #e9ebdf;padding:12px 0;font-size:12px}.record-index{font:11px Georgia,serif;color:#929a83;width:20px;flex:none}.record-row>div{flex:1;min-width:0}.record-row strong{font-weight:500;font-size:12px}.record-row small{display:block;color:#8a917e;font-size:10px;line-height:1.6;margin-top:3px}.record-probability{font:15px Georgia,serif;color:#61754f;white-space:nowrap}.record-empty{padding:25px 10px;text-align:center;color:#89927c;font-size:12px}.report-footnote{font-size:10px;line-height:1.7;color:#8a927f;margin-top:16px}.journal-footer{justify-content:space-between}.journal-footer>div{display:flex;gap:8px}.toast{display:flex;align-items:center;justify-content:space-between;gap:14px;position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;max-width:calc(100% - 26px);padding:10px 12px 10px 18px;background:#3e5543;color:#fffdf4;box-shadow:0 8px 30px #273d3029;border:1px solid #536a50;border-radius:13px;font-size:12px}.toast button{border:0;border-radius:8px;min-height:36px;padding:6px 10px;background:#ffffff18;color:#f2f5df;white-space:nowrap;font-size:12px}.just-busted .yard-character{animation:bust-wiggle .45s ease-in-out}
+@keyframes die-land{from{transform:translateY(-6px) rotate(-7deg);opacity:.5}to{transform:translateY(0) rotate(0);opacity:1}}
+@keyframes bust-wiggle{0%,100%{transform:translateX(-50%)}25%{transform:translateX(calc(-50% - 5px)) rotate(-2deg)}75%{transform:translateX(calc(-50% + 5px)) rotate(2deg)}}
+@media(max-width:760px){.brand{display:block}.brand strong{font-size:29px}.brand small{font-size:9px;margin-top:4px;display:block}.session-tools{gap:2px}.session-tools .quiet-button{padding:7px 8px}.session-tools .secondary-button{padding:8px 10px;font-size:11px}.pack-figure{max-width:370px}.pack-grid{gap:12px}.builder-footer{gap:8px}.dog-builder{padding:15px}.palette-die{min-height:64px}.draft-chip,.draft-placeholder{width:35px;height:38px}.draft-chip .die-art{width:35px;height:36px}.create-dog{padding-left:13px;padding-right:13px}.clear-draft{min-width:25px}.yard-character{width:30%}}
+@media(max-width:650px){main{padding:20px 12px 26px}.sheet{padding:12px}.brand strong{font-size:27px}.session-tools #undoButton{width:36px;min-width:36px;font-size:19px}.pack-grid{grid-template-columns:1fr;margin:0 -10px;gap:13px}.pack-grid.one-dog{grid-template-columns:minmax(0,1fr)}.pack-card{max-width:430px;width:100%;justify-self:center}.pack-card-heading{height:44px}.pack-figure{max-width:370px}.pack-card-foot{padding-bottom:12px}.pack-heading-tools{gap:5px}.pack-heading-tools .text-button{font-size:11px;padding:8px 10px}.yard-heading{gap:12px}.yard-status{min-width:0}.yard-character{width:36%}.dice-palette{gap:4px;margin-top:12px}.palette-die{min-height:44px;padding:0}.builder-footer{flex-wrap:wrap}.draft-selection{gap:3px}.draft-chip,.draft-placeholder{width:36px;height:40px}.create-dog{font-size:12px;min-height:44px}.dog-builder{padding:13px 11px}.game-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 20px);border-radius:20px}.dialog-header{padding:14px 16px 10px}.dialog-header h2{font-size:18px}.dialog-body{padding:17px 16px}.dialog-footer{padding:13px 16px}.settle-dog-name{gap:3px}.settle-dog-name .new-puppy{width:45px}.settle-dog-name span{font-size:11px}.settle-dog{gap:5px}.settle-dog-slots{gap:1px}.settlement-yards{grid-template-columns:repeat(4,minmax(0,1fr))}.journal-award{grid-template-columns:1fr 110px;padding:19px 15px}.journal-award h3{font-size:27px;letter-spacing:.13em}.award-art .new-puppy{width:110px}.journal-award p{font-size:10px}.journal-stats{gap:5px}.journal-stat{padding:11px 3px}.journal-stat strong{font-size:23px}.journal-stat span{font-size:9px}.highlight-section{padding:12px}.highlight-section output{font-size:24px}.journal-footer{gap:8px}.journal-footer .primary-button{padding-left:12px;padding-right:12px}.toast{font-size:11px}.record-probability{font-size:13px}}
+@media(max-width:380px){main{padding:16px 8px 23px}.sheet{padding:10px}.brand strong{font-size:25px}.brand small{font-size:8px}.session-tools{gap:0}.session-tools .quiet-button{padding:7px 5px;font-size:10px}.session-tools .secondary-button{font-size:10px;padding:7px 8px}.session-tools #undoButton{min-width:30px;width:30px}.draft-chip,.draft-placeholder{width:32px;height:36px}.draft-chip .die-art{width:32px;height:34px}.builder-footer{gap:8px}.create-dog{padding:8px 10px;font-size:11px}.draft-selection{gap:0}.dice-palette{gap:0}.palette-die{min-height:44px}.pack-card-heading{padding-left:15px}.pack-card-foot{padding-left:15px;padding-right:15px}.settle-dog-name{flex-direction:column;gap:0}.settle-dog-name .new-puppy{width:42px}.game-dialog .settle-slot{width:44px}.journal-award{grid-template-columns:1fr 86px}.award-art .new-puppy{width:95px}.journal-award h3{font-size:24px}.dialog-body{padding-left:12px;padding-right:12px}.dialog-footer{padding-left:12px;padding-right:12px}.highlight-section strong{font-size:13px}.highlight-section output{font-size:21px}.journal-footer{justify-content:center}.journal-footer>div{flex-wrap:wrap;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.palette-die,.fill-item{transition:none}.palette-die:hover,.fill-item:not(:disabled):hover{transform:none}.card-slot.is-filled .die-art,.just-busted .yard-character{animation:none}.primary-button:active{transform:none}}
+
+/* Keep the physical choices comfortably tappable on the narrow table. */
+.draft-chip,.draft-placeholder{width:44px;height:44px}.clear-draft{min-width:44px;width:44px}
+@media(max-width:760px){.draft-chip,.draft-placeholder{width:44px;height:44px}.draft-chip .die-art{width:42px;height:42px}.clear-draft{min-width:44px}.session-tools #undoButton{min-width:44px;width:44px}}
+@media(max-width:650px){.dice-palette{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 12px;max-width:330px}.palette-die{height:72px;aspect-ratio:auto}.palette-die .die-art{width:72px;height:72px}.builder-footer{display:grid;grid-template-columns:1fr;justify-items:center}.create-dog{width:100%}.draft-selection{gap:6px}.draft-slots{gap:5px}.other-values button{min-height:44px}.settlement-faces{grid-template-columns:repeat(3,minmax(0,1fr))}.settle-face{height:65px;aspect-ratio:auto}.settle-face .die-art{max-width:68px}}
+@media(max-width:380px){header{gap:6px;align-items:flex-start;flex-wrap:wrap}.session-tools{margin-left:auto}.session-tools #undoButton{min-width:44px;width:44px}.draft-chip,.draft-placeholder{width:44px;height:44px}.draft-chip .die-art{width:42px;height:42px}.clear-draft{min-width:44px}.draft-selection{gap:5px}.dice-palette{gap:3px 9px}.palette-die{height:68px}.palette-die .die-art{width:68px;height:68px}}
+
+.record-faces{display:flex;align-items:center;gap:2px;flex-wrap:wrap;margin-top:3px}.record-faces .die-art{width:29px;height:30px;flex:none}.record-faces small{padding-left:3px}
+
+</style></head><body><main><header><div class="brand"><strong>Pip &amp; Paw</strong><small>A little company at the table</small></div><nav class="session-tools" aria-label="本局操作"><button type="button" class="icon-button" id="undoButton" aria-label="撤销上一步" title="撤销上一步" disabled>↶</button><button type="button" class="quiet-button" id="openJournal">本局 <span id="journalCount">0</span></button><button type="button" class="secondary-button" id="endSession">结束本局</button></nav></header><div id="saveStatus" class="save-status" hidden>浏览器未允许保存；当前页面仍可继续使用。</div><div id="tableEnded" class="table-ended" hidden><span>这一局已收好。</span><button type="button" class="text-button" id="resumeTable">继续本局</button></div>
 <section class="general-module" id="generalModule" aria-label="Yard and Dogs">
-<div class="sheet"><div class="section yard-section"><div class="head"><h2>Yard</h2><button class="none" id="zero" aria-label="清空庭院" title="清空庭院">↺</button></div><div id="yardScene" class="yard-scene" role="img" aria-label="后院"></div><div class="yard" id="yard"></div></div>
-<div class="section"><div class="head dogs-head"><h2>Dogs</h2><div class="dog-tools"><button class="tinybutton" id="lessDog" aria-label="减少一只狗">−</button><button class="tinybutton" id="moreDog" aria-label="增加一只狗">＋</button><button class="none quiet-reset" id="clearSpots" aria-label="清空狗牌">↺</button></div></div><div class="dogs" id="dogs"></div><span class="sr-only" id="missing" aria-live="polite"></span></div>
+<div class="sheet"><div class="section yard-section"><div class="head"><div class="yard-heading"><h2>Yard</h2><div id="yardStatus" class="yard-status" data-level="calm" role="status"><span class="status-dot" aria-hidden="true"></span><span class="status-value"><output id="yardTotal">0</output><small>/ 7</small></span><span class="yard-meter" id="yardMeter" aria-hidden="true"></span></div></div><button class="none" id="zero" aria-label="清空庭院" title="清空庭院">↺</button></div><div id="yardScene" class="yard-scene" role="img" aria-label="后院"></div><div class="yard" id="yard"></div></div>
+<div class="section pack-section"><div class="head dogs-head"><h2>Dogs</h2><div class="pack-heading-tools"><button type="button" class="text-button" id="bankDogs" hidden>✓ 计分完整狗牌</button><button type="button" class="text-button" id="openBuilder" aria-controls="dogBuilder" aria-expanded="true">＋ 添加狗牌</button></div></div>
+<div class="dog-builder" id="dogBuilder"><div class="builder-heading"><div><h3>迎接一位新伙伴</h3><p>照整张狗牌选点面</p></div><div class="builder-heading-right"><span class="builder-count" id="draftCount">0 / 4</span><button type="button" class="icon-button builder-close" id="builderClose" aria-label="收起添加狗牌" hidden>×</button></div></div><div class="dice-palette" id="dicePalette" role="group" aria-label="选择狗牌点面"></div><div class="builder-footer"><div class="draft-selection"><div class="draft-slots" id="draftSlots" aria-label="已选点面"></div><button type="button" class="icon-button clear-draft" id="clearDraft" aria-label="清空已选点面" hidden>↺</button></div><button type="button" class="primary-button create-dog" id="createDog" disabled>添加狗牌 ＋</button></div></div>
+<div class="pack-grid" id="dogs"></div><div class="pack-empty" id="packEmpty" hidden><span>再迎接一位新伙伴。</span><button type="button" class="text-button" id="addNextDog">＋ 添加狗牌</button></div><div class="scored-dogs" id="scoredDogs" hidden><div class="scored-heading"><strong>已计分</strong><span id="scoredCount">0 / 6</span></div><div class="score-gallery" id="scoredList"></div></div></div>
 <div class="section controls-section"><div class="controlrow"><div class="valuebox"><label title="骰子" aria-label="骰子"><svg class="token-icon" viewBox="0 0 48 48" role="img" aria-label="骰子"><rect x="4" y="4" width="40" height="40" rx="10" fill="#fffcf2" stroke="#496951" stroke-width="3"/><circle cx="15" cy="15" r="4" fill="#315c46"/><circle cx="33" cy="15" r="4" fill="#315c46"/><circle cx="24" cy="24" r="4" fill="#315c46"/><circle cx="15" cy="33" r="4" fill="#315c46"/><circle cx="33" cy="33" r="4" fill="#315c46"/></svg><span>Dice</span></label><div class="stepper"><button id="diceMinus" aria-label="减少骰子">−</button><output id="diceN">2</output><button id="dicePlus" aria-label="增加骰子">＋</button></div></div><div class="valuebox"><label title="骨头" aria-label="骨头"><svg class="token-icon" viewBox="0 0 54 48" role="img" aria-label="骨头"><path d="M14 13 C3 6 1 21 9 23 C1 30 8 43 17 34 L39 17 C46 24 56 16 50 10 C54 2 43 -1 39 7Z" fill="#f2d6ac" stroke="#a46d47" stroke-width="2.6" stroke-linejoin="round"/><path d="M17 33L38 16" stroke="#d3a477" stroke-width="2.4"/></svg><span>Bones</span></label><div class="stepper"><button id="bonesMinus" aria-label="减少骨头">−</button><output id="bonesN">0</output><button id="bonesPlus" aria-label="增加骨头">＋</button></div></div></div></div></div>
-<div class="outcomes" id="outcomes" aria-live="polite"><div class="outcome-heading"><div><div class="eyebrow">本次行动的结果</div><h2 id="activeName">Roll</h2></div><span class="event-definition" id="eventDefinition">不爆掉 · 恰好填上</span></div><p class="general-empty" id="generalEmpty">选择狗身上的点面</p><div class="fill-grid" id="fillGrid"><div class="fill-item"><span id="fillLabel1">1 颗</span><output id="fill1">—</output></div><div class="fill-item"><span id="fillLabel2">2 颗</span><output id="fill2">—</output></div><div class="fill-item"><span id="fillLabel3">3 颗</span><output id="fill3">—</output></div><div class="fill-item"><span id="fillLabel4">4 颗</span><output id="fill4">—</output></div></div><div class="other-values" id="otherValues"><span id="zeroNote">0 颗 —</span><span id="moreNote" hidden>5 颗以上 —</span></div><div class="unknown-note" id="unknownNote" hidden>后续须抽新狗牌</div><div class="bust-line" id="bustLine"><div class="bust-title"><span class="risk-dot"></span><strong>BUST</strong><small>Yard &gt; 7</small></div><output id="bust">—</output></div><div class="resource-result" id="resourceResult" hidden><div id="resourceTitle">行动后骨头总数</div><output id="resourceValue">—</output></div><div class="context-note" id="scope" role="status">没填中空位时才花骨头重掷整批</div></div></section>
+<div class="outcomes" id="outcomes" aria-live="polite"><div class="outcome-heading"><h2 id="activeName">Roll</h2><span class="event-definition" id="eventDefinition">安全 · 恰好填上</span></div><p class="general-empty" id="generalEmpty">添加你的狗牌，开始这一局。</p><div class="fill-grid" id="fillGrid"><button type="button" class="fill-item" id="recordFill1"><span id="fillLabel1">1 颗</span><output id="fill1">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="recordFill2"><span id="fillLabel2">2 颗</span><output id="fill2">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="recordFill3"><span id="fillLabel3">3 颗</span><output id="fill3">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="recordFill4"><span id="fillLabel4">4 颗</span><output id="fill4">—</output><small class="record-arrow" aria-hidden="true">↗</small></button></div><div class="other-values" id="otherValues"><button type="button" id="zeroNote">0 颗 —</button><button type="button" id="moreNote">5 颗以上 —</button></div><button type="button" class="unknown-note" id="unknownNote" hidden>补新牌后继续</button><button type="button" class="bust-line" id="bustLine"><span class="bust-title"><span class="risk-dot"></span><strong>BUST</strong><small>记录并清空</small></span><output id="bust">—</output><span class="bust-reset" aria-hidden="true">↺</span></button><button type="button" class="resource-result" id="resourceResult" hidden><span id="resourceTitle">行动后骨头总数</span><output id="resourceValue">—</output></button><div class="context-note" id="scope" role="status"></div><details class="roll-method"><summary>计算方式</summary><p>匹配的骰子先填入；当这一批无法安全填入空位时，按 Bones 上限花骨头重掷整批。概率对应这套方案。点选实际结果后，再确认填入的位置与结算后的 Yard。</p></details></div></section>
 <section class="trick-module" id="trickModule" aria-label="Action rules and results">
 <div class="trick-heading"><h2>Action</h2><small id="categorySummary">22 cards · 5 groups</small></div>
 <div class="trick-picker"><div class="trick-groups" id="trickGroups" role="group" aria-label="Action groups"></div>
@@ -125,9 +195,16 @@ header{align-items:center;margin-bottom:18px}
 <div id="actionDetail" hidden><div class="detail-top"><button type="button" id="backToCards" class="back-button">← Back</button><div class="detail-identity"><span id="detailArt" aria-hidden="true"></span><h3 id="detailName" class="detail-name" tabindex="-1"></h3></div></div>
 <div class="trick-rule" aria-live="polite"><p id="actionRule" class="rule-lead"></p><ol id="ruleSteps" class="rule-steps"></ol></div>
 <div class="action-settings" id="actionSettings"><div id="specialExtra" class="special-extra"></div></div>
-<div class="outcomes action-outcome" id="actionOutcomes" aria-live="polite"><div class="outcome-heading"><div><div class="eyebrow">此行动的结果</div><h2 id="actionActiveName">Roll</h2></div><span class="event-definition" id="actionEventDefinition">不爆掉 · 恰好填上</span></div><div class="fill-grid" id="actionFillGrid"><div class="fill-item"><span id="actionFillLabel1">1 颗</span><output id="actionFill1">—</output></div><div class="fill-item"><span id="actionFillLabel2">2 颗</span><output id="actionFill2">—</output></div><div class="fill-item"><span id="actionFillLabel3">3 颗</span><output id="actionFill3">—</output></div><div class="fill-item"><span id="actionFillLabel4">4 颗</span><output id="actionFill4">—</output></div></div><div class="other-values" id="actionOtherValues"><span id="actionZeroNote">0 颗 —</span><span id="actionMoreNote" hidden>5 颗以上 —</span></div><div class="unknown-note" id="actionUnknownNote" hidden>后续须抽新狗牌</div><div class="bust-line" id="actionBustLine"><div class="bust-title"><span class="risk-dot"></span><strong>BUST</strong><small>Yard &gt; 7</small></div><output id="actionBust">—</output></div><div class="resource-result" id="actionResourceResult" hidden><div id="actionResourceTitle">行动后骨头总数</div><output id="actionResourceValue">—</output></div><div class="context-note" id="actionScope" role="status">没填中空位时才花骨头重掷整批</div><button class="choose-spots" id="chooseSpots" type="button" hidden>Choose spots ↑</button></div></div></section>
-<footer class="release-footer"><div class="foot-title">Pip &amp; Paw · Free, unofficial Spots companion</div><a href="https://www.cmyk.games/products/spots" target="_blank" rel="noopener noreferrer">Spots</a> · <a href="https://www.rulespal.com/spots/rulebook" target="_blank" rel="noopener noreferrer">Rules</a></footer></main><script>
+<div class="outcomes action-outcome" id="actionOutcomes" aria-live="polite"><div class="outcome-heading"><h2 id="actionActiveName">Action</h2><span class="event-definition" id="actionEventDefinition">安全 · 恰好填上</span></div><div class="fill-grid" id="actionFillGrid"><button type="button" class="fill-item" id="actionRecordFill1"><span id="actionFillLabel1">1 颗</span><output id="actionFill1">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="actionRecordFill2"><span id="actionFillLabel2">2 颗</span><output id="actionFill2">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="actionRecordFill3"><span id="actionFillLabel3">3 颗</span><output id="actionFill3">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="actionRecordFill4"><span id="actionFillLabel4">4 颗</span><output id="actionFill4">—</output><small class="record-arrow" aria-hidden="true">↗</small></button></div><div class="other-values" id="actionOtherValues"><button type="button" id="actionZeroNote">0 颗 —</button><button type="button" id="actionMoreNote">5 颗以上 —</button></div><button type="button" class="unknown-note" id="actionUnknownNote" hidden>补新牌后继续</button><button type="button" class="bust-line" id="actionBustLine"><span class="bust-title"><span class="risk-dot"></span><strong>BUST</strong><small>记录并清空</small></span><output id="actionBust">—</output><span class="bust-reset" aria-hidden="true">↺</span></button><button type="button" class="resource-result" id="actionResourceResult" hidden><span id="actionResourceTitle">行动后骨头总数</span><output id="actionResourceValue">—</output></button><div class="context-note" id="actionScope" role="status"></div><button class="choose-spots" id="chooseSpots" type="button" hidden>Choose spots ↑</button></div></div></section>
+<footer class="release-footer"><div class="foot-title">Pip &amp; Paw · Free, unofficial Spots companion</div><a href="https://www.cmyk.games/products/spots" target="_blank" rel="noopener noreferrer">Spots</a> · <a href="https://www.rulespal.com/spots/rulebook" target="_blank" rel="noopener noreferrer">Rules</a></footer></main>
+<dialog id="settlementDialog" class="game-dialog" aria-labelledby="settlementTitle"><div class="dialog-header"><div><h2 id="settlementTitle">本次结算</h2><small id="settlementOrigin"></small></div><button type="button" class="icon-button" id="settlementClose" aria-label="取消结算">×</button></div><div class="dialog-body"><div class="settlement-chance"><strong id="settlementProbability"></strong><span>当时方案概率</span></div><p class="settlement-note" id="settlementNote"></p><div class="settle-resource" id="settleResource" hidden></div><div class="settlement-section" id="settleSource" hidden><div class="settle-section-head">取回哪一个旧骰</div><div class="settle-source-choices" id="settleSourceChoices"></div></div><div id="settleSlots"><div class="settle-section-head"><strong>这次填上的位置</strong><span id="settleCount"></span></div><div id="settlementDogs"></div></div><fieldset class="settlement-section" id="settleYardGroup"><legend>结算后 Yard · 总点数</legend><div class="settlement-yards" id="settlementYards"></div></fieldset><fieldset class="settlement-section" id="settleFaceGroup" hidden><legend>本次埋下的骰面</legend><div class="settlement-faces" id="settlementFaces"></div></fieldset><fieldset class="settlement-section" id="settleBoneGroup" hidden><legend>这次重掷用掉的骨头</legend><div class="spent-bones-row"><input id="spentBones" type="range" min="0" max="10" value="0" step="1" aria-label="这次用掉的骨头"><output id="spentBonesValue">0 根</output></div></fieldset><p id="settlementWarning" class="settlement-warning" hidden></p></div><div class="dialog-footer"><button type="button" class="secondary-button" id="cancelSettlement">取消</button><button type="button" class="primary-button" id="confirmSettlement">确认结算</button></div></dialog>
+<dialog id="journalDialog" class="game-dialog journal-dialog" aria-labelledby="journalTitle"><div class="dialog-header"><div><h2 id="journalTitle">本局手记</h2><small id="journalDate"></small></div><button type="button" class="icon-button" id="journalClose" aria-label="关闭本局记录">×</button></div><div class="dialog-body"><section class="journal-award" id="awardSection" hidden><div><div class="award-eyebrow">本 局 题 签</div><h3 id="awardTitle"></h3><p id="awardDescription"></p><span class="award-rarity" id="awardRarity"></span></div><div class="award-art" id="awardArt"></div></section><div class="journal-stats"><div class="journal-stat"><strong id="summaryRecorded">0</strong><span>已记录次数</span></div><div class="journal-stat"><strong id="summaryFilled">0</strong><span>安全填入</span></div><div class="journal-stat"><strong id="summaryBusts">0</strong><span>BUST</span></div><div class="journal-stat"><strong id="summaryScored">0</strong><span>已计分狗</span></div></div><section class="highlight-section" id="highlightSection" hidden><div><small>本局最罕见的一次</small><strong id="highlightResult"></strong><span id="highlightSource"></span></div><output id="highlightChance"></output></section><div class="record-heading"><h3>这一局的落点</h3></div><p class="record-empty" id="recordEmpty">还没有结算记录。</p><ol class="records-list" id="recordsList"></ol><p class="report-footnote" id="reportFootnote" hidden>称号取本局最罕见的已记录结果。各次概率不合成为整局胜率。</p></div><div class="dialog-footer journal-footer"><button type="button" class="secondary-button" id="journalBack">继续游玩</button><div><button type="button" class="secondary-button" id="resumeSession" hidden>继续本局</button><button type="button" class="primary-button" id="journalFinish">结束本局</button><button type="button" class="primary-button" id="newSession" hidden>新的一局 ＋</button></div></div></dialog>
+<div class="toast" id="toast" role="status" hidden><span id="toastText"></span><button type="button" id="toastUndo">撤销</button></div>
+<script src="assets/game-model.js"></script>
+<script src="assets/settlement-model.js"></script>
+<script>
 (()=>{'use strict';const $=s=>document.getElementById(s);const q=(s)=>document.querySelector(s);let yard=0,dice=2,bones=0,goal='one',dogs=3,paws=0,params={threshold:0,paws:0,rounds:2,fetch:0,src:2,source:'choose',buried:0,rolloverExtra:1,walkExtra:1,boltSet:3,boltRolls:3,top:1,after:-1,facedown:2,reroll:1,playdead:'bury',verified:0,supply:-1},active=null;const roundsByAction={run:2,chase:2};let spots=Array.from({length:6},()=>[0,0,0,0,0,0]);
+const DEFAULT_PARAMS=JSON.parse(JSON.stringify(params));
 const labels={normal:['普通掷骰','全部掷出，匹配的填上狗牌，其余埋入庭院。'],fetch:['叼回 Fetch','掷 8 颗，只保留一种点数的全部骰子；其余弃回供应。'],guard:['守卫 Guard','先报 1–6，掷 4 颗；弃掉大于报数的骰子。'],hunt:['狩猎 Hunt','掷 2＋爪印数，选择其中 2 颗留下。'],search:['寻找 Search','掷 7 颗，只选择点数和恰好为 8 的子集；找不到就不放。'],scavenge:['搜刮 Scavenge','掷 4 颗，可弃掉小于原庭院点数的骰子。'],track:['追踪 Track','掷 3 颗，可以花骨头只重掷其中几颗。'],walk:['散步 Walk','先掷并结算 2 颗，再自己决定要不要追加 1 颗。'],run:['奔跑 Run','先掷 3 颗，再可逐颗追加。'],chase:['追逐 Chase','先掷 1 颗，下一批 2 颗，再下一批 3 颗……'],bolt:['飞奔 Bolt','先留出 3–12 颗；逐颗掷、逐颗放置或埋下。只有剩余数量不多于爪印数时才能提前停。'],sprint:['冲刺 Sprint','每张未完成狗牌掷 1 颗，可以重复。'],dogpile:['叠叠乐 Dogpile','先拿供应区 2 颗；若自己狗牌或庭院有骰子，必须再拿 1 颗，一起重掷。可重复整个行动。'],rollover:['翻滚 Roll Over','把庭院的全部骰子拿回重掷、结算；然后可再掷 1 颗。庭院无骰时跳过第一步。'],dig:['挖掘 Dig','每个爪印可把埋骰点数调整 ±1；然后掷 2 颗。'],retrieve:['找回 Retrieve','看牌堆最上面的狗牌，从供应区拿 1 颗骰子设成牌上任一数字；先放置或埋下，再掷 2 颗。'],trot:['小跑 Trot','可移动自己狗牌上一个骰子到另一空位，然后掷 2 颗。'],howl:['嚎叫 Howl','先补 1 张狗牌（若未达 6 张），再掷 1 颗。'],beg:['乞食 Beg','先拿 1 根骨头，再按未得分狗牌上的爪印数额外拿骨头。'],chew:['咀嚼 Chew','现有骨头翻倍后再加 1 根。'],gobble:['大口吞 Gobble','先拿 7 根骨头；再按最高未填空位的点数归还骨头。没有未填空位便跳过归还；如果先拿骨头后仍不足以整额归还，也跳过无法执行的这一步。'],playdead:['装死 Play Dead','掷 1 颗；若选择埋入庭院且没爆掉，就按骰面点数领骨头。放在狗牌上则不领骨头。'],stay:['不动 Stay','每张其他背面行动牌给予 1 根骨头。']};
 const category={howl:'red',rollover:'red',beg:'green',chew:'green',gobble:'green',playdead:'green',stay:'green',fetch:'blue',guard:'blue',hunt:'blue',scavenge:'blue',search:'blue',dig:'yellow',retrieve:'yellow',track:'yellow',trot:'yellow',walk:'yellow',bolt:'purple',chase:'purple',dogpile:'purple',run:'purple',sprint:'purple'};
 // Original puppy illustrations share one transparent 6 × 4 atlas.
@@ -136,54 +213,419 @@ function puppy(index,extra=''){
  const col=index%6,row=Math.floor(index/6);
  return `<span class="puppy ${extra}" aria-hidden="true" style="--puppy-x:${col*20}%;--puppy-y:${row*100/3}%"></span>`;
 }
-function setDogCount(n){dogs=Math.min(6,Math.max(1,n));renderDogs();recalc()}
-// Original vector artwork; the six controls keep the existing missing-spot counts.
-function dogPips(face){
- const points={1:[[18,18]],2:[[8,8],[28,28]],3:[[8,8],[18,18],[28,28]],4:[[8,8],[28,8],[8,28],[28,28]],5:[[8,8],[28,8],[18,18],[8,28],[28,28]],6:[[8,8],[28,8],[8,18],[28,18],[8,28],[28,28]]};
- return '<svg class="dog-pips" viewBox="0 0 36 36" aria-hidden="true" focusable="false">'+points[face].map(([x,y])=>'<circle cx="'+x+'" cy="'+y+'" r="3.1"/>').join('')+'</svg>';
-}
-function dogSpotContent(face,count){
- return dogPips(face)+(count>1?'<sup>×'+count+'</sup>':'');
-}
-function dogArtwork(index){
- const pose=index%3;
- const tails=[
-  '<path d="M309 127C338 119 350 96 341 76C338 70 330 72 331 79C335 94 326 101 311 103"/>',
-  '<path d="M309 129C338 130 353 112 348 96C345 86 336 90 338 97C341 108 325 110 311 108"/>',
-  '<path d="M310 126C328 138 345 132 349 120C351 114 344 110 341 116C337 124 324 113 311 107"/>'
- ];
- const ears=[
-  '<path d="M82 69C98 71 105 82 99 100L92 113C88 121 77 117 77 108L79 89C72 81 74 73 82 69Z" fill="#46554b"/>',
-  '<path d="M81 68C97 70 105 82 100 99L94 113C90 121 79 117 79 108L81 88C73 80 73 72 81 68Z" fill="#46554b"/>',
-  '<path d="M83 71C99 73 106 85 100 102L93 116C88 125 78 120 79 111L81 91C73 83 75 75 83 71Z" fill="#46554b"/>'
- ];
- const eye=pose===2?'<path d="M40 95Q45 99 50 94" fill="none" stroke-width="3"/>':'<ellipse cx="45" cy="94" rx="3.2" ry="4.2" fill="#38483e" stroke="none"/>';
- const headTurn=pose===1?'rotate(-7 81 107)':pose===2?'rotate(4 81 107)':'';
- return '<svg class="dog-artwork" viewBox="0 0 360 260" aria-hidden="true" focusable="false">'+
-  '<ellipse cx="190" cy="241" rx="130" ry="6" fill="#e9ecdf"/>'+
-  '<g stroke="#657563" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="#e4e8dc">'+
-  tails[pose]+
-  '<path d="M113 180L111 222C105 222 99 227 100 234C101 241 119 241 126 236L142 190" fill="#d9e0d2"/>'+
-  '<path d="M269 183L273 222C269 226 271 237 280 238L298 238C306 238 307 232 301 227L294 187" fill="#d9e0d2"/>'+
-  '<path d="M92 125C109 97 131 85 159 86C194 88 244 78 273 87C301 94 319 112 320 140L318 179C316 202 300 214 279 215C234 219 178 214 136 215C111 215 98 204 94 181C89 161 87 140 92 125Z"/>'+
-  '<path d="M136 201L131 231C123 231 118 233 119 239C121 246 144 245 149 239L162 206" fill="#e4e8dc"/>'+
-  '<path d="M281 202L284 229C277 230 275 237 280 241C286 246 306 244 310 239C314 235 309 230 304 227L302 197" fill="#e4e8dc"/>'+
-  '<path d="M128 238L128 243M138 237L138 244M289 237L289 244M299 237L299 243" stroke="#83917c" stroke-width="1.6"/>'+
-  '<g transform="'+headTurn+'">'+
-  '<path d="M98 119C88 133 72 135 59 128C46 122 40 123 31 121C21 119 17 112 21 106C24 101 31 101 34 96C31 83 38 72 49 68C63 62 80 65 90 75C103 88 106 106 98 119Z" fill="#f5f4e9"/>'+
-  ears[pose]+
-  '<path d="M20 104C15 104 14 110 19 113C23 115 28 110 26 107Z" fill="#38483e" stroke="none"/>'+eye+
-  '<path d="M28 117Q35 121 41 117" stroke="#60705e" stroke-width="1.8" fill="none"/>'+
-  '<path d="M83 129L100 123L103 132L87 138Z" fill="#78906b" stroke="#657c5a" stroke-width="1.6"/>'+
-  '<circle cx="89" cy="140" r="4" fill="#c7aa70" stroke="#a48d5e" stroke-width="1.2"/>'+
-  '</g></g></svg>';
-}
-function renderDogs(){
- const positions=[[37.2,44.2],[57.8,43.1],[78.3,44.6],[38.3,71.5],[58.9,70.4],[78.9,72.3]];
- $('dogs').innerHTML=Array.from({length:dogs},(_,i)=>'<div class="dog dog-card" data-pose="'+(i%3)+'"><span class="dog-index" aria-hidden="true">'+String(i+1).padStart(2,'0')+'</span><div class="dog-figure">'+dogArtwork(i)+'<div class="dog-spots">'+Array.from({length:6},(_,j)=>'<button type="button" class="spot" data-d="'+i+'" data-f="'+j+'" style="--spot-x:'+positions[j][0]+'%;--spot-y:'+positions[j][1]+'%" aria-label="第'+(i+1)+'只狗，'+(j+1)+'点空位，当前'+spots[i][j]+'个" aria-pressed="'+(spots[i][j]>0)+'">'+dogSpotContent(j+1,spots[i][j])+'</button>').join('')+'</div></div></div>').join('');
- $('lessDog').disabled=dogs<=1;$('moreDog').disabled=dogs>=6;
+const DOG_ART={"version":2,"asset":"dalmatian-poses.webp","source":"dalmatian-poses.png","width":1448,"height":1086,"columns":4,"rows":3,"coordinateSystem":"Normalized inside each pose cropRect; use backgroundSize and backgroundPosition, not the nominal atlas grid. Each crop is square, independently fitted to the real visible object.","rendering":{"aspectRatio":"1 / 1","minimumCanvasCssPixels":280,"hitTargetCssPixels":44,"recommendedVisibleSlotCssPixels":28,"notes":"Point centers follow real white flank/chest. Distinct per-pose crops include full tails and paws. clipInsets is zero because these square crop windows contain no other dog. Pose 10 extends below source canvas into transparent space; CSS background-repeat must be no-repeat.","smallestSeparatingAxisCssPixels":44.8},"poses":[{"id":0,"name":"curious-stand","label":"歪头站立","maxSpots":4,"objectBounds":[60,67,328,334],"cropRect":[52.0,58.5,284,284],"backgroundSize":[509.859155,382.394366],"backgroundPosition":[4.467354,7.294264],"clipInsets":[0,0,0,0],"slots":{"1":[[0.566901,0.536972]],"2":[[0.397887,0.522887],[0.609155,0.522887]],"3":[[0.309859,0.505282],[0.492958,0.505282],[0.676056,0.505282]],"4":[[0.309859,0.455986],[0.471831,0.455986],[0.309859,0.617958],[0.471831,0.617958]]}},{"id":1,"name":"proud-sit","label":"仰头端坐","maxSpots":3,"objectBounds":[425,51,620,335],"cropRect":[372.5,43.0,300,300],"backgroundSize":[482.666667,362.0],"backgroundPosition":[32.447735,5.470738],"clipInsets":[0,0,0,0],"slots":{"1":[[0.528333,0.713333]],"2":[[0.485,0.603333],[0.568333,0.783333]],"3":[[0.478333,0.566667],[0.645,0.65],[0.485,0.746667]]}},{"id":2,"name":"easy-recline","label":"舒展趴卧","maxSpots":3,"objectBounds":[744,119,1044,328],"cropRect":[736.0,65.5,316,316],"backgroundSize":[458.227848,343.670886],"backgroundPosition":[65.017668,8.506494],"clipInsets":[0,0,0,0],"slots":{"1":[[0.411392,0.678797]],"2":[[0.316456,0.678797],[0.525316,0.678797]],"3":[[0.246835,0.685127],[0.411392,0.685127],[0.575949,0.685127]]}},{"id":3,"name":"play-bow","label":"俯身邀玩","maxSpots":4,"objectBounds":[1132,83,1413,334],"cropRect":[1124.0,60.0,297,297],"backgroundSize":[487.542088,365.656566],"backgroundPosition":[97.654214,7.604563],"clipInsets":[0,0,0,0],"slots":{"1":[[0.713805,0.488215]],"2":[[0.643098,0.40404],[0.740741,0.585859]],"3":[[0.609428,0.40404],[0.79798,0.40404],[0.707071,0.592593]],"4":[[0.636364,0.393939],[0.79798,0.393939],[0.636364,0.555556],[0.79798,0.555556]]}},{"id":4,"name":"little-leap","label":"轻快跃起","maxSpots":2,"objectBounds":[33,440,365,649],"cropRect":[25.0,370.5,348,348],"backgroundSize":[416.091954,312.068966],"backgroundPosition":[2.272727,50.203252],"clipInsets":[0,0,0,0],"slots":{"1":[[0.445402,0.547414]],"2":[[0.33046,0.556034],[0.517241,0.561782]]}},{"id":5,"name":"look-back","label":"回望尾巴","maxSpots":4,"objectBounds":[455,423,663,680],"cropRect":[422.5,415.0,273,273],"backgroundSize":[530.40293,397.802198],"backgroundPosition":[35.957447,51.04551],"clipInsets":[0,0,0,0],"slots":{"1":[[0.481685,0.641026]],"2":[[0.335165,0.586081],[0.53663,0.699634]],"3":[[0.338828,0.516484],[0.510989,0.604396],[0.338828,0.714286]],"4":[[0.338828,0.556777],[0.5,0.556777],[0.338828,0.717949],[0.5,0.717949]]}},{"id":6,"name":"raised-step","label":"抬爪张望","maxSpots":3,"objectBounds":[758,412,1030,679],"cropRect":[750.0,401.5,288,288],"backgroundSize":[502.777778,377.083333],"backgroundPosition":[64.655172,50.313283],"clipInsets":[0,0,0,0],"slots":{"1":[[0.454861,0.543403]],"2":[[0.309028,0.519097],[0.569444,0.522569]],"3":[[0.295139,0.529514],[0.479167,0.529514],[0.663194,0.529514]]}},{"id":7,"name":"low-sniff","label":"低头寻香","maxSpots":4,"objectBounds":[1109,431,1410,669],"cropRect":[1101.0,391.5,317,317],"backgroundSize":[456.782334,342.586751],"backgroundPosition":[97.34748,50.910273],"clipInsets":[0,0,0,0],"slots":{"1":[[0.637224,0.468454]],"2":[[0.55205,0.468454],[0.744479,0.468454]],"3":[[0.55836,0.373817],[0.719243,0.373817],[0.719243,0.5347]],"4":[[0.55836,0.373817],[0.719243,0.373817],[0.55836,0.5347],[0.719243,0.5347]]}},{"id":8,"name":"gentle-wave","label":"抬爪问好","maxSpots":2,"objectBounds":[54,767,281,1047],"cropRect":[19.5,759.0,296,296],"backgroundSize":[489.189189,366.891892],"backgroundPosition":[1.692708,96.075949],"clipInsets":[0,0,0,0],"slots":{"1":[[0.494932,0.64527]],"2":[[0.501689,0.503378],[0.467905,0.709459]]}},{"id":9,"name":"long-stretch","label":"伸个懒腰","maxSpots":2,"objectBounds":[373,796,689,1027],"cropRect":[365.0,745.5,332,332],"backgroundSize":[436.144578,327.108434],"backgroundPosition":[32.706093,98.872679],"clipInsets":[0,0,0,0],"slots":{"1":[[0.35241,0.561747]],"2":[[0.231928,0.52259],[0.421687,0.603916]]}},{"id":10,"name":"peaceful-sleep","label":"安然小憩","maxSpots":4,"objectBounds":[738,886,1067,1016],"cropRect":[730.0,778.5,345,345],"backgroundSize":[419.710145,314.782609],"backgroundPosition":[66.183137,105.060729],"clipInsets":[0,0,0,0],"slots":{"1":[[0.655072,0.485507]],"2":[[0.550725,0.482609],[0.724638,0.482609]],"3":[[0.455072,0.497101],[0.62029,0.497101],[0.785507,0.497101]],"4":[[0.550725,0.392754],[0.713043,0.392754],[0.550725,0.555072],[0.713043,0.555072]]}},{"id":11,"name":"happy-walk","label":"摇尾漫步","maxSpots":3,"objectBounds":[1126,793,1415,1024],"cropRect":[1118.0,756.0,305,305],"backgroundSize":[474.754098,356.065574],"backgroundPosition":[97.812773,96.798976],"clipInsets":[0,0,0,0],"slots":{"1":[[0.580328,0.537705]],"2":[[0.429508,0.518033],[0.67541,0.518033]],"3":[[0.393443,0.518033],[0.57377,0.518033],[0.754098,0.518033]]}}]};
+// Exact, original vector dice. Decorative SVG: label the containing control.
+// API: dieArt(face, { className: '', quiet: false } = {}) -> SVG string.
+// The only numbered face is the front. Side bevels have no additional pips.
+let dieArtworkSerial = 0;
+function dieArt(face, options = {}) {
+  const number = Number(face);
+  if (!Number.isInteger(number) || number < 1 || number > 6) throw new RangeError('A die face must be 1–6.');
+  const id = 'pp-die-' + (++dieArtworkSerial);
+  const className = String(options.className || '').replace(/[^a-zA-Z0-9_ -]/g, '');
+  const points = {
+    1: [[45, 54]],
+    2: [[29, 37], [61, 71]],
+    3: [[29, 37], [45, 54], [61, 71]],
+    4: [[29, 37], [61, 37], [29, 71], [61, 71]],
+    5: [[29, 37], [61, 37], [45, 54], [29, 71], [61, 71]],
+    6: [[29, 37], [61, 37], [29, 54], [61, 54], [29, 71], [61, 71]]
+  };
+  const pips = points[number].map(([x, y]) =>
+    `<g data-pip="true"><circle cx="${x}" cy="${y + .7}" r="4.55" fill="#fffef5" opacity=".9"/><circle cx="${x}" cy="${y}" r="4.15" fill="url(#${id}-pip)"/><path d="M${x - 2.1} ${y + 2.1}q2.1 1.4 4.2 0" fill="none" stroke="#91a18c" stroke-opacity=".38" stroke-width=".8" stroke-linecap="round"/></g>`
+  ).join('');
+  return `<svg class="die-art ${options.quiet ? 'die-art--quiet ' : ''}${className}" data-face="${number}" viewBox="0 0 100 104" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="${id}-top" x1="0" y1="0" x2=".35" y2="1"><stop stop-color="#fffffb"/><stop offset="1" stop-color="#ece7d8"/></linearGradient>
+      <linearGradient id="${id}-side" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0d8c6"/><stop offset="1" stop-color="#b6aa91"/></linearGradient>
+      <radialGradient id="${id}-face" cx=".28" cy=".16" r="1.12"><stop stop-color="#fffef9"/><stop offset=".62" stop-color="#f5f0e2"/><stop offset="1" stop-color="#dfd5bd"/></radialGradient>
+      <radialGradient id="${id}-pip" cx=".5" cy=".85" r=".95"><stop stop-color="#4d6857"/><stop offset="1" stop-color="#263f33"/></radialGradient>
+      <radialGradient id="${id}-shadow"><stop stop-color="#79765e" stop-opacity=".19"/><stop offset="1" stop-color="#79765e" stop-opacity="0"/></radialGradient>
+    </defs>
+    <ellipse cx="50" cy="95" rx="39" ry="7" fill="url(#${id}-shadow)"/>
+    <path d="M18 26 29 13q4-5 12-5h32q13 0 15 11L77 33V35H18Z" fill="url(#${id}-top)" stroke="#c9c2ae" stroke-width=".9" stroke-linejoin="round"/>
+    <path d="m77 30 11-12v44q0 7-5 14L72 89 69 67Z" fill="url(#${id}-side)" stroke="#b8b09a" stroke-width=".9" stroke-linejoin="round"/>
+    <rect x="13" y="20" width="64" height="68" rx="14" fill="url(#${id}-face)" stroke="#bfc0a8" stroke-width="1"/>
+    <rect x="16.5" y="23.5" width="57" height="61" rx="11" fill="none" stroke="#fffef7" stroke-width="1.2" opacity=".8"/>
+    <path d="M27 12h43q9 0 11 5M17 39v29" fill="none" stroke="#fffef9" stroke-width="1.5" stroke-linecap="round" opacity=".85"/>
+    ${pips}
+  </svg>`;
 }
 
+// Round 6: the table, the physical cards and the recorded result remain distinct.
+const Game = globalThis.PipGame;
+const STORE_KEY = 'pip-and-paw.current-game.v1';
+const DOG_NAMES = ['松果','小满','云朵','栗子','麦芽','豆蔻','青苔','山葵','团子','杏仁','月白','糯米'];
+const AWARD_LINES = {'凤毛麟角':'少见的落点，恰好与你相逢。','百里挑一':'百般可能里，偏得这一回。','妙手偶得':'偶然一掷，落成意外之喜。','不期而遇':'未曾刻意，恰在此时相遇。','水到渠成':'点面相合，自然成章。','波澜不惊':'这一掷安然收住，留下一段从容的空白。','无妄之灾':'微小的岔路，偏在这一掷遇见。','平地风波':'原本平静的局面，忽然起了一阵波澜。','一波三折':'这一掷稍有曲折，留待下一手舒展。','山重水复':'此处山重水复，再寻下一段去路。','风雨寻常':'风雨也在常情之中，重整牌面再出发。'};
+let table = Game.newGame(), draftFaces = [], builderOpen = true;
+let undoStack = [], pending = null, pendingSerial = 0, toastTimer = null;
+let lastDogRender = '', historyGroup = null, loadingSaved = false;
+let outcomeCache = Object.create(null);
+const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const copy = value => JSON.parse(JSON.stringify(value));
+function normalizedProbability(p) {
+ if(!Number.isFinite(p)||p < -1e-12||p > 1+1e-12)return null;
+ return Math.min(1,Math.max(0,p));
+}
+function displayProbability(p) {
+ p=normalizedProbability(p);
+ if (p===null) return '未计概率';
+ if (p === 0) return '0%';
+ const v = p * 100;
+ if (v < .0001) return '<0.0001%';
+ return v.toFixed(v < .01 ? 4 : v < .1 ? 3 : v < 1 ? 2 : 1).replace(/(\.\d*?[1-9])0+$|\.0+$/,'$1') + '%';
+}
+function syncBoard() {
+ yard = table.yard; dice = table.dice; bones = table.bones; dogs = table.cards.length;
+ spots = table.cards.map(card => {
+  const a = [0,0,0,0,0,0];
+  if (!card.scored) card.faces.forEach((face,i) => { if (!card.filled[i]) a[face-1]++; });
+  return a;
+ });
+ while(spots.length < 6) spots.push([0,0,0,0,0,0]);
+}
+function uiSnapshot() { return {table:copy(table),params:copy(params),rounds:copy(roundsByAction)}; }
+function rememberChange(label, group = '') {
+ const now = Date.now();
+ if (!group || !historyGroup || historyGroup.key !== group || now > historyGroup.until) {
+  undoStack.push({label,...uiSnapshot()});
+  if (undoStack.length > 40) undoStack.shift();
+ }
+ historyGroup = group ? {key:group,until:now+900} : null;
+}
+function saveTable() {
+ if(loadingSaved) return;
+ try { localStorage.setItem(STORE_KEY,JSON.stringify({game:table,params,rounds:roundsByAction})); }
+ catch { $('saveStatus').hidden=false; }
+}
+function loadTable() {
+ try {
+  const raw = localStorage.getItem(STORE_KEY); if(!raw)return;
+  const saved = JSON.parse(raw), restored = Game.restore(JSON.stringify(saved.game));
+  if(!restored)return;
+  table = restored; builderOpen = table.cards.length===0;
+  if(saved.params && typeof saved.params==='object') {
+   const ranges={threshold:[0,6],paws:[0,8],rounds:[0,5],fetch:[0,6],src:[1,6],buried:[0,7],rolloverExtra:[0,1],walkExtra:[0,1],boltSet:[3,12],boltRolls:[1,12],top:[1,6],after:[-1,7],facedown:[0,5],reroll:[0,1],verified:[0,1],supply:[-1,Number.MAX_SAFE_INTEGER]};
+   for(const [key,[lo,hi]] of Object.entries(ranges)) {const v=saved.params[key];if(Number.isInteger(v)&&v>=lo&&v<=hi)params[key]=v;}
+   if(['choose','none','yard','dog'].includes(saved.params.source))params.source=saved.params.source;
+   if(['bury','place'].includes(saved.params.playdead))params.playdead=saved.params.playdead;
+  }
+  if(saved.rounds)for(const [key,lo,hi] of [['run',0,5],['chase',1,4]])if(Number.isInteger(saved.rounds[key])&&saved.rounds[key]>=lo&&saved.rounds[key]<=hi)roundsByAction[key]=saved.rounds[key];
+ } catch { /* A damaged save never breaks the table. */ }
+}
+function notifyTable(text) {
+ $('toastText').textContent=text; $('toastUndo').hidden=undoStack.length===0;
+ $('toast').hidden=false; clearTimeout(toastTimer);
+ toastTimer=setTimeout(()=>{$('toast').hidden=true;},4800);
+}
+function changeTable(label, transform, message='') {
+ try {
+  const next=transform(table);
+  rememberChange(label);
+  if(next.yard!==table.yard||JSON.stringify(next.cards)!==JSON.stringify(table.cards))params.verified=0;
+  table=next; syncBoard(); renderDogs(); recalc();
+  if(message)notifyTable(message);
+  return true;
+ } catch(error) {notifyTable(error.message||'这一步未能完成'); return false;}
+}
+function undoLast() {
+ if(pending)return;
+ const old=undoStack.pop();if(!old)return;
+ table=old.table;params=old.params;Object.assign(roundsByAction,old.rounds);historyGroup=null;
+ if(active==='run'||active==='chase')params.rounds=roundsByAction[active];
+ builderOpen=table.cards.length===0;lastDogRender='';syncBoard();renderBuilder();renderDogs();
+ if(active){updateExtra();renderActionRule();}recalc();notifyTable('已撤销：'+old.label);
+}
+function chooseDogPose(faces) {
+ const key=faces.slice().sort((a,b)=>a-b).join('-');
+ const repeat=table.cards.filter(card=>card.faces.slice().sort((a,b)=>a-b).join('-')===key).length;
+ const special={'1':1,'2-3':4,'4-4':3};
+ const eligible=DOG_ART.poses.filter(p=>p.maxSpots>=faces.length);
+ if(repeat===0 && Object.hasOwn(special,key))return special[key];
+ let hash=faces.length;for(const face of key)hash=(hash*31+face.charCodeAt(0))>>>0;
+ return eligible[(hash+repeat*3)%eligible.length].id;
+}
+function dogSprite(pose,extra='') {
+ const art=DOG_ART.poses[pose]||DOG_ART.poses[0];
+ return '<span class="new-puppy '+extra+'" aria-hidden="true" style="--dog-x:'+art.backgroundPosition[0]+'%;--dog-y:'+art.backgroundPosition[1]+'%;--dog-size:'+art.backgroundSize.map(v=>v+'%').join(' ')+';--dog-clip:inset('+art.clipInsets.map(v=>v+'%').join(' ')+')"></span>';
+}
+function emptySpot(face) {
+ const dots={1:[[18,18]],2:[[10,10],[26,26]],3:[[10,10],[18,18],[26,26]],4:[[10,10],[26,10],[10,26],[26,26]],5:[[10,10],[26,10],[18,18],[10,26],[26,26]],6:[[10,9],[26,9],[10,18],[26,18],[10,27],[26,27]]};
+ return '<svg class="vacant-face" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="2" width="32" height="32" rx="12"/>'+dots[face].map(([x,y])=>'<circle cx="'+x+'" cy="'+y+'" r="2.7"/>').join('')+'</svg>';
+}
+function renderBuilder() {
+ const full=table.cards.length>=6,ended=!!table.endedAt;
+ $('dogBuilder').hidden=!(builderOpen||table.cards.length===0)||ended||full;
+ $('openBuilder').hidden=ended||full;
+ $('openBuilder').setAttribute('aria-expanded',String(!$('dogBuilder').hidden));
+ $('draftCount').textContent=draftFaces.length+' / 4';
+ $('draftSlots').innerHTML=Array.from({length:4},(_,i)=>draftFaces[i]?'<button type="button" class="draft-chip" data-draft="'+i+'" aria-label="移除第'+(i+1)+'个'+draftFaces[i]+'点">'+dieArt(draftFaces[i])+'<span aria-hidden="true">×</span></button>':'<span class="draft-placeholder" aria-hidden="true"></span>').join('');
+ $('createDog').disabled=draftFaces.length===0||full||ended;
+ $('clearDraft').hidden=draftFaces.length===0;
+ document.querySelectorAll('#dicePalette button').forEach(b=>b.disabled=draftFaces.length>=4||full||ended);
+ $('builderClose').hidden=table.cards.length===0;
+}
+function renderDogs() {
+ const key=JSON.stringify(table.cards)+'|'+!!table.endedAt;
+ renderBuilder();
+ if(key===lastDogRender)return;
+ const focused=document.activeElement?.dataset?.slotKey;
+ const unscored=table.cards.filter(c=>!c.scored),scored=table.cards.filter(c=>c.scored);
+ $('dogs').innerHTML=unscored.map(card=>{
+  const storedPose=DOG_ART.poses[card.pose],pose=storedPose?.slots[String(card.faces.length)]?storedPose:DOG_ART.poses.find(p=>p.slots[String(card.faces.length)]),positions=pose.slots[String(card.faces.length)];
+  const complete=card.filled.every(Boolean),name=DOG_NAMES[card.pose]||'小狗';
+  return '<article class="pack-card'+(complete?' is-complete':'')+'" data-dog-id="'+card.id+'" style="--card-tone:'+['#faf8ef','#f6f7ed','#f9f5e9','#f2f5eb'][card.pose%4]+'"><div class="pack-card-heading"><div><span class="pack-number">'+String(table.cards.indexOf(card)+1).padStart(2,'0')+'</span><h3>'+name+'</h3></div><button class="icon-button remove-dog" data-remove="'+card.id+'" aria-label="移除'+name+'狗牌" '+(table.endedAt?'disabled':'')+'>×</button></div><div class="pack-figure" aria-label="'+pose.label+'的斑点狗">'+dogSprite(pose.id)+card.faces.map((face,i)=>'<button type="button" class="card-slot '+(card.filled[i]?'is-filled':'')+'" data-dog="'+card.id+'" data-slot="'+i+'" data-slot-key="'+card.id+':'+i+'" style="--slot-x:'+positions[i][0]*100+'%;--slot-y:'+positions[i][1]*100+'%" aria-pressed="'+card.filled[i]+'" aria-label="'+name+'，第'+(i+1)+'格，'+face+'点，'+(card.filled[i]?'已填':'空位')+'" '+(table.endedAt?'disabled':'')+'>'+(card.filled[i]?dieArt(face):emptySpot(face))+'</button>').join('')+'</div><div class="pack-card-foot"><span class="pack-progress" aria-label="已填'+card.filled.filter(Boolean).length+'格，共'+card.faces.length+'格">'+card.filled.map(on=>'<i class="'+(on?'on':'')+'"></i>').join('')+'</span><span>'+(complete?'已填满 · 待计分':'')+'</span></div></article>';
+ }).join('');
+ $('dogs').classList.toggle('one-dog',unscored.length===1);
+ $('scoredDogs').hidden=scored.length===0;
+ $('scoredCount').textContent=scored.length+' / 6';
+ $('scoredList').innerHTML=scored.map(card=>'<div class="scored-dog" title="'+DOG_NAMES[card.pose]+'，已计分">'+dogSprite(card.pose)+'<span>'+DOG_NAMES[card.pose]+'</span><b aria-label="已计分">✓</b></div>').join('');
+ $('bankDogs').hidden=!unscored.some(c=>c.filled.every(Boolean))||!!table.endedAt;
+ $('packEmpty').hidden=unscored.length>0||table.cards.length===0||!!table.endedAt;
+ lastDogRender=key;
+ if(focused){const target=document.querySelector('[data-slot-key="'+focused+'"]');if(target)target.focus({preventScroll:true});}
+}
+function renderSessionControls() {
+ $('journalCount').textContent=table.records.length;
+ $('endSession').textContent=table.endedAt?'本局战绩':'结束本局';
+ $('undoButton').disabled=undoStack.length===0||!!pending;
+ $('tableEnded').hidden=!table.endedAt;
+ for(const id of ['dicePlus','diceMinus','bonesPlus','bonesMinus','zero'])$(id).disabled=!!table.endedAt;
+ document.querySelectorAll('#yard button').forEach(b=>b.disabled=!!table.endedAt);
+ $('diceMinus').disabled=!!table.endedAt||dice<=1;$('dicePlus').disabled=!!table.endedAt||dice>=12;
+ $('bonesMinus').disabled=!!table.endedAt||bones<=0;$('bonesPlus').disabled=!!table.endedAt||bones>=99;
+}
+function setOutcomeButton(button,type,probability,mode) {
+ button.dataset.outcome=type;button.dataset.mode=mode;
+ const unavailable=!Number.isFinite(probability)||probability<=0;
+ button.disabled=!!table.endedAt||(type!=='bust'&&unavailable);
+ button.setAttribute('aria-label',(type==='bust'?'记录爆掉':type==='resource'?'结算骨头变化':type==='unknown'?'记录补牌节点':'结算安全填上'+(type==='5+'?'5颗以上':type+'颗'))+'，'+displayProbability(probability));
+}
+function dialogOpen(dialog,trigger) {
+ dialog.returnTarget=trigger||document.activeElement;
+ if(!dialog.open)dialog.showModal();
+}
+function dialogClose(dialog) {
+ dialog.close();const target=dialog.returnTarget;
+ if(target?.isConnected)target.focus({preventScroll:true});
+}
+function getEventProbability(d,type) {
+ if(d.invalid)return null;
+ if(type==='bust')return d.bust;
+ if(type==='5+')return d.fills.slice(5).reduce((a,b)=>a+b,0);
+ if(type==='unknown')return d.unknown;
+ if(type==='resource')return null;
+ return d.fills[Number(type)];
+}
+function sourceLabel(mode){return mode==='normal'?'Roll':labels[mode][0];}
+function openSettlement(type,mode,trigger) {
+ if(table.endedAt){openJournal(true);return;}
+ if(pending)return;
+ const d=copy(compute(mode));
+ if(d.invalid&&type!=='bust'){notifyTable(d.note);return;}
+ const p=normalizedProbability(getEventProbability(d,type));
+ if(type!=='bust'&&type!=='resource'&&(!Number.isFinite(p)||p<=0)){notifyTable('这个结果不在当前方案中');return;}
+ const reward=d.reward==='treat',before=copy(table),par=copy(params);
+ const work=Game.board(table);
+ let firstHit=0,baseYard=yard,sourceCandidates=[];
+ if(mode==='dig'&&par.after>=0)baseYard=par.after;
+ if(mode==='rollover')baseYard=0;
+ if(mode==='retrieve') {
+  firstHit=getNeed()[par.top-1]>0?1:0;
+  if(!firstHit)baseYard+=par.top;
+ }
+ if(mode==='dogpile'&&par.source==='yard')baseYard-=par.src;
+ if(mode==='dogpile'&&par.source==='dog'){
+  for(const card of work.cards)if(!card.scored)card.faces.forEach((face,slot)=>{if(face===par.src&&card.filled[slot])sourceCandidates.push({dogId:card.id,slot});});
+  if(!sourceCandidates.length&&type!=='bust'){notifyTable('狗牌上没有这颗已放骰子，请先校正牌面');return;}
+ }
+ pending={id:table.id+'-pending-'+Date.now()+'-'+(++pendingSerial),revision:table.revision,before,work,mode,type,d,probability:p,params:par,selected:[],sourceCandidates,sourcePick:sourceCandidates.length===1||(type==='bust'&&sourceCandidates.length)?sourceCandidates[0]:null,firstHit,baseYard,reward,spent:(type==='bust'||(type==='0'&&!reward))?bones:0,yardAfter:null,face:null};
+ if(mode==='retrieve'&&type==='bust'&&baseYard>7)pending.spent=0;
+ if(mode==='track'&&type==='bust'){
+  const support=trackSupportCache.get(Game.needs(before).join(',')+'|'+yard+'|'+bones);
+  if(support?.bust.size===1)pending.spent=[...support.bust][0];
+ }
+ $('settlementTitle').textContent=type==='bust'?'确认 BUST':type==='resource'?'骨头入袋':type==='unknown'?'补新牌，接着来':reward?'获得 '+(type==='5+'?'5–6':type)+' 根骨头':'填上 '+(type==='5+'?'5 颗以上':type+' 颗');
+ $('settlementProbability').textContent=displayProbability(p);
+ $('settlementProbability').parentElement.hidden=type==='resource';
+ $('settlementOrigin').textContent=sourceLabel(mode)+' · Yard '+yard+(mode==='normal'?' · '+dice+' 骰':'')+' · '+bones+' 骨头';
+ $('settlementDialog').dataset.kind=type==='bust'?'bust':'safe';
+ $('settlementNote').textContent=type==='bust'?'清空未计分狗牌上的骰子与 Yard。':type==='resource'?'按当前牌面和公共供应结算。':type==='unknown'?'记到需要补牌的节点；后续另算。':reward?'选择实际埋下的骰面。':'选出这次填上的空位。';
+ $('settleSlots').hidden=type==='bust'||type==='resource'||reward;
+ $('settleYardGroup').hidden=type==='bust'||type==='resource'||reward;
+ $('settleFaceGroup').hidden=!reward||type==='bust';
+ $('settleBoneGroup').hidden=bones===0||type==='resource';
+ $('spentBones').max=String(bones);$('spentBones').value=String(pending.spent);
+ $('settleResource').hidden=type!=='resource';
+ $('settleResource').textContent=type==='resource'?bones+' → '+d.resource+' 根':'';
+ renderSettlementSlots();updateSettlement();
+ dialogOpen($('settlementDialog'),trigger);
+}
+function pendingWork() {
+ const work=copy(pending.work);
+ if(pending.sourcePick){const card=work.cards.find(c=>c.id===pending.sourcePick.dogId);card.filled[pending.sourcePick.slot]=false;}
+ return work;
+}
+function renderSettlementSlots() {
+ if(!pending)return;
+ const p=pending,work=pendingWork();
+ $('settleSource').hidden=p.type==='bust'||p.sourceCandidates.length<=1;
+ $('settleSourceChoices').innerHTML=p.sourceCandidates.map((x,i)=>'<button type="button" class="source-pick" data-source-pick="'+i+'" aria-pressed="'+(p.sourcePick?.dogId===x.dogId&&p.sourcePick?.slot===x.slot)+'">'+DOG_NAMES[work.cards.find(c=>c.id===x.dogId).pose]+' · 第'+(x.slot+1)+'格</button>').join('');
+ $('settlementDogs').innerHTML=work.cards.filter(c=>!c.scored).map(card=>'<div class="settle-dog"><div class="settle-dog-name">'+dogSprite(card.pose)+'<span>'+DOG_NAMES[card.pose]+'</span></div><div class="settle-dog-slots">'+card.faces.map((face,slot)=>'<button type="button" class="settle-slot" data-settle-dog="'+card.id+'" data-settle-slot="'+slot+'" aria-label="'+DOG_NAMES[card.pose]+'第'+(slot+1)+'格'+face+'点" aria-pressed="'+p.selected.some(x=>x.dogId===card.id&&x.slot===slot)+'" '+(card.filled[slot]?'disabled':'')+'>'+(card.filled[slot]?dieArt(face):emptySpot(face))+'</button>').join('')+'</div></div>').join('');
+}
+function settlementReport() {
+ return PipSettlement.analyze(pending,pendingWork(),{
+  needs:Game.needs,hist,process,autoGuard,
+  trackSupport:(n,y,b)=>trackSupportCache.get(n.join(',')+'|'+y+'|'+b)
+ });
+}
+function allowedYards() { return pending?settlementReport().yards:[]; }
+function updateSettlement() {
+ if(!pending)return;
+ const p=pending,count=p.selected.length;
+ const required=p.type==='5+'?'至少 5':p.type==='unknown'?String(Game.needs(pendingWork()).reduce((a,b)=>a+b,0)):p.type;
+ $('settleCount').textContent='已选 '+count+' / '+required;
+ $('spentBonesValue').textContent=p.spent+' 根';
+ let valid=p.sourceCandidates.length<=1||!!p.sourcePick,warning='';
+ if(p.type!=='bust'&&p.type!=='resource'&&!p.reward){
+  valid=valid&&(p.type==='5+'?count>=5:p.type==='unknown'?count===Number(required):count===Number(p.type));
+  const yards=valid?allowedYards():[];
+  if(!yards.includes(p.yardAfter))p.yardAfter=yards.length===1?yards[0]:null;
+  $('settlementYards').innerHTML=Array.from({length:8},(_,y)=>'<button type="button" class="settle-yard" data-settle-yard="'+y+'" aria-label="结算后庭院'+y+'点" aria-pressed="'+(p.yardAfter===y)+'" '+(!yards.includes(y)?'disabled':'')+'>'+y+'</button>').join('');
+  if(valid&&yards.length===0)warning='这些点面无法组成当前方案的结果，请重新选择。';
+  else if(valid&&p.yardAfter===null)warning='选择桌面上实际的 Yard 总点数。';
+  valid=valid&&p.yardAfter!==null;
+ }
+ if(p.reward&&p.type!=='bust') {
+  const stock=p.params.supply<0?Infinity:p.params.supply+p.spent;
+  const choices=Array.from({length:6},(_,i)=>i+1).filter(f=>p.baseYard+f<=7&&(p.type==='5+'?Math.min(f,stock)>=5:Math.min(f,stock)===Number(p.type)));
+  if(!choices.includes(p.face))p.face=choices.length===1?choices[0]:null;
+  $('settlementFaces').innerHTML=Array.from({length:6},(_,i)=>i+1).map(f=>'<button type="button" class="settle-face" data-settle-face="'+f+'" aria-label="本次埋下'+f+'点" aria-pressed="'+(p.face===f)+'" '+(!choices.includes(f)?'disabled':'')+'>'+dieArt(f)+'</button>').join('');
+  valid=valid&&p.face!==null;
+ }
+ const report=settlementReport();
+ const planMismatch=p.type!=='resource'&&valid&&!PipSettlement.matchesProbability(p,report);
+ if(planMismatch)warning=report.reason||'实际花骨或结算结果与当前方案不同，这次记结果、不计稀有度。';
+ if(p.type==='bust'&&(!Number.isFinite(p.probability)||p.probability<=0))warning='当前没有有效的事前概率，这次只记录爆掉。';
+ $('settlementWarning').textContent=warning;$('settlementWarning').hidden=!warning;
+ $('confirmSettlement').disabled=!valid;
+ $('confirmSettlement').textContent=p.type==='bust'?'确认爆掉 · 清空':p.type==='resource'?'记录并领取':'确认结算';
+ renderSessionControls();
+}
+function confirmSettlement() {
+ if(!pending||$('confirmSettlement').disabled)return;
+ const p=pending;if(p.revision!==table.revision){cancelSettlement();notifyTable('牌面已变化，请重新选择结果');return;}
+ let probability=p.probability;
+ if(!Number.isFinite(probability)||probability<=0||!PipSettlement.matchesProbability(p,settlementReport()))probability=null;
+ const event={id:p.id,kind:p.type==='bust'?'bust':p.type==='resource'?'resource':p.reward?'reward':p.type==='unknown'?'unknown':'fill',bucket:p.type==='5+'?'5+':/^\d+$/.test(p.type)?Number(p.type):null,probability,source:sourceLabel(p.mode),actualFilled:p.selected.length,createdAt:Date.now(),calculationSnapshot:{mode:p.mode,dice:p.before.dice,bones:p.before.bones,yard:p.before.yard,need:Game.needs(p.before),params:p.params,distribution:p.d,note:p.d.note||'匹配即放；无法安全填格时按设置上限重掷整批'},bonesSpent:p.spent};
+ let afterBones=p.before.bones-p.spent,afterYard=p.yardAfter;
+ if(p.type==='resource'){afterBones=p.d.resource;afterYard=p.before.yard;event.rewardBones=afterBones-p.before.bones;}
+ if(p.reward&&p.type!=='bust'){const gain=Math.min(p.face,p.params.supply<0?Infinity:p.params.supply+p.spent);afterBones+=gain;afterYard=p.baseYard+p.face;event.rewardBones=gain;event.buriedFace=p.face;}
+ let next;
+ try {
+  next=p.type==='bust'?Game.bust(table,event,afterBones):Game.settle(table,{event,filled:p.selected,emptied:p.sourcePick?[p.sourcePick]:[],yardAfter:afterYard,bonesAfter:afterBones});
+ } catch(error) {notifyTable(error.message);return;}
+ pending=null; // Consume before any DOM update; a double click cannot record twice.
+ rememberChange(p.type==='bust'?'爆掉结算':'本次结算');table=next;
+ params.verified=0;
+ if(p.params.supply>=0)params.supply=Math.max(0,p.params.supply+p.spent-(event.rewardBones||0));
+ dialogClose($('settlementDialog'));syncBoard();renderDogs();recalc();
+ if(p.type==='bust'){$('yardScene').classList.remove('just-busted');void $('yardScene').offsetWidth;$('yardScene').classList.add('just-busted');setTimeout(()=>$('yardScene').classList.remove('just-busted'),500);}
+ const newlyScored=table.cards.filter(c=>c.scored).length-p.before.cards.filter(c=>c.scored).length;
+ if(newlyScored&&table.cards.length<6){builderOpen=true;renderBuilder();}
+ notifyTable(p.type==='bust'?'已记录 BUST，狗狗重新出发':newlyScored?'已结算，'+newlyScored+'只狗计分':'已记录这次结果');
+}
+function cancelSettlement() {pending=null;dialogClose($('settlementDialog'));renderSessionControls();}
+function eventLabel(event) {
+ if(event.kind==='bust')return 'BUST';
+ if(event.kind==='reward')return '获得 '+event.rewardBones+' 根骨头';
+ if(event.kind==='resource')return '骨头变化 '+(Number.isFinite(event.rewardBones)?(event.rewardBones>=0?'+':'')+event.rewardBones:'');
+ if(event.kind==='unknown')return '补新牌后继续';
+ return '安全填上 '+event.actualFilled+' 颗';
+}
+function recordedFaces(event) {
+ if(event.kind==='bust'||event.kind==='resource')return '';
+ const faces=event.kind==='reward'?[event.buriedFace]:(event.placements||[]).map(ref=>event.beforeBoard.cards.find(c=>c.id===ref.dogId)?.faces[ref.slot]).filter(Boolean);
+ if(!faces.length)return '';
+ return '<span class="record-faces" aria-label="'+(event.kind==='reward'?'埋下':'填入')+'：'+faces.map(f=>f+'点').join('、')+'">'+faces.slice(0,8).map(f=>dieArt(f)).join('')+(faces.length>8?'<small>＋'+(faces.length-8)+'</small>':'')+'</span>';
+}
+function openJournal(finish=false) {
+ if(pending)return;
+ if(finish&&!table.endedAt){rememberChange('结束本局');table=Game.endGame(table);syncBoard();renderDogs();recalc();}
+ renderJournal();dialogOpen($('journalDialog'));
+}
+function renderJournal() {
+ const summary=Game.summarize(table),ended=!!table.endedAt,highlight=summary.highlight;
+ $('journalTitle').textContent=ended?'本局战绩':'本局手记';
+ $('journalDate').textContent=new Intl.DateTimeFormat('zh-CN',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Shanghai'}).format(new Date(table.startedAt));
+ $('awardSection').hidden=!ended||!highlight;
+ $('awardTitle').textContent=summary.title||'';$('awardDescription').textContent=AWARD_LINES[summary.title]||summary.description||'';
+ $('awardArt').innerHTML=dogSprite(highlight?.kind==='bust'?10:4);
+ $('awardRarity').textContent=summary.rarityLabel||'';
+ $('summaryRecorded').textContent=summary.recorded;$('summaryFilled').textContent=summary.filled;$('summaryBusts').textContent=summary.busts;$('summaryScored').textContent=summary.scored;
+ $('highlightSection').hidden=!highlight;
+ $('highlightResult').textContent=highlight?eventLabel(highlight):'';
+ $('highlightChance').textContent=highlight?displayProbability(highlight.probability):'';
+ $('highlightSource').textContent=highlight?highlight.source+' · 当时方案概率':'';
+ $('recordEmpty').hidden=table.records.length>0;
+ $('recordsList').innerHTML=table.records.map((e,i)=>'<li class="record-row"><span class="record-index">'+String(i+1).padStart(2,'0')+'</span><div><strong>'+escapeHTML(eventLabel(e))+'</strong>'+recordedFaces(e)+'<small>'+escapeHTML(e.source)+' · Yard '+e.beforeBoard.yard+' → '+e.afterBoard.yard+(e.bonesSpent?' · 骨头 −'+e.bonesSpent:'')+'</small></div><span class="record-probability">'+displayProbability(e.probability)+'</span></li>').join('');
+ $('reportFootnote').hidden=table.records.length===0;
+ $('journalFinish').hidden=ended;$('resumeSession').hidden=!ended;
+ $('newSession').hidden=!ended;$('journalBack').textContent=ended?'返回桌面':'继续游玩';
+}
+function startNewSession() {
+ rememberChange('开始新局');table=Game.newGame();draftFaces=[];builderOpen=true;pending=null;
+ params=copy(DEFAULT_PARAMS);Object.assign(roundsByAction,{run:2,chase:2});active=null;currentGroup=null;
+ dialogClose($('journalDialog'));lastDogRender='';syncBoard();renderCategories();renderActionPanel();renderDogs();recalc();notifyTable('新的一局，从挑选狗牌开始');
+}
+function setupGameUI() {
+ loadTable();syncBoard();
+ $('dicePalette').innerHTML=Array.from({length:6},(_,i)=>'<button type="button" class="palette-die" data-face-choice="'+(i+1)+'" aria-label="选择'+(i+1)+'点骰子">'+dieArt(i+1)+'</button>').join('');
+ $('dicePalette').addEventListener('click',event=>{const b=event.target.closest('[data-face-choice]');if(!b||b.disabled)return;draftFaces.push(+b.dataset.faceChoice);renderBuilder();});
+ $('draftSlots').addEventListener('click',event=>{const b=event.target.closest('[data-draft]');if(!b)return;draftFaces.splice(+b.dataset.draft,1);renderBuilder();});
+ $('clearDraft').onclick=()=>{draftFaces=[];renderBuilder();};
+ $('openBuilder').onclick=()=>{builderOpen=!builderOpen;renderBuilder();if(builderOpen)$('dicePalette').querySelector('button').focus({preventScroll:true});};
+ $('builderClose').onclick=()=>{builderOpen=false;renderBuilder();};
+ $('createDog').onclick=()=>{
+  if(!draftFaces.length)return;
+  const faces=draftFaces.slice(),pose=chooseDogPose(faces);
+  if(changeTable('添加狗牌',s=>Game.addDog(s,faces,pose))){draftFaces=[];builderOpen=false;renderBuilder();$('dogs').lastElementChild?.scrollIntoView({block:'nearest',behavior:'smooth'});}
+ };
+ $('dogs').addEventListener('click',event=>{
+  const slot=event.target.closest('[data-dog][data-slot]');
+  if(slot){changeTable('校正狗牌',s=>Game.toggleSpot(s,slot.dataset.dog,+slot.dataset.slot));return;}
+  const remove=event.target.closest('[data-remove]');if(remove){changeTable('移除狗牌',s=>Game.removeDog(s,remove.dataset.remove),'狗牌已移除');}
+ });
+ $('bankDogs').onclick=()=>{if(changeTable('计分狗牌',s=>Game.scoreDogs(s),'完整狗牌已计分')){if(table.cards.length<6){builderOpen=true;renderBuilder();}}};
+ $('addNextDog').onclick=()=>{builderOpen=true;renderBuilder();$('dicePalette').querySelector('button').focus();};
+ $('undoButton').onclick=undoLast;$('toastUndo').onclick=undoLast;
+ $('openJournal').onclick=()=>openJournal(false);$('endSession').onclick=()=>openJournal(true);
+ $('journalFinish').onclick=()=>{if(!table.endedAt){rememberChange('结束本局');table=Game.endGame(table);syncBoard();renderDogs();recalc();}renderJournal();};
+ $('resumeSession').onclick=()=>{changeTable('继续本局',s=>Game.resumeGame(s));dialogClose($('journalDialog'));};
+ $('resumeTable').onclick=()=>changeTable('继续本局',s=>Game.resumeGame(s));
+ $('newSession').onclick=startNewSession;
+ $('journalBack').onclick=()=>dialogClose($('journalDialog'));$('journalClose').onclick=$('journalBack').onclick;
+ $('journalDialog').addEventListener('cancel',event=>{event.preventDefault();dialogClose($('journalDialog'));});
+ $('settlementClose').onclick=cancelSettlement;$('cancelSettlement').onclick=cancelSettlement;
+ $('settlementDialog').addEventListener('cancel',event=>{event.preventDefault();cancelSettlement();});
+ $('confirmSettlement').onclick=confirmSettlement;
+ $('settlementDogs').addEventListener('click',event=>{
+  const b=event.target.closest('[data-settle-dog]');if(!b||b.disabled||!pending)return;
+  const x={dogId:b.dataset.settleDog,slot:+b.dataset.settleSlot},index=pending.selected.findIndex(y=>y.dogId===x.dogId&&y.slot===x.slot);
+  if(index>=0)pending.selected.splice(index,1);else {const cap=['5+','unknown'].includes(pending.type)?24:Number(pending.type);if(pending.selected.length>=cap)return;pending.selected.push(x);}
+  renderSettlementSlots();updateSettlement();
+ });
+ $('settleSourceChoices').addEventListener('click',event=>{const b=event.target.closest('[data-source-pick]');if(!b||!pending)return;pending.sourcePick=pending.sourceCandidates[+b.dataset.sourcePick];pending.selected=[];pending.yardAfter=null;renderSettlementSlots();updateSettlement();});
+ $('settlementYards').addEventListener('click',event=>{const b=event.target.closest('[data-settle-yard]');if(!b||b.disabled||!pending)return;pending.yardAfter=+b.dataset.settleYard;updateSettlement();});
+ $('settlementFaces').addEventListener('click',event=>{const b=event.target.closest('[data-settle-face]');if(!b||b.disabled||!pending)return;pending.face=+b.dataset.settleFace;updateSettlement();});
+ $('spentBones').oninput=()=>{if(!pending)return;pending.spent=+$('spentBones').value;updateSettlement();};
+ document.querySelectorAll('.outcomes').forEach(host=>host.addEventListener('click',event=>{const b=event.target.closest('button[data-outcome]');if(!b||b.disabled)return;openSettlement(b.dataset.outcome,b.dataset.mode,b);}));
+ $('yard').addEventListener('click',event=>{const b=event.target.closest('[data-y]');if(!b||b.disabled)return;const value=+b.dataset.y;changeTable('调整 Yard',s=>Game.amend(s,{yard:s.yard===value?0:value}));});
+ $('zero').onclick=()=>changeTable('清空 Yard',s=>Game.amend(s,{yard:0}));
+ for(const [id,key,delta,lo,hi] of [['dicePlus','dice',1,1,12],['diceMinus','dice',-1,1,12],['bonesPlus','bones',1,0,99],['bonesMinus','bones',-1,0,99]])$(id).onclick=()=>changeTable('调整'+(key==='dice'?'骰子':'骨头'),s=>Game.amend(s,{[key]:Math.max(lo,Math.min(hi,s[key]+delta))}));
+ $('chooseSpots').onclick=()=>{const first=$('dogs').querySelector('.card-slot:not(.is-filled)');if(first)first.focus();else{builderOpen=true;renderBuilder();$('dicePalette').querySelector('button').focus();}};
+ renderBuilder();renderDogs();
+}
 
 function getNeed(){let a=[0,0,0,0,0,0];for(let i=0;i<dogs;i++)for(let j=0;j<6;j++)a[j]+=spots[i][j];return a}
 const fact=[1];for(let i=1;i<=12;i++)fact[i]=fact[i-1]*i;const hcache=new Map();function hist(n){if(hcache.has(n))return hcache.get(n);const out=[],c=[0,0,0,0,0,0],tot=6**n;function walk(i,left,den){if(i===5){c[5]=left;out.push({c:[...c],p:fact[n]/(den*fact[left]*tot)});return}for(let k=0;k<=left;k++){c[i]=k;walk(i+1,left-k,den*fact[k])}}walk(0,n,1);hcache.set(n,out);return out}
@@ -223,11 +665,211 @@ function entireBatchTreats(d,B){
 }
 function percent(x){if(x===null||!Number.isFinite(x))return '—';return (100*Math.max(0,Math.min(1,x))).toFixed(1)+'%'}
 function range(a,b){return Array.from({length:b-a+1},(_,i)=>[a+i,String(a+i)])}
-function opt(kind,label,vals,value){return `<label>${label}</label><select class="smallsel" data-p="${kind}" aria-label="${label}">${vals.map(([v,l])=>`<option value="${v}" ${v==value?'selected':''}>${l}</option>`).join('')}</select>`}
-function updateExtra(){let x='';if(active==='fetch')x=opt('fetch','选择点数',[[0,'自动选（填位优先）'],...range(1,6)],params.fetch);if(active==='guard')x=opt('threshold','先报数',[[0,'自动报数（填位优先）'],...range(1,6)],params.threshold);if(active==='hunt'||active==='sprint'||active==='dig'||active==='bolt'||active==='beg')x=opt('paws','爪印数',range(0,8),params.paws);if(['run','chase'].includes(active)){x+=opt('rounds',active==='run'?'追加颗数':'执行批数',range(active==='run'?0:1,active==='run'?5:4),params.rounds)}if(active==='walk')x=opt('walkExtra','追加 1 颗吗',[[1,'追加'],[0,'不追加']],params.walkExtra);
- if(active==='rollover')x=opt('buried','庭院埋骰颗数',range(0,7),params.buried)+opt('rolloverExtra','再追加 1 颗吗',[[1,'追加'],[0,'不追加']],params.rolloverExtra);
- if(active==='bolt')x+=opt('boltSet','先留出骰子',range(3,12),params.boltSet)+opt('boltRolls','计划实际投几颗',range(1,12),params.boltRolls);
- if(active==='playdead')x=opt('playdead','骰子放哪里',[['bury','埋庭院／拿骨头'],['place','放狗牌／填空位']],params.playdead);if(active==='dig')x+=opt('after','调整后自己庭院',[[-1,'保持不变'],...range(0,7)],params.after);if(active==='retrieve')x=opt('top','顶部狗牌骰子点数',range(1,6),params.top);if(active==='dogpile')x=opt('source','现有骰子来源',[['choose','先核实真实来源'],['none','确认狗牌和庭院均无已放骰'],['yard','从庭院取走'],['dog','从狗牌取走']],params.source)+(['none','choose'].includes(params.source)?'':opt('src','拿回骰子的点数',range(1,6),params.src)+opt('verified','确有这颗骰子',[[0,'未核对'],[1,'已确认']],params.verified));if(active==='stay')x=opt('facedown','其他已翻面行动牌',range(0,5),params.facedown);if(['beg','chew','gobble','stay'].includes(active)||(active==='playdead'&&params.playdead==='bury'))x+=opt('supply','公共剩余骨头',[[-1,'供应充足'],...range(0,20)],params.supply);$('specialExtra').innerHTML=x}
+// Drop-in replacements for opt/updateExtra and the old specialExtra.onchange.
+// Uses existing: $, active, params, yard, roundsByAction, renderActionRule, recalc.
+// Keep the probability engines unchanged. Call bindActionControls() once.
+function actionParameterFields() {
+  const fields = [];
+  const slide = (key, title, min, max, valueText, note, ends) => fields.push({
+    key, kind: 'range', title, min, max, valueText, note,
+    ends: ends || [String(min), String(max)]
+  });
+  const choice = (key, title, options, note) => fields.push({key, kind: 'choice', title, options, note});
+  const n = (unit) => value => String(value) + unit;
+  if (active === 'fetch') slide('fetch', '留下哪一种点数', 0, 6,
+    value => value === 0 ? '自动' : value + ' 点',
+    params.fetch === 0 ? '自动选择，优先安全填上空位。' : '优先保留 ' + params.fetch + ' 点；没掷出时改选其他点数。', ['自动', '6']);
+  if (active === 'guard') slide('threshold', '投掷前报数', 0, 6,
+    value => value === 0 ? '自动' : value + ' 点',
+    params.threshold === 0 ? '自动报数，优先安全填上空位。' : '按报 ' + params.threshold + ' 计算；更大的骰子弃回。', ['自动', '6']);
+  if (['hunt', 'dig', 'bolt', 'beg'].includes(active)) {
+    const notes = {
+      hunt: '按掷 ' + (2 + params.paws) + ' 颗、保留 2 颗计算。',
+      dig: '可调整 ' + params.paws + ' 次埋骰点数。',
+      bolt: '剩余不超过 ' + params.paws + ' 颗时，可以停手。',
+      beg: '按额外领取 ' + params.paws + ' 根骨头计算。'
+    };
+    slide('paws', '未得分狗牌的爪印', 0, 8, n(' 个'), notes[active]);
+  }
+  // Sprint uses the actual count of unfinished dogs. Its old paws input was inert.
+  if (active === 'run') slide('rounds', '再追加几颗', 0, 5, n(' 颗'),
+    '先掷 3 颗，再逐颗追加 ' + params.rounds + ' 颗。');
+  if (active === 'chase') slide('rounds', '追逐到第几批', 1, 4, n(' 批'),
+    '依次掷 ' + Array.from({length: params.rounds}, (_, i) => i + 1).join('、') + ' 颗。');
+  if (active === 'walk') choice('walkExtra', '最后一颗', [[0, '停在 2 颗'], [1, '再掷 1 颗']],
+    '先结算前 2 颗，再决定是否追加。');
+  if (active === 'rollover') {
+    slide('buried', '拿回多少颗埋骰', 0, 7, n(' 颗'), '按庭院里真实的骰子颗数重掷。');
+    choice('rolloverExtra', '重掷之后', [[0, '到此结束'], [1, '再掷 1 颗']], '追加的一颗单独结算。');
+  }
+  if (active === 'bolt') {
+    slide('boltSet', '开始留出几颗', 3, 12, n(' 颗'), '这些骰子会逐颗投掷。');
+    const left = params.boltSet - params.boltRolls;
+    slide('boltRolls', '这次计划投几颗', 1, 12, n(' 颗'),
+      left >= 0 ? '投完后还剩 ' + left + ' 颗。' : '投掷数超过了留出的骰子数。');
+  }
+  if (active === 'playdead') choice('playdead', '这颗骰子放哪里', [['bury', '埋后院'], ['place', '填狗牌']],
+    params.playdead === 'bury' ? '没爆掉时，按骰面领取骨头。' : '填上空位，不领取骨头。');
+  if (active === 'dig') slide('after', '调整后的 Yard', -1, 7,
+    value => value === -1 ? '不变' : value + ' 点',
+    params.after === -1 ? '按当前 ' + yard + ' 点计算。' : '按实际调整后的 ' + params.after + ' 点计算。', ['不变', '7']);
+  if (active === 'retrieve') slide('top', '取回哪一点', 1, 6, n(' 点'), '选牌堆顶狗牌上确有的点数。');
+  if (active === 'dogpile') {
+    choice('source', '旧骰从哪里拿', [['choose', '待核对'], ['none', '都没有'], ['yard', '后院'], ['dog', '狗牌']],
+      params.source === 'choose' ? '查看桌面后选择来源。' : params.source === 'none' ? '确认狗牌和后院都没有已放骰子。' : '另拿供应区 2 颗，一起重掷。');
+    if (!['choose', 'none'].includes(params.source)) {
+      slide('src', '拿回骰子的点数', 1, 6, n(' 点'), '按实际拿回的这一颗计算。');
+      if(params.source==='yard')choice('verified', '核对这颗骰子', [[0, '待核对'], [1, '确有此骰']],
+        '后院上确有一颗 ' + params.src + ' 点骰子。');
+    }
+  }
+  if (active === 'stay') slide('facedown', '其他翻面的行动牌', 0, 5, n(' 张'), '每张对应 1 根骨头。');
+  if (['beg', 'chew', 'gobble', 'stay'].includes(active) || (active === 'playdead' && params.playdead === 'bury')) {
+    slide('supply', '公共区剩余骨头', -1, Math.max(20, params.supply),
+      value => value === -1 ? '充足' : value + ' 根',
+      params.supply === -1 ? '按供应充足计算。' : '最多从公共区领取 ' + params.supply + ' 根。', ['充足', String(Math.max(20, params.supply))]);
+  }
+  return fields;
+}
+
+function createActionParameterRow(definition) {
+  const row = document.createElement('div');
+  row.className = 'action-parameter';
+  row.dataset.paramKey = definition.key;
+  row.dataset.paramKind = definition.kind;
+  const copy = document.createElement('div');
+  copy.className = 'ap-copy';
+  const title = document.createElement(definition.kind === 'range' ? 'label' : 'span');
+  title.className = 'ap-title';
+  title.id = 'ap-label-' + definition.key;
+  const note = document.createElement('p');
+  note.className = 'ap-note';
+  note.id = 'ap-note-' + definition.key;
+  copy.append(title, note);
+  const control = document.createElement('div');
+  control.className = definition.kind === 'range' ? 'ap-slider' : 'ap-options';
+  row.append(copy, control);
+  row.ap = {title, note, control};
+  if (definition.kind === 'range') {
+    const output = document.createElement('output');
+    output.className = 'ap-value';
+    const input = document.createElement('input');
+    input.type = 'range'; input.step = '1'; input.className = 'ap-range';
+    input.id = 'ap-input-' + definition.key;
+    input.dataset.p = definition.key;
+    input.setAttribute('aria-describedby', note.id);
+    title.htmlFor = input.id;
+    output.htmlFor = input.id;
+    const ends = document.createElement('div');
+    ends.className = 'ap-ends'; ends.setAttribute('aria-hidden', 'true');
+    const first = document.createElement('span'), last = document.createElement('span');
+    ends.append(first, last);
+    control.append(output, input, ends);
+    Object.assign(row.ap, {input, output, first, last});
+  } else {
+    control.setAttribute('role', 'group');
+    control.setAttribute('aria-labelledby', title.id);
+    control.setAttribute('aria-describedby', note.id);
+    row.ap.buttons = new Map();
+  }
+  return row;
+}
+
+function updateActionParameterRow(row, definition) {
+  const nodes = row.ap, value = params[definition.key];
+  nodes.title.textContent = definition.title;
+  nodes.note.textContent = definition.note || '';
+  nodes.note.hidden = !definition.note;
+  if (definition.kind === 'range') {
+    const text = definition.valueText(value);
+    nodes.input.min = String(definition.min);
+    nodes.input.max = String(definition.max);
+    // Reuse the same input during a drag; never replace the active control.
+    if (nodes.input.value !== String(value)) nodes.input.value = String(value);
+    nodes.input.setAttribute('aria-valuetext', text);
+    nodes.output.textContent = text;
+    nodes.first.textContent = definition.ends[0];
+    nodes.last.textContent = definition.ends[1];
+    const progress = Math.max(0, Math.min(100, (value - definition.min) / (definition.max - definition.min) * 100));
+    nodes.input.style.setProperty('--ap-fill', progress + '%');
+  } else {
+    const keep = new Set();
+    definition.options.forEach(([option, label], index) => {
+      const key = String(option); keep.add(key);
+      let button = nodes.buttons.get(key);
+      if (!button) {
+        button = document.createElement('button'); button.type = 'button';
+        button.className = 'ap-option'; button.dataset.p = definition.key; button.dataset.value = key;
+        nodes.buttons.set(key, button);
+      }
+      button.textContent = label;
+      button.setAttribute('aria-pressed', String(String(value) === key));
+      if (nodes.control.children[index] !== button) nodes.control.insertBefore(button, nodes.control.children[index] || null);
+    });
+    for (const [key, button] of nodes.buttons) if (!keep.has(key)) {button.remove(); nodes.buttons.delete(key);}
+    nodes.control.classList.toggle('ap-options--four', definition.options.length > 2);
+  }
+}
+
+function updateExtra() {
+  const host = $('specialExtra'), fields = actionParameterFields();
+  host.classList.add('action-control-list');
+  const oldRows = new Map(Array.from(host.children, row => [row.dataset.paramKey, row]));
+  const keep = new Set();
+  for (let index = 0; index < fields.length; index++) {
+    const definition = fields[index]; keep.add(definition.key);
+    let row = oldRows.get(definition.key);
+    if (!row || row.dataset.paramKind !== definition.kind || !row.ap) {
+      if (row) row.remove();
+      row = createActionParameterRow(definition);
+    }
+    updateActionParameterRow(row, definition);
+    // Inserting only when order changes preserves focus and active range drags.
+    if (host.children[index] !== row) host.insertBefore(row, host.children[index] || null);
+  }
+  for (const row of Array.from(host.children)) if (!keep.has(row.dataset.paramKey)) row.remove();
+  $('actionSettings').hidden = fields.length === 0;
+}
+
+function applyActionParameter(key, rawValue) {
+  const field = actionParameterFields().find(item => item.key === key);
+  if (!field) return;
+  const value = ['source', 'playdead'].includes(key) ? rawValue : Number(rawValue);
+  if (field.kind === 'range' && (!Number.isInteger(value) || value < field.min || value > field.max)) return;
+  if (field.kind === 'choice' && !field.options.some(([candidate]) => String(candidate) === String(value))) return;
+  if (Object.is(params[key], value)) return;
+  rememberChange("调整行动参数", "param:"+active+":"+key);
+  params[key] = value;
+  if (key === 'source') {
+    params.verified=0;
+    if(value==='dog') {
+      const faces=table.cards.filter(c=>!c.scored).flatMap(c=>c.faces.filter((_,i)=>c.filled[i]));
+      if(faces.length&&!faces.includes(params.src))params.src=faces[0];
+    }
+  }
+  // Confirmation is about this exact die, not whichever face is selected later.
+  if (key === 'src') params.verified = 0;
+  if (key === 'rounds' && Object.hasOwn(roundsByAction, active)) roundsByAction[active] = params.rounds;
+  updateExtra();
+  renderActionRule();
+  recalc();
+}
+
+function bindActionControls() {
+  const host = $('specialExtra');
+  host.onchange = null;
+  if (host.dataset.actionControlsBound === 'true') return;
+  host.dataset.actionControlsBound = 'true';
+  host.addEventListener('input', event => {
+    const input = event.target.closest('input[type="range"][data-p]');
+    if (input && host.contains(input)) applyActionParameter(input.dataset.p, input.value);
+  });
+  host.addEventListener('click', event => {
+    const button = event.target.closest('button[data-p][data-value]');
+    if (button && host.contains(button)) applyActionParameter(button.dataset.p, button.dataset.value);
+  });
+}
+
 function sumNeed(a){return a.reduce((x,y)=>x+y,0)}
 function fail(msg){let d=distEmpty();d.invalid=true;d.note=msg;return d}
 // Play Dead: the die is deliberately buried; the gain is its face, only if safe.
@@ -243,31 +885,32 @@ const d=distEmpty(),safe=Math.max(0,Math.min(6,7-yr));
 // Track: optimal selective reroll under one explicit decision criterion:
 // maximize P(safe fill >= 1), then minimize bust probability, then maximize expected filled.
 // The final distribution uses the SAME chosen policy for all four displayed numbers.
+const trackSupportCache=new Map();
 function trackDist(need,yr,B){
- const cache=new Map();const drawCache=new Map();const outcomes=[];
+ const cache=new Map();const drawCache=new Map();const policy=new Map();const outcomes=[];
  for(let a=1;a<=6;a++)for(let b=1;b<=6;b++)for(let c=1;c<=6;c++)outcomes.push([a,b,c]);
  function draw(k){if(drawCache.has(k))return drawCache.get(k);let arr=[[]];for(let i=0;i<k;i++)arr=arr.flatMap(z=>[1,2,3,4,5,6].map(v=>[...z,v]));drawCache.set(k,arr);return arr;}
  function stop(vals){let c=[0,0,0,0,0,0];for(const v of vals)c[v-1]++;const st=placement(c,need,yr),d=distEmpty();if(st.bust)d.bust=1;else d.fills[st.hit]=1;return d}
  function metric(d){let p=0,mean=0;for(let i=1;i<d.fills.length;i++){p+=d.fills[i];mean+=i*d.fills[i]}return [p,-d.bust,mean]}
  function prefer(x,y){let a=metric(x),b=metric(y);for(let i=0;i<3;i++){if(a[i]>b[i]+1e-10)return true;if(a[i]<b[i]-1e-10)return false}return false}
  function value(vals,b){let sorted=vals.slice().sort((a,b)=>a-b),key=sorted.join('')+'|'+b;if(cache.has(key))return cache.get(key);
-  let best=stop(sorted);
+  let best=stop(sorted),chosenMask=0;
   if(b>0)for(let mask=1;mask<8;mask++){
    const indices=[0,1,2].filter(i=>mask&(1<<i)),opts=draw(indices.length),cand=distEmpty();
    for(const replacement of opts){let next=sorted.slice();indices.forEach((idx,j)=>next[idx]=replacement[j]);const rd=value(next,b-1);const wt=1/opts.length;
     for(let j=0;j<cand.fills.length;j++)cand.fills[j]+=rd.fills[j]*wt;cand.bust+=rd.bust*wt;
    }
-   if(prefer(cand,best))best=cand;
+   if(prefer(cand,best)){best=cand;chosenMask=mask;}
   }
-  cache.set(key,best);return best;
+  policy.set(key,chosenMask);cache.set(key,best);return best;
  }
- let result=distEmpty();for(const o of outcomes){let z=value(o,B);for(let i=0;i<result.fills.length;i++)result.fills[i]+=z.fills[i]/216;result.bust+=z.bust/216;}return result;
+ let result=distEmpty();for(const o of outcomes){let z=value(o,B);for(let i=0;i<result.fills.length;i++)result.fills[i]+=z.fills[i]/216;result.bust+=z.bust/216;}trackSupportCache.set(need.join(',')+'|'+yr+'|'+B,PipSettlement.traceTrackPolicy(need,yr,B,policy,hist,placement));return result;
 }
 // Multiple sequential batches: shared treat budget, no reusing treats across batches.
 // A failed batch is rerolled BEFORE it is placed/buried. Equal states are merged.
 function sequenceDist(stages,need,yr,B){
  const original=sumNeed(need),out=distEmpty();let states=new Map();
- const mk=(n,y,b)=>n.join('')+'|'+y+'|'+b;
+ const mk=(n,y,b)=>n.join(',')+'|'+y+'|'+b;
  states.set(mk(need,yr,B),{need:need.slice(),yr,b:B,p:1});
  for(const [n,mode,par] of stages){
   let next=new Map();
@@ -278,7 +921,7 @@ function sequenceDist(stages,need,yr,B){
    for(const row of hist(n)){
     let r=process(row.c,st.need,st.yr,mode,par);
     if(!r.bust&&r.hit>0)success+=row.p;
-    let key=r.bust?'B':r.need.join('')+'|'+r.yr;
+    let key=r.bust?'B':r.need.join(',')+'|'+r.yr;
     let item=possible.get(key);if(!item){item={r,p:0};possible.set(key,item)}item.p+=row.p;
    }
    const q=Math.max(0,1-success);
@@ -320,7 +963,7 @@ function compute(mode=active){
   d.resource=num;if(!d.note)d.note=p.supply<0?'按公共骨头供应充足计算':'已按公共剩余骨头数量计算';return d;
  }
  if(active==='playdead'&&p.playdead==='bury')return playDeadBurial(yard,bones);
- if(N===0)return fail('点亮狗狗身上还缺的数字');
+ if(N===0&&!(active==='dogpile'&&p.source==='dog'&&table.cards.some(c=>!c.scored&&c.faces.some((f,i)=>f===p.src&&c.filled[i]))))return fail('点亮狗狗身上还缺的数字');
  let n=({normal:dice,fetch:8,guard:4,hunt:Math.min(12,2+p.paws),search:7,scavenge:4,track:3,trot:2,howl:1,dig:2,retrieve:2,dogpile:['none','choose'].includes(p.source)?2:3,playdead:1})[active];
  if(n!==undefined){
   let mode=active,need2=need.slice(),yard2=yard,note='';
@@ -333,14 +976,22 @@ function compute(mode=active){
    yard2=first.yr;need2=first.need;note='固定骰子已先放置；请核对顶部狗牌上确有这个数字';
   }
   if(active==='dogpile'){
-   if(p.source==='choose')return fail('请先看一眼真实桌面：旧骰是从庭院、狗牌取，还是确认完全没有？');
-   if(p.source==='none'){if(yard>0)return fail('庭院已有埋骰，不能选择「完全没有旧骰」；请核实真正的来源');note='你已确认狗牌也无已放骰：只掷供应区2颗；仅算第一次。';}
-   else if(!p.verified)return fail('请先核实：自己确有一颗 '+p.src+' 点骰子，再选择「已确认」');
-   else if(p.source==='yard'){if(yard2<p.src)return fail('所选骰面超过庭院总点数；请核对埋着的真实骰子');yard2-=p.src;note='假定院内确有 '+p.src+' 点骰子并取走；本次掷3颗，仅算第一次';}
-   else{need2[p.src-1]++;note='假定狗牌上确有 '+p.src+' 点已放骰子；拿回后原位置变空，只算第一次';}
+   const hasPlaced=table.cards.some(c=>!c.scored&&c.filled.some(Boolean));
+   if(p.source==='choose')return fail('选择旧骰的来源');
+   if(p.source==='none'){
+    if(yard>0||hasPlaced)return fail('桌面上已有旧骰，请选择来源');
+    note='本次掷供应区2颗';
+   }else if(p.source==='yard'){
+    if(!p.verified)return fail('核对后院确有这颗骰子');
+    if(yard2<p.src)return fail('这颗骰子超过了后院总点数');
+    yard2-=p.src;note='取回后院'+p.src+'点旧骰，与2颗新骰一起掷';
+   }else{
+    if(!table.cards.some(c=>!c.scored&&c.faces.some((f,i)=>f===p.src&&c.filled[i])))return fail('狗牌上没有这颗已放骰子');
+    need2[p.src-1]++;note='取回狗牌'+p.src+'点旧骰，与2颗新骰一起掷';
+   }
   }
-  if(active==='howl')note='先点亮抽到的新狗牌空位';
-  if(active==='trot')note='先按移动后的狗牌空位点选';
+  if(active==='howl')note='添加抽到的新狗牌后计算';
+  if(active==='trot')note='先校正移动后的狗牌骰子';
   if(active==='fetch')note=p.fetch?'优先选指定点数；如果这次没掷出，就改选已掷出的其他点数':'掷完之后选一种确实出现的点数，必须处理该点数的全部骰子';
   if(active==='search')note='只选合计为 8 的骰子';
   if(active==='track')note='最多 '+bones+' 根骨头，可只重掷部分骰子；优先保住至少 1 颗';
@@ -387,28 +1038,26 @@ function paintMetric(output,text,unit){
 }
 function paintOutcome(prefix,mode){
  const get=id=>$(prefix?'action'+id[0].toUpperCase()+id.slice(1):id);
- const d=compute(mode),total=sumNeed(getNeed()),isResource=d.resource!==null,isReward=d.reward==='treat';
+ const d=compute(mode),isResource=d.resource!==null,isReward=d.reward==='treat';
+ outcomeCache[mode]=copy(d);
  get('activeName').textContent=mode==='normal'?'Roll':labels[mode][0];
  get('fillGrid').hidden=isResource||d.invalid;get('otherValues').hidden=isResource||d.invalid;
- get('bustLine').hidden=isResource||d.invalid;get('resourceResult').hidden=!isResource;
- get('unknownNote').hidden=isResource||d.invalid||d.unknown<1e-8;
- get('unknownNote').textContent='需抽新狗牌后继续 · '+percent(d.unknown);
- get('eventDefinition').textContent=isResource?'骨头变化':isReward?'不爆掉 · 获得骨头':'不爆掉 · 恰好填上';
- if(isResource){
-  get('resourceTitle').textContent='行动结束后的骨头总数';paintMetric(get('resourceValue'),d.resource+' 根',' 根');
- }else{
-  for(let i=1;i<=4;i++){
-   get('fillLabel'+i).textContent=i+(isReward?' 根':' 颗');
-   paintMetric(get('fill'+i),d.invalid?'—':percent(d.fills[i]),'%');
-  }
-  paintMetric(get('bust'),d.invalid?'—':percent(d.bust),'%');
-  get('zeroNote').textContent=(isReward?'0 根 ':'0 颗 ')+(d.invalid?'—':percent(d.fills[0]));
-  const over=d.fills.slice(5).reduce((a,b)=>a+b,0);
-  get('moreNote').hidden=!isReward&&total<=4;
-  get('moreNote').textContent=(isReward?'5～6 根 ':'5 颗以上 ')+(d.invalid?'—':percent(over));
+ get('bustLine').hidden=isResource||(!!prefix&&d.invalid);get('resourceResult').hidden=!isResource;
+ get('unknownNote').hidden=isResource||d.invalid||d.unknown<1e-12;
+ get('unknownNote').textContent='补新牌后继续 · '+displayProbability(d.unknown)+' ↗';
+ get('eventDefinition').textContent=isResource?'骨头变化':isReward?'安全 · 获得骨头':'安全 · 恰好填上';
+ if(isResource){get('resourceTitle').textContent='行动结束后的骨头总数';paintMetric(get('resourceValue'),d.resource+' 根',' 根');setOutcomeButton(get('resourceResult'),'resource',1,mode);}
+ else{
+  for(let i=1;i<=4;i++){get('fillLabel'+i).textContent=i+(isReward?' 根':' 颗');paintMetric(get('fill'+i),d.invalid?'—':displayProbability(d.fills[i]),'%');setOutcomeButton(get('recordFill'+i),String(i),d.invalid?null:d.fills[i],mode);}
+  paintMetric(get('bust'),d.invalid?'—':displayProbability(d.bust),'%');setOutcomeButton(get('bustLine'),'bust',d.invalid?null:d.bust,mode);
+  if(!table.cards.length&&yard===0)get('bustLine').disabled=true;
+  get('zeroNote').textContent=(isReward?'0 根 ':'0 颗 ')+(d.invalid?'—':displayProbability(d.fills[0]))+' ↗';setOutcomeButton(get('zeroNote'),'0',d.invalid?null:d.fills[0],mode);
+  const over=d.fills.slice(5).reduce((a,b)=>a+b,0);get('moreNote').hidden=false;
+  get('moreNote').textContent=(isReward?'5–6 根 ':'5 颗以上 ')+(d.invalid?'—':displayProbability(over))+' ↗';setOutcomeButton(get('moreNote'),'5+',d.invalid?null:over,mode);
+  setOutcomeButton(get('unknownNote'),'unknown',d.unknown,mode);
  }
  const needsSpots=d.invalid&&d.note==='点亮狗狗身上还缺的数字';
- get('scope').textContent=needsSpots?'选择狗身上的点面':d.note||'';
+ get('scope').textContent=needsSpots?'先添加狗牌或校正空位':mode==='normal'?('按 '+dice+' 颗骰子 · '+(bones?'最多用 '+bones+' 根骨头重掷':'不重掷')):d.note||'';
  get('scope').classList.toggle('needs-input',d.invalid);
  if(prefix)$('chooseSpots').hidden=!needsSpots;
 }
@@ -429,7 +1078,7 @@ function renderActionRule(){
   const p=document.createElement('p');p.textContent=body;
   head.append(title,tag);div.append(head,p);li.append(n,div);return li;
  }));
- $('actionSettings').hidden=!$('specialExtra').querySelector('select');
+ $('actionSettings').hidden=!$('specialExtra').querySelector('[data-p]');
 }
 let lastYard=null;
 // Yard totals are known; individual buried dice are deliberately not invented.
@@ -494,14 +1143,16 @@ function renderYardScene(){
 function recalc(){
  renderYardScene();
  const need=getNeed(),total=sumNeed(need);
- $('missing').textContent=total?total+' spots':'No spots selected';$('missing').setAttribute('aria-label',total?'还缺'+total+'个狗牌空位':'没有已选空位');
  document.querySelectorAll('#yard button').forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.y===yard)));
  $('diceN').textContent=dice;$('bonesN').textContent=bones;
  paintOutcome('', 'normal');
  $('generalEmpty').hidden=total>0;
- for(const id of ['fillGrid','otherValues','bustLine'])$(id).hidden=total===0;
+ $('generalEmpty').textContent=table.cards.length?(table.cards.every(c=>c.scored)?'等下一位伙伴加入。':'狗牌已填满。'):'添加你的狗牌，开始这一局。';
+ if(total===0){$('fillGrid').hidden=true;$('otherValues').hidden=true;}
  $('scope').hidden=total===0;
- if(active)paintOutcome('action',active);
+ if(!table.cards.length&&yard===0)$('bustLine').hidden=true;
+ if(active){updateExtra();paintOutcome('action',active);}
+ renderSessionControls();saveTable();
 }
 // Official action order paraphrased for tabletop use; dog speech and examples are original writing.
 const lessons={"normal":{"steps":[["看缺口","狗牌的数字是你要找的点数。"],["投一批","把这批所有骰子一起掷出来。"],["安放","同数字的放到狗身上，剩余的埋庭院；超过7点就爆掉。"]]},"howl":{"steps":[["先看狗牌总数","少于6张狗牌时，摸牌堆最上方1张加入队伍。"],["掷1颗","再从供应区拿1颗骰子掷出。"],["放或埋","放到对应空位，否则埋庭院。"]]},"rollover":{"steps":[["取回整院","把庭院里的所有骰子拿回来（没有则跳过）。"],["全部重掷","一起掷，并决定是否花骨头重掷这批，然后放置或埋下。"],["想再赌一次？","第二步可以选择追加掷1颗；也可以停下。"]]},"walk":{"steps":[["掷2颗","从供应区拿2颗，投一批。"],["先结算","用骨头重掷或放置、埋好这两颗。"],["可选第3颗","愿意的话再掷1颗，单独结算。"]]},"dig":{"steps":[["数爪印","每个爪印允许一次调整：任意玩家庭院中某颗骰子点数加1或减1。"],["特殊的1","把1点减1，这颗骰子直接弃回供应区。"],["再掷2颗","完成选择性调整后，从供应区掷2颗并结算。"]]},"retrieve":{"steps":[["偷看牌堆顶","看最上面那张狗牌，有哪些数字空位。"],["取1颗新骰子","从供应区拿1颗骰子，设成上方狗牌任意一个数字，放自己狗牌或埋庭院。"],["再掷2颗","第一颗处理完后，再掷2颗并结算。"]]},"track":{"steps":[["掷3颗","从供应区掷3颗骰子。"],["挑要重掷的","花一根骨头后，可以只重掷其中一颗、两颗或三颗。"],["全部放好","最终骰子放狗牌或埋庭院。"]]},"trot":{"steps":[["选择已有骰子","可以从自己狗牌上拿一颗已放骰子。"],["移到另一空位","移到任意其他狗牌空位，可把骰面改成新位置的数字。"],["再掷2颗","完成移动后，再掷2颗并结算。"]]},"guard":{"steps":[["先报1–6","必须在掷骰之前宣布一个数字。"],["掷4颗","同时掷4颗骰子。"],["筛选","大于报数的弃回供应，其余必须放狗牌或埋庭院。"]]},"scavenge":{"steps":[["看原庭院","先记住投之前庭院全部骰子的点数总和。"],["掷4颗","掷出4颗骰子。"],["选择弃骰","可以弃掉任何小于原庭院总点数的骰子；剩下的都要放或埋。"]]},"search":{"steps":[["掷7颗","一次掷7颗骰子。"],["找恰好8","如果能找到某个子集点数总和恰好是8，就必须选一组。"],["安放/掩埋","选中的全部放狗牌或埋庭院；其他全部弃回供应。"]]},"hunt":{"steps":[["看爪印","先掷2颗，再按狗牌上的每个爪印多掷1颗。"],["挑2颗","从掷出的骰子里选择恰好2颗。"],["放或埋","这2颗必须放狗牌或埋庭院，其他全数弃回。"]]},"fetch":{"steps":[["掷8颗","一次投8颗骰子。"],["选一种点数","必须选实际掷出的一种数字。"],["整批处理","该点数的所有骰子都得放或埋，其他点数全部弃回。"]]},"run":{"steps":[["先掷3颗","第一批3颗是必须执行的。"],["先结算","骨头重掷、放狗牌或埋庭院都在这一批完成。"],["可选逐颗追加","每次再掷1颗，可反复，也可随时停手。"]]},"bolt":{"steps":[["留出3–12颗","先决定留几颗骰子，不用一口气全扔。"],["逐颗结算","每次只掷1颗、放置或埋下，再掷下一颗。"],["检查停手权","剩余待掷颗数不超过你的爪印数时，才允许提前停止。"]]},"dogpile":{"steps":[["取出本批骰子","从供应区取2颗。如果自己狗牌或庭院已有骰子，必须再取其中1颗加入。"],["一起掷出并结算","把拿到的骰子一起投，然后放到狗牌或埋入庭院。"],["再来一次？","可以重复整个取骰、投掷和结算过程，也可以结束此行动。"]]},"chase":{"steps":[["第1批1颗","先掷1颗并放好或埋好。"],["可选第2批2颗","愿意的话再掷2颗，也要先结算。"],["继续增加","再追便掷3、4……颗；你可以不继续。"]]},"sprint":{"steps":[["数未完成狗牌","每张仍有空位的狗牌给你1颗骰子的投掷名额。"],["一批掷出","按照这个数量掷骰并结算。"],["还想冲？","可以重复整个动作；每次根据当时未完成狗牌重新数数量。"]]},"beg":{"steps":[["先拿1根","从供应区取得1根骨头。"],["数未得分狗牌爪印","每个可见爪印再拿1根。"],["放在旁边","骨头用于此后掷骰重掷，供应不足时只能拿现有数量。"]]},"chew":{"steps":[["数现有骨头","看你现在有多少根。"],["先翻倍","从供应区拿同样数量，使总数翻倍。"],["再加1根","最后再额外拿1根。"]]},"gobble":{"steps":[["先取7根","从供应区拿7根骨头，实际能拿多少看供应。"],["找最高空位","在未填空位中找数字最大的一个。"],["归还等额骨头","归还该点数数量的骨头；如果没有未填空位，跳过这一步。"]]},"playdead":{"steps":[["掷1颗","掷出一颗骰子，可以先决定是否花骨头重掷。"],["放或埋","你可以匹配狗牌空位，也可以主动埋庭院。"],["领取骨头","如果选择埋庭院、又没有爆掉，骰面几点就领几根。"]]},"stay":{"steps":[["看行动牌","检查除 Stay 以外有哪些行动牌已经翻到背面。"],["数背面数目","每张其他背面行动牌价值1根骨头。"],["领取","从供应区拿相应数量骨头。"]]}};
@@ -571,40 +1222,11 @@ $('backToCards').onclick=()=>{
  const card=$('actionCards').querySelector('[data-action="'+lastCard+'"]');
  if(card)card.focus({preventScroll:true});
 };
+setupGameUI();
 renderCategories();renderActionPanel();
 $('yard').replaceChildren(...Array.from({length:7},(_,i)=>{
- const btn=document.createElement('button');btn.className='num';btn.dataset.y=i+1;
+ const btn=document.createElement('button');btn.type='button';btn.className='num';btn.dataset.y=i+1;
  btn.setAttribute('aria-pressed','false');btn.setAttribute('aria-label','庭院 '+(i+1)+' 点');btn.textContent=i+1;return btn;
 }));
-$('yard').addEventListener('click',e=>{
- const el=e.target.closest('button[data-y]');if(!el)return;
- const v=+el.dataset.y;yard=yard===v?0:v;recalc();
-});
-$('zero').onclick=()=>{yard=0;recalc()};
-$('dogs').addEventListener('click',e=>{
- const el=e.target.closest('button[data-d]');if(!el)return;
- const d=+el.dataset.d,f=+el.dataset.f;
- spots[d][f]=(spots[d][f]+1)%4;
- el.setAttribute('aria-pressed',String(spots[d][f]>0));
- el.setAttribute('aria-label','第'+(d+1)+'只狗，'+(f+1)+'点空位，当前'+spots[d][f]+'个');
- el.innerHTML=dogSpotContent(f+1,spots[d][f]);
- recalc();
-});
-$('chooseSpots').onclick=()=>{$('dogs').querySelector('.spot').focus()};
-$('moreDog').onclick=()=>setDogCount(dogs+1);
-$('lessDog').onclick=()=>setDogCount(dogs-1);
-$('clearSpots').onclick=()=>{spots.forEach(a=>a.fill(0));renderDogs();recalc()};
-$('dicePlus').onclick=()=>{dice=Math.min(12,dice+1);recalc()};
-$('diceMinus').onclick=()=>{dice=Math.max(1,dice-1);recalc()};
-$('bonesPlus').onclick=()=>{bones=Math.min(10,bones+1);recalc()};
-$('bonesMinus').onclick=()=>{bones=Math.max(0,bones-1);recalc()};
-$('specialExtra').onchange=e=>{
- const el=e.target.closest('select[data-p]');if(!el)return;
- const key=el.dataset.p;
- params[key]=['source','playdead'].includes(key)?el.value:+el.value;
- if(key==='source')params.verified=0;
- if(key==='rounds'&&Object.hasOwn(roundsByAction,active))roundsByAction[active]=params.rounds;
- updateExtra();renderActionRule();recalc();
-};
-renderDogs();recalc();})();
+bindActionControls();recalc();})();
 </script></body></html>

@@ -1,68 +1,79 @@
-# Validation · 1.0.0-rc.9
+# Pip & Paw QA · 1.0.0-rc.10
 
-## Scope
+Date: **2026-11-27**.
 
-The change covers the Yard illustration, header status, dog-card pip controls and repeated helper copy. The Action rules, selectors, parameter handling and probability functions are retained.
+**Current evidence:** 48 automated checks pass across three suites. The game flow, report, selected Action controls, and narrow layouts were exercised in connected Chrome. A source-grounded **current-executor self review passed for this scope; it is not independent**. The extra native review has not returned a verdict.
 
-## Checked
-
-- Six existing release/package checks pass, including JavaScript syntax and offline runtime dependencies.
-- The probability and state-helper block between `getNeed()` and `paintOutcome()` is byte-for-byte identical to rc.8. The 22 action rules and category/detail route are unchanged.
-- In the connected Chrome browser, all seven Yard controls produce distinct scenes and correct header totals; reset returns to zero. The scene never invents a buried-dice composition or displays a seven-pip die.
-- Dog pip counts are exactly 1–6. Clicking cycles the missing-space count through 1, 2, 3 and zero; adding/removing a dog and the clear control retain their existing behavior.
-- With Yard 0, two dice, no bones, and one empty 1-pip space, the actual interface shows 30.6% for safely filling one space and 41.7% for busting, matching the previous independent reference case.
-- Same-origin browser frames at outer widths 320, 351, 390, 600 and 768px have no horizontal overflow and no overlapping dog targets. Scrollbars leave measured content widths 305, 336, 375, 585 and 753px. All measured Yard and dog controls are at least 44 × 44 CSS px.
-- Filter → Fetch → Choose spots returns to the first dog control with a visible focus ring without selecting it. Back returns to the Filter cards. Invalid-input and resource results retain their original calculation boundaries.
-- The rendered empty states no longer show the removed remaining-capacity or repeated "light up missing numbers" instructions. Required action-specific rules remain.
-
-## Verification boundary
-
-Desktop and fixed-width browser frames were inspected. Direct viewport screenshots timed out, so the narrow screenshots are Chrome frames, not physical iPhone or iPad captures. This release does not add an independent Human Review verdict; the existing project review cadence remains in its owning checkpoint.
-
-
----
-
-## Previous release evidence
-
-# Pip & Paw QA — 1.0.0-rc.8
-
-Date: **2026-11-27**. This report covers the final rc.8 runtime and its offline package.
-
-## Candidate and runtime files
+## Candidate
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
-| `index.html` | 65,225 | `c5a1083c14fa108b6208ec8c3dfddb46bbdf456016c0cecde19aa7accaa688a7` |
-| `assets/puppy-actions.webp` | 1,259,152 | `a86a1c32788bc0adf626429aa1b4dc2aa7fd451507098d518953807d803c0b10` |
-| Source `assets/puppy-actions.png` | 2,003,750 | `fcffa45fd32ef3f755c4cd3404329303feefc1d05ad0eb28134d93569bc9e27c` |
+| [index.html](index.html) | 154,524 | `d0e5cacc1e17e028db01fe04d258213be1fa0af52b9191779bf8196f2d4e0d99` |
 
-The offline runtime requires `index.html` and `assets/puppy-actions.webp` at those relative paths. The PNG remains in the source repository.
+The final copy trim removed the redundant visible missing-spaces count. The file size and hash above identify the candidate after that trim.
 
-The PNG and WebP decode to exactly the same **1536×1024 RGBA bytes**. WebP reduces the image file size by **744,598 bytes (37.1602%)**. Server observations showed an initial WebP request returning HTTP 200 and subsequent requests returning 304, with no PNG request. LCP timing was not measured.
+The offline runtime consists of `index.html`, `assets/game-model.js`, `assets/settlement-model.js`, `assets/dalmatian-poses.webp`, and `assets/puppy-actions.webp`. Original illustration PNGs and atlas JSON metadata are source material; the page does not load them at runtime.
 
-## Visual and interaction checks
+## Automated checks
 
-- **Text contrast:** the measured text/background ratios are **4.8561:1** for Yard’s `/ 7`, **4.5888:1** for dog-card indices, and **4.6762:1** for the footer. These measurements cover those three pairs, not a whole-site accessibility certification.
-- **Result typography:** units are smaller than their values and retain the same color. Chrome readbacks confirmed complete result text for **0.0%**, **100.0%**, and a **10-bone** resource result.
-- **Narrow layouts:** actual Chrome iframe checks used nominal 320px and 390px viewports, with measured content widths of 305px and 375px. Neither had horizontal overflow by `scrollWidth`. At the narrower width, `100.0%` used a 19px number and an 11px percent sign; its measured width was **57.135px**, within the **60.549px** result card. Dog-number controls measured **44×44px**.
-- **Choose spots:** mouse activation focuses the first Dogs number and displays an explicit **2 CSS px green focus ring**, including when `:focus-visible` is false. Chrome confirmed that focusing the control does not change the selected spaces.
-- **Action keyboard focus:** the card background and portrait’s **−3px vertical shift / −1° rotation** remained stable under keyboard focus. Back retained the category and returned focus to the originating card.
-- **Reduced-motion rules:** a temporary preview of the same HTML enabled the four relevant media blocks with `@media all`. In Chrome, the tested elements reported `transform: none` and zero-duration transitions while retaining their focus and background feedback. This checks the reduced-motion CSS branch; the operating-system preference itself was not exercised.
+| Suite | Result | Covered behavior |
+|---|---:|---|
+| `node tests/test_game_model.cjs` | **17 passed** | Repeated faces, card limits, scoring, BUST, immutable settlement snapshots, duplicate-event rejection, aggregate 5+ records, title selection, and restoring the current game. |
+| `node tests/test_settlement_model.cjs` | **23 passed** | Settlement feasibility and policy matching against the probability code extracted from the current `index.html`, including sequential actions, actual selected faces, Yard totals, and Track policy tracing. |
+| `python3 tests/test_release.py` | **8 passed** | Page structure, current-game storage scope, actual local runtime dependencies, release files, and syntax of the inline script and both model scripts. |
 
-The narrow-screen evidence comes from Chrome iframe rendering and interaction. Real phone/tablet hardware and actual iOS Safari were not tested.
+`tests/test_two_modules.py` and `tests/test_browser_probability.py` were adapted to the new builder and Action controls, but **were not executed for rc.10**. Their presence is not evidence of an additional browser regression run. The manual connected-Chrome evidence below is separate from those scripts.
 
-## Probability regression
+## Connected Chrome: complete game flow
 
-All **18 core functions** are byte-for-byte identical to rc.7, SHA-256 `8cdea2d8b48c9544e95a77c08349f7c44804b398c3e9fb17b6ca95303b3f8254`. The existing regression runner also retains its earlier tested baseline, SHA-256 `2987fe0997adf16cbf1d95c29a04a7e0c8d996c0cd4e08581df48a241c4e2537`.
+1. **Build repeated faces.** Created one dog with `[1,1,1,1]` and another with `[1,1]`. They appeared as separate cards with different poses and the correct number of independent spaces.
+2. **Record a 5+ result.** With six dice, selected the 5+ outcome, then selected all six actual spaces and confirmed the batch. Both completed dogs became scored. The saved record retained the aggregate probability **31/46,656**, displayed as **0.066%**, while recording **six actual fills**.
+3. **Prepare and settle BUST.** Added a `[2,3]` dog, manually filled its 2-point space, set one die and Yard 7, and observed **83.3% BUST**. Confirmation cleared the Yard and that unscored dog's placed die while retaining both scored dogs and the new dog's template.
+4. **Undo and restore.** Undo restored the pre-BUST board and record state. After confirming BUST again and refreshing, the game retained exactly **two records**: the earlier 5+ settlement and one BUST.
+5. **Finish the game.** The report displayed one title, **凤毛麟角**, and totals of **6 recorded fills**, **1 BUST**, and **2 scored dogs**. The rarest event was **0.066%**; the other record retained **83.3%**. The title used the smallest positive eligible event probability, without multiplying the records into a whole-game probability.
+6. **Resume and start again.** Resume returned to the current game. Starting a new game cleared its board and records; Undo remained available.
 
-The existing comparison produced **46 identical action/Roll results**, including resource outcomes, across the 22 actions plus Roll in two valid board states. All probability distributions sum to one within `1e-9`. The three independent closed-form checks also matched their expected values. The initial action remains unselected and the missing-space count starts at zero.
+Manual dog-space correction did not add a roll record. Recording an observed outcome froze the pre-settlement plan and its aggregate probability before applying the confirmed board changes.
 
-These calculations retain the entered-board and stated-policy scope. A complete physical tabletop session, unknown future dog cards, and a proof of optimal whole-game strategy are outside the completed checks.
+## Connected Chrome: layout and controls
 
-## Package acceptance
+These measurements were taken after the accepted Dalmatian artwork was integrated.
 
-The six checks in `python3 tests/test_release.py` pass on the release directory and an isolated extraction of the offline ZIP. They cover page metadata, runtime dependencies, the two main modules, action/probability controls, package files, and JavaScript syntax.
+| Chrome iframe outer width | Measured content width | Dog figure width | Horizontal overflow |
+|---:|---:|---:|---|
+| 320 px | 305 px | 287.03 px | None |
+| 390 px | 375 px | 345 px | None |
+| 768 px | 753 px | Not separately recorded | None |
 
-The release is `PipAndPaw_1.0.0-rc8.zip`. Its runtime contains the WebP atlas at the exact relative path above; the source PNG remains in the public repository. The download identity is recorded with the published release.
+- At 320 px, dog-space targets measured **44 px**, and the six builder dice formed **three columns by two rows**, with **68 px** button heights. Draft selections measured **44 px**.
+- The 320 px report dialog measured **799.8 px** high with **891 px** of scrollable content. Its footer occupied vertical coordinates **686.6–809.2 px** in an **820 px** high frame; the report actions remained operable.
+- Guard's native range control retained focus during keyboard changes on desktop and at the 390 px frame width. The narrow-frame check changed its value from **4 to 3**.
+- After the final copy trim, Chrome reported **zero visible occurrences** of the redundant missing-spaces count and an empty captured error list, **`errors: []`**.
 
-Earlier-release QA is available in repository history.
+Direct viewport control and screenshot clipping attempts timed out. The narrow-layout evidence therefore comes from real Chrome rendering in iframes, not a physical iPhone, iPad, or iOS Safari session. The screenshots do not establish device-hardware coverage.
+
+## Artwork and slot geometry
+
+The accepted runtime artwork is the new **twelve-pose, slender, black-spotted Dalmatian atlas**, with clean ink-style contours matching the existing Action illustrations. The rejected watercolor puppy draft is not the runtime source.
+
+The source `dalmatian-poses.png` and runtime `dalmatian-poses.webp` decode to identical **1448 × 1086 RGBA pixels**, including transparency. The original Action atlas remains in use.
+
+Individual crop viewports preserve each dog's visible shape without adjacent atlas fragments. Slot centers were checked on the pale body areas. At a **280 px** square figure, the **44 px** interaction boxes do not overlap; the closest separating axis measures **44.8 px**. The measured 320 px browser layout uses a larger, 287.03 px figure. See [Dalmatian art notes](assets/dalmatian-art-notes.md) for the source, crop, and placement details.
+
+## Screenshots
+
+- [Desktop: final candidate](assets/preview-desktop.jpg)
+- [Mobile-width Chrome frame: final candidate](assets/mobile.jpg)
+- [Game report](assets/game-report.jpg)
+
+All three files are present. The desktop and mobile images show the final copy trim. The report image comes from the same rc.10 version immediately before that trim; the trim only removed the redundant count outside the report, leaving its structure and settlement behavior unchanged.
+
+## Human Review
+
+The extra native review was submitted once with the frozen final HTML, model sources, artwork, screenshots, and the user's original style corrections. At the end of its bounded observation window, the original request remained queued with no execution occurrence or verdict. It was not resubmitted, and no independent PASS or executed model is claimed. Its durable identity remains in the project's existing checkpoint for later readback.
+
+The current executor then performed a separate, deliberate **self review / not independent** of the accepted user goal against the actual rendered cards, narrow layout, report, and settlement source. **Scoped PASS:** the new Dalmatian cards follow the original Action illustration style; chosen faces become independent empty spaces; Yard status sits beside its heading; settlement records the frozen pre-action probability before applying verified placements; BUST preserves dog templates and scored cards; and one title appears when the current game ends. No material mismatch remained within the inspected scope. The next adopted action is to publish these same runtime bytes to the existing app and offline release. The physical-device and unexecuted-script boundaries above still apply.
+
+## Earlier versions
+
+Earlier release changes are in [CHANGELOG.md](CHANGELOG.md). Previous QA reports remain in repository history; their results are not counted as rc.10 validation.

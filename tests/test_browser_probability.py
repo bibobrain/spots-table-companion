@@ -50,18 +50,23 @@ async def test():
     ('fetch',8,[1,0,1,0,0,0],2,3)
    ]
    for mode,n,need,yard,t in cases:
-    # Set dog slots by performing clicks; each spot cycles 0→1→2→3→0.
-    await j("(function(){document.querySelector('#zero').click();document.querySelector('#clearSpots').click();for(let i=0;i<10;i++)document.querySelector('#bonesMinus').click();})()")
+    # Build the exact missing faces through the palette. A generated slot is
+    # already empty; clicking the dog itself would fill it, reversing need.
+    # The isolated browser profile owns this current-game save. Reset setup
+    # through UI removal, never through BUST (which creates a result record).
+    await j("(function(){document.querySelector('#zero').click();let b;while((b=document.querySelector('#dogs button[data-remove]')))b.click();if(!document.querySelector('#clearDraft').hidden)document.querySelector('#clearDraft').click();while(!document.querySelector('#bonesMinus').disabled)document.querySelector('#bonesMinus').click();})()")
     if yard:await j(f"document.querySelector('#yard').children[{yard-1}].click()")
     for idx,v in enumerate(need):
-     for _ in range(v):await j(f"document.querySelector('#dogs button[data-d=\"0\"][data-f=\"{idx}\"]').click()")
+     for _ in range(v):await j(f"document.querySelector('#dicePalette button[data-face-choice=\"{idx+1}\"]').click()")
+    await j("document.querySelector('#createDog').click()")
+    assert await j("document.querySelectorAll('#dogs .card-slot[aria-pressed=false]').length")==sum(need),(mode,need)
     if mode!='normal':
      # These independent reference cases use the Filter group's cards.
      await j(f"(function(){{let group=document.querySelector('#trickGroups [data-group=blue]');if(group.getAttribute('aria-pressed')!=='true')group.click();else if(!document.querySelector('#actionDetail').hidden)document.querySelector('#backToCards').click();document.querySelector('#actionCards [data-action={mode}]').click();}})()")
     if mode=='normal':
      await j("(function(){for(let i=0;i<12;i++)document.querySelector('#diceMinus').click()})()")
      for _ in range(n-1):await j("document.querySelector('#dicePlus').click()")
-    if mode=='guard':await j(f"(function(){{let x=document.querySelector('#specialExtra [data-p=threshold]');x.value='{t}';x.dispatchEvent(new Event('change',{{bubbles:true}}))}})()")
+    if mode=='guard':await j(f"(function(){{let x=document.querySelector('#specialExtra input[type=range][data-p=threshold]');x.value='{t}';x.dispatchEvent(new Event('input',{{bubbles:true}}))}})()")
     fill_key='#fill' if mode=='normal' else '#actionFill'
     bust_key='#bust' if mode=='normal' else '#actionBust'
     scope_key='#scope' if mode=='normal' else '#actionScope'

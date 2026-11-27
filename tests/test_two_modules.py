@@ -1,4 +1,4 @@
-import asyncio,json,pathlib,tempfile,subprocess,time,urllib.request,sys
+import asyncio,json,pathlib,tempfile,subprocess,time,urllib.request,sys,re
 import websockets
 html=pathlib.Path(sys.argv[1] if len(sys.argv)>1 and not sys.argv[1].isdigit() else str(pathlib.Path(__file__).resolve().parents[1]/'index.html')).resolve()
 home=pathlib.Path(tempfile.mkdtemp(prefix='spots-2module-cdp-'))
@@ -32,22 +32,33 @@ try:
     if answer.get('id')==rid:break
    print('ACTUAL VIEWPORT', await js('window.innerWidth'))
    await js('document.readyState')
-   initial=json.loads(await js("""JSON.stringify({gen:document.querySelector('#fill1').textContent,bust:document.querySelector('#bust').textContent,selectedSpots:document.querySelectorAll('.spot[aria-pressed=true]').length,selectedGroups:document.querySelectorAll('#trickGroups [aria-pressed=true]').length,generalEmpty:!document.querySelector('#generalEmpty').hidden,actionEmpty:!document.querySelector('#actionEmpty').hidden,cardsHidden:document.querySelector('#actionCards').hidden,detailHidden:document.querySelector('#actionDetail').hidden,dropdown:!!document.querySelector('#action'),modules:document.querySelectorAll('main>section').length,old:!!document.querySelector('#trainer'),catalog:!!document.querySelector('.ref'),overflow:document.documentElement.scrollWidth>innerWidth})"""))
+   # The temporary browser profile starts without a saved current game.
+   initial=json.loads(await js("""JSON.stringify({gen:document.querySelector('#fill1').textContent,bust:document.querySelector('#bust').textContent,selectedSpots:document.querySelectorAll('.card-slot[aria-pressed=true]').length,dogs:document.querySelectorAll('#dogs [data-dog-id]').length,palette:[...document.querySelectorAll('#dicePalette [data-face-choice]')].map(x=>({face:Number(x.dataset.faceChoice),w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),model:typeof PipGame==='object'&&typeof PipGame.restore==='function',selectedGroups:document.querySelectorAll('#trickGroups [aria-pressed=true]').length,generalEmpty:!document.querySelector('#generalEmpty').hidden,actionEmpty:!document.querySelector('#actionEmpty').hidden,cardsHidden:document.querySelector('#actionCards').hidden,detailHidden:document.querySelector('#actionDetail').hidden,dropdown:!!document.querySelector('#action'),modules:document.querySelectorAll('main>section').length,old:!!document.querySelector('#trainer'),catalog:!!document.querySelector('.ref'),overflow:document.documentElement.scrollWidth>innerWidth})"""))
    print('INITIAL',initial)
    assert initial['gen']==initial['bust']=='—' and initial['selectedSpots']==initial['selectedGroups']==0,initial
    assert initial['generalEmpty'] and initial['actionEmpty'] and initial['cardsHidden'] and initial['detailHidden'],initial
    assert initial['modules']==2 and not any(initial[k] for k in ('dropdown','old','catalog','overflow')),initial
+   assert initial['model'] and initial['dogs']==0,initial
+   assert [x['face'] for x in initial['palette']]==list(range(1,7)),initial
+   assert all(x['w']>=44 and x['h']>=44 for x in initial['palette']),initial['palette']
    catalog=json.loads(await js("""JSON.stringify(['red','yellow','blue','purple','green'].map(id=>{const group=document.querySelector('#trickGroups [data-group='+id+']');group.click();return {id,label:group.textContent,cards:[...document.querySelectorAll('#actionCards [data-action]')].map(card=>({id:card.dataset.action,summary:card.querySelector('.card-summary').textContent})),cardsVisible:!document.querySelector('#actionCards').hidden,detailHidden:document.querySelector('#actionDetail').hidden};}))"""))
    assert [g['label'] for g in catalog]==['Fixed','Adjust','Filter','Chain','Bones'],catalog
    assert [len(g['cards']) for g in catalog]==[2,5,5,5,5],catalog
    assert all(g['cardsVisible'] and g['detailHidden'] and all(c['summary'] for c in g['cards']) for g in catalog),catalog
    modes=[c['id'] for g in catalog for c in g['cards']]
    assert len(modes)==len(set(modes))==22,modes
-   # Initial state is intentionally empty. Set the original reference board explicitly.
-   await js("document.querySelector('#dogs [data-d=\"0\"][data-f=\"0\"]').click()")
+   # Build one dog with one EMPTY 1-point slot. Clicking that slot would fill it.
+   await js("(function(){document.querySelector('#dicePalette [data-face-choice=\"1\"]').click();document.querySelector('#createDog').click();})()")
+   assert await js("document.querySelectorAll('#dogs .card-slot').length===1 && document.querySelector('#dogs .card-slot').getAttribute('aria-pressed')==='false'")
    async def go(mode):
     category={"howl":"red","rollover":"red","walk":"yellow","dig":"yellow","retrieve":"yellow","track":"yellow","trot":"yellow","fetch":"blue","guard":"blue","scavenge":"blue","search":"blue","hunt":"blue","run":"purple","chase":"purple","bolt":"purple","sprint":"purple","dogpile":"purple","beg":"green","chew":"green","gobble":"green","playdead":"green","stay":"green"}[mode]
     await js("(function(){let group=document.querySelector('#trickGroups [data-group="+category+"]');if(group.getAttribute('aria-pressed')!=='true')group.click();else if(!document.querySelector('#actionDetail').hidden)document.querySelector('#backToCards').click();document.querySelector('#actionCards [data-action="+mode+"]').click();})()")
+
+   async def parameter(key,value):
+    # A range change must update the result without replacing or blurring the
+    # native input; this also catches a stale onchange-only integration.
+    selector=json.dumps('#specialExtra input[type=range][data-p="'+key+'"]')
+    assert await js("(function(){const s="+selector+",x=document.querySelector(s);if(!x)return false;x.focus();x.value="+json.dumps(str(value))+";x.dispatchEvent(new Event('input',{bubbles:true}));return document.querySelector(s)===x&&document.activeElement===x;})()"),(key,value)
 
    await go('howl')
    assert await js("!document.querySelector('#actionDetail').hidden && document.querySelector('#actionCards').hidden && document.activeElement.id==='detailName'")
@@ -63,19 +74,19 @@ try:
     assert v['prob']!='—' or v['resourceVisible'] or mode in ('dogpile','rollover','retrieve'),(mode,v)
     results.append(mode)
    print('ALL MODES RULES',len(results))
-   touch=json.loads(await js("JSON.stringify({spots:[...document.querySelectorAll('.spot')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),mini:[...document.querySelectorAll('.tinybutton')].map(x=>x.getBoundingClientRect().height),chips:[...document.querySelectorAll('.group-chip')].map(x=>x.getBoundingClientRect().height),dogColumns:getComputedStyle(document.querySelector('#dogs')).gridTemplateColumns})"))
-   print('TOUCH',touch['spots'][:1],touch['mini'],touch['chips'],touch['dogColumns'])
+   touch=json.loads(await js("JSON.stringify({slots:[...document.querySelectorAll('.card-slot')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),chips:[...document.querySelectorAll('.group-chip')].map(x=>x.getBoundingClientRect().height),dogColumns:getComputedStyle(document.querySelector('#dogs')).gridTemplateColumns})"))
+   print('TOUCH',touch['slots'][:1],touch['chips'],touch['dogColumns'])
    sizes=json.loads(await js("JSON.stringify({yard:[...document.querySelectorAll('#yard button')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),stepper:[...document.querySelectorAll('.stepper button')].map(x=>({w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height}))})"))
    assert all(x['w']>=44 and x['h']>=44 for x in sizes['yard']),('yard too small',width,sizes['yard'])
    assert all(x['w']>=44 and x['h']>=44 for x in sizes['stepper']),('stepper too small',width,sizes['stepper'])
    print('ALL_TAP_TARGETS',width,'yard',[(round(z['w']),round(z['h'])) for z in sizes['yard']],'stepper',[(round(z['w']),round(z['h'])) for z in sizes['stepper']])
-   assert all(z['w']>=44 and z['h']>=44 for z in touch['spots']),touch
-   assert all(x>=44 for x in touch['mini']+touch['chips']),touch
+   assert len(touch['slots'])==1 and all(z['w']>=44 and z['h']>=44 for z in touch['slots']),touch
+   assert len(touch['chips'])==5 and all(x>=44 for x in touch['chips']),touch
 
    # Guard threshold changes action probability, but not general result.
    await go('guard')
    first=await js("document.querySelector('#actionFill1').textContent")
-   await js("(function(){let x=document.querySelector('#specialExtra select');x.value='6';x.dispatchEvent(new Event('change',{bubbles:true}));})()")
+   await parameter('threshold',6)
    changed=await js("document.querySelector('#actionFill1').textContent")
    print('GUARD PARAM',first,changed)
    assert first!=changed
@@ -99,28 +110,59 @@ try:
      x=json.loads(await js("""JSON.stringify({prob:[1,2,3,4].map(i=>document.querySelector('#actionFill'+i).textContent),zero:document.querySelector('#actionZeroNote').textContent,more:document.querySelector('#actionMoreNote').hidden?null:document.querySelector('#actionMoreNote').textContent,bust:document.querySelector('#actionBust').textContent,unknown:document.querySelector('#actionUnknownNote').hidden?null:document.querySelector('#actionUnknownNote').textContent,resource:!document.querySelector('#actionResourceResult').hidden})"""))
      if x['resource']:resource+=1;continue
      if x['bust']=='—':invalid+=1;continue
-     def pct(t):return 0 if not t else float(t.strip().split()[-1].rstrip('%'))
+     def pct(t):
+      if not t:return 0
+      # Result buttons now carry a trailing navigation arrow. Very small
+      # values can use an upper bound; its error is below display tolerance.
+      match=re.search(r'<?(\d+(?:\.\d+)?)\s*%',t)
+      assert match,('missing percentage',t)
+      return float(match.group(1))
      tot=sum(pct(t) for t in x['prob'])+sum(pct(x[k]) for k in ['zero','more','bust','unknown'])
      if abs(tot-100)>.36:bad.append((mode,bone,tot))
      else:valid+=1
    print('MASS',{'valid':valid,'resource':resource,'invalid':invalid,'bad':bad[:5]})
    assert not bad
    # Run and Chase retain their own valid ranges through the actual browse path.
-   async def rounds(value):
-    await js("(function(){let x=document.querySelector('#specialExtra [data-p=rounds]');x.value='"+str(value)+"';x.dispatchEvent(new Event('change',{bubbles:true}));})()")
-   await go('run');await rounds(0);await go('chase')
+   await js("(function(){while(!document.querySelector('#bonesMinus').disabled)document.querySelector('#bonesMinus').click();})()")
+   await go('run');await parameter('rounds',0);await go('chase')
    assert await js("document.querySelector('#specialExtra [data-p=rounds]').value")=='2'
    assert await js("document.querySelector('#actionBust').textContent")!='—'
    await go('run')
    assert await js("document.querySelector('#specialExtra [data-p=rounds]').value")=='0'
-   await rounds(5);await go('chase')
+   await parameter('rounds',5);await go('chase')
    assert await js("document.querySelector('#specialExtra [data-p=rounds]').value")=='2'
    assert await js("document.querySelector('#actionBust').textContent")!='—'
+   await parameter('rounds',4);await go('run')
+   await js("document.querySelector('#undoButton').click()")
+   assert await js("document.querySelector('#specialExtra [data-p=rounds]').value")=='5'
+   await go('chase')
+   assert await js("document.querySelector('#specialExtra [data-p=rounds]').value")=='2'
+   # Conditional rows must disappear without detaching the focused source
+   # button. Confirmation is tied to one exact face and expires on a change.
+   await js("document.querySelector('#yard button[data-y=\"2\"]').click()")
+   await go('dogpile')
+   await js("document.querySelector('#specialExtra button[data-p=source][data-value=yard]').click()")
+   await js("document.querySelector('#specialExtra button[data-p=verified][data-value=\"1\"]').click()")
+   await parameter('src',3)
+   assert await js("document.querySelector('#specialExtra button[data-p=verified][data-value=\"0\"]').getAttribute('aria-pressed')==='true'")
+   await js("document.querySelector('#zero').click()")
+   assert await js("(function(){const b=document.querySelector('#specialExtra button[data-p=source][data-value=none]');b.focus();b.click();return document.activeElement===b&&!document.querySelector('#specialExtra [data-p=src]')&&!document.querySelector('#specialExtra [data-p=verified]');})()")
+   # Changing the board refreshes parameter explanations as well as numbers.
+   await go('dig')
+   await js("document.querySelector('#yard button[data-y=\"2\"]').click()")
+   assert '2 点' in await js("document.querySelector('#ap-note-after').textContent")
+   await js("document.querySelector('#zero').click()")
+   assert '0 点' in await js("document.querySelector('#ap-note-after').textContent")
+   saved=json.loads(await js("localStorage.getItem('pip-and-paw.current-game.v1')"))
+   assert saved['game']['cards'][0]['faces']==[1] and saved['game']['cards'][0]['filled']==[False],saved
+   assert saved['rounds']=={'run':5,'chase':2} and saved['params']['verified']==0,saved
    await go('bolt')
    assert await js("!!document.querySelector('#specialExtra [data-p=paws]')")
    await go('sprint')
    assert '只算当前一批' in await js("document.querySelector('#actionScope').textContent")
-   await js("document.querySelector('#clearSpots').click()")
+   # Removing the selected dog leaves an empty setup. BUST is a settlement,
+   # not a test reset: it retains the dog card and clears only unscored fills.
+   await js("document.querySelector('#dogs button[data-remove]').click()")
    assert await js("!document.querySelector('#generalEmpty').hidden && document.querySelector('#fillGrid').hidden && document.querySelector('#fill1').textContent==='—' && document.querySelector('#actionFill1').textContent==='—'")
    assert not errors,errors[:2]
    print('PASS',width,'errors',len(errors))

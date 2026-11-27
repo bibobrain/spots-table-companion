@@ -1,12 +1,22 @@
-# 1.0.0-rc.9 · A backyard for the pack
+# Changelog
+
+## 1.0.0-rc.10 — 2026-11-27
+
+- **Build individual dog cards:** choose 1–4 exact die faces, including repeats, then add a dog. Each chosen face becomes a separate space; the game keeps up to six dog cards, including scored cards.
+- **A coordinated Dalmatian pack:** new original twelve-pose line art uses slender, spotted dogs in the same clean ink style as the existing Action illustrations. Added ivory-style 3D dice with exact 1–6 pip patterns.
+- **Record actual results:** selecting a Roll or Action outcome freezes the board, plan, and aggregate outcome probability. Confirm the filled spaces, Yard total, and bones spent to settle it. Direct taps on dog spaces correct the board without adding a roll record.
+- **Complete the play cycle:** BUST records the result and clears the Yard and unscored placed dice, while preserving dog templates and scored cards. Undo reverses the latest change or settlement.
+- **One current game and one final title:** keep the current board and records in browser `localStorage`; finish the game for a report and one idiom-style title based on its smallest positive eligible event probability. Probabilities are not multiplied into whole-game odds. Starting a new game replaces the saved game, without a cross-game archive.
+- **Refined Action settings:** replaced dropdown parameters with native sliders and compact segmented choices, alongside short calculation notes. Kept all 22 Actions and placed the Yard status beside its heading.
+- **Offline package:** runtime now includes `assets/game-model.js`, `assets/settlement-model.js`, `assets/dalmatian-poses.webp`, and `assets/puppy-actions.webp` beside `index.html`. Source illustration PNGs remain in the repository and are omitted from `PipAndPaw_1.0.0-rc10.zip`.
+
+## 1.0.0-rc.9 — 2026-11-27 · A backyard for the pack
 
 - Enlarged Yard into a complete backyard with a doghouse, fence, grass and soil. Each total from 1 to 7 has its own puppy pose and ground detail.
 - Moved the green, amber and red Yard status into a small header indicator. Seven points remains a valid total.
 - Replaced the separate dog-number grid with six tappable die-pip patterns directly on original dog illustrations. Duplicate missing-space counts and 44px touch targets remain.
 - Removed repeated capacity instructions, visible missing-space totals, and redundant onboarding paragraphs.
 - Preserved the 22 Action cards, their category/detail flow, and all probability calculations.
-
-# Changelog
 
 ## 1.0.0-rc.8 — 2026-11-27
 
