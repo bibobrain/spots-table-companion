@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-rc.14 — 2026-11-27
+
+- **A clearer backyard sequence:** 0 strolls with a butterfly, 1 naps, 2 sniffs, 3 digs with its forepaws at the pit, 4 lifts a paw beside the discovered bone, and 5 keeps the play bow. Six restores the earlier rolling pose; seven restores the earlier play-dead pose. Digging and finding the bone have distinct silhouettes, and the butterfly interaction stays within the scene. Seven remains a safe total under the existing rules.
+- **A horizontal Yard bar:** restored a filling bar above the scene, progressing from green through yellow to red with the entered total.
+- **One memorable recorded result:** the journal shows the rarest eligible result with a prominent percentage and rarity label beside its title. Removed the aggregate fill, bust, and score tiles so occasional recording does not appear to be a complete game history.
+- **Expandable operation details:** each entered settlement retains its time, outcome, original probability, and before/after board state. Expand an entry to see its dice faces, Yard, bones, and probability scope. A 5+ entry keeps the aggregate probability and separately shows the actual count; unavailable probabilities and non-competing records remain viewable.
+- Existing bilingual dog identities, saved games, and probability models remain in use. See QA_REPORT.md for browser checks and the scope of verification.
+
 ## 1.0.0-rc.13 — 2026-11-27
 
 - **Twelve bilingual characters:** each Dalmatian pose now has a short English line and a Chinese counterpart that express its own habits, excuses or wishes. Literary adaptations and their sources are identified in the README.
@@ -94,4 +102,3 @@ Features: dog-card slot input, yard total, 0–10 treats, action-specific safe-f
 Fixes carried forward: Gobble insufficient supply / unperformable step handling; tutorial example cannot overwrite the player's real table without recovery.
 
 At the rc.1 checkpoint, the Pages URL and community announcement were not yet live. GitHub Pages and the rc.2 GitHub Release were subsequently published; a separate community announcement remains a draft.
-
