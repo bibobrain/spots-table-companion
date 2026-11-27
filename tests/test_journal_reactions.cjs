@@ -84,7 +84,7 @@ check('zero risk stays valid and a rare outcome does not become an aggressive st
   const known = react(safeRare), noRisk = Reactions.forRecord(safeRare, { risk: null });
   assert.equal(known.headline, noRisk.headline, 'event rarity is independent of complete risk');
   assert.notEqual(known.actionLine, noRisk.actionLine, 'zero risk qualifies the matched plan');
-  assert.doesNotMatch(known.headline, /激进|冒险|胆子|敢掷|够悬|悬着/);
+  assert.doesNotMatch(known.headline, /激进|冒险|胆子|悬崖|栏杆|扶手/);
   assert.notEqual(known.headline, react({ ...safeRare, probability: null }).headline);
 });
 
@@ -94,7 +94,7 @@ check('a known rare result beside an unknown branch retains rarity but not risk'
   assert.equal(Strategy.riskOf(event), null);
   assert.equal(react(event).headline, react(complete).headline);
   assert.notEqual(react(event).headline, react({ ...event, probability: null }).headline);
-  assert.doesNotMatch(react(event).headline, /激进|冒险|胆子|敢掷|悬着/);
+  assert.doesNotMatch(react(event).headline, /激进|冒险|胆子|悬崖|栏杆|扶手/);
 });
 
 check('only qualified pre-action risk at or above one half invokes high-risk wording', () => {
@@ -112,7 +112,7 @@ check('zero-fill, a single fill, many fills, 5+ and BUST have different result r
   const events = [0, 1, 3, 6].map(count => odds({ count, probability: 0.3 }));
   events.push(odds({ kind: 'bust', risk: 0.2 }));
   assert.equal(new Set(events.map(event => react(event).headline)).size, events.length);
-  assert.match(react(events[0]).headline, /没|空/);
+  assert.match(react(events[0]).headline, /没|空|只散了步/);
 });
 
 check('5+ rarity remains the aggregate bucket even when six dice were actually placed', () => {
@@ -135,9 +135,9 @@ check('resource commentary follows the actual bone delta, not an inconsistent re
   const zero = react({ ...event, rewardBones: 7 });
   const loss = react({ ...event, afterBoard: { ...event.afterBoard, bones: 2 } });
   assert.equal(new Set([gain.headline, zero.headline, loss.headline]).size, 3);
-  assert.match(gain.headline, /到账|厚|攒/);
-  assert.match(zero.headline, /没|热闹/);
-  assert.match(loss.headline, /花出去|瘦|库存/);
+  assert.match(gain.headline, /添|攒|余粮/);
+  assert.match(zero.headline, /没变|还是|没添/);
+  assert.match(loss.headline, /花出去|库存|少了/);
   const missing = { ...event, beforeBoard: undefined, afterBoard: undefined, rewardBones: undefined };
   assert.notEqual(react(missing).headline, zero.headline, 'missing facts do not imply zero change');
 });
@@ -154,14 +154,14 @@ check('Play Dead distinguishes zero reward, gross reward and actual placement', 
   const event = odds({ mode: 'playdead', kind: 'reward', count: 0, probability: 0.3 });
   const zero = react({ ...event, rewardBones: 0 });
   assert.match(zero.headline, /没|口粮没到/);
-  assert.match(zero.actionLine, /没到账|没领着/);
+  assert.match(zero.actionLine, /没领着|没来/);
   const reward = { ...event, bucket: 2, rewardBones: 2, probability: null,
     bonesSpent: 3, beforeBoard: { cards: [], yard: 0, bones: 5 }, afterBoard: { cards: [], yard: 2, bones: 4 } };
-  assert.match(react(reward).actionLine, /骨头一叼|领骨头/);
-  assert.doesNotMatch(react(reward).headline, /小金库|厚|攒/);
+  assert.match(react(reward).actionLine, /骨头递来|骨头收下/);
+  assert.doesNotMatch(react(reward).headline, /骨头添|攒了|余粮/);
   const placed = odds({ mode: 'playdead' });
-  assert.match(react(placed).actionLine, /格子|有去处/);
-  assert.doesNotMatch(react({ ...placed, actualFilled: 0, probability: null }).actionLine, /格子照样占|有去处/);
+  assert.match(react(placed).actionLine, /斑点|有了位置/);
+  assert.doesNotMatch(react({ ...placed, actualFilled: 0, probability: null }).actionLine, /斑点照样|有了位置/);
 });
 
 check('scoring copy requires an existing unscored dog to become scored in this record', () => {
@@ -178,11 +178,11 @@ check('scoring copy requires an existing unscored dog to become scored in this r
 
 check('optional-step jokes do not invent a later stage of an interrupted or unmatched move', () => {
   const walk = odds({ mode: 'walk', params: { walkExtra: 1 } });
-  assert.match(react(walk).actionLine, /多走一步|加时/);
+  assert.match(react(walk).actionLine, /打算多走一步|回家稍晚一步/);
   const interrupted = odds({ mode: 'walk', kind: 'bust', params: { walkExtra: 1 } });
   assert.equal(react(interrupted).actionLine, react({ ...interrupted,
     calculationSnapshot: { ...interrupted.calculationSnapshot, params: { walkExtra: 0 } } }).actionLine);
-  assert.doesNotMatch(react({ ...walk, probability: null }).actionLine, /多走一步|加时|收脚|收住/);
+  assert.doesNotMatch(react({ ...walk, probability: null }).actionLine, /原就打算|打算里|只打算|没另添/);
   const dogpile = odds({ mode: 'dogpile', params: { source: 'yard' } });
   assert.match(react(dogpile).actionLine, /旧骰/);
   assert.doesNotMatch(react({ ...dogpile, probability: null }).actionLine, /旧骰/);

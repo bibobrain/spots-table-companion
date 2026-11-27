@@ -98,23 +98,23 @@
     const card = (key, title, text, basis) => ({ key, title, text, basis, ...counts });
 
     if (recordCount === 0) {
-      return card('empty', '还没出招', '记下一手，狗狗就有话说了！', '只评价已记录的操作');
+      return card('empty', '尚未落笔', '记下一手，再请狗开口。', '只评价已记录的操作');
     }
     if (knownRiskCount === 0) {
       if (resourceCount === recordCount) {
         return card('resources', recordCount === 1 ? '这一手，先管骨头' : '骨头管家',
-          recordCount === 1 ? '这笔记的是骨头调度。家当先安排上，狗狗的口袋有戏！' :
-            '记下来的都是骨头调度。这几手，口袋里的家当很有戏！',
+          recordCount === 1 ? '账本归你，骨头归狗。' :
+            '账本归你，骨头归狗。',
           recordCount + ' 笔已记录 · 都是骨头操作');
       }
       if (newCardCount === recordCount) {
-        return card('new-card', recordCount === 1 ? '这一手，新队友登场！' : '新队友登场！',
-          '记录停在需要补新狗牌的节点。前半段先入册，下一幕留点悬念！',
+        return card('new-card', recordCount === 1 ? '这一手，等新客落座' : '等新客落座',
+          '记录停在补新狗牌这里，后半段暂且留白。',
           recordCount + ' 笔已记录 · 都是补新狗牌的节点');
       }
-      return card('unrated', recordCount === 1 ? '这一手，故事先记下' : '有故事，先不贴标签',
-        resourceCount > 0 ? '骨头操作和落点都记着呢。这些片段还看不清出手前的风险，精彩先收好！' :
-          '落点有戏，出手前的风险还看不清。先把' + (recordCount === 1 ? '这一笔' : '这几笔') + '故事收好！',
+      return card('unrated', recordCount === 1 ? '这一手，路数待辨' : '路数待辨',
+        resourceCount > 0 ? '操作都已记下，还缺当时方案的风险依据。' :
+          '结果已记下。' + (recordCount === 1 ? '这一笔' : '这几笔') + '，还缺当时方案的风险依据。',
         recordCount + ' 笔已记录 · 暂无可比的事前风险');
     }
 
@@ -122,36 +122,36 @@
       const risk = risks[0];
       const basis = scope + ' · 事前爆掉风险 ' + percent(risk);
       if (lowRisk(risk)) {
-        return card('steady', '这一手，稳字当头',
-          '看得清风险的这一手，走的是低风险路线。骰子还没停，稳字先站住了！', basis);
+        return card('steady', '这一手，走平路',
+          '沿途还顾得上闻花。', basis);
       }
       if (highRisk(risk)) {
-        return card('bold', '这一手，够敢！',
-          '看得清风险的这一手，爆掉的可能至少占一半。悬念直接拉满！', basis);
+        return card('bold', '这一手，悬崖边遛狗',
+          '狗倒像是来散步的。', basis);
       }
       return card('measured', '这一手，带点悬念',
-        '看得清风险的这一手，处在中间区间。狗狗已经竖起耳朵等骰子了！', basis);
+        '狗倒先打了个哈欠。', basis);
     }
 
     const lowCount = risks.filter(lowRisk).length;
     const highCount = risks.filter(highRisk).length;
     if (lowCount * 3 >= knownRiskCount * 2) {
-      return card('steady', '稳扎稳打派',
-        '能比较的这几手，多数走低风险路线。出手的路数里，稳字写得挺大！',
+      return card('steady', '平路遛狗',
+        '闻花也不必赶。',
         scope + ' · ' + lowCount + ' 次事前爆掉风险 ≤20%');
     }
     if (highCount * 3 >= knownRiskCount * 2) {
       return card('bold', '悬崖边遛狗',
-        '能比较的这几手，多数是高风险方案。骰子还没停，悬念就先拉满了！',
+        '狗倒像是来散步的。',
         scope + ' · ' + highCount + ' 次事前爆掉风险 ≥50%');
     }
     if (lowCount > 0 && highCount > 0) {
-      return card('varied', '一脚刹车，一脚油门',
-        '低风险和高风险的方案都留下过记录。这几手有收有放，路数不只一种！',
+      return card('varied', '牵绳时松时紧',
+        '狗暂且不问目的地。',
         scope + ' · 低风险 ' + lowCount + ' 次，高风险 ' + highCount + ' 次');
     }
     return card('measured', '带着悬念走',
-      '这些方案没有明显集中到低风险或高风险一边。带点悬念，路数还留着弹性。',
+      '狗倒先打了个哈欠。',
       scope + ' · 事前爆掉风险 ' + percent(risks.reduce((a, b) => Math.min(a, b))) + '—' +
         percent(risks.reduce((a, b) => Math.max(a, b))));
   }

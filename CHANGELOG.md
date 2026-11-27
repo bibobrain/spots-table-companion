@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-rc.16 — 2026-11-28
+
+- Rewrote the journal reactions as brief, understated asides in the dogs’ voice. Concrete scenes, quiet reversals and polite excuses replace cheers and repeated exclamations across every outcome group and all 22 Actions.
+- Refined the strategy card’s titles and descriptions. The accepted “悬崖边遛狗” title and “胆子够大，动静也够大。” reaction remain.
+- Risk classification, rarity, deterministic line selection, saved games, the paired backyard scenes and bilingual dog identities retain their existing behavior.
+
 ## 1.0.0-rc.15 — 2026-11-28
 
 - **Four paired backyard scenes:** 0–1 stays clean, 2–3 has one dirt mound, 4–5 has three, and 6–7 has five with more scattered bones. The dog remains still at 0; 4 looks back restlessly, 6 lies exhausted, and 7 retains the earlier side-lying pose. A smaller articulated butterfly and all other scene motion settle within two seconds.

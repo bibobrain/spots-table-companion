@@ -1,3 +1,35 @@
+# Validation — 1.0.0-rc.16 (2026-11-28)
+
+## Copy and scope
+
+All 214 journal reaction and Action-specific lines were edited as a single set. The voice follows the original dog identities: brief observations, small excuses and quiet reversals. “悬崖边遛狗” and “胆子够大，动静也够大。” remain. Strategy descriptions no longer explain the image in their title.
+
+Only Chinese string literals changed in the two production journal modules. Masked-source comparison confirms that their control flow, risk bands, contextual selection and stable event-based variation are unchanged. The page, probability and settlement models, storage code, illustrations and bilingual dog identities are byte-identical to rc.15.
+
+## Actual browser checks
+
+Chrome displayed the final copy on desktop and in 390 px and 320 px frames. The document width/scroll width pairs were 375/375 and 305/305 px; browser scrollbars account for the difference from the frame sizes. The mixed-strategy title was shortened to “牵绳时松时紧” after the earlier title left an isolated last character on the narrowest screen. The final title fits on one line in both frames.
+
+The five-entry fixture showed four comparable plans, two low risk and two high risk, separately from a rare 0.077% BUST. The strategy aside reads “狗暂且不问目的地。” The rarest-result card keeps its title, percentage and rarity label. Enter expanded Beg to “碗边多了骨头，眼神可以收了。” and the actual 0→3 bone change.
+
+A one-entry fixture with two dog cards said “这一手，走平路”. An older entry without a plan-risk snapshot said “这一手，路数待辨” and explained the missing basis. The empty journal showed no invented strategy or result. These are model-valid synthetic fixtures with separate local storage keys; they reseed on reload and do not establish persistence.
+
+The retained screenshots show the final narrow layouts and desktop journal. No application-script error appeared in the inspected browser error logs. One scroll transport call timed out; a fresh screenshot confirmed the resulting position. These checks used Chrome responsive frames, not physical phones. The public site's saved game received no test records.
+
+## Automated checks
+
+The final strategy module passed all 16 existing checks, and the reaction module passed all 17 contextual checks. Reaction-test edits only update wording expectations; case coverage is retained. The checks cover recorded-plan scope, rare-outcome versus plan-risk distinctions, all 22 Actions, gross rewards versus net bone changes, and optional-action wording.
+
+Release preparation runs the eight package checks on final source and the extracted offline ZIP, verifies all 26 archived members against source, and freezes the 35 tracked source-file identities. The release workflow downloads the draft's exact asset and verifies its archive hash and member bytes before publishing that same release.
+
+The rc.15 engine, settlement, animation and persistence evidence below remains applicable to the protected files: those files are unchanged in this copy-only release. Those broader checks were not rerun or claimed as new rc.16 evidence.
+
+## Review
+
+A fresh-context editorial pass reviewed the complete copy against the original dog names and Action meanings. Its finding about explanatory strategy descriptions was repaired and reread. The current executor then reviewed the integrated screens, including the final shorter mixed-strategy title. A separate read-only script review found and verified the repair of draft-release discovery. These are scoped editorial, implementation and browser reviews, not user acceptance of the new voice.
+
+---
+
 # Validation — 1.0.0-rc.15 (2026-11-28)
 
 ## Paired scenes and journal

@@ -1,8 +1,8 @@
 # Pip & Paw · A Spots companion
 
-**1.0.0-rc.15**
+**1.0.0-rc.16**
 
-**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.15/PipAndPaw_1.0.0-rc15.zip)**
+**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.16/PipAndPaw_1.0.0-rc16.zip)**
 
 A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog cards, compare the next roll, and save the results you choose to record. English section names, bilingual dog and Action names, Chinese explanations, and original Dalmatian illustrations. No account or installation.
 
@@ -14,7 +14,7 @@ A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog car
 4. **Record the result.** After rolling at the table, click the observed outcome in Roll or Action before changing the displayed board: 0, 1–4, or 5+ safe fills, or **BUST**. The app freezes that plan and its outcome probability. Confirm the actual spaces filled, the resulting Yard total, and any bones spent. Some Actions instead record a bone change or a point where a new dog card is needed.
 5. **Settle a bust.** Click **BUST**, then confirm. The result is recorded and the Yard and unscored dogs' placed dice are cleared. Your dog templates and scored cards remain ready for the next play.
 6. **Correct a mistake.** Use **Undo** to reverse the latest change or settlement.
-7. **See how these moves played out.** **本局** opens a playful style card based on the recorded plans, one rarest eligible result with its percentage and rarity label, and a short reaction to each operation. Expand an operation for its Action-specific quip and board changes. Recording every operation is optional; the journal only describes the entries present. **结束本局** closes the game, which you can continue later or replace with a new one.
+7. **See how these moves played out.** **本局** opens a style card based on the recorded plans, one rarest eligible result with its percentage and rarity label, and a brief, dryly humorous aside for each operation. Expand an operation for its Action-specific quip and board changes. Recording every operation is optional; the journal only describes the entries present. **结束本局** closes the game, which you can continue later or replace with a new one.
 
 ## 中文使用说明
 
@@ -22,7 +22,7 @@ A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog car
 
 直接点狗身上的空位用于校正实体桌面。实际掷完后，先点 Roll 或 Action 中对应的结果，再确认填入的位置、后院总点数和消耗的骨头。确认 BUST 会记录本次结果，并清空后院与未计分狗牌上的骰子，保留狗牌和已计分的狗。误操作可撤销。
 
-点「本局」看“这几手的路数”：根据已记录方案的事前爆掉风险，给出稳扎稳打、敢闯或有收有放等玩法总评。一条记录也能看，旧记录或未算完的方案只讲已知的情况。每手都有顽皮短评，展开还能看特殊行动的调侃、点面、Yard 与骨头变化。最罕见的一次另保留称号、百分数和稀有程度；不必记满六张牌或整局操作。点「结束本局」收好这一局，之后仍可继续。浏览器只保存当前这一局，开始新局会替换它。
+点「本局」看“这几手的路数”：根据已记录方案的事前爆掉风险，给出稳扎稳打、敢闯或有收有放等玩法总评。一条记录也能看，旧记录或未算完的方案只讲已知的情况。每手的短评沿用狗牌的克制口吻，以小动作和处境打趣；展开还能看特殊行动的调侃、点面、Yard 与骨头变化。最罕见的一次另保留称号、百分数和稀有程度；不必记满六张牌或整局操作。点「结束本局」收好这一局，之后仍可继续。浏览器只保存当前这一局，开始新局会替换它。
 
 ## Meet the dogs
 
