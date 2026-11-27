@@ -1,10 +1,10 @@
 # Pip & Paw · A Spots companion
 
-**1.0.0-rc.12**
+**1.0.0-rc.13**
 
-**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Download the offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.12/PipAndPaw_1.0.0-rc12.zip)**
+**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Download the offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.13/PipAndPaw_1.0.0-rc13.zip)**
 
-A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog cards, compare the next roll, and keep a record of the game you are playing. English section names, bilingual Action names, Chinese explanations, and original Dalmatian illustrations. No account or installation.
+A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog cards, compare the next roll, and keep a record of the game you are playing. English section names, bilingual dog and Action names, Chinese explanations, and original Dalmatian illustrations. No account or installation.
 
 ## At the table
 
@@ -18,9 +18,28 @@ A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog car
 
 ## 中文使用说明
 
-点「添加狗牌」，在向左展开的小组件里选 1–4 颗骰面，再确认生成狗牌；窄屏会贴着按钮调整位置。关掉后，已选骰面会留到下次打开，牌桌保持原位。同一点数可以重复选择，每一颗都对应一个独立空位，一局最多保留六张狗牌。十二种斑点狗姿态各有名字：后院巡逻队长、饼干失踪嫌疑狗、骰响也不醒……后院随 0–7 点展示打盹、巡游、闻土、刨坑、发现骨头和玩耍，7 点仍未爆掉。
+点「添加狗牌」，在向左展开的小组件里选 1–4 颗骰面，再确认生成狗牌；窄屏会贴着按钮调整位置。关掉后，已选骰面会留到下次打开，牌桌保持原位。同一点数可以重复选择，每一颗都对应一个独立空位，一局最多保留六张狗牌。十二种斑点狗姿态各有一句中英双语的性格名字；普通狗牌、已计分栏和结算里都能认出同一只狗。后院随 0–7 点展示打盹、巡游、闻土、刨坑、发现骨头和玩耍，7 点仍未爆掉。
 
 直接点狗身上的空位用于校正实体桌面。实际掷完后，先点 Roll 或 Action 中对应的结果，再确认填入的位置、后院总点数和消耗的骨头。确认 BUST 会记录本次结果，并清空后院与未计分狗牌上的骰子，保留狗牌和已计分的狗。误操作可撤销。点「结束本局」查看整局战绩与一个称号；称号取自本局有有效正概率的结算中最少见的一次。浏览器只保存当前这一局，开始新局会替换它。
+
+## Meet the dogs
+
+| Pose | English | 中文 |
+|---|---|---|
+| Curious stand | Life’s too short to bark at everybody. | 人生苦短，何必逢人就汪。 |
+| Patient sit | I shall regret this after lunch. | 等吃过午饭，我会反省的。 |
+| Lounging | I could watch you work all day. | 你忙你的，我能看一整天。 |
+| Play bow | Shall we misbehave? | 要不，闯点小祸？ |
+| Leaping | I hadn’t planned the landing. | 起跳时，倒没想过落地。 |
+| Looking back at its tail | We’ve met before, haven’t we? | 阁下，咱们是不是见过？ |
+| Cautious raised paw | After you. I insist. | 您先。一定得您先。 |
+| Sniffing | The evidence was delicious. | 证物，味道不错。 |
+| Asking with a paw | I believe you have my biscuit. | 想必您拿的是我的饼干。 |
+| Stretching | Mornings are best postponed. | 早晨，还是晚点再说。 |
+| Sleeping | I shall sleep on it. | 这事，容我睡一觉再议。 |
+| Strolling | I know a longer way home. | 回家，我知道一条远路。 |
+
+The first line shortens a remark made by the dog in P. G. Wodehouse’s [The Mixer, part I](https://en.wikisource.org/wiki/The_Mixer_(I._He_Meets_a_Shy_Gentleman)). The lounging dog’s line adapts the narrator’s fondness for watching work in Jerome K. Jerome’s [Three Men in a Boat, chapter 15](https://en.wikisource.org/wiki/Three_Men_in_a_Boat_(1889)/Chapter_15). The patient sitter’s line is newly written, inspired by Algernon calmly eating muffins amid trouble in Oscar Wilde’s [The Importance of Being Earnest, act II](https://en.wikisource.org/wiki/The_Importance_of_Being_Earnest/Act_II). The remaining lines and all Chinese versions were written for these poses, using ordinary conversational turns and idioms.
 
 ## Screenshots
 

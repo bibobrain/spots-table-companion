@@ -197,15 +197,26 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 .dog-builder .clear-draft[hidden]{display:inline-flex!important;visibility:hidden;pointer-events:none}
 .dog-builder .create-dog{min-height:44px;padding:10px 13px;font-size:12px}
 .pack-heading-tools #openBuilder[aria-expanded=true],#addNextDog[aria-expanded=true]{background:#e7eddc;border-color:#9dae8e;color:#3e5a3b}
-.pack-card-heading{min-height:50px;height:auto;padding-top:7px;padding-bottom:3px}
-.pack-card-heading>div{min-width:0;gap:8px}
-.pack-card-heading .pack-number{flex:none}
-.pack-card h3{font-size:14px;line-height:1.5;letter-spacing:.025em;overflow-wrap:anywhere}
-.pack-card-heading .remove-dog{flex:none}
-.scored-dog{width:84px;line-height:1.5}
-.scored-dog .new-puppy{width:78px;margin:auto}
-.scored-dog>span:last-of-type{max-width:84px;overflow-wrap:anywhere}
-.settle-dog-name>span:last-child{line-height:1.5;overflow-wrap:anywhere}
+.dog-name{display:block;min-width:0}
+.dog-name-en{display:block;font:400 17px/1.3 Georgia,'Times New Roman',serif;letter-spacing:0;text-transform:none;word-break:normal;overflow-wrap:break-word;text-wrap:pretty}
+.dog-name-zh{display:block;margin-top:5px;font:400 13px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans CJK SC',sans-serif;letter-spacing:0;color:#64715d;word-break:normal;overflow-wrap:break-word}
+.pack-card-heading{min-height:100px;height:auto;align-items:flex-start;gap:6px;padding:15px 10px 9px 18px}
+.pack-card-heading>div{min-width:0;flex:1;align-items:flex-start;gap:8px}
+.pack-card-heading .pack-number{flex:none;margin-top:5px}
+.pack-card h3{min-width:0;font-weight:400;letter-spacing:0}
+.pack-card-heading .remove-dog{flex:0 0 44px;width:44px;min-width:44px;min-height:44px;margin-top:-6px}
+.score-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;margin-top:9px}
+.scored-dog{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;column-gap:8px;width:auto;min-width:0;text-align:left;line-height:1.5}
+.scored-dog .new-puppy{width:64px;margin:0}
+.scored-dog>span:last-of-type{max-width:none;margin-top:0}
+.scored-dog .dog-name-en,.settle-dog-name .dog-name-en,.source-pick .dog-name-en{font-size:15px}
+.scored-dog .dog-name-zh,.settle-dog-name .dog-name-zh,.source-pick .dog-name-zh{margin-top:4px;font-size:12px}
+.scored-dog b{left:47px;right:auto;top:7px}
+.settle-dog-name{flex:1;min-width:0}
+.settle-dog-name>.dog-name{min-width:0;line-height:1.5}
+.source-pick{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1 1 250px;max-width:100%;padding:10px 12px;text-align:left}
+.source-pick .dog-name{flex:1;min-width:0}
+.source-pick-slot{flex:none;white-space:nowrap;font-size:12px}
 @keyframes builder-unfold{from{opacity:0;clip-path:inset(0 0 0 18% round 18px)}to{opacity:1;clip-path:inset(0 0 0 0 round 18px)}}
 @media(max-width:650px){
  .dog-builder{padding:14px;border-radius:16px}
@@ -216,12 +227,12 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
  .dog-builder .draft-selection{justify-content:center;gap:6px}
  .dog-builder .draft-slots{gap:5px}
  .dog-builder .create-dog{width:100%}
- .pack-card h3{font-size:13px;letter-spacing:.015em}
  .settle-dog{flex-wrap:wrap;gap:2px;padding:8px 0}
- .settle-dog-name{flex:1 1 100%;font-size:12px}
+ .settle-dog-name{flex:1 1 100%;flex-direction:row;gap:8px;font-size:12px}
  .settle-dog-name .new-puppy{width:48px}
  .settle-dog-slots{margin-left:auto}
 }
+@media(max-width:560px){.score-gallery{grid-template-columns:1fr;gap:10px}.scored-dog{grid-template-columns:64px minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.dog-builder{animation:none}}
 
 
@@ -317,13 +328,35 @@ function dieArt(face, options = {}) {
 // Round 6: the table, the physical cards and the recorded result remain distinct.
 const Game = globalThis.PipGame;
 const STORE_KEY = 'pip-and-paw.current-game.v1';
-const DOG_NAMES = ["后院巡逻队长", "等开饭的伯爵", "草坪包场先生", "再陪我玩一局", "追风不看路", "尾巴追踪专员", "先让我闻闻", "饼干失踪嫌疑狗", "举爪申请加餐", "伸个懒腰再说", "骰响也不醒", "斑点快递员"];
+const DOG_NAMES = [
+ {en:'Life’s too short to bark at everybody.',zh:'人生苦短，何必逢人就汪。'},
+ {en:'I shall regret this after lunch.',zh:'等吃过午饭，我会反省的。'},
+ {en:'I could watch you work all day.',zh:'你忙你的，我能看一整天。'},
+ {en:'Shall we misbehave?',zh:'要不，闯点小祸？'},
+ {en:'I hadn’t planned the landing.',zh:'起跳时，倒没想过落地。'},
+ {en:'We’ve met before, haven’t we?',zh:'阁下，咱们是不是见过？'},
+ {en:'After you. I insist.',zh:'您先。一定得您先。'},
+ {en:'The evidence was delicious.',zh:'证物，味道不错。'},
+ {en:'I believe you have my biscuit.',zh:'想必您拿的是我的饼干。'},
+ {en:'Mornings are best postponed.',zh:'早晨，还是晚点再说。'},
+ {en:'I shall sleep on it.',zh:'这事，容我睡一觉再议。'},
+ {en:'I know a longer way home.',zh:'回家，我知道一条远路。'}
+];
 const AWARD_LINES = {'凤毛麟角':'少见的落点，恰好与你相逢。','百里挑一':'百般可能里，偏得这一回。','妙手偶得':'偶然一掷，落成意外之喜。','不期而遇':'未曾刻意，恰在此时相遇。','水到渠成':'点面相合，自然成章。','波澜不惊':'这一掷安然收住，留下一段从容的空白。','无妄之灾':'微小的岔路，偏在这一掷遇见。','平地风波':'原本平静的局面，忽然起了一阵波澜。','一波三折':'这一掷稍有曲折，留待下一手舒展。','山重水复':'此处山重水复，再寻下一段去路。','风雨寻常':'风雨也在常情之中，重整牌面再出发。'};
 let table = Game.newGame(), draftFaces = [], builderOpen = false;
 let undoStack = [], pending = null, pendingSerial = 0, toastTimer = null;
 let lastDogRender = '', historyGroup = null, loadingSaved = false;
 let outcomeCache = Object.create(null);
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function dogIdentity(pose) { return DOG_NAMES[pose] || DOG_NAMES[0]; }
+function dogNameText(pose) {
+ const name=dogIdentity(pose);
+ return name.zh+' / '+name.en;
+}
+function dogNameMarkup(pose) {
+ const name=dogIdentity(pose);
+ return '<span class="dog-name"><span class="dog-name-en" lang="en">'+escapeHTML(name.en)+'</span> <span class="dog-name-zh" lang="zh-CN">'+escapeHTML(name.zh)+'</span></span>';
+}
 const copy = value => JSON.parse(JSON.stringify(value));
 function normalizedProbability(p) {
  if(!Number.isFinite(p)||p < -1e-12||p > 1+1e-12)return null;
@@ -529,13 +562,13 @@ function renderDogs() {
  const unscored=table.cards.filter(c=>!c.scored),scored=table.cards.filter(c=>c.scored);
  $('dogs').innerHTML=unscored.map(card=>{
   const storedPose=DOG_ART.poses[card.pose],pose=storedPose?.slots[String(card.faces.length)]?storedPose:DOG_ART.poses.find(p=>p.slots[String(card.faces.length)]),positions=pose.slots[String(card.faces.length)];
-  const complete=card.filled.every(Boolean),name=DOG_NAMES[card.pose]||'小狗';
-  return '<article class="pack-card'+(complete?' is-complete':'')+'" data-dog-id="'+card.id+'" style="--card-tone:'+['#faf8ef','#f6f7ed','#f9f5e9','#f2f5eb'][card.pose%4]+'"><div class="pack-card-heading"><div><span class="pack-number">'+String(table.cards.indexOf(card)+1).padStart(2,'0')+'</span><h3>'+name+'</h3></div><button class="icon-button remove-dog" data-remove="'+card.id+'" aria-label="移除'+name+'狗牌" '+(table.endedAt?'disabled':'')+'>×</button></div><div class="pack-figure" aria-label="'+pose.label+'的斑点狗">'+dogSprite(pose.id)+card.faces.map((face,i)=>'<button type="button" class="card-slot '+(card.filled[i]?'is-filled':'')+'" data-dog="'+card.id+'" data-slot="'+i+'" data-slot-key="'+card.id+':'+i+'" style="--slot-x:'+positions[i][0]*100+'%;--slot-y:'+positions[i][1]*100+'%" aria-pressed="'+card.filled[i]+'" aria-label="'+name+'，第'+(i+1)+'格，'+face+'点，'+(card.filled[i]?'已填':'空位')+'" '+(table.endedAt?'disabled':'')+'>'+(card.filled[i]?dieArt(face):emptySpot(face))+'</button>').join('')+'</div><div class="pack-card-foot"><span class="pack-progress" aria-label="已填'+card.filled.filter(Boolean).length+'格，共'+card.faces.length+'格">'+card.filled.map(on=>'<i class="'+(on?'on':'')+'"></i>').join('')+'</span><span>'+(complete?'已填满 · 待计分':'')+'</span></div></article>';
+  const complete=card.filled.every(Boolean),name=dogNameText(card.pose);
+  return '<article class="pack-card'+(complete?' is-complete':'')+'" data-dog-id="'+card.id+'" style="--card-tone:'+['#faf8ef','#f6f7ed','#f9f5e9','#f2f5eb'][card.pose%4]+'"><div class="pack-card-heading"><div><span class="pack-number">'+String(table.cards.indexOf(card)+1).padStart(2,'0')+'</span><h3>'+dogNameMarkup(card.pose)+'</h3></div><button class="icon-button remove-dog" data-remove="'+card.id+'" aria-label="'+escapeHTML('移除狗牌：'+name)+'" '+(table.endedAt?'disabled':'')+'>×</button></div><div class="pack-figure" aria-label="'+pose.label+'的斑点狗">'+dogSprite(pose.id)+card.faces.map((face,i)=>'<button type="button" class="card-slot '+(card.filled[i]?'is-filled':'')+'" data-dog="'+card.id+'" data-slot="'+i+'" data-slot-key="'+card.id+':'+i+'" style="--slot-x:'+positions[i][0]*100+'%;--slot-y:'+positions[i][1]*100+'%" aria-pressed="'+card.filled[i]+'" aria-label="'+escapeHTML(name+'，第'+(i+1)+'格，'+face+'点，'+(card.filled[i]?'已填':'空位'))+'" '+(table.endedAt?'disabled':'')+'>'+(card.filled[i]?dieArt(face):emptySpot(face))+'</button>').join('')+'</div><div class="pack-card-foot"><span class="pack-progress" aria-label="已填'+card.filled.filter(Boolean).length+'格，共'+card.faces.length+'格">'+card.filled.map(on=>'<i class="'+(on?'on':'')+'"></i>').join('')+'</span><span>'+(complete?'已填满 · 待计分':'')+'</span></div></article>';
  }).join('');
  $('dogs').classList.toggle('one-dog',unscored.length===1);
  $('scoredDogs').hidden=scored.length===0;
  $('scoredCount').textContent=scored.length+' / 6';
- $('scoredList').innerHTML=scored.map(card=>'<div class="scored-dog" title="'+DOG_NAMES[card.pose]+'，已计分">'+dogSprite(card.pose)+'<span>'+DOG_NAMES[card.pose]+'</span><b aria-label="已计分">✓</b></div>').join('');
+ $('scoredList').innerHTML=scored.map(card=>'<div class="scored-dog" title="'+escapeHTML(dogNameText(card.pose)+'，已计分')+'">'+dogSprite(card.pose)+dogNameMarkup(card.pose)+'<b aria-label="已计分">✓</b></div>').join('');
  $('bankDogs').hidden=!unscored.some(c=>c.filled.every(Boolean))||!!table.endedAt;
  $('packEmpty').hidden=unscored.length>0||table.cards.length===0||table.cards.length>=6||!!table.endedAt;
  lastDogRender=key;
@@ -626,8 +659,8 @@ function renderSettlementSlots() {
  if(!pending)return;
  const p=pending,work=pendingWork();
  $('settleSource').hidden=p.type==='bust'||p.sourceCandidates.length<=1;
- $('settleSourceChoices').innerHTML=p.sourceCandidates.map((x,i)=>'<button type="button" class="source-pick" data-source-pick="'+i+'" aria-pressed="'+(p.sourcePick?.dogId===x.dogId&&p.sourcePick?.slot===x.slot)+'">'+DOG_NAMES[work.cards.find(c=>c.id===x.dogId).pose]+' · 第'+(x.slot+1)+'格</button>').join('');
- $('settlementDogs').innerHTML=work.cards.filter(c=>!c.scored).map(card=>'<div class="settle-dog"><div class="settle-dog-name">'+dogSprite(card.pose)+'<span>'+DOG_NAMES[card.pose]+'</span></div><div class="settle-dog-slots">'+card.faces.map((face,slot)=>'<button type="button" class="settle-slot" data-settle-dog="'+card.id+'" data-settle-slot="'+slot+'" aria-label="'+DOG_NAMES[card.pose]+'第'+(slot+1)+'格'+face+'点" aria-pressed="'+p.selected.some(x=>x.dogId===card.id&&x.slot===slot)+'" '+(card.filled[slot]?'disabled':'')+'>'+(card.filled[slot]?dieArt(face):emptySpot(face))+'</button>').join('')+'</div></div>').join('');
+ $('settleSourceChoices').innerHTML=p.sourceCandidates.map((x,i)=>'<button type="button" class="source-pick" data-source-pick="'+i+'" aria-pressed="'+(p.sourcePick?.dogId===x.dogId&&p.sourcePick?.slot===x.slot)+'">'+dogNameMarkup(work.cards.find(c=>c.id===x.dogId).pose)+'<span class="source-pick-slot">第 '+(x.slot+1)+' 格</span></button>').join('');
+ $('settlementDogs').innerHTML=work.cards.filter(c=>!c.scored).map(card=>'<div class="settle-dog"><div class="settle-dog-name">'+dogSprite(card.pose)+dogNameMarkup(card.pose)+'</div><div class="settle-dog-slots">'+card.faces.map((face,slot)=>'<button type="button" class="settle-slot" data-settle-dog="'+card.id+'" data-settle-slot="'+slot+'" aria-label="'+escapeHTML(dogNameText(card.pose)+'，第'+(slot+1)+'格，'+face+'点')+'" aria-pressed="'+p.selected.some(x=>x.dogId===card.id&&x.slot===slot)+'" '+(card.filled[slot]?'disabled':'')+'>'+(card.filled[slot]?dieArt(face):emptySpot(face))+'</button>').join('')+'</div></div>').join('');
 }
 function settlementReport() {
  return PipSettlement.analyze(pending,pendingWork(),{

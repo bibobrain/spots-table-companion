@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-rc.13 — 2026-11-27
+
+- **Twelve bilingual characters:** each Dalmatian pose now has a short English line and a Chinese counterpart that express its own habits, excuses or wishes. Literary adaptations and their sources are identified in the README.
+- **Names throughout the table:** regular dog cards, the scored gallery, settlement dogs and source choices display the same bilingual identity. The scored gallery gives each name readable space beside its dog.
+- Existing games resolve the new names from their saved poses. Card faces, placed dice, scores, records, probability calculations and illustration atlases are unchanged.
+
 ## 1.0.0-rc.12 — 2026-11-27
 
 - **Reliable dog creation:** fixed the palette closing during internal focus changes after a die selection. Consecutive selections, repeated faces, draft edits, and the final create action now remain in the same open component. Closing and reopening still keeps the draft. Escape also closes it after Tab moves focus outside.
