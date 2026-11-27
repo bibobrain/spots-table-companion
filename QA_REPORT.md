@@ -1,3 +1,33 @@
+# Validation — 1.0.0-rc.15 (2026-11-28)
+
+## Paired scenes and journal
+
+Chrome rendered the candidate on desktop and inside 390 px and 320 px frames. All eight Yard totals were reviewed together at narrow size; 0, 3, 6 and 7 were also checked individually at desktop size. Dirt mounds follow 0, 0, 1, 1, 3, 3, 5, 5; six and seven have four and five scattered bones. The zero-point dog has no animation. The butterfly uses separate wings and turning transforms. Finite durations and delays end by 1.8 seconds; the last digging soil ends at 1.65 seconds. Settled frames preserve the intended poses.
+
+The phone frames had document width/scroll width 375/375 and 305/305 px, and journal body width/scroll width 343/343 and 273/273 px. Browser scrollbars account for the difference from frame widths. Titles, percentages, reactions and disclosures remained inside their columns.
+
+Model-valid synthetic fixtures covered five moves with mixed risks, one move with only two dog cards, no records, an older record without its risk snapshot, and an unknown new-card node. The mixed report showed four comparable plans, two in each risk band, independently of a rare 1/1296 BUST. The one-move title said “这一手”; empty, legacy and new-card reports used their corresponding states.
+
+A real UI confirmation added a second safe-fill event and its immediate reaction; the journal changed to a two-plan steady description. Undo restored the single-move description. Keyboard Enter expanded Beg to its Action-specific quip and actual 0→3 bone change. Ending the test game focused the visible return button.
+
+An unseeded candidate page recorded BUST without applicable odds. Its reaction “好，这下后院清静了！” and recorded-only fallback remained identical after full reload. Synthetic fixtures deliberately reseed their starting data and were not used to prove persistence. The public site's saved game received no test records.
+
+## Automated checks
+
+The 17 current-game scenarios, 23 settlement checks, 16 strategy checks and 17 reaction checks passed. New tests use actual calculator distributions and cover outcome-invariant strategy, zero risk, incomplete/invalid/mismatched distributions, 5+ aggregation, partial journals, restore/undo, deterministic reactions, all 22 Actions, zero rewards, net bones and interrupted optional steps.
+
+The eight release checks cover script order and syntax, the seven local runtime files and the unchanged storage scope. Release preparation runs them on final source and on the extracted offline ZIP, then checks every archived byte against source. The offline package includes the two new modules and their tests.
+
+## Review scope
+
+A bounded current-executor self review with collaborative code checks compared the actual screens and code with the four requested pairs and partial-record semantics. A found coupling was repaired: an exact observed outcome can be rare even when another branch needs a new unknown dog card. It receives a rare-result reaction while remaining excluded from complete-plan risk classification. The final browser and module checks used this repair.
+
+These are Chrome responsive checks, not physical-device tests. Some screenshot/scroll transport calls timed out; the retained screenshots and fresh DOM observations establish the reported results. A post-reload error named a Zotero extension URL; no application-script error was observed.
+
+The existing page, native disclosures and original atlases were the design baseline. [MDN animation-fill-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-fill-mode) informed finite final frames; [Primer Details](https://primer.style/product/components/details/) and [progressive disclosure](https://primer.github.io/design/ui-patterns/progressive-disclosure/) informed visible summaries with secondary details. No runtime framework was added.
+
+---
+
 # Pip & Paw QA · 1.0.0-rc.14
 
 Date: **2026-11-27**.

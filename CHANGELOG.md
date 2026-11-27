@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-rc.15 — 2026-11-28
+
+- **Four paired backyard scenes:** 0–1 stays clean, 2–3 has one dirt mound, 4–5 has three, and 6–7 has five with more scattered bones. The dog remains still at 0; 4 looks back restlessly, 6 lies exhausted, and 7 retains the earlier side-lying pose. A smaller articulated butterfly and all other scene motion settle within two seconds.
+- **A reaction to every recorded move:** short, playful reactions follow actual outcomes and their applicable probabilities. Special Actions have their own quips, shown with the expanded operation. The same recorded event keeps the same line after refresh.
+- **A style card for the moves recorded:** the main journal plaque describes the available pre-action risks as steady, bold, mixed, or intermediate. One recorded move is enough; resource-only and older incomplete records have their own handling. The separate rarest-event plaque keeps its percentage and rarity label.
+- Probability and settlement engines, bilingual dog names, current-game storage, the horizontal Yard bar, and the legal seven-point limit remain unchanged.
+
+
 ## 1.0.0-rc.14 — 2026-11-27
 
 - **A clearer backyard sequence:** 0 strolls with a butterfly, 1 naps, 2 sniffs, 3 digs with its forepaws at the pit, 4 lifts a paw beside the discovered bone, and 5 keeps the play bow. Six restores the earlier rolling pose; seven restores the earlier play-dead pose. Digging and finding the bone have distinct silhouettes, and the butterfly interaction stays within the scene. Seven remains a safe total under the existing rules.

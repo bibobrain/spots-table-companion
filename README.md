@@ -1,28 +1,28 @@
 # Pip & Paw · A Spots companion
 
-**1.0.0-rc.14**
+**1.0.0-rc.15**
 
-**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.14/PipAndPaw_1.0.0-rc14.zip)**
+**[Open the app](https://bibobrain.github.io/spots-table-companion/)** · **[Offline ZIP](https://github.com/bibobrain/spots-table-companion/releases/download/v1.0.0-rc.15/PipAndPaw_1.0.0-rc15.zip)**
 
 A free, unofficial tabletop companion for CMYK’s **Spots**. Build your dog cards, compare the next roll, and save the results you choose to record. English section names, bilingual dog and Action names, Chinese explanations, and original Dalmatian illustrations. No account or installation.
 
 ## At the table
 
 1. **Build your dogs.** Open **添加狗牌** for a compact palette that unfolds to the left of the button when space permits. Choose 1–4 die faces, then confirm to create a dog. Repeated faces are separate spaces: choosing 4 twice creates two 4-point spaces. Closing the palette keeps your selection for the next opening, and the table stays in place. Keep up to six dog cards in the game, including scored cards.
-2. **Match the table.** Tap a space on a dog to mark it filled or empty. This corrects the displayed board without recording a roll. Set **Yard** to the total buried points, and set **Dice** and **Bones**. A horizontal bar above the backyard fills from green through yellow to red as the total rises. The dog strolls with a butterfly at 0, naps at 1, sniffs at 2, digs with its forepaws at 3, lifts a paw beside a discovered bone at 4, invites play at 5, rolls over at 6, and plays dead at 7. Seven points remains a valid total.
+2. **Match the table.** Tap a space on a dog to mark it filled or empty. This corrects the displayed board without recording a roll. Set **Yard** to the total buried points, and set **Dice** and **Bones**. A horizontal bar above the backyard fills from green through yellow to red as the total rises. The backyard forms four pairs: clean at 0–1, one dirt mound at 2–3, three at 4–5, and five at 6–7. The dog stands still as a small butterfly visits at 0, naps at 1, sniffs at 2, digs at 3, looks back restlessly at 4, crouches forward at 5, lies exhausted at 6, and plays dead among scattered bones at 7. Every scene settles within two seconds. Seven points remains a valid total.
 3. **Choose a plan.** **Roll** calculates an ordinary roll. In **Action**, choose **Fixed / Adjust / Filter / Chain / Bones**, then a card. Adjust its sliders or segmented choices beside the short calculation note. Both panels use your board; changing an Action setting leaves the ordinary Roll plan unchanged.
 4. **Record the result.** After rolling at the table, click the observed outcome in Roll or Action before changing the displayed board: 0, 1–4, or 5+ safe fills, or **BUST**. The app freezes that plan and its outcome probability. Confirm the actual spaces filled, the resulting Yard total, and any bones spent. Some Actions instead record a bone change or a point where a new dog card is needed.
 5. **Settle a bust.** Click **BUST**, then confirm. The result is recorded and the Yard and unscored dogs' placed dice are cleared. Your dog templates and scored cards remain ready for the next play.
 6. **Correct a mistake.** Use **Undo** to reverse the latest change or settlement.
-7. **Keep a memorable result.** **本局** opens the recorded operations and one idiom-style title for the rarest eligible result, with its percentage and rarity label beside the title. Expand any recorded operation to see its result and the board changes. Recording every operation is optional; the journal does not infer game-wide totals from partial records. **结束本局** closes the game, which you can continue later or replace with a new one.
+7. **See how these moves played out.** **本局** opens a playful style card based on the recorded plans, one rarest eligible result with its percentage and rarity label, and a short reaction to each operation. Expand an operation for its Action-specific quip and board changes. Recording every operation is optional; the journal only describes the entries present. **结束本局** closes the game, which you can continue later or replace with a new one.
 
 ## 中文使用说明
 
-点「添加狗牌」，在向左展开的小组件里选 1–4 颗骰面，再确认生成狗牌；窄屏会贴着按钮调整位置。关掉后，已选骰面会留到下次打开，牌桌保持原位。同一点数可以重复选择，每一颗都对应一个独立空位，一局最多保留六张狗牌。十二种斑点狗姿态各有一句中英双语的性格名字；普通狗牌、已计分栏和结算里都能认出同一只狗。后院上方的横条随总点数填充，由绿变黄、再变红。0 点巡游遇蝶，1 点打盹，2 点闻嗅，3 点前爪刨土，4 点抬爪发现骨头，5 点俯身邀玩，6 点翻滚，7 点装死；7 点仍未爆掉。
+点「添加狗牌」，在向左展开的小组件里选 1–4 颗骰面，再确认生成狗牌；窄屏会贴着按钮调整位置。关掉后，已选骰面会留到下次打开，牌桌保持原位。同一点数可以重复选择，每一颗都对应一个独立空位，一局最多保留六张狗牌。十二种斑点狗姿态各有一句中英双语的性格名字；普通狗牌、已计分栏和结算里都能认出同一只狗。后院上方的横条随总点数填充，由绿变黄、再变红。0–1 是干净后院，2–3 一个土包，4–5 三个土包，6–7 五个土包并散落更多骨头。0 点狗站定、小蝴蝶飞近，1 点打盹，2 点闻嗅，3 点刨坑，4 点烦躁回望，5 点俯身探动，6 点疲倦伏卧，7 点侧躺装死。所有小动作在两秒内定格；7 点仍未爆掉。
 
 直接点狗身上的空位用于校正实体桌面。实际掷完后，先点 Roll 或 Action 中对应的结果，再确认填入的位置、后院总点数和消耗的骨头。确认 BUST 会记录本次结果，并清空后院与未计分狗牌上的骰子，保留狗牌和已计分的狗。误操作可撤销。
 
-点「本局」随时查看已记录的操作，逐条展开可看点面、Yard 与骨头变化。称号只取本局有有效正概率的结算中最少见的一次，旁边直接显示当时概率和稀有程度；不必记全整局，也不根据零散记录推算全局统计。点「结束本局」收好这一局，之后仍可继续。浏览器只保存当前这一局，开始新局会替换它。
+点「本局」看“这几手的路数”：根据已记录方案的事前爆掉风险，给出稳扎稳打、敢闯或有收有放等玩法总评。一条记录也能看，旧记录或未算完的方案只讲已知的情况。每手都有顽皮短评，展开还能看特殊行动的调侃、点面、Yard 与骨头变化。最罕见的一次另保留称号、百分数和稀有程度；不必记满六张牌或整局操作。点「结束本局」收好这一局，之后仍可继续。浏览器只保存当前这一局，开始新局会替换它。
 
 ## Meet the dogs
 
@@ -51,7 +51,9 @@ The first line shortens a remark made by the dog in P. G. Wodehouse’s [The Mix
 
 Each percentage describes an outcome under the board, Action parameters, placement choices, and reroll policy shown before settlement. The ordinary policy rerolls a batch after failing to safely fill a space; Track permits selected dice to be rerolled. The **5+** probability covers the whole category, even when you confirm a particular number of filled spaces.
 
-The game title uses the **smallest positive probability among eligible recorded outcomes**, including busts. That percentage belongs to the selected event, even when other operations were not recorded. Event probabilities are not multiplied into a whole-game probability or a winning percentage. Records without an applicable probability, resource changes, and new-card checkpoints remain in the journal without determining its title; a game with no eligible result has no rarity title. Each recorded operation can be expanded to inspect its frozen result and board changes. A **5+** entry identifies the whole probability category alongside the actual count.
+The rare-moment title uses the **smallest positive probability among eligible recorded outcomes**, including busts. That percentage belongs to the selected event, even when other operations were not recorded. Event probabilities are not multiplied into a whole-game probability or a winning percentage. Records without an applicable probability, resource changes, and new-card checkpoints remain in the journal without determining its title; a game with no eligible result has no rarity title. Each recorded operation can be expanded to inspect its frozen result and board changes. A **5+** entry identifies the whole probability category alongside the actual count.
+
+The style card reads the **pre-action BUST risk** of matched, complete recorded plans. Low risk is at most 20%; high risk is at least 50%. With multiple comparable plans, at least two thirds in one band yields a steady or bold description; otherwise plans in both bands yield a mixed style. A single comparable plan is described as one move. Plans with unknown new-card branches, invalid distributions, or unmatched outcomes are left out of risk classification. The card states how many recorded plans it could compare. Resource-only records get a resource-focused description. A rare outcome or a bust does not by itself classify a player as aggressive, and spending bones is not treated as an intentional insurance budget.
 
 An unknown next dog card needs its actual spaces. Dig, Dogpile, and other conditional Actions need information from the physical dice. Dice calculations assume enough dice in the shared supply. Yard artwork represents the entered total; confirm the actual buried dice when an Action requires them.
 
@@ -62,6 +64,8 @@ Open the live page, or unzip a release and open `index.html` in a browser. Keep 
 - `index.html`
 - `assets/game-model.js`
 - `assets/settlement-model.js`
+- `assets/journal-strategy.js`
+- `assets/journal-reactions.js`
 - `assets/dalmatian-poses.webp`
 - `assets/puppy-actions.webp`
 
@@ -77,7 +81,7 @@ Run the package and syntax checks with:
 python3 tests/test_release.py
 ```
 
-`node tests/test_game_model.cjs` checks the current-game model; `node tests/test_settlement_model.cjs` checks settlement feasibility against the page's probability code. The browser scripts `tests/test_two_modules.py` and `tests/test_browser_probability.py` require Chrome and Python `websockets`. See [QA_REPORT.md](QA_REPORT.md) for version-specific verification records.
+`node tests/test_journal_strategy.cjs` checks recorded-plan classification; `node tests/test_journal_reactions.cjs` checks contextual reaction boundaries. `node tests/test_game_model.cjs` checks the current-game model; `node tests/test_settlement_model.cjs` checks settlement feasibility against the page's probability code. The browser scripts `tests/test_two_modules.py` and `tests/test_browser_probability.py` require Chrome and Python `websockets`. See [QA_REPORT.md](QA_REPORT.md) for version-specific verification records.
 
 ## Feedback
 

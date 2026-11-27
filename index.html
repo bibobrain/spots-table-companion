@@ -236,6 +236,13 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 @media(prefers-reduced-motion:reduce){.dog-builder{animation:none}}
 
 
+/* Recorded choices and a rare moment have different jobs in the journal. */
+.journal-strategy{display:grid;grid-template-columns:minmax(0,1fr) 112px;align-items:center;gap:14px;padding:22px 24px;border:1px solid #d7dfc9;border-radius:18px;background:linear-gradient(120deg,#e9eedc,#f2f1e3);margin-bottom:14px;overflow:hidden}
+.strategy-copy{min-width:0}.strategy-eyebrow{font-size:10px;letter-spacing:.12em;color:#69785a;margin-bottom:9px}.journal-strategy h3{font:500 28px/1.35 'Songti SC','Noto Serif CJK SC',Georgia,serif;letter-spacing:.055em;color:#415b36}.journal-strategy p{font-size:12px;line-height:1.8;color:#526746;margin:9px 0 7px}.journal-strategy small{display:block;font-size:10px;line-height:1.7;color:#728066}.strategy-art .new-puppy{width:112px}
+.journal-award{grid-template-columns:minmax(0,1fr) 78px;min-height:0;padding:17px 21px;margin-bottom:22px;background:#f8f5e9;border-color:#e6dfc9;border-radius:15px;gap:10px}.journal-award .award-eyebrow{margin-bottom:8px}.journal-award h3{font-size:24px;letter-spacing:.065em}.award-heading{gap:8px 14px}.award-art .new-puppy{width:78px}.award-event{margin-top:8px}.journal-award p{font-size:12px;line-height:1.7;margin-top:5px;color:#776444}.record-title .record-reaction{display:block;margin-top:2px;font-size:13px;font-weight:500;line-height:1.65;color:#546c45}.record-title small{margin-top:4px}.record-action-line{font-size:12px;color:#626f50;line-height:1.8;margin:0 0 11px}.record-detail>summary{padding-block:14px}
+@media(max-width:650px){.journal-strategy{grid-template-columns:minmax(0,1fr) 76px;padding:18px 16px;gap:8px}.journal-strategy h3{font-size:25px}.strategy-art .new-puppy{width:76px}.journal-award{grid-template-columns:minmax(0,1fr);padding:16px}.journal-award h3{font-size:23px}.award-art{display:none}.award-probability{font-size:30px}.journal-award p{font-size:12px}.record-title .record-reaction{font-size:12px}.record-detail>summary{grid-template-columns:18px minmax(0,1fr) auto 12px;gap:7px}}
+@media(max-width:380px){.journal-strategy{grid-template-columns:minmax(0,1fr);padding:17px 14px}.strategy-art{display:none}.journal-strategy h3{font-size:25px}.journal-award{padding:14px}.award-heading{gap:6px 12px}.award-probability{font-size:29px}.record-body{margin-left:0}.record-detail>summary{gap:5px}.record-probability{font-size:17px}}
+
 /* The dog, its contact points and the props share one backyard. */
 .yard-heading{gap:13px;min-width:0}
 .yard-status{gap:10px;min-width:0}
@@ -246,33 +253,34 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 .yard-status[data-level=full]{color:#b26352}
 .yard-scene .yard-story{position:absolute;inset:0;width:100%;height:100%;max-width:none;left:0;overflow:hidden}
 .yard-story .yard-dalmatian{overflow:hidden}
-.yard-dog-motion,.yard-paw-scoop,.yard-butterfly-flight,.yard-wing-left,.yard-wing-right{transform-box:view-box;transform-origin:0 0}
+.yard-dog-motion,.yard-paw-scoop,.yard-butterfly-flight,.yard-butterfly-turn,.yard-wing-left,.yard-wing-right{transform-box:view-box;transform-origin:0 0}
 .yard-dog-entry{animation:yard-arrive .22s ease-out both}
-.yard-dog-motion.is-curious{animation:yard-follow-butterfly 4.8s ease-in-out 2}
-.yard-dog-motion.is-digging{animation:yard-dig-weight .92s ease-in-out 4}
-.yard-paw-scoop{animation:yard-paw-rake .92s cubic-bezier(.35,.05,.35,1) 4}
-.yard-dirt-flight{opacity:0;animation:yard-soil-toss .92s ease-out 4;animation-delay:var(--crumb-delay,0s)}
-.yard-dog-motion.is-rolling{animation:yard-back-roll 1.45s ease-in-out 3}
+.yard-scene[data-points="0"] .yard-dog-entry{animation:none}
+.yard-dog-motion.is-digging{animation:yard-dig-weight .8s ease-in-out 2}
+.yard-paw-scoop{animation:yard-paw-rake .8s cubic-bezier(.35,.05,.35,1) 2}
+.yard-dirt-flight{opacity:0;animation:yard-soil-toss .8s ease-out 2;animation-delay:var(--crumb-delay,0s)}
+.yard-dog-motion.is-restless{animation:yard-impatient-shift 1.3s ease-in-out both}
+.yard-dog-motion.is-playing{animation:yard-eager-bow 1.45s ease-in-out both}
+.yard-dog-motion.is-weary{animation:yard-weary-settle .72s ease-out both}
 .yard-dog-motion.is-flopped{animation:yard-flop .62s cubic-bezier(.22,.68,.36,1) both}
-.yard-butterfly-flight{animation:yard-butterfly-visit 4.8s ease-in-out 2}
-.yard-wing-left{animation:yard-wing-beat-left .21s ease-in-out 46}
-.yard-wing-right{animation:yard-wing-beat-right .21s ease-in-out 46}
-.yard-garden-sprig{transform-box:fill-box;transform-origin:50% 100%;animation:yard-sprig-breeze 1.5s ease-in-out 2}
-.yard-found-bone{animation:yard-bone-reveal .72s ease-out both}
-.yard-scene[data-previous="3"][data-activity=found] .yard-dog-entry{animation:yard-look-up .36s ease-out both}
+.yard-butterfly-flight{animation:yard-butterfly-visit 1.8s ease-in-out both}
+.yard-butterfly-turn{animation:yard-butterfly-turn 1.8s ease-in-out both}
+.yard-wing-left{transform:scaleX(.55) rotate(-12deg);animation:yard-wing-beat-left .16s ease-in-out 10}
+.yard-wing-right{transform:scaleX(.55) rotate(12deg);animation:yard-wing-beat-right .16s ease-in-out 10}
+.yard-garden-sprig{transform-box:fill-box;transform-origin:50% 100%;animation:yard-sprig-breeze 1.6s ease-in-out both}
 @keyframes yard-arrive{from{opacity:.72;transform:translateY(2px)}to{opacity:1;transform:translateY(0)}}
-@keyframes yard-follow-butterfly{0%,22%,82%,100%{transform:rotate(0)}38%,58%{transform:rotate(-1.5deg)}68%{transform:rotate(.4deg)}}
 @keyframes yard-dig-weight{0%,100%{transform:rotate(0)}24%{transform:rotate(-.45deg)}52%,65%{transform:rotate(.6deg)}84%{transform:rotate(.15deg)}}
 @keyframes yard-paw-rake{0%,100%{transform:rotate(0)}25%{transform:rotate(13deg)}51%{transform:rotate(-7deg)}65%{transform:rotate(-10deg)}82%{transform:rotate(-3deg)}}
 @keyframes yard-soil-toss{0%,43%{opacity:0;transform:translate(0,0)}48%{opacity:.9;transform:translate(3px,-1px)}72%{opacity:.8;transform:translate(28px,-15px)}96%,100%{opacity:0;transform:translate(52px,9px)}}
-@keyframes yard-back-roll{0%,100%{transform:rotate(0)}28%{transform:rotate(-6deg)}63%{transform:rotate(5deg)}84%{transform:rotate(-2deg)}}
+@keyframes yard-impatient-shift{0%,100%{transform:rotate(0)}22%,43%{transform:rotate(-.7deg)}65%{transform:rotate(.5deg)}83%{transform:rotate(-.25deg)}}
+@keyframes yard-eager-bow{0%,100%{transform:rotate(0)}28%,45%{transform:rotate(-1.2deg)}66%{transform:rotate(.5deg)}83%{transform:rotate(-.35deg)}}
+@keyframes yard-weary-settle{from{transform:translateY(-3px)}to{transform:translateY(0)}}
 @keyframes yard-flop{0%{transform:translateY(-6px) rotate(-7deg)}62%{transform:translateY(1px) rotate(1deg)}100%{transform:translateY(0) rotate(0)}}
-@keyframes yard-butterfly-visit{0%,100%{transform:translate(-12px,-8px) rotate(-14deg)}24%{transform:translate(-3px,-14px) rotate(10deg)}38%,58%{transform:translate(12px,-1px) rotate(0)}73%{transform:translate(5px,-10px) rotate(-12deg)}}
-@keyframes yard-wing-beat-left{0%,100%{transform:scaleX(.9) rotate(-6deg)}50%{transform:scaleX(.22) rotate(8deg)}}
-@keyframes yard-wing-beat-right{0%,100%{transform:scaleX(.9) rotate(6deg)}50%{transform:scaleX(.22) rotate(-8deg)}}
+@keyframes yard-butterfly-visit{0%{transform:translate(-27px,-8px) rotate(-22deg)}22%{transform:translate(-8px,-19px) rotate(15deg)}43%{transform:translate(11px,-7px) rotate(28deg)}62%{transform:translate(-5px,-1px) rotate(-14deg)}79%{transform:translate(2px,-4px) rotate(7deg)}100%{transform:translate(0,0) rotate(0)}}
+@keyframes yard-butterfly-turn{0%,26%{transform:scaleX(1)}43%{transform:scaleX(.2)}56%,70%{transform:scaleX(-1)}86%,100%{transform:scaleX(1)}}
+@keyframes yard-wing-beat-left{0%,100%{transform:scaleX(.55) rotate(-12deg)}50%{transform:scaleX(1) rotate(5deg)}}
+@keyframes yard-wing-beat-right{0%,100%{transform:scaleX(.55) rotate(12deg)}50%{transform:scaleX(1) rotate(-5deg)}}
 @keyframes yard-sprig-breeze{0%,100%{transform:rotate(0)}40%{transform:rotate(3deg)}70%{transform:rotate(-1deg)}}
-@keyframes yard-bone-reveal{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-@keyframes yard-look-up{from{opacity:.65;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:650px){.yard-scene{aspect-ratio:2.35}.yard-scene .yard-story{width:100%;height:100%;left:0}.yard-heading{gap:10px}.yard-status{gap:8px}.yard-meter{width:clamp(104px,25vw,154px)}}
 @media(prefers-reduced-motion:reduce){.yard-story *{animation:none!important;transition:none!important}.yard-story .yard-dirt-flight{display:none}.yard-meter .yard-meter-fill{transition:none}}
 
@@ -295,10 +303,12 @@ main{max-width:1040px;padding-top:30px}.brand strong{font-size:32px}.brand small
 <div class="outcomes action-outcome" id="actionOutcomes" aria-live="polite"><div class="outcome-heading"><h2 id="actionActiveName">Action</h2><span class="event-definition" id="actionEventDefinition">安全 · 恰好填上</span></div><div class="fill-grid" id="actionFillGrid"><button type="button" class="fill-item" id="actionRecordFill1"><span id="actionFillLabel1">1 颗</span><output id="actionFill1">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="actionRecordFill2"><span id="actionFillLabel2">2 颗</span><output id="actionFill2">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="actionRecordFill3"><span id="actionFillLabel3">3 颗</span><output id="actionFill3">—</output><small class="record-arrow" aria-hidden="true">↗</small></button><button type="button" class="fill-item" id="actionRecordFill4"><span id="actionFillLabel4">4 颗</span><output id="actionFill4">—</output><small class="record-arrow" aria-hidden="true">↗</small></button></div><div class="other-values" id="actionOtherValues"><button type="button" id="actionZeroNote">0 颗 —</button><button type="button" id="actionMoreNote">5 颗以上 —</button></div><button type="button" class="unknown-note" id="actionUnknownNote" hidden>补新牌后继续</button><button type="button" class="bust-line" id="actionBustLine"><span class="bust-title"><span class="risk-dot"></span><strong>BUST</strong><small>记录并清空</small></span><output id="actionBust">—</output><span class="bust-reset" aria-hidden="true">↺</span></button><button type="button" class="resource-result" id="actionResourceResult" hidden><span id="actionResourceTitle">行动后骨头总数</span><output id="actionResourceValue">—</output></button><div class="context-note" id="actionScope" role="status"></div><button class="choose-spots" id="chooseSpots" type="button" hidden>Choose spots ↑</button></div></div></section>
 <footer class="release-footer"><div class="foot-title">Pip &amp; Paw · Free, unofficial Spots companion</div><a href="https://www.cmyk.games/products/spots" target="_blank" rel="noopener noreferrer">Spots</a> · <a href="https://www.rulespal.com/spots/rulebook" target="_blank" rel="noopener noreferrer">Rules</a></footer></main>
 <dialog id="settlementDialog" class="game-dialog" aria-labelledby="settlementTitle"><div class="dialog-header"><div><h2 id="settlementTitle">本次结算</h2><small id="settlementOrigin"></small></div><button type="button" class="icon-button" id="settlementClose" aria-label="取消结算">×</button></div><div class="dialog-body"><div class="settlement-chance"><strong id="settlementProbability"></strong><span>当时方案概率</span></div><p class="settlement-note" id="settlementNote"></p><div class="settle-resource" id="settleResource" hidden></div><div class="settlement-section" id="settleSource" hidden><div class="settle-section-head">取回哪一个旧骰</div><div class="settle-source-choices" id="settleSourceChoices"></div></div><div id="settleSlots"><div class="settle-section-head"><strong>这次填上的位置</strong><span id="settleCount"></span></div><div id="settlementDogs"></div></div><fieldset class="settlement-section" id="settleYardGroup"><legend>结算后 Yard · 总点数</legend><div class="settlement-yards" id="settlementYards"></div></fieldset><fieldset class="settlement-section" id="settleFaceGroup" hidden><legend>本次埋下的骰面</legend><div class="settlement-faces" id="settlementFaces"></div></fieldset><fieldset class="settlement-section" id="settleBoneGroup" hidden><legend>这次重掷用掉的骨头</legend><div class="spent-bones-row"><input id="spentBones" type="range" min="0" max="10" value="0" step="1" aria-label="这次用掉的骨头"><output id="spentBonesValue">0 根</output></div></fieldset><p id="settlementWarning" class="settlement-warning" hidden></p></div><div class="dialog-footer"><button type="button" class="secondary-button" id="cancelSettlement">取消</button><button type="button" class="primary-button" id="confirmSettlement">确认结算</button></div></dialog>
-<dialog id="journalDialog" class="game-dialog journal-dialog" aria-labelledby="journalTitle"><div class="dialog-header"><div><h2 id="journalTitle">本局手记</h2><small id="journalDate"></small></div><button type="button" class="icon-button" id="journalClose" aria-label="关闭本局记录">×</button></div><div class="dialog-body"><section class="journal-award" id="awardSection" aria-labelledby="awardTitle" hidden><div class="award-copy"><div class="award-eyebrow">已记录 · 最罕见的一次</div><div class="award-heading"><h3 id="awardTitle"></h3><div class="award-odds"><output class="award-probability" id="awardProbability" aria-label="当时方案概率"></output><span class="award-rarity" id="awardRarity"></span></div></div><div class="award-event" id="awardEvent"></div><p id="awardDescription"></p></div><div class="award-art" id="awardArt" aria-hidden="true"></div></section><div class="record-heading"><h3>已记录的操作</h3><span id="recordCount"></span></div><p class="record-empty" id="recordEmpty">还没有记录。</p><ol class="records-list" id="recordsList"></ol><p class="report-footnote" id="reportFootnote" hidden>只比较已记录的有效结果，无需记全整局。</p></div><div class="dialog-footer journal-footer"><button type="button" class="secondary-button" id="journalBack">继续游玩</button><div><button type="button" class="secondary-button" id="resumeSession" hidden>继续本局</button><button type="button" class="primary-button" id="journalFinish">结束本局</button><button type="button" class="primary-button" id="newSession" hidden>新的一局 ＋</button></div></div></dialog>
+<dialog id="journalDialog" class="game-dialog journal-dialog" aria-labelledby="journalTitle"><div class="dialog-header"><div><h2 id="journalTitle">本局手记</h2><small id="journalDate"></small></div><button type="button" class="icon-button" id="journalClose" aria-label="关闭本局记录">×</button></div><div class="dialog-body"><section class="journal-strategy" id="strategySection" aria-labelledby="strategyTitle" hidden><div class="strategy-copy"><div class="strategy-eyebrow">这几手的路数</div><h3 id="strategyTitle"></h3><p id="strategyDescription"></p><small id="strategyBasis"></small></div><div class="strategy-art" id="strategyArt" aria-hidden="true"></div></section><section class="journal-award" id="awardSection" aria-labelledby="awardTitle" hidden><div class="award-copy"><div class="award-eyebrow">已记录 · 最罕见的一次</div><div class="award-heading"><h3 id="awardTitle"></h3><div class="award-odds"><output class="award-probability" id="awardProbability" aria-label="当时方案概率"></output><span class="award-rarity" id="awardRarity"></span></div></div><div class="award-event" id="awardEvent"></div><p id="awardDescription"></p></div><div class="award-art" id="awardArt" aria-hidden="true"></div></section><div class="record-heading"><h3>已记录的操作</h3><span id="recordCount"></span></div><p class="record-empty" id="recordEmpty">还没有记录。</p><ol class="records-list" id="recordsList"></ol><p class="report-footnote" id="reportFootnote" hidden>路数只看已记录的方案；稀有度只比较其中有效的结果。记几手，也算数。</p></div><div class="dialog-footer journal-footer"><button type="button" class="secondary-button" id="journalBack">继续游玩</button><div><button type="button" class="secondary-button" id="resumeSession" hidden>继续本局</button><button type="button" class="primary-button" id="journalFinish">结束本局</button><button type="button" class="primary-button" id="newSession" hidden>新的一局 ＋</button></div></div></dialog>
 <div class="toast" id="toast" role="status" hidden><span id="toastText"></span><button type="button" id="toastUndo">撤销</button></div>
 <script src="assets/game-model.js"></script>
 <script src="assets/settlement-model.js"></script>
+<script src="assets/journal-strategy.js"></script>
+<script src="assets/journal-reactions.js"></script>
 <script>
 (()=>{'use strict';const $=s=>document.getElementById(s);const q=(s)=>document.querySelector(s);let yard=0,dice=2,bones=0,goal='one',dogs=3,paws=0,params={threshold:0,paws:0,rounds:2,fetch:0,src:2,source:'choose',buried:0,rolloverExtra:1,walkExtra:1,boltSet:3,boltRolls:3,top:1,after:-1,facedown:2,reroll:1,playdead:'bury',verified:0,supply:-1},active=null;const roundsByAction={run:2,chase:2};let spots=Array.from({length:6},()=>[0,0,0,0,0,0]);
 const DEFAULT_PARAMS=JSON.parse(JSON.stringify(params));
@@ -366,7 +376,6 @@ const DOG_NAMES = [
  {en:'I shall sleep on it.',zh:'这事，容我睡一觉再议。'},
  {en:'I know a longer way home.',zh:'回家，我知道一条远路。'}
 ];
-const AWARD_LINES = {'凤毛麟角':'少见的落点，恰好与你相逢。','百里挑一':'百般可能里，偏得这一回。','妙手偶得':'偶然一掷，落成意外之喜。','不期而遇':'未曾刻意，恰在此时相遇。','水到渠成':'点面相合，自然成章。','波澜不惊':'这一掷安然收住，留下一段从容的空白。','无妄之灾':'微小的岔路，偏在这一掷遇见。','平地风波':'原本平静的局面，忽然起了一阵波澜。','一波三折':'这一掷稍有曲折，留待下一手舒展。','山重水复':'此处山重水复，再寻下一段去路。','风雨寻常':'风雨也在常情之中，重整牌面再出发。'};
 let table = Game.newGame(), draftFaces = [], builderOpen = false;
 let undoStack = [], pending = null, pendingSerial = 0, toastTimer = null;
 let lastDogRender = '', historyGroup = null, loadingSaved = false;
@@ -746,7 +755,9 @@ function confirmSettlement() {
  if(p.type==='bust'){$('yardScene').classList.remove('just-busted');void $('yardScene').offsetWidth;$('yardScene').classList.add('just-busted');setTimeout(()=>$('yardScene').classList.remove('just-busted'),500);}
  const newlyScored=table.cards.filter(c=>c.scored).length-p.before.cards.filter(c=>c.scored).length;
  if(newlyScored&&table.cards.length<6){$('openBuilder').focus({preventScroll:true});}
- notifyTable(p.type==='bust'?'已记录 BUST，狗狗重新出发':newlyScored?'已结算，'+newlyScored+'只狗计分':'已记录这次结果');
+ const recorded=table.records[table.records.length-1];
+ const reaction=PipJournalReactions.forRecord(recorded,{risk:PipJournalStrategy.riskOf(recorded)});
+ notifyTable(reaction.headline+(newlyScored?' '+newlyScored+'只狗计分。':''));
 }
 function cancelSettlement() {pending=null;dialogClose($('settlementDialog'));renderSessionControls();}
 function eventLabel(event) {
@@ -779,7 +790,9 @@ function recordedOperation(event,index,expanded=false) {
  const when=new Intl.DateTimeFormat('zh-CN',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Shanghai'}).format(new Date(event.createdAt));
  const chance=displayProbability(event.probability);
  const spent=Number.isInteger(event.bonesSpent)?'本次花骨 '+event.bonesSpent+' 根。 ':'';
- return '<li class="record-row"><details class="record-detail" data-record-id="'+escapeHTML(event.id)+'"'+(expanded?' open':'')+'><summary><span class="record-index">'+String(index+1).padStart(2,'0')+'</span><span class="record-title"><strong>'+escapeHTML(recordedOutcome(event))+'</strong><small>'+escapeHTML(event.source)+' · '+when+'</small></span><span class="record-probability'+(!(event.probability>0)?' is-unavailable':'')+'">'+escapeHTML(chance)+'</span></summary><div class="record-body">'+recordedFaces(event)+'<dl class="record-board"><div><dt>Yard</dt><dd>'+before.yard+' → '+after.yard+'</dd></div><div><dt>当时骰子</dt><dd>'+before.dice+' 颗</dd></div><div><dt>骨头</dt><dd>'+before.bones+' → '+after.bones+'</dd></div></dl><p class="record-note">'+escapeHTML(spent+recordedProbabilityNote(event))+'</p></div></details></li>';
+ const reaction=PipJournalReactions.forRecord(event,{risk:PipJournalStrategy.riskOf(event)});
+ const actionLine=reaction.actionLine?'<p class="record-action-line">'+escapeHTML(reaction.actionLine)+'</p>':'';
+ return '<li class="record-row"><details class="record-detail" data-record-id="'+escapeHTML(event.id)+'"'+(expanded?' open':'')+'><summary><span class="record-index">'+String(index+1).padStart(2,'0')+'</span><span class="record-title"><strong>'+escapeHTML(recordedOutcome(event))+'</strong><span class="record-reaction">'+escapeHTML(reaction.headline)+'</span><small>'+escapeHTML(event.source)+' · '+when+'</small></span><span class="record-probability'+(!(event.probability>0)?' is-unavailable':'')+'">'+escapeHTML(chance)+'</span></summary><div class="record-body">'+actionLine+recordedFaces(event)+'<dl class="record-board"><div><dt>Yard</dt><dd>'+before.yard+' → '+after.yard+'</dd></div><div><dt>当时骰子</dt><dd>'+before.dice+' 颗</dd></div><div><dt>骨头</dt><dd>'+before.bones+' → '+after.bones+'</dd></div></dl><p class="record-note">'+escapeHTML(spent+recordedProbabilityNote(event))+'</p></div></details></li>';
 }
 function openJournal(finish=false) {
  if(pending)return;
@@ -788,12 +801,18 @@ function openJournal(finish=false) {
 }
 function renderJournal() {
  const summary=Game.summarize(table),ended=!!table.endedAt,highlight=summary.highlight;
+ const strategy=PipJournalStrategy.summarize(table.records);
+ $('strategySection').hidden=table.records.length===0;
+ $('strategyTitle').textContent=strategy.title;
+ $('strategyDescription').textContent=strategy.text;
+ $('strategyBasis').textContent=strategy.basis;
+ $('strategyArt').innerHTML=dogSprite(({steady:2,bold:4,varied:11,measured:0,resources:1,'new-card':8,unrated:5})[strategy.key]??5);
  const expanded=new Set(Array.from($('recordsList').querySelectorAll('details[open]'),row=>row.dataset.recordId));
  $('journalTitle').textContent=ended?'本局战绩':'本局手记';
  $('journalDate').textContent=new Intl.DateTimeFormat('zh-CN',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Shanghai'}).format(new Date(table.startedAt));
  $('awardSection').hidden=!highlight;
  $('awardTitle').textContent=summary.title||'';
- $('awardDescription').textContent=highlight?(AWARD_LINES[summary.title]||''):'';
+ $('awardDescription').textContent=highlight?PipJournalReactions.forRecord(highlight,{risk:PipJournalStrategy.riskOf(highlight)}).headline:'';
  $('awardProbability').textContent=highlight?displayProbability(highlight.probability):'';
  $('awardRarity').textContent=summary.rarityLabel||'';
  $('awardEvent').textContent=highlight?recordedOutcome(highlight)+' · '+highlight.source:'';
@@ -1317,7 +1336,7 @@ function renderActionRule(){
 }
 let lastYard=null;
 // A single coordinate system keeps the paw, pit and loose earth in contact.
-// The two late poses reuse the original roll-over / play-dead illustrations.
+// Pairs share one background; every brief gesture settles into a dog-card pose.
 function yardPoseSvg(state, points) {
  const actionAtlas=state.atlas==='actions';
  const art=actionAtlas?null:DOG_ART.poses[state.pose];
@@ -1339,31 +1358,36 @@ function yardPoseSvg(state, points) {
  }
  const frame='yard-pose-frame-'+points;
  const anchor=state.x+state.size*.54;
- const movement=state.activity==='greet'?'is-curious':state.activity==='dig'?'is-digging':state.activity==='roll'?'is-rolling':state.activity==='flop'?'is-flopped':'';
+ const movement=({dig:'is-digging',restless:'is-restless',play:'is-playing',weary:'is-weary',flop:'is-flopped'})[state.activity]||'';
  const mirroring=state.mirror?'translate('+(crop[0]*2+crop[2])+' 0) scale(-1 1)':'';
  return '<g class="yard-dog-entry"><g transform="translate('+anchor+' '+ground+')"><g class="yard-dog-motion '+movement+'"><svg class="yard-dalmatian" x="'+(state.x-anchor)+'" y="'+(top-ground).toFixed(3)+'" width="'+state.size+'" height="'+state.size+'" viewBox="'+crop.join(' ')+'" overflow="hidden" aria-hidden="true"><defs><clipPath id="'+frame+'"><rect x="'+crop[0]+'" y="'+crop[1]+'" width="'+crop[2]+'" height="'+crop[3]+'"/></clipPath></defs><g clip-path="url(#'+frame+')"><g'+(mirroring?' transform="'+mirroring+'"':'')+'>'+body+'</g></g></svg></g></g></g>';
 }
 function yardBone(x,y,angle=0,scale=1){
  return '<g transform="translate('+x+' '+y+') rotate('+angle+') scale('+scale+')" fill="#ead7b5" stroke="#a58d69" stroke-width="1.8" stroke-linejoin="round"><path d="M-14-4C-24-12-29-3-22 2C-27 10-17 15-12 7H12C17 15 27 10 22 2C29-3 24-12 14-4Z"/></g>';
 }
+function yardMound(x,y,scale=1){
+ return '<g class="yard-mound" transform="translate('+x+' '+y+') scale('+scale+')"><ellipse cy="1.5" rx="28" ry="4" fill="#baae8d" opacity=".2"/><path d="M-27 1Q-22-3-18-6Q-14-15-6-12Q1-20 8-11Q18-12 22-4L28 1Z" fill="#d4c09d" stroke="#b49c77" stroke-width="1.65" stroke-linejoin="round"/><path d="M-12-5l5-3m10 4 4-3m-22 9 7-1" fill="none" stroke="#b59e79" stroke-width="1.4" stroke-linecap="round"/><g fill="#b29c77"><ellipse cx="-31" cy="3" rx="2.5" ry="1.4"/><ellipse cx="32" cy="2" rx="2" ry="1.2"/></g></g>';
+}
 function yardButterfly(x,y){
- // Separate wings turn around the body. A short visit includes a pause at the
- // nose, synchronized with the standing dog's small lean towards it.
- return '<g transform="translate('+x+' '+y+')"><g class="yard-butterfly-flight"><g fill="#d9c99f" stroke="#8f8263" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path class="yard-wing-left" d="M0 1C-11-13-16-4-11 3C-9 6-5 6-1 4C-10 7-9 15-4 12C-1 10 0 6 0 1Z"/><path class="yard-wing-right" d="M0 1C11-13 16-4 11 3C9 6 5 6 1 4C10 7 9 15 4 12C1 10 0 6 0 1Z"/><path d="M0-2v10m0-10-3-4m3 4 3-4" fill="none" stroke="#716b55"/></g></g></g>';
+ // Wing hinges and a turn in flight keep the tiny silhouette articulated.
+ // Both wings fold into the final pose before the 1.8-second visit ends.
+ return '<g transform="translate('+x+' '+y+')"><g class="yard-butterfly-flight"><g class="yard-butterfly-turn"><g transform="scale(.56)" fill="#d9c99f" stroke="#8f8263" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path class="yard-wing-left" d="M0 1C-11-13-16-4-11 3C-9 6-5 6-1 4C-10 7-9 15-4 12C-1 10 0 6 0 1Z"/><path class="yard-wing-right" d="M0 1C11-13 16-4 11 3C9 6 5 6 1 4C10 7 9 15 4 12C1 10 0 6 0 1Z"/><path d="M0-2v10m0-10-3-4m3 4 3-4" fill="none" stroke="#716b55"/></g></g></g></g>';
 }
 function yardLandscape(points){
  const state=yardStates[points],digging=state.activity==='dig';
  const posts=Array.from({length:18},(_,i)=>'<path d="M'+(28+i*45)+' 139V99l10-11 10 11v40"/>').join('');
  const paw=(x,y,angle)=>'<g transform="translate('+x+' '+y+') rotate('+angle+')" fill="#b2bba0" opacity=".7"><path d="M-4 3q0-6 4-6t4 6q-4 3-8 0Z"/><ellipse cx="-5" cy="-5" rx="2" ry="2.7"/><ellipse cx="0" cy="-7" rx="2" ry="2.7"/><ellipse cx="5" cy="-5" rx="2" ry="2.7"/></g>';
  const footprints=points===1?'':paw(627,249,-70)+paw(597,240,-70)+paw(567,248,-70);
- const pitX=points===2?378:410;
- const pit=points<2?'':points===2?'<ellipse cx="378" cy="237" rx="34" ry="10" fill="#d9c9a7"/><path d="M349 237q27-11 56-1" fill="none" stroke="#b5a07f" stroke-width="1.6"/>':'<g transform="translate('+(pitX-378)+' 0)"><ellipse cx="378" cy="238" rx="37" ry="13" fill="#cfbc9b"/><ellipse cx="378" cy="237" rx="30" ry="8" fill="#ac9475"/><path d="M344 237q7-11 24-11m20 0q17 2 23 11" fill="none" stroke="#b49d79" stroke-width="3.2" stroke-linecap="round"/></g>';
- const spoil=points>=3?'<path d="M455 247q13-12 27-2q14-10 27 3" fill="#d4c09d" stroke="#b7a07d" stroke-width="1.6" stroke-linecap="round"/><g fill="#b09a79"><ellipse cx="446" cy="247" rx="3" ry="2"/><ellipse cx="521" cy="250" rx="2.5" ry="1.8"/><ellipse cx="457" cy="254" rx="2" ry="1.6"/></g>':'';
- const bone=points===4?'<g class="yard-found-bone">'+yardBone(402,237,-20,.8)+'</g>':points===5?yardBone(369,245,-12,.8):points>=6?yardBone(356,246,-7,.85):'';
- const butterfly=points===0?[355,137]:points===2?[337,219]:points===5?[365,155]:null;
+ // Soil grows by pairs: one little mound, then three, then five.
+ const moundGroups=[[],[],[[378,243,.82]],[[481,248,.94]],[[326,248,.85],[489,253,.93],[611,242,.86]],[[326,248,.85],[489,253,.93],[611,242,.86]],[[313,249,.84],[363,223,.74],[473,254,.94],[599,245,.89],[629,218,.72]],[[313,249,.84],[363,223,.74],[473,254,.94],[599,245,.89],[629,218,.72]]];
+ const mounds=moundGroups[points].map(m=>yardMound(...m)).join('');
+ const pit=digging?'<g class="yard-pit"><ellipse cx="410" cy="238" rx="34" ry="12" fill="#cfbc9b"/><ellipse cx="410" cy="237" rx="27" ry="7" fill="#ac9475"/><path d="M379 237q7-10 23-10m18 0q16 2 22 10" fill="none" stroke="#b49d79" stroke-width="3" stroke-linecap="round"/></g>':'';
+ const bones=points===4?[[394,247,-18,.7]]:points===5?[[369,245,-12,.8],[615,231,24,.52]]:points===6?[[327,235,-18,.56],[403,254,11,.6],[548,249,-10,.65],[647,234,25,.6]]:points===7?[[327,235,-18,.56],[403,254,11,.6],[548,249,-10,.65],[647,234,25,.6],[585,266,-21,.5]]:[];
+ const bone=bones.map(b=>yardBone(...b)).join('');
+ const butterfly=points===0?[361,114]:points===2?[343,219]:points===5?[369,181]:null;
  const flutter=butterfly?yardButterfly(...butterfly):'';
  const dust=digging?'<g class="yard-soil-spray" fill="#ae9470" aria-hidden="true">'+[0,1,2].map((i)=>'<g transform="translate('+(412+i*2)+' '+(235-i)+')"><g class="yard-dirt-flight" style="--crumb-delay:'+(i*.025)+'s"><ellipse cx="0" cy="0" rx="'+(2.7-i*.35)+'" ry="'+(1.8+i*.15)+'"/></g></g>').join('')+'</g>':'';
- const lip=points>=3?'<path d="M376 240q34 14 68-1" fill="none" stroke="#c9b28e" stroke-width="4" stroke-linecap="round"/>':'';
+ const lip=digging?'<path d="M379 240q31 12 62-1" fill="none" stroke="#c9b28e" stroke-width="3.5" stroke-linecap="round"/>':'';
  return `<svg class="yard-landscape yard-story" viewBox="0 0 820 286" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
   <rect width="820" height="286" fill="#f5f5e9"/>
   <path d="M0 154C100 133 208 149 310 139S519 145 628 132S757 137 820 148V286H0Z" fill="#e9eddd"/>
@@ -1388,7 +1412,7 @@ function yardLandscape(points){
   </g>
   ${footprints}
   <ellipse cx="${state.x+state.size*.52}" cy="240" rx="${state.shadow}" ry="6" fill="#afba9b" opacity=".28"/>
-  ${pit}${spoil}${bone}
+  ${pit}${mounds}${bone}
   ${points===1?'<g transform="translate(563 239) rotate(-13)"><circle r="10" fill="#d1b788" stroke="#a99572" stroke-width="1.7"/><path d="M-5-8q10 6 9 17" fill="none" stroke="#eee0bf" stroke-width="3"/></g>':''}
   ${yardPoseSvg(state,points)}${lip}${dust}${flutter}
   <path d="M57 53q7-8 14 0m7 0q7-8 14 0" fill="none" stroke="#b4bcaa" stroke-width="1.7" stroke-linecap="round"/>
@@ -1396,14 +1420,14 @@ function yardLandscape(points){
  </svg>`;
 }
 const yardStates=[
- {pose:11,x:372,size:205,ground:237,shadow:76,activity:'greet',name:'斑点狗昂首巡游，探头看一只停到鼻尖前的小蝴蝶'},
- {pose:10,x:307,size:194,ground:237,shadow:84,activity:'rest',name:'斑点狗在狗屋旁打盹，小球安静地躺在草地上'},
- {pose:7,x:354,size:214,ground:237,shadow:78,activity:'sniff',name:'斑点狗低头闻着一块松软的泥土'},
- {pose:7,x:354,size:214,ground:237,shadow:78,activity:'dig',name:'斑点狗前爪落在坑沿，一下一下向后刨土'},
- {pose:6,x:421,size:205,ground:237,shadow:76,mirror:true,activity:'found',name:'骨头露出来了，斑点狗抬起头和一只前爪，停下来瞧'},
- {pose:3,x:385,size:205,ground:237,shadow:81,activity:'play',name:'斑点狗向新找到的骨头俯身邀玩，蝴蝶在鼻尖前飞'},
- {atlas:'actions',pose:1,x:386,size:242,bottom:233,ground:237,shadow:91,activity:'roll',name:'斑点狗仰面打滚，四只爪子收在肚皮上'},
- {atlas:'actions',pose:20,x:384,size:242,bottom:199,ground:237,shadow:94,activity:'flop',name:'斑点狗往草地上一躺，闭上眼睛装死'}
+ {pose:11,x:372,size:205,ground:237,shadow:76,activity:'greet',name:'斑点狗昂首站定，小蝴蝶轻巧地飞近，片刻后收翅停住'},
+ {pose:10,x:307,size:194,ground:237,shadow:84,activity:'rest',name:'干净的后院里，斑点狗在狗屋旁打盹，小球安静地躺在草地上'},
+ {pose:7,x:354,size:214,ground:237,shadow:78,activity:'sniff',name:'斑点狗低头闻着唯一的小土包'},
+ {pose:7,x:354,size:214,ground:237,shadow:78,activity:'dig',name:'斑点狗刨了两下小坑，旁边堆着一个小土包'},
+ {pose:5,x:401,size:201,ground:237,shadow:72,activity:'restless',name:'后院多了三个小土包，斑点狗低头回望，坐得有些不耐烦'},
+ {pose:3,x:385,size:205,ground:237,shadow:81,activity:'play',name:'三个小土包之间，斑点狗又俯身扑向骨头，动静比刚才更大了'},
+ {pose:10,x:371,size:223,ground:237,shadow:96,activity:'weary',name:'五个小土包与四根散骨之间，斑点狗累得闭眼伏卧'},
+ {atlas:'actions',pose:20,x:384,size:242,bottom:199,ground:237,shadow:94,activity:'flop',name:'五个小土包与五根散骨之间，斑点狗精疲力竭，侧躺着装死'}
 ];
 function renderYardScene(){
  if(lastYard===yard)return;
@@ -1414,7 +1438,7 @@ function renderYardScene(){
  $('yardTotal').textContent=yard;
  $('yardMeter').style.setProperty('--yard-fraction',String(yard/7));
  scene.dataset.previous=lastYard===null?'':String(lastYard);
- scene.dataset.points=yard;scene.dataset.level=level;scene.dataset.activity=state.activity;
+ scene.dataset.points=yard;scene.dataset.pair=Math.floor(yard/2);scene.dataset.level=level;scene.dataset.activity=state.activity;
  scene.setAttribute('aria-label','后院 '+yard+' 点，'+state.name);
  scene.innerHTML=yardLandscape(yard);
  lastYard=yard;

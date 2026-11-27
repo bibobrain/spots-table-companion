@@ -4,7 +4,7 @@ from urllib.parse import unquote,urlsplit
 import re,subprocess,unittest
 ROOT=Path(__file__).resolve().parents[1]
 HTML=(ROOT/'index.html').read_text(encoding='utf-8')
-RUNTIME_FILES=('index.html','assets/game-model.js','assets/settlement-model.js','assets/dalmatian-poses.webp','assets/puppy-actions.webp')
+RUNTIME_FILES=('index.html','assets/game-model.js','assets/settlement-model.js','assets/journal-strategy.js','assets/journal-reactions.js','assets/dalmatian-poses.webp','assets/puppy-actions.webp')
 
 class RuntimeScripts(HTMLParser):
  def __init__(self):
@@ -35,7 +35,7 @@ class ReleaseTests(unittest.TestCase):
  def test_no_network_runtime(self):
   # The model is packaged locally and must load before the UI. External
   # runtime dependencies remain forbidden; current-game persistence is local.
-  self.assertEqual([script['src'] for script in SCRIPTS.scripts],['assets/game-model.js','assets/settlement-model.js',None])
+  self.assertEqual([script['src'] for script in SCRIPTS.scripts],['assets/game-model.js','assets/settlement-model.js','assets/journal-strategy.js','assets/journal-reactions.js',None])
   runtime='\n'.join((ROOT/script['src']).read_text(encoding='utf-8') if script['src'] else script['body'] for script in SCRIPTS.scripts)
   self.assertNotRegex(runtime,r'\b(?:fetch|XMLHttpRequest|WebSocket|EventSource)\s*\(|\.sendBeacon\s*\(')
   for token in ('indexedDB','private-workspace-path','PRIVATE KEY'):
